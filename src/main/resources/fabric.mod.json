@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "backrooms",
+  "version": "${version}",
+
+  "name": "The Backrooms",
+  "description": "Explore, discover, and document the dark, liminal reality known as the Backrooms, experiencing dread and isolation as you navigate it.\n\nWe wish you luck in your travels.",
+  "authors": [
+    "_Lumaa_",
+    "PatateGivree"
+  ],
+  "contact": {
+    "homepage": "https://lumination.brebond.com/",
+  },
+
+  "license": "MIT",
+  "icon": "assets/backrooms/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.lumination.backrooms.BackroomsMod"
+    ],
+    "client": [
+      "com.lumination.backrooms.BackroomsModClient"
+    ]
+  },
+  "mixins": [
+    "backrooms.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  },
+
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/Q3MdJeytYw",
+        "modmenu.contract": "https://cdn.discordapp.com/attachments/999780848851243069/999791970572570664/unknown.png"
+      }
+    }
+  }
+}

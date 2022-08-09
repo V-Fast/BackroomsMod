@@ -1,0 +1,8 @@
+{
+  "light_buzzing": {
+    "subtitle": "subtitle.backrooms.light_buzzing",
+    "sounds": [
+      "backrooms:light_buzzing"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "item.backrooms.silk": "Soie",
+  "item.backrooms.silked_book": "Livre de Soie",
+  "item.backrooms.almond_water": "Eau d'Amande",
+  "item.backrooms.cooked_almond_water": "Eau d'Amande cuite",
+
+  "itemGroup.backrooms.backrooms": "Les Backrooms",
+
+  "block.backrooms.moist_silk": "Soie Humide",
+  "block.backrooms.moist_silk_planks": "Planches de Soie Humides",
+  "block.backrooms.moist_carpet": "Moquette Humide",
+  "block.backrooms.dropped_ceiling": "Plafond suspendu",
+  "block.backrooms.fluorescent_light": "Lumière Fluorescente",
+
+  "subtitle.backrooms.light_buzzing": "Lumière qui bourdonne",
+
+  "option.backrooms.disable_spawning": "Désactivé l'apparition de mobs",
+
+  "modmenu.contract": "Contrat"
+}

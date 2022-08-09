@@ -1,0 +1,28 @@
+{
+  "mod.backrooms.name": "The Backrooms",
+
+  "item.backrooms.silk": "Silk",
+  "item.backrooms.silked_book": "Silked Book",
+  "item.backrooms.almond_water": "Almond Water",
+  "item.backrooms.cooked_almond_water": "Cooked Almond Water",
+  "item.backrooms.entity_spawn_egg": "Entity Spawn Egg",
+
+  "itemGroup.backrooms.backrooms": "The Backrooms",
+
+  "block.backrooms.moist_silk": "Moist Silk",
+  "block.backrooms.moist_silk_planks": "Moist Silk Planks",
+  "block.backrooms.moist_carpet": "Moist Carpet",
+  "block.backrooms.dropped_ceiling": "Dropped Ceiling",
+  "block.backrooms.fluorescent_light": "Fluorescent Light",
+
+  "option.backrooms.disable_spawning": "Disable Mob Spawning",
+  "option.backrooms.disable_spawning.tooltip": "Disables the spawning of passive and hostile mobs in The Backrooms",
+
+  "subtitle.backrooms.light_buzzing": "Light Buzzing",
+
+  "key.backrooms.level_info": "Level Info",
+
+  "levels.backrooms.overworld.details": "The Overworld, the place where it all begins.\nA few mobs spawn at night to try and kill you, though, there are also many passive mobs to get you food.",
+
+  "modmenu.contract": "Contract"
+}
