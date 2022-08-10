@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 public class BackroomsMod implements ModInitializer {
 	public static final String MOD_ID = "backrooms";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static final BackroomsSettings modSettings = new BackroomsSettings(); // main settings
+	public static final String SETTINGS_NAME = "the_backrooms";
 
 	public static String NAME = "The Backrooms";
 

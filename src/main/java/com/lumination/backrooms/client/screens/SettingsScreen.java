@@ -3,6 +3,7 @@ package com.lumination.backrooms.client.screens;
 
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
+import com.lumination.backrooms.levels.Backroom;
 import com.lumination.backrooms.mixin.TitleScreenMixin;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
@@ -13,15 +14,17 @@ import net.minecraft.client.option.GameOptions;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class SettingsScreen {
     public Screen screen;
     public ConfigBuilder builder = ConfigBuilder.create();
 
     private void styleBuilder(@Nullable Screen parent) {
         // on click save
-        //builder.setSavingRunnable(() -> {
-        //    MinecraftClient.getInstance().setScreen(builder.build());
-        //});
+        builder.setSavingRunnable(() -> {
+            BackroomsSettings.saveConfig();
+        });
 
         // styling
         builder
@@ -34,10 +37,12 @@ public class SettingsScreen {
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.backrooms.disable_spawning"), BackroomsMod.modSettings.spawnMobs)
+        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.backrooms.disable_spawning"), BackroomsSettings.canSpawnMobs())
                 .setDefaultValue(true)
                 .setTooltip(Text.translatable("option.backrooms.disable_spawning.tooltip"))
-                .setSaveConsumer(newValue -> BackroomsMod.modSettings.spawnMobs = newValue)
+                .setSaveConsumer(newValue -> {
+                    BackroomsSettings.setSpawnMobs(newValue); // had to do a "setSpawnMobs"
+                })
                 .build());
 
         if (parent != null) {
@@ -50,6 +55,10 @@ public class SettingsScreen {
         return builder.build();
     }
 
+    /**
+     * Shows the screen directly, with no interruption
+     * @param parent
+     */
     public void show(Screen parent) {
         styleBuilder(parent);
 

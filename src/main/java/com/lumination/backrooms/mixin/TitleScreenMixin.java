@@ -1,6 +1,8 @@
 package com.lumination.backrooms.mixin;
 
+import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.client.screens.SettingsScreen;
+import com.lumination.backrooms.client.settings.BackroomsSettings;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.screen.option.OptionsScreen;
@@ -23,6 +25,7 @@ public class TitleScreenMixin extends Screen {
     public void init(CallbackInfo ci) {
         int l = this.height / 4 + 48;
         this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, l + 48, 20, 20, Text.literal("A").formatted(Formatting.BLUE), (button) -> {
+            BackroomsMod.print("Opened mod settings");
             this.client.setScreen(new SettingsScreen().getScreen(this));
         }));
     }
