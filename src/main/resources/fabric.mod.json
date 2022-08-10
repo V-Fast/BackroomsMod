@@ -11,6 +11,8 @@
   ],
   "contact": {
     "homepage": "https://lumination.brebond.com/",
+    "sources": "https://github.com/u-lumaa/BackroomsMod",
+    "issues": "https://github.com/u-lumaa/BackroomsMod/issues"
   },
 
   "license": "MIT",
@@ -34,17 +36,5 @@
     "fabric": "*",
     "minecraft": "~1.19",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
-  },
-
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.gg/Q3MdJeytYw",
-        "modmenu.contract": "https://cdn.discordapp.com/attachments/999780848851243069/999791970572570664/unknown.png"
-      }
-    }
   }
 }
