@@ -16,7 +16,7 @@ public class FluorescentLight extends Block {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (random.nextInt(125) == 0) {
-            world.playSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, ModSounds.LIGHT_BUZZING, SoundCategory.BLOCKS, 0.25f, 1, true);
+            world.playSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, ModSounds.LIGHT_BUZZING, SoundCategory.BLOCKS, 0.1f, 1, true);
         }
 
         super.randomDisplayTick(state, world, pos, random);
