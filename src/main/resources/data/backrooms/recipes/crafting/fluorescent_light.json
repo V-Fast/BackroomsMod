@@ -10,10 +10,10 @@
       "item": "minecraft:iron_nugget"
     },
     "O": {
-      "item": "backrooms:glowstone_dust"
+      "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "backrooms:dropped_ceiling"
+    "item": "backrooms:fluorescent_light"
   }
 }
