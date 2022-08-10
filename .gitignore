@@ -35,4 +35,5 @@ run/
 # disabled files
 
 *.disabled
+*.zip
 src/main/java/com/lumination/backrooms/mixin/AddServerScreenMixin.java
