@@ -23,6 +23,8 @@ public class TitleScreenMixin extends Screen {
 
     @Inject(at = @At("HEAD"), method = "init()V")
     public void init(CallbackInfo ci) {
+        BackroomsMod.changeName(Text.translatable("mod.backrooms.name").getString());
+
         int l = this.height / 4 + 48;
         this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, l + 48, 20, 20, Text.literal("A").formatted(Formatting.BLUE), (button) -> {
             BackroomsMod.print("Opened mod settings");

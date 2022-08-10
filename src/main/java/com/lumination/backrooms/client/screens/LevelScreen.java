@@ -17,6 +17,7 @@ public class LevelScreen extends Screen {
     public Text info;
     public Backroom level;
     private MultilineText text = MultilineText.EMPTY;
+    private boolean centeredInfo = true;
 
     public LevelScreen(Backroom level) {
         super(Text.translatable("mod.backrooms.name"));
@@ -37,10 +38,16 @@ public class LevelScreen extends Screen {
         renderBackground(matrices);
         matrices.push();
         matrices.scale(2.0F, 2.0F, 2.0F);
+        drawStringWithShadow(matrices, this.textRenderer, this.level.getName(), this.width / 2 / 2, 30, 16777215);
         drawCenteredText(matrices, this.textRenderer, this.level.getName(), this.width / 2 / 2, 30, 16777215);
         matrices.pop();
         this.text = MultilineText.create(this.textRenderer, this.info, this.width / 2);
-        this.text.drawCenterWithShadow(matrices, this.width / 2 - 150, this.height / 2 + 30, 20, 16777215);
+
+        if (centeredInfo) {
+            this.text.drawWithShadow(matrices, this.width / 2, this.height / 2 + 30, 20, 16777215);
+        } else {
+            this.text.drawCenterWithShadow(matrices, this.width / 2 - 150, this.height / 2 + 30, 20, 16777215);
+        }
     }
 
 
