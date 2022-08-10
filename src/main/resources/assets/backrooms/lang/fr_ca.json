@@ -1,8 +1,11 @@
 {
+  "mod.backrooms.name": "The Backrooms",
+
   "item.backrooms.silk": "Soie",
   "item.backrooms.silked_book": "Livre de Soie",
   "item.backrooms.almond_water": "Eau d'Amande",
   "item.backrooms.cooked_almond_water": "Eau d'Amande cuite",
+  "item.backrooms.entity_spawn_egg": "Oeuf d'apparition de l'entité",
 
   "itemGroup.backrooms.backrooms": "Les Backrooms",
 
@@ -12,7 +15,14 @@
   "block.backrooms.dropped_ceiling": "Plafond suspendu",
   "block.backrooms.fluorescent_light": "Lumière Fluorescente",
 
+  "option.backrooms.disable_spawning": "Désactivé l'apparition de mobs",
+  "option.backrooms.disable_spawning.tooltip": "Désactive l'apparition de mobs passifs et offensifs",
+
   "subtitle.backrooms.light_buzzing": "Lumière qui bourdonne",
+
+  "key.backrooms.level_info": "Information du Level",
+
+  "levels.backrooms.overworld.details": "Le monde normal, l'endroit où tout commence.\nQuelques mobs apparaissent la nuit pour vous tuer, même si il y a plusieurs mobs passifs pour vous rapporter de la nourriture.",
 
   "modmenu.contract": "Contrat"
 }
