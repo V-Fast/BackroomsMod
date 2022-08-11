@@ -3,6 +3,7 @@ package com.lumination.backrooms.items;
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.entities.ModEntities;
 import com.lumination.backrooms.items.drinks.AlmondWater;
+import com.lumination.backrooms.items.interactables.CameraItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -23,6 +24,9 @@ public class ModItems {
     public static final Item ENTITY_SPAWN_EGG = registerItem("entity_spawn_egg",
             new SpawnEggItem(ModEntities.ENTITY,0x0f0f0f, 0x1e1e1e,
                     new FabricItemSettings().group(BackroomsItemsGroup.Main)));
+    public static final Item TAPE = registerItem("tape", new Item(new FabricItemSettings().group(BackroomsItemsGroup.Main)));
+    public static final Item CAMERA = registerItem("camera", new CameraItem(
+            new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
 
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);

@@ -7,6 +7,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModSounds {
     public static SoundEvent LIGHT_BUZZING = registerSoundEvent("light_buzzing");
+    public static SoundEvent CAMERA_CLICK = registerSoundEvent("camera_click");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(BackroomsMod.MOD_ID, name);
@@ -14,6 +15,6 @@ public class ModSounds {
     }
 
     public static void registerSoundEvents() {
-        BackroomsMod.LOGGER.debug("Registering ModSouds for " + BackroomsMod.MOD_ID);
+        BackroomsMod.print("Registering ModSouds for " + BackroomsMod.MOD_ID);
     }
 }
