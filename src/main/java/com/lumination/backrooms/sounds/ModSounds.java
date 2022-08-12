@@ -15,6 +15,6 @@ public class ModSounds {
     }
 
     public static void registerSoundEvents() {
-        BackroomsMod.print("Registering ModSouds for " + BackroomsMod.MOD_ID);
+        BackroomsMod.print("Registering ModSounds for " + BackroomsMod.MOD_ID);
     }
 }

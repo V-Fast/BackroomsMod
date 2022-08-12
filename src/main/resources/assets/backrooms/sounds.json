@@ -4,5 +4,11 @@
     "sounds": [
       "backrooms:light_buzzing"
     ]
+  },
+  "camera_click": {
+    "subtitle": "subtitle.backrooms.camera_click",
+    "sounds": [
+      "backrooms:camera_click"
+    ]
   }
 }

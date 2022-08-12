@@ -6,6 +6,8 @@
   "item.backrooms.almond_water": "Eau d'Amande",
   "item.backrooms.cooked_almond_water": "Eau d'Amande cuite",
   "item.backrooms.entity_spawn_egg": "Oeuf d'apparition de l'entité",
+  "item.backrooms.camera": "Caméra",
+  "item.backrooms.tape": "Cassette",
 
   "itemGroup.backrooms.backrooms": "Les Backrooms",
 
@@ -19,6 +21,7 @@
   "option.backrooms.disable_spawning.tooltip": "Désactive l'apparition de mobs passifs et offensifs",
 
   "subtitle.backrooms.light_buzzing": "Lumière qui bourdonne",
+  "subtitle.backrooms.camera_click": "Clique de Caméra",
 
   "key.backrooms.level_info": "Information du Level",
 

@@ -6,6 +6,8 @@
   "item.backrooms.almond_water": "Almond Water",
   "item.backrooms.cooked_almond_water": "Cooked Almond Water",
   "item.backrooms.entity_spawn_egg": "Entity Spawn Egg",
+  "item.backrooms.camera": "Camera",
+  "item.backrooms.tape": "Tape",
 
   "itemGroup.backrooms.backrooms": "The Backrooms",
 
@@ -19,6 +21,7 @@
   "option.backrooms.disable_spawning.tooltip": "Disables the spawning of passive and hostile mobs in The Backrooms",
 
   "subtitle.backrooms.light_buzzing": "Light Buzzing",
+  "subtitle.backrooms.camera_click": "Camera Clicking",
 
   "key.backrooms.level_info": "Level Info",
 
