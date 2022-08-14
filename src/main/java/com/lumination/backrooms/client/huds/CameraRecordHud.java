@@ -52,16 +52,8 @@ public class CameraRecordHud implements HudRenderCallback {
             height = client.getWindow().getScaledHeight();
         }
 
-        if (old) {
-            RenderSystem.setShader(GameRenderer::getPositionTexShader);
-            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-            RenderSystem.setShaderTexture(0, RECORD_HUD);
-            DrawableHelper.drawTexture(matrixStack,0,0,0,0, width, height,
-                    1069,1069);
-        } else {
-            this.registerHud();
-            this.renderOverlay(RECORD_HUD, 1f, width, height);
-        }
+        this.registerHud();
+        this.renderOverlay(RECORD_HUD, 1f, width, height);
     }
 
     // minecraft code
