@@ -17,7 +17,7 @@ public class BackroomsSettings {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static BackroomsSettings INSTANCE;
 
-    private boolean spawnMobs = true;
+    private boolean showRecord = true;
 
     private static BackroomsSettings getInstance() {
         if (INSTANCE == null) {
@@ -65,11 +65,11 @@ public class BackroomsSettings {
         }
     }
 
-    public static final Boolean canSpawnMobs() {
-        return getInstance().spawnMobs;
+    public static final Boolean canShowRecord() {
+        return getInstance().showRecord;
     }
 
-    public static final void setSpawnMobs(boolean bool) {
-        getInstance().spawnMobs = bool;
+    public static final void setShowRecord(boolean bool) {
+        getInstance().showRecord = bool;
     }
 }
