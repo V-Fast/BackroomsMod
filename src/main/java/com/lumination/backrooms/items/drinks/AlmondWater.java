@@ -36,7 +36,7 @@ public class AlmondWater extends Item {
 
         if (!world.isClient) {
             if (getCooked() == false) {
-                user.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 6, 0));
+                user.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0));
             }
         }
 
@@ -56,7 +56,7 @@ public class AlmondWater extends Item {
     }
 
     public int getMaxUseTime(ItemStack stack) {
-        return 40;
+        return MAX_USE_TIME;
     }
 
     public boolean getCooked() {

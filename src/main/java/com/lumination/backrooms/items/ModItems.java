@@ -4,6 +4,7 @@ import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.entities.ModEntities;
 import com.lumination.backrooms.items.drinks.AlmondWater;
 import com.lumination.backrooms.items.interactables.CameraItem;
+import com.lumination.backrooms.items.interactables.TestItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -19,7 +20,7 @@ public class ModItems {
     public static final Item SILKED_BOOK = registerItem("silked_book",
             new Item(new FabricItemSettings().group(BackroomsItemsGroup.Main)));
     public static final Item ALMOND_WATER = registerItem("almond_water", new AlmondWater(
-            new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(2*2).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 6, 0), 1F).build())));
+            new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(2*2).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0), 1F).build())));
     public static final Item COOKED_ALMOND_WATER = registerItem("cooked_almond_water", CookedAlmondWater(new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(4*2).saturationModifier(4f).build())));
     public static final Item ENTITY_SPAWN_EGG = registerItem("entity_spawn_egg",
             new SpawnEggItem(ModEntities.ENTITY,0x0f0f0f, 0x1e1e1e,
@@ -27,6 +28,9 @@ public class ModItems {
     public static final Item TAPE = registerItem("tape", new Item(new FabricItemSettings().group(BackroomsItemsGroup.Main)));
     public static final Item CAMERA = registerItem("camera", new CameraItem(
             new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
+
+
+    //public static final Item TESTITEM = registerItem("test_item", new TestItem(new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
 
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);
