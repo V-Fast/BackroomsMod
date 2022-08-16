@@ -10,11 +10,31 @@ public class ConvertRooms {
 
     public Backroom convert(Backrooms backroom) {
         if (backroom == Backrooms.OVERWORLD) {
-            return new Backroom(0, SafetyLevels.NEUTRAL, Text.translatable("flat_world_preset.minecraft.overworld").getString());
+            Backroom overworld = new Backroom(0, SafetyLevels.NEUTRAL, Text.translatable("flat_world_preset.minecraft.overworld").getString());
+            overworld.isBackroom(false);
+            return overworld;
+        } else if (backroom == Backrooms.UNKNOWN) {
+            Backroom unknown = new Backroom(0, SafetyLevels.UNKNOWN, "???");
+            unknown.isBackroom(false);
+            return unknown;
         } else {
             this.room = enumToInt(backroom);
-            return new Backroom(room);
+            Backroom lvl = new Backroom(this.room);
+            lvl.isBackroom(true);
+            return lvl;
         }
+    }
+
+    public Backroom convert(String dimension) {
+        if (dimension.contains("type")) {
+            dimension = dimension.replace("_type", "");
+        }
+        if (dimension.toLowerCase() == "level_0") {
+            return convert(Backrooms.LEVEL_0);
+        } else if (dimension == "overworld") {
+            return convert(Backrooms.OVERWORLD);
+        }
+        return convert(Backrooms.UNKNOWN);
     }
 
     public int enumToInt(Backrooms enumerator) {
