@@ -4,7 +4,7 @@ import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
 public class Backroom {
-    public String name;
+    private String name;
     public int level;
     public SafetyLevels safety = SafetyLevels.UNKNOWN;
     private boolean overworld = false;
@@ -50,11 +50,11 @@ public class Backroom {
         return Text.translatable(String.format("levels.backrooms.level_%s.details", this.level));
     }
 
-    public final void changeIsBackroom(boolean bool) {
+    public final void isBackroom(boolean bool) {
         this.overworld = !bool;
     }
 
     public final boolean isBackroom() {
-        return this.overworld;
+        return !this.overworld;
     }
 }

@@ -22,6 +22,7 @@ repositories {
 			includeGroupByRegex 'io\\.github\\.onyxstudios.*'
 		}
 	}
+	maven { url = "https://maven.kyrptonaught.dev" }
 
 	maven {
 		url 'https://api.modrinth.com/maven'
@@ -56,6 +57,10 @@ dependencies {
 	modApi("me.shedaniel.cloth:cloth-config-fabric:8.0.75") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
+
+	// Custom Portal API
+	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta54-1.19'
+	include 'net.kyrptonaught:customportalapi:0.0.1-beta54-1.19'
 }
 
 processResources {
