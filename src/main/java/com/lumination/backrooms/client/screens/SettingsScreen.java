@@ -37,11 +37,11 @@ public class SettingsScreen {
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.backrooms.disable_spawning"), BackroomsSettings.canSpawnMobs())
+        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.backrooms.disable_record"), BackroomsSettings.canShowRecord())
                 .setDefaultValue(true)
-                .setTooltip(Text.translatable("option.backrooms.disable_spawning.tooltip"))
+                .setTooltip(Text.translatable("option.backrooms.disable_record.tooltip"))
                 .setSaveConsumer(newValue -> {
-                    BackroomsSettings.setSpawnMobs(newValue); // had to do a "setSpawnMobs"
+                    BackroomsSettings.setShowRecord(newValue);
                 })
                 .build());
 
