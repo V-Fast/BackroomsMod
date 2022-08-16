@@ -1,5 +1,5 @@
 {
-  "mod.backrooms.name": "The Backrooms",
+  "mod.backrooms.name": "Les Backrooms",
 
   "item.backrooms.silk": "Soie",
   "item.backrooms.silked_book": "Livre de Soie",
@@ -17,8 +17,8 @@
   "block.backrooms.dropped_ceiling": "Plafond suspendu",
   "block.backrooms.fluorescent_light": "Lumière Fluorescente",
 
-  "option.backrooms.disable_spawning": "Désactivé l'apparition de mobs",
-  "option.backrooms.disable_spawning.tooltip": "Désactive l'apparition de mobs passifs et offensifs",
+  "option.backrooms.disable_record": "Désactiver le HUD \"Record\"",
+  "option.backrooms.disable_record.tooltip": "Cache le mot \"Record\" dans l'HUD de la caméra",
 
   "subtitle.backrooms.light_buzzing": "Lumière qui bourdonne",
   "subtitle.backrooms.camera_click": "Clique de Caméra",
@@ -26,6 +26,7 @@
   "key.backrooms.level_info": "Information du Level",
 
   "levels.backrooms.overworld.details": "Le monde normal, l'endroit où tout commence.\nQuelques mobs apparaissent la nuit pour vous tuer, même si il y a plusieurs mobs passifs pour vous rapporter de la nourriture.",
+  "levels.backrooms.level_0.details": "Vous vous demandez où vous êtes ? Bah si vous savez, vous savez.\nEssayez de ne pas mourrir de faim, de soif, ou juste mourrir.\nBonne chance.",
 
   "modmenu.contract": "Contrat"
 }
