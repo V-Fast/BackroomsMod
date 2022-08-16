@@ -1,11 +1,11 @@
 package com.lumination.backrooms.client.huds;
 
 import com.lumination.backrooms.BackroomsMod;
+import com.lumination.backrooms.client.settings.BackroomsSettings;
 import com.lumination.backrooms.items.ModItems;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
@@ -17,7 +17,6 @@ public class CameraRecordHud implements HudRenderCallback {
     private static Identifier RECORD_HUD;
     private static Identifier VHS_HUD;
     private boolean visible = false;
-    private boolean old = false;
 
     public void updateVisible() {
         boolean v = false;
@@ -53,7 +52,7 @@ public class CameraRecordHud implements HudRenderCallback {
         }
 
         this.registerHud();
-        this.renderOverlay(RECORD_HUD, 1f, width, height);
+        this.renderOverlay(BackroomsSettings.canShowRecord() ? RECORD_HUD : VHS_HUD, 1f, width, height);
     }
 
     // minecraft code

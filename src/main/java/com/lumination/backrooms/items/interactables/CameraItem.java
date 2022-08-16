@@ -50,24 +50,6 @@ public class CameraItem extends Item {
         super.inventoryTick(stack, world, entity, slot, selected);
     }
 
-    public void oldInventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (entity.isPlayer()) {
-            PlayerEntity player;
-            player = (PlayerEntity) entity;
-            if (stack.hasNbt() && player.getStackInHand(player.getActiveHand()).getItem() == this) {
-                if (world.isClient) {
-                    BackroomsModClient.camHud.updateVisible();
-                }
-            } else {
-                if (world.isClient) {
-                    BackroomsModClient.camHud.updateVisible();
-                }
-            }
-        }
-
-        super.inventoryTick(stack, world, entity, slot, selected);
-    }
-
     private void setRecord(ItemStack itemStack, boolean record) {
         if (!itemStack.hasNbt()) {
             NbtCompound nbt = new NbtCompound();

@@ -1,14 +1,15 @@
 package com.lumination.backrooms.client.events;
 
-import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.client.screens.LevelScreen;
-import com.lumination.backrooms.utils.Backrooms;
+import com.lumination.backrooms.levels.Backroom;
 import com.lumination.backrooms.utils.extensions.ConvertRooms;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.dimension.DimensionType;
 import org.lwjgl.glfw.GLFW;
 
@@ -22,8 +23,9 @@ public class KeyInputHandler {
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (levelInfoKey.wasPressed()) {
-                getBackroom(client.player);
-                client.setScreen(new LevelScreen(cr.convert(Backrooms.OVERWORLD)));
+                String dimension = getBackroom(client.player).getPath();
+                Backroom backroom = cr.convert(dimension);
+                client.setScreen(new LevelScreen(backroom));
             }
         });
     }
@@ -39,9 +41,8 @@ public class KeyInputHandler {
         registerKeyInputs();
     }
 
-    public static final DimensionType getBackroom(ClientPlayerEntity player) {
-        DimensionType dim = player.getWorld().getDimension();
-        BackroomsMod.print(dim.toString());
-        return dim;
+    public static final Identifier getBackroom(ClientPlayerEntity player) {
+        RegistryKey<DimensionType> dim = player.getWorld().getDimensionKey();
+        return dim.getValue();
     }
 }

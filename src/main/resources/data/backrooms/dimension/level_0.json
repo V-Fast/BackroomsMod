@@ -1,5 +1,5 @@
 {
-  "type": "backrooms:level_type",
+  "type": "backrooms:level_0_type",
   "generator": {
     "type": "minecraft:flat",
     "settings": {
@@ -7,6 +7,10 @@
       "lakes": false,
       "features": false,
       "layers": [
+        {
+          "block": "minecraft:bedrock",
+          "height": 4
+        },
         {
           "block": "backrooms:moist_carpet",
           "height": 1

@@ -31,7 +31,7 @@ public class LevelScreen extends Screen {
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         if (this.level.isBackroom()) {
-            this.info = Text.translatable(String.format("levels.backrooms.level_%s.details", level.level));
+            this.info = level.getLevelDetails();
         } else {
             this.info = Text.translatable("levels.backrooms.overworld.details");
         }
@@ -45,7 +45,7 @@ public class LevelScreen extends Screen {
         if (!centeredInfo) {
             this.text.drawWithShadow(matrices, this.width / 2 / 2, this.height / 2 + 30, 20, 16777215);
         } else {
-            this.text.drawCenterWithShadow(matrices, this.width / 2 - 150, this.height / 2 + 30, 20, 16777215);
+            this.text.drawCenterWithShadow(matrices, this.width / 2, this.height / 2 + 30, 20, 16777215);
         }
     }
 
