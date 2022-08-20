@@ -8,8 +8,11 @@
   "item.backrooms.entity_spawn_egg": "Entity Spawn Egg",
   "item.backrooms.camera": "Camera",
   "item.backrooms.tape": "Tape",
+  "item.backrooms.halls_tape": "Music Tape",
+  "item.backrooms.halls_tape.desc": "H a L L S - CG5",
 
   "itemGroup.backrooms.backrooms": "The Backrooms",
+  "itemGroup.backrooms.tapes": "Music Tapes",
 
   "block.backrooms.moist_silk": "Moist Silk",
   "block.backrooms.moist_silk_planks": "Moist Silk Planks",

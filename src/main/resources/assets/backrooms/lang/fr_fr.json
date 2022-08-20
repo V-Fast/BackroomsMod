@@ -8,8 +8,12 @@
   "item.backrooms.entity_spawn_egg": "Oeuf d'apparition de l'entité",
   "item.backrooms.camera": "Caméra",
   "item.backrooms.tape": "Cassette",
+  "item.backrooms.halls_tape": "Cassette de Musique",
+  "item.backrooms.halls_tape.desc": "H a L L S - CG5",
 
   "itemGroup.backrooms.backrooms": "Les Backrooms",
+  "itemGroup.backrooms.tapes": "Cassettes musicales",
+
 
   "block.backrooms.moist_silk": "Soie Humide",
   "block.backrooms.moist_silk_planks": "Planches de Soie Humides",
