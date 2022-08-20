@@ -7,7 +7,8 @@
   ],
   "client": [
     "AddServerScreenMixin",
-    "TitleScreenMixin"
+    "TitleScreenMixin",
+    "LevelPropertiesMixin"
   ],
   "injectors": {
     "defaultRequire": 1
