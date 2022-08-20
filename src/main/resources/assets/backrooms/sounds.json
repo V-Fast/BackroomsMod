@@ -10,5 +10,13 @@
     "sounds": [
       "backrooms:camera_click"
     ]
+  },
+  "halls": {
+    "sounds": [
+      {
+        "name": "backrooms:discs/halls",
+        "stream": true
+      }
+    ]
   }
 }
