@@ -27,7 +27,6 @@ public class TitleScreenMixin extends Screen {
 
         int l = this.height / 4 + 48;
         this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, l + 48, 20, 20, Text.literal("A").formatted(Formatting.BLUE), (button) -> {
-            BackroomsMod.print("Opened mod settings");
             this.client.setScreen(new SettingsScreen().getScreen(this));
         }));
     }

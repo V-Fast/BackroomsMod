@@ -16,6 +16,8 @@ public class BackroomsMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		print("NOTICE: The Entity 'Entity' is getting modified, because servers crash on start when the Entity 'Entity' is in the mod");
+
 		ModRegisteries.registerMod();
 		print("Initialized Backrooms");
 	}
