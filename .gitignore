@@ -39,3 +39,4 @@ run/
 
 # super top mega secret files
 src/main/java/com/lumination/backrooms/mixin/AddServerScreenMixin.java
+ideas/
