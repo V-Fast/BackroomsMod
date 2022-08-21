@@ -15,9 +15,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 
-public class MusicTapes extends MusicDiscItem {
+public class MusicTape extends MusicDiscItem {
 
-    public MusicTapes(int comparatorOutput, SoundEvent sound, Settings settings, int lengthInSeconds) {
+    public MusicTape(int comparatorOutput, SoundEvent sound, Settings settings, int lengthInSeconds) {
         super(comparatorOutput, sound, settings, lengthInSeconds);
     }
 

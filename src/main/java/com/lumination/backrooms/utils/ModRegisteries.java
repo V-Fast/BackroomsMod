@@ -13,7 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 
 public class ModRegisteries {
-    private static final boolean serverEntity = true;
+    private static final boolean serverEntity = false;
 
     public static void registerMod() {
         ModBlocks.registerModBlock();
