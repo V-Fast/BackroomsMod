@@ -3,12 +3,11 @@ package com.lumination.backrooms.blocks.entity;
 import com.lumination.backrooms.blocks.interactable.TapePlayer;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.JukeboxBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.JukeboxBlockEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.MusicDiscItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.math.BlockPos;
@@ -72,7 +71,7 @@ public class TapePlayerEntity extends BlockEntity implements Clearable {
         ++blockEntity.ticksThisSecond;
         if (isPlayingRecord(state, blockEntity)) {
             Item var5 = blockEntity.getRecord().getItem();
-            if (var5 instanceof MusicDiscItem) {
+            if (var5 instanceof MusicTape) {
                 MusicTape musicDiscItem = (MusicTape)var5;
                 if (isSongFinished(blockEntity, musicDiscItem)) {
                     world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));

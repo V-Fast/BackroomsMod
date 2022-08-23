@@ -28,8 +28,8 @@ public class ModItems {
     public static final Item CAMERA = registerItem("camera", new CameraItem(
             new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
 
-    // discs always at the end
-    public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(15, ModSounds.HALLS,new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1).rarity(Rarity.RARE), 166));
+    // tapes
+    public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(15, ModSounds.HALLS, new FabricItemSettings(), 166));
 
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);
