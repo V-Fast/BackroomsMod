@@ -22,7 +22,7 @@ public class TapePlayerEntity extends BlockEntity implements Clearable {
     private boolean isPlaying;
 
     public TapePlayerEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityType.JUKEBOX, pos, state);
+        super(ModBlockEntities.TAPE_PLAYER, pos, state);
         this.record = ItemStack.EMPTY;
     }
 

@@ -42,6 +42,6 @@ public class ModItems {
     }
 
     public static void registerModItems() {
-        BackroomsMod.LOGGER.debug("Registering ModItems for " + BackroomsMod.MOD_ID);
+        BackroomsMod.print("Registering ModItems");
     }
 }

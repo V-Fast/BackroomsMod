@@ -1,8 +1,8 @@
 package com.lumination.backrooms.entities;
 
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.entities.client.EntityRenderer;
-import com.lumination.backrooms.entities.mod.EntityEntity;
+import com.lumination.backrooms.entities.client.BacteriaRenderer;
+import com.lumination.backrooms.entities.mod.BacteriaEntity;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -13,11 +13,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModEntities {
-    public static final EntityType<EntityEntity> ENTITY = Registry.register(Registry.ENTITY_TYPE, new Identifier(BackroomsMod.MOD_ID, "entity"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, EntityEntity::new).dimensions(EntityDimensions.fixed(1.4f, 2.7f)).build());
+    public static final EntityType<BacteriaEntity> BACTERIA = Registry.register(Registry.ENTITY_TYPE, new Identifier(BackroomsMod.MOD_ID, "bacteria"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BacteriaEntity::new).dimensions(EntityDimensions.fixed(1.4f, 2.7f)).build());
 
     public static void registerMobs(boolean withAttributes) {
-        EntityRendererRegistry.register(ModEntities.ENTITY, EntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.BACTERIA, BacteriaRenderer::new);
 
         if (withAttributes == true) {
             registerAttributes();
@@ -25,7 +25,7 @@ public class ModEntities {
     }
 
     private static void registerAttributes() {
-        FabricDefaultAttributeRegistry.register(ModEntities.ENTITY, EntityEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.BACTERIA, BacteriaEntity.setAttributes());
     }
 
     public static void registerMobs() {

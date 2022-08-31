@@ -28,11 +28,10 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 // the backroom black blob
-// MIGHT RENAME TO "Bacteria"
-public class EntityEntity extends HostileEntity implements IAnimatable {
+public class BacteriaEntity extends HostileEntity implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
 
-    public EntityEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public BacteriaEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -44,6 +43,7 @@ public class EntityEntity extends HostileEntity implements IAnimatable {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.6f);
     }
 
+    // TODO: Fix this
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.6f, false));

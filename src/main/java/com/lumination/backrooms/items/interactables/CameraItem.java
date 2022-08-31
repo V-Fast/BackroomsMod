@@ -1,6 +1,5 @@
 package com.lumination.backrooms.items.interactables;
 
-import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.BackroomsModClient;
 import com.lumination.backrooms.sounds.ModSounds;
 import net.minecraft.entity.Entity;
