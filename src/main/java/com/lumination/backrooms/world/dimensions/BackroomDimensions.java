@@ -18,12 +18,12 @@ public class BackroomDimensions {
     public static final RegistryKey<World> LVL0_DIMENSION_KEY = RegistryKey.of(Registry.WORLD_KEY,
             new Identifier(BackroomsMod.MOD_ID, "level_0"));
     public static final RegistryKey<DimensionType> BR_TYPE_KEY = RegistryKey.of(Registry.DIMENSION_TYPE_KEY, LVL0_DIMENSION_KEY.getRegistry());
+    public static final PortalLink LVL0_PORTAL =
+            level(LVL0_DIMENSION_KEY, Blocks.IRON_BLOCK, ModItems.SILK); // Level 0
 
     // Level 1
 
     public static void registerDims() {
-        level(LVL0_DIMENSION_KEY, Blocks.IRON_BLOCK, ModItems.SILK); // Level 0
-
         BackroomsMod.print("Registered custom dimensions and portals");
     }
 

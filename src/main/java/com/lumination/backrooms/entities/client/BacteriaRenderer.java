@@ -1,22 +1,21 @@
 package com.lumination.backrooms.entities.client;
 
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.entities.mod.EntityEntity;
+import com.lumination.backrooms.entities.mod.BacteriaEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.util.Identifier;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
 @Environment(EnvType.CLIENT)
-public class EntityRenderer extends GeoEntityRenderer<EntityEntity> {
-    public EntityRenderer(EntityRendererFactory.Context ctx) {
-        super(ctx, new EntityModel());
+public class BacteriaRenderer extends GeoEntityRenderer<BacteriaEntity> {
+    public BacteriaRenderer(EntityRendererFactory.Context ctx) {
+        super(ctx, new BacteriaModel());
     }
 
     @Override
-    public Identifier getTextureResource(EntityEntity object) {
+    public Identifier getTextureResource(BacteriaEntity object) {
         return new Identifier(BackroomsMod.MOD_ID, "textures/entity/entity.png");
     }
 }

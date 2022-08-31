@@ -2,10 +2,12 @@ package com.lumination.backrooms.blocks;
 
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.blocks.interactable.FluorescentLight;
+import com.lumination.backrooms.blocks.interactable.TapePlayer;
 import com.lumination.backrooms.items.BackroomsItemsGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -31,6 +33,8 @@ public class ModBlocks {
 
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
             new FluorescentLight(FabricBlockSettings.of(Material.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(13)), BackroomsItemsGroup.Main);
+    public static final Block TAPE_PLAYER = registerBlock("tape_player",
+            new TapePlayer(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.Main);
 
     // Register
 
@@ -45,6 +49,6 @@ public class ModBlocks {
     }
 
     public static void registerModBlock() {
-        BackroomsMod.LOGGER.debug("Registering ModBlocks for " + BackroomsMod.MOD_ID);
+        BackroomsMod.print("Registering ModBlocks for " + BackroomsMod.MOD_ID);
     }
 }

@@ -19,6 +19,7 @@
   "block.backrooms.moist_carpet": "Moist Carpet",
   "block.backrooms.dropped_ceiling": "Dropped Ceiling",
   "block.backrooms.fluorescent_light": "Fluorescent Light",
+  "block.backrooms.tape_player": "Tape Player",
 
   "option.backrooms.disable_record": "Disable the \"Record\" HUD",
   "option.backrooms.disable_record.tooltip": "Hides the word \"Record\" in the Camera HUD",

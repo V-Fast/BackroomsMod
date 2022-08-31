@@ -43,4 +43,12 @@ public class ConvertRooms {
         }
         return 0;
     }
+
+    /*
+    public void find(MinecraftServer server, Identifier dimId) {
+        HashMap<Identifier, RegistryKey<World>> dims = new HashMap<>();
+        for (RegistryKey<World> registryKey : server.getWorldRegistryKeys()) {
+            dims.put(registryKey.getValue(), registryKey);
+        }
+    }*/
 }

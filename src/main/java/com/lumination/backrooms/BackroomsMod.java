@@ -1,9 +1,7 @@
 package com.lumination.backrooms;
 
-import com.lumination.backrooms.client.settings.BackroomsSettings;
 import com.lumination.backrooms.utils.ModRegisteries;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

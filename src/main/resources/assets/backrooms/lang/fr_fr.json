@@ -20,6 +20,7 @@
   "block.backrooms.moist_carpet": "Moquette Humide",
   "block.backrooms.dropped_ceiling": "Plafond suspendu",
   "block.backrooms.fluorescent_light": "Lumière Fluorescente",
+  "block.backrooms.tape_player": "Lecteur Cassette",
 
   "option.backrooms.disable_record": "Désactiver le HUD \"Record\"",
   "option.backrooms.disable_record.tooltip": "Cache le mot \"Record\" dans l'HUD de la caméra",

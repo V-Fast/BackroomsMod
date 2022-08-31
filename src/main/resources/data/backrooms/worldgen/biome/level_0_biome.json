@@ -12,8 +12,8 @@
     "monster": [
       {
         "type": "backrooms:entity",
-        "weight": 1,
-        "minCount": 0,
+        "weight": 10,
+        "minCount": 1,
         "maxCount": 1
       }
     ]

@@ -74,7 +74,7 @@ public class CameraRecordHud implements HudRenderCallback {
         tessellator.draw();
         RenderSystem.depthMask(true);
         RenderSystem.enableDepthTest();
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
+        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 0.5f);
     }
 
     public void registerHud() {

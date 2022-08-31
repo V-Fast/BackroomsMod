@@ -4,7 +4,7 @@ import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.items.drinks.AlmondWater;
 import com.lumination.backrooms.items.interactables.CameraItem;
 import com.lumination.backrooms.sounds.ModSounds;
-import com.lumination.backrooms.items.interactables.MusicTapes;
+import com.lumination.backrooms.items.interactables.MusicTape;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -28,8 +28,8 @@ public class ModItems {
     public static final Item CAMERA = registerItem("camera", new CameraItem(
             new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
 
-    // discs always at the end
-    public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTapes(15, ModSounds.HALLS,new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1).rarity(Rarity.RARE), 166));
+    // tapes
+    public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(15, ModSounds.HALLS, new FabricItemSettings(), 166));
 
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);
@@ -42,6 +42,6 @@ public class ModItems {
     }
 
     public static void registerModItems() {
-        BackroomsMod.LOGGER.debug("Registering ModItems for " + BackroomsMod.MOD_ID);
+        BackroomsMod.print("Registering ModItems");
     }
 }

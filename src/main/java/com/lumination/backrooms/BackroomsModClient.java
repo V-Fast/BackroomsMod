@@ -16,7 +16,6 @@ public class BackroomsModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ModRegisteries.registerMod();
         BackroomsSettings.loadConfig();
         KeyInputHandler.register();
 
