@@ -1,7 +1,8 @@
 # The Backrooms - *ALPHA*
-**This is a mod that is still in its early stages, so there are probably many unnoticed bugs. You can report them [here](https://github.com/u-lumaa/BackroomsMod/issues)** also suggestion and help are welcome! You can also see our progresses! Just by looking at our [Trello Board](https://trello.com/b/gDUJ7vvz/the-backrooms-mod)!
+⚠️ **This is a mod that is still in its early stages, so there are probably many unnoticed bugs. You can report them [here](https://github.com/u-lumaa/BackroomsMod/issues)** also suggestions and help are welcome!
 
-You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) or [CurseForge](https://www.curseforge.com/minecraft/mc-mods/thebackrooms)
+You can see our progresses! Just by looking at our [Trello Board](https://trello.com/b/gDUJ7vvz/the-backrooms-mod)!  
+You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms). Our mod on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/thebackrooms) has **NOT** been updated yet.
 
 ## Dependencies
 If you plan on installing this mod, you'll have to install these mods as well
@@ -12,16 +13,14 @@ If you plan on installing this mod, you'll have to install these mods as well
 This mod is almost a month old, and we already have a lot of things in there!
 - Moist blocks <sup>*(Moist Silk, Moist Carpet, etc...)*</sup>
 - *(Empty)* Level 0 and its portal
-- *(Passive)* Level 0 Entity (aka Bacteria)
+- *(Temporarily removed)* Level 0 Bacteria (Entity)
+- Custom Music Discs
 - And much more!
 
-### Level 0 Portal
-It's simple :
-- Iron frame
-- Right click with Silk
-- Portal to Level 0
+## How do I do [something]?
+Check our [newest wiki](https://github.com/u-lumaa/BackroomsMod/wiki)!  
+We made it just for you that are asking question!
 
 ## Credits
-This mod is made by Lumaa (me) and the textures are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1).
-
+This mod is made by Lumaa (me) and the textures are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1).  
 This mod is also very inspired by [Kane Pixel](https://www.youtube.com/c/KANEpixels)'s Backrooms series on YouTube.
