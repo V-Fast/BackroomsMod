@@ -24,7 +24,7 @@ public class CameraItem extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
 
         user.setCurrentHand(hand);
-        if (world.isClient && !user.isSpectator()) {
+        if (!world.isClient && !user.isSpectator()) {
             if (itemStack.hasNbt()) {
                 NbtCompound nbt = itemStack.getNbt();
                 setRecord(itemStack, !nbt.getBoolean("records"));
@@ -39,8 +39,6 @@ public class CameraItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (entity.isPlayer()) {
-            PlayerEntity player;
-            player = (PlayerEntity) entity;
             if (world.isClient) {
                 BackroomsModClient.camHud.updateVisible();
             }
