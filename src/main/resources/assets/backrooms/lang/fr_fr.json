@@ -8,12 +8,25 @@
   "item.backrooms.entity_spawn_egg": "Oeuf d'apparition de l'entité",
   "item.backrooms.camera": "Caméra",
   "item.backrooms.tape": "Cassette",
-  "item.backrooms.halls_tape": "Cassette de Musique",
+
+  "item.backrooms.halls_tape": "Cassette Musicale",
+  "item.backrooms.the_complex_tape": "Cassette Musicale",
+  "item.backrooms.government_funding_tape": "Cassette Musicale",
+  "item.backrooms.instances_tape": "Cassette Musicale",
+  "item.backrooms.warm_nights_tape": "Cassette Musicale",
+  "item.backrooms.title_screen_tape": "Cassette Musicale",
+  "item.backrooms.snow_world_tape": "Cassette Musicale",
+
   "item.backrooms.halls_tape.desc": "H a L L S - CG5",
+  "item.backrooms.the_complex_tape.desc": "The Complex - Kane Pixels",
+  "item.backrooms.government_funding_tape.desc": "Government Funding - Kane Pixels",
+  "item.backrooms.instances_tape.desc": "Instances - Kane Pixels",
+  "item.backrooms.warm_nights_tape.desc": "Warm Nights - Xori",
+  "item.backrooms.title_screen_tape.desc": "Title Screen - Yume Nikki (OST)",
+  "item.backrooms.snow_world_tape.desc": "Snow World - Yume Nikki (OST)",
 
   "itemGroup.backrooms.backrooms": "Les Backrooms",
   "itemGroup.backrooms.tapes": "Cassettes musicales",
-
 
   "block.backrooms.moist_silk": "Soie Humide",
   "block.backrooms.moist_silk_planks": "Planches de Soie Humides",

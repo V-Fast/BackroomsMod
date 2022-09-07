@@ -29,7 +29,13 @@ public class ModItems {
             new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
 
     // tapes
-    public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(15, ModSounds.HALLS, new FabricItemSettings(), 166));
+    public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(7, ModSounds.HALLS, new FabricItemSettings(), 166));
+    public static final Item GOVERNMENT_TAPE = registerItem("government_funding_tape", new MusicTape(15, ModSounds.GOVERNMENT, new FabricItemSettings(), 166));
+    public static final Item COMPLEX_TAPE = registerItem("the_complex_tape", new MusicTape(13, ModSounds.COMPLEX, new FabricItemSettings(), 166));
+    public static final Item INSTANCES_TAPE = registerItem("instances_tape", new MusicTape(4, ModSounds.INSTANCES, new FabricItemSettings(), 166));
+    public static final Item NIGHTS_TAPE = registerItem("warm_nights_tape", new MusicTape(6, ModSounds.NIGHTS, new FabricItemSettings(), 166));
+    public static final Item TITLE_TAPE = registerItem("title_screen_tape", new MusicTape(8, ModSounds.TITLE, new FabricItemSettings(), 166));
+    public static final Item SNOW_TAPE = registerItem("snow_world_tape", new MusicTape(5, ModSounds.SNOW, new FabricItemSettings(), 166));
 
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);

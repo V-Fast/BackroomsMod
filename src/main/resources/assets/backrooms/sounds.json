@@ -14,7 +14,55 @@
   "halls": {
     "sounds": [
       {
-        "name": "backrooms:discs/halls",
+        "name": "backrooms:tapes/halls",
+        "stream": true
+      }
+    ]
+  },
+  "government_funding": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/government_funding",
+        "stream": true
+      }
+    ]
+  },
+  "the_complex": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/the_complex",
+        "stream": true
+      }
+    ]
+  },
+  "instances": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/instances",
+        "stream": true
+      }
+    ]
+  },
+  "title_screen": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/title_screen",
+        "stream": true
+      }
+    ]
+  },
+  "warm_nights": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/warm_nights",
+        "stream": true
+      }
+    ]
+  },
+  "snow_world": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/snow_world",
         "stream": true
       }
     ]
