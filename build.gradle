@@ -47,7 +47,7 @@ dependencies {
 	// Fabric API
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	// Geckolib 3
+	// Geckolib 3 (wrong version)
 	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19:3.1.6'
 
 	// LimLib (Liminal Library)
