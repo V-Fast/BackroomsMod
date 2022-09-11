@@ -103,17 +103,14 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getStackInHand(hand).isEmpty()) {
-            if ((Boolean)state.get(HAS_RECORD)) {
-                this.removeRecord(world, pos, player);
-                state = (BlockState)state.with(HAS_RECORD, false);
-                world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));
-                world.setBlockState(pos, state, 2);
-                world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
-                return ActionResult.success(world.isClient);
-            } else {
-                return ActionResult.PASS;
-            }
+        if ((Boolean)state.get(HAS_RECORD)) {
+            this.removeRecord(world, pos, player.getInventory().getEmptySlot() != -1 ? player : null);
+
+            state = (BlockState)state.with(HAS_RECORD, false);
+            world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));
+            world.setBlockState(pos, state, 2);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
+            return ActionResult.success(world.isClient);
         } else {
             return ActionResult.PASS;
         }
@@ -138,25 +135,33 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
                 ItemStack itemStack = tapePlayerEntity.getRecord();
                 if (!itemStack.isEmpty()) {
                     world.syncWorldEvent(1010, pos, 0);
-                    if (player != null || !isEmpty(player.getInventory())) {
-                        int freeSlot = player.getStackInHand(player.getActiveHand()).isEmpty() ? player.getInventory().selectedSlot : player.getInventory().getEmptySlot();
-                        tapePlayerEntity.clear();
-                        ItemStack itemStack2 = itemStack.copy();
-                        player.getInventory().setStack(freeSlot, itemStack2);
+                    if (player != null) {
+                        if (!isEmpty(player.getInventory())) {
+                            int freeSlot = player.getStackInHand(player.getActiveHand()).isEmpty() ? player.getInventory().selectedSlot : player.getInventory().getEmptySlot();
+                            tapePlayerEntity.clear();
+                            ItemStack itemStack2 = itemStack.copy();
+                            player.getInventory().setStack(freeSlot, itemStack2);
+                        } else {
+                            throwItem(tapePlayerEntity, world, itemStack, pos);
+                        }
                     } else {
-                        tapePlayerEntity.clear();
-                        float f = 0.7F;
-                        double d = (double)(world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
-                        double e = (double)(world.random.nextFloat() * 0.7F) + 0.06000000238418579D + 0.5D;
-                        double g = (double)(world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
-                        ItemStack itemStack2 = itemStack.copy();
-                        ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + d, (double)pos.getY() + e, (double)pos.getZ() + g, itemStack2);
-                        itemEntity.setToDefaultPickupDelay();
-                        world.spawnEntity(itemEntity);
+                        throwItem(tapePlayerEntity, world, itemStack, pos);
                     }
                 }
             }
         }
+    }
+
+    private void throwItem(TapePlayerEntity tapePlayerEntity, World world, ItemStack itemStack, BlockPos pos) {
+        tapePlayerEntity.clear();
+        float f = 0.7F;
+        double d = (double)(world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
+        double e = (double)(world.random.nextFloat() * 0.7F) + 0.06000000238418579D + 0.5D;
+        double g = (double)(world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
+        ItemStack itemStack2 = itemStack.copy();
+        ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + d, (double)pos.getY() + e, (double)pos.getZ() + g, itemStack2);
+        itemEntity.setToDefaultPickupDelay();
+        world.spawnEntity(itemEntity);
     }
 
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
