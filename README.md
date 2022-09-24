@@ -1,4 +1,4 @@
-![Screenshotted by PatateGivree](https://cdn.modrinth.com/data/83vrcdt0/images/fce03d819ffa1e179ed4d20eba755326f6119e90.png)
+[![Screenshotted by PatateGivree](https://cdn.modrinth.com/data/83vrcdt0/images/fce03d819ffa1e179ed4d20eba755326f6119e90.png)](./)
 
 # The Backrooms - *ALPHA*
 ⚠️ **This is a mod that is still in its early stages, so there are probably many unnoticed bugs. You can report them [here](https://github.com/u-lumaa/BackroomsMod/issues)** also suggestions and help are welcome!
@@ -24,5 +24,5 @@ Check our [newest wiki](https://github.com/u-lumaa/BackroomsMod/wiki)!
 We made it just for you that are asking question!
 
 ## Credits
-This mod is made by Lumaa (me) and the textures are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1).  
-This mod is also very inspired by [Kane Pixel](https://www.youtube.com/c/KANEpixels)'s Backrooms series on YouTube.
+This mod is made by Lumaa (me), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1).  
+This mod is also heavily inspired by [Kane Pixel](https://www.youtube.com/c/KANEpixels)'s Backrooms series on YouTube.
