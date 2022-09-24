@@ -12,7 +12,7 @@ If you plan on installing this mod, you'll have to install these mods as well
 - [Cloth Config](https://cdn.modrinth.com/data/9s6osm5g/versions/8.0.75+fabric/cloth-config-8.0.75-fabric.jar)
 
 ## Content
-This mod is almost a month old, and we already have a lot of things in there!
+This mod is almost 2 months old, and we already have a lot of things in there!
 - Moist blocks <sup>*(Moist Silk, Moist Carpet, etc...)*</sup>
 - *(Empty)* Level 0 and its portal
 - *(Temporarily removed)* Level 0 Bacteria (Entity)
