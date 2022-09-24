@@ -1,4 +1,4 @@
-[![Screenshotted by PatateGivree](https://cdn.modrinth.com/data/83vrcdt0/images/fce03d819ffa1e179ed4d20eba755326f6119e90.png)](./)
+[![Screenshotted by PatateGivree](https://cdn.modrinth.com/data/83vrcdt0/images/fce03d819ffa1e179ed4d20eba755326f6119e90.png)](https://github.com/u-lumaa/BackroomsMod)
 
 # The Backrooms - *ALPHA*
 ⚠️ **This is a mod that is still in its early stages, so there are probably many unnoticed bugs. You can report them [here](https://github.com/u-lumaa/BackroomsMod/issues)** also suggestions and help are welcome!
