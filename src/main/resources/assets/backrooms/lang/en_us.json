@@ -2,7 +2,7 @@
   "mod.backrooms.name": "The Backrooms",
 
   "item.backrooms.silk": "Silk",
-  "item.backrooms.silked_book": "Silked Book",
+  "item.backrooms.silken_book": "Silken Book",
   "item.backrooms.almond_water": "Almond Water",
   "item.backrooms.cooked_almond_water": "Cooked Almond Water",
   "item.backrooms.entity_spawn_egg": "Entity Spawn Egg",
@@ -37,6 +37,8 @@
 
   "option.backrooms.disable_record": "Disable the \"Record\" HUD",
   "option.backrooms.disable_record.tooltip": "Hides the word \"Record\" in the Camera HUD",
+  "option.backrooms.explain_errors": "Explain when error occurs",
+  "option.backrooms.explain_errors.tooltip": "When the mod cannot do an action you wanted,\nIt will explain why it occurs, and if there's a fix.",
 
   "subtitle.backrooms.light_buzzing": "Light Buzzing",
   "subtitle.backrooms.camera_click": "Camera Clicking",
