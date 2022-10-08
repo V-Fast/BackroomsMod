@@ -18,6 +18,7 @@ public class BackroomsSettings {
     private static BackroomsSettings INSTANCE;
 
     private boolean showRecord = true;
+    private boolean explainErrors = false;
 
     private static BackroomsSettings getInstance() {
         if (INSTANCE == null) {
@@ -71,5 +72,13 @@ public class BackroomsSettings {
 
     public static final void setShowRecord(boolean bool) {
         getInstance().showRecord = bool;
+    }
+
+    public static final Boolean explainsError() {
+        return getInstance().explainErrors;
+    }
+
+    public static final void setExplainError(boolean bool) {
+        getInstance().explainErrors = bool;
     }
 }

@@ -37,11 +37,21 @@ public class SettingsScreen {
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
+        // disable record word
         general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.backrooms.disable_record"), BackroomsSettings.canShowRecord())
                 .setDefaultValue(true)
                 .setTooltip(Text.translatable("option.backrooms.disable_record.tooltip"))
                 .setSaveConsumer(newValue -> {
                     BackroomsSettings.setShowRecord(newValue);
+                })
+                .build());
+
+        // explain errors (only english)
+        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.backrooms.explain_errors"), BackroomsSettings.explainsError())
+                .setDefaultValue(true)
+                .setTooltip(Text.translatable("option.backrooms.explain_errors.tooltip"))
+                .setSaveConsumer(newValue -> {
+                    BackroomsSettings.setExplainError(newValue);
                 })
                 .build());
 
