@@ -2,7 +2,7 @@ package com.lumination.backrooms.client.screens;
 
 
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.items.interactables.SilkedBook.Word;
+import com.lumination.backrooms.items.interactables.SilkenBook.Word;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -24,7 +24,7 @@ public class SilkBookScreen extends Screen {
     }
 
     @Override
-    protected void init() {
+    public void init() {
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, 196, 200, 20, ScreenTexts.DONE, (button) -> {
             this.client.setScreen((Screen)null);
         }));
@@ -32,14 +32,14 @@ public class SilkBookScreen extends Screen {
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         Identifier wordTexture = this.word.getTexture();
-        Identifier bookTexture = new Identifier(BackroomsMod.MOD_ID, "textures/screen/silk_book.png");
+        Identifier bookTexture = new Identifier(BackroomsMod.MOD_ID, "textures/screen/silken_book.png");
         int i = (this.width - 192) / 2;
-
-        renderImage(wordTexture);
-        this.drawTexture(matrices, i, 2, 0, 1, 192, 192);
 
         renderImage(bookTexture);
         this.drawTexture(matrices, i, 2, 0, 0, 192, 192);
+
+        renderImage(wordTexture);
+        this.drawTexture(matrices, i, 2, 0, 1, 192, 192);
     }
 
     private void renderImage(Identifier texture) {
@@ -58,6 +58,6 @@ public class SilkBookScreen extends Screen {
 
     @Override
     public boolean shouldPause() {
-        return true;
+        return false;
     }
 }
