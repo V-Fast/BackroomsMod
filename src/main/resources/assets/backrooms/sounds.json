@@ -66,5 +66,37 @@
         "stream": true
       }
     ]
+  },
+  "auditory_guidepost": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/auditory_guidepost",
+        "stream": true
+      }
+    ]
+  },
+  "not_your_decision": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/not_your_decision",
+        "stream": true
+      }
+    ]
+  },
+  "sealed_away": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/sealed_away",
+        "stream": true
+      }
+    ]
+  },
+  "the_white_cliffs_of_dover": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/white_cliffs_of_dover",
+        "stream": true
+      }
+    ]
   }
 }

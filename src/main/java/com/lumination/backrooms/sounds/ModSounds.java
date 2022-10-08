@@ -12,11 +12,15 @@ public class ModSounds {
     // Music Tapes
     public static SoundEvent HALLS = registerSoundEvent("halls");
     public static SoundEvent COMPLEX = registerSoundEvent("the_complex");
-    public static SoundEvent GOVERNMENT = registerSoundEvent("government_funding");
+    public static SoundEvent GOVERNMENT_FUNDING = registerSoundEvent("government_funding");
     public static SoundEvent INSTANCES = registerSoundEvent("instances");
-    public static SoundEvent NIGHTS = registerSoundEvent("warm_nights");
-    public static SoundEvent SNOW = registerSoundEvent("snow_world");
-    public static SoundEvent TITLE = registerSoundEvent("title_screen");
+    public static SoundEvent WARM_NIGHTS = registerSoundEvent("warm_nights");
+    public static SoundEvent SNOW_WORLD = registerSoundEvent("snow_world");
+    public static SoundEvent TITLE_SCREEN = registerSoundEvent("title_screen");
+    public static SoundEvent AUDITORY_GUIDEPOST = registerSoundEvent("auditory_guidepost");
+    public static SoundEvent NOT_YOUR_DECISION = registerSoundEvent("not_your_decision");
+    public static SoundEvent SEALED_AWAY = registerSoundEvent("sealed_away");
+    public static SoundEvent CLIFFS_OF_DOVER = registerSoundEvent("the_white_cliffs_of_dover");
 
 
 
