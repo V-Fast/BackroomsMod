@@ -2,7 +2,7 @@
   "mod.backrooms.name": "Les Backrooms",
 
   "item.backrooms.silk": "Soie",
-  "item.backrooms.silked_book": "Livre de Soie",
+  "item.backrooms.silken_book": "Livre de Soie",
   "item.backrooms.almond_water": "Eau d'Amande",
   "item.backrooms.cooked_almond_water": "Eau d'Amande cuite",
   "item.backrooms.entity_spawn_egg": "Oeuf d'apparition de l'entité",
@@ -37,6 +37,8 @@
 
   "option.backrooms.disable_record": "Désactiver le HUD \"Record\"",
   "option.backrooms.disable_record.tooltip": "Cache le mot \"Record\" dans l'HUD de la caméra",
+  "option.backrooms.explain_errors": "Expliquer les erreurs (anglais seulement)",
+  "option.backrooms.explain_errors.tooltip": "Lorsque le mod n'arrive pas à faire une action que vous vouliez,\nIl expliquera pourquoi le bug arrive, et comment le régler.",
 
   "subtitle.backrooms.light_buzzing": "Lumière qui bourdonne",
   "subtitle.backrooms.camera_click": "Clique de Caméra",

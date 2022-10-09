@@ -1,23 +1,19 @@
 # gradle
-
 .gradle/
 build/
 out/
 classes/
 
 # eclipse
-
 *.launch
 
 # idea
-
 .idea/
 *.iml
 *.ipr
 *.iws
 
 # vscode
-
 .settings/
 .vscode/
 bin/
@@ -25,19 +21,20 @@ bin/
 .project
 
 # macos
-
 *.DS_Store
 
 # fabric
-
 run/
 
-# disabled files
+# paint.net
+*.pdn
 
+# disabled files
 *.disabled
 *.zip
-*.pdn
+*.bbmodel
 
 # super top mega secret files
 src/main/java/com/lumination/backrooms/mixin/AddServerScreenMixin.java
 ideas/
+bbmodels/

@@ -23,4 +23,4 @@ We made it just for you that are asking question!
 
 ## Credits
 This mod is made by Lumaa (me), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1).  
-This mod is also heavily inspired by [Kane Pixel](https://www.youtube.com/c/KANEpixels)'s Backrooms series on YouTube.
+This mod is also heavily inspired by [Kane Pixels](https://www.youtube.com/c/KANEpixels)'s Backrooms series on YouTube.
