@@ -1,21 +1,17 @@
 package com.lumination.backrooms.client.screens;
 
-
-import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
-import com.lumination.backrooms.levels.Backroom;
-import com.lumination.backrooms.mixin.TitleScreenMixin;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.option.GameOptions;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
+@Environment(EnvType.CLIENT)
 public class SettingsScreen {
     public Screen screen;
     public ConfigBuilder builder = ConfigBuilder.create();
@@ -37,11 +33,21 @@ public class SettingsScreen {
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
+        // disable record word
         general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.backrooms.disable_record"), BackroomsSettings.canShowRecord())
                 .setDefaultValue(true)
                 .setTooltip(Text.translatable("option.backrooms.disable_record.tooltip"))
                 .setSaveConsumer(newValue -> {
                     BackroomsSettings.setShowRecord(newValue);
+                })
+                .build());
+
+        // explain errors (only english)
+        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.backrooms.explain_errors"), BackroomsSettings.explainsError())
+                .setDefaultValue(true)
+                .setTooltip(Text.translatable("option.backrooms.explain_errors.tooltip"))
+                .setSaveConsumer(newValue -> {
+                    BackroomsSettings.setExplainError(newValue);
                 })
                 .build());
 

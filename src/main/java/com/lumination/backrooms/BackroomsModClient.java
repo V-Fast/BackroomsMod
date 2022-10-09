@@ -2,7 +2,9 @@ package com.lumination.backrooms;
 
 import com.lumination.backrooms.client.events.KeyInputHandler;
 import com.lumination.backrooms.client.huds.CameraRecordHud;
+import com.lumination.backrooms.client.screens.SilkBookScreen;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
+import com.lumination.backrooms.items.ModItemsClient;
 import com.lumination.backrooms.utils.ModRegisteries;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -18,6 +20,7 @@ public class BackroomsModClient implements ClientModInitializer {
     public void onInitializeClient() {
         BackroomsSettings.loadConfig();
         KeyInputHandler.register();
+        ModRegisteries.registerMod(true);
 
         HudRenderCallback.EVENT.register(camHud);
     }
