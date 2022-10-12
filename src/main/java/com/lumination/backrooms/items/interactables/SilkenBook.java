@@ -27,34 +27,6 @@ public class SilkenBook extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        Word word = null;
-        if (world.isClient) {
-            if (!itemStack.hasNbt()) {
-                Random r = new Random();
-                int x = r.nextInt(Word.values().length + 1);
-                word = Word.getWordByCode(x);
-
-                // prevent crash
-                if (word == null) {
-                    BackroomsMod.print("Recurrent anomaly");
-                    user.sendMessage(Text.literal("Please click again."), true);
-                    if (BackroomsSettings.explainsError()) {
-                        user.sendMessage(Text.literal("[The Backrooms - Error] The problem is occurs when selecting a random inscription. A fix has not been found yet.").formatted(Formatting.GRAY, Formatting.ITALIC));
-                    }
-                    return TypedActionResult.fail(itemStack);
-                }
-
-                NbtCompound itemNbt = new NbtCompound();
-                itemNbt.putInt("InscriptionCode", x);
-                itemStack.setNbt(itemNbt);
-            } else {
-                word = Word.getWordByCode(itemStack.getNbt().getInt("InscriptionCode"));
-            }
-
-            MinecraftClient client = MinecraftClient.getInstance();
-            client.setScreen(new SilkBookScreen(word));
-        }
-
         return TypedActionResult.success(itemStack, true);
     }
 
