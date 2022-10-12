@@ -38,7 +38,7 @@ public class ModItems {
     public static final Item NOT_DECISION_TAPE = registerItem("not_your_decision_tape", new MusicTape(8, ModSounds.NOT_YOUR_DECISION, new FabricItemSettings(), 1));
     public static final Item SEALED_AWAY_TAPE = registerItem("sealed_away_tape", new MusicTape(5, ModSounds.SEALED_AWAY, new FabricItemSettings(), 1));
     public static final Item CLIFFS_DOVER_TAPE = registerItem("white_cliffs_of_dover_tape", new MusicTape(3, ModSounds.CLIFFS_OF_DOVER, new FabricItemSettings(), 1));
-    public static final Item THALASSOPHOBIA_TAPE = registerItem("thalassophobia_tape", new MusicTape(3, ModSounds.THALASSOPHOBIA, new FabricItemSettings(), 1));
+    public static final Item THALASSOPHOBIA_TAPE = registerItem("thalassophobia_tape", new MusicTape(15, ModSounds.THALASSOPHOBIA, new FabricItemSettings(), 1));
 
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);
