@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "OI#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_block"
+    },
+    "O": {
+      "item": "minecraft:black_stained_glass_pane"
+    },
+    "I": {
+      "item": "minecraft:lever"
+    }
+  },
+  "group": "camera",
+  "result": {
+    "item": "backrooms:camera"
+  }
+}

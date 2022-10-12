@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "backrooms:silk"
+    },
+    {
+      "item": "backrooms:silk"
+    },
+    {
+      "item": "backrooms:silk"
+    }
+  ],
+  "result": {
+    "item": "backrooms:silken_book"
+  }
+}
