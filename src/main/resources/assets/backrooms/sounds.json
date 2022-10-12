@@ -98,5 +98,13 @@
         "stream": true
       }
     ]
+  },
+  "thalassophobia": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/thalassophobia",
+        "stream": true
+      }
+    ]
   }
 }

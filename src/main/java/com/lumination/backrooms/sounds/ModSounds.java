@@ -21,6 +21,7 @@ public class ModSounds {
     public static SoundEvent NOT_YOUR_DECISION = registerSoundEvent("not_your_decision");
     public static SoundEvent SEALED_AWAY = registerSoundEvent("sealed_away");
     public static SoundEvent CLIFFS_OF_DOVER = registerSoundEvent("the_white_cliffs_of_dover");
+    public static SoundEvent THALASSOPHOBIA = registerSoundEvent("thalassophobia");
 
 
 

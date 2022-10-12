@@ -16,6 +16,11 @@
   "item.backrooms.warm_nights_tape": "Cassette Musicale",
   "item.backrooms.title_screen_tape": "Cassette Musicale",
   "item.backrooms.snow_world_tape": "Cassette Musicale",
+  "item.backrooms.auditory_guidepost_tape": "Cassette Musicale",
+  "item.backrooms.not_your_decision_tape": "Cassette Musicale",
+  "item.backrooms.sealed_away_tape": "Cassette Musicale",
+  "item.backrooms.white_cliffs_of_dover_tape": "Cassette Musicale",
+  "item.backrooms.thalassophobia_tape": "Cassette Musicale",
 
   "item.backrooms.halls_tape.desc": "H a L L S - CG5",
   "item.backrooms.the_complex_tape.desc": "The Complex - Kane Pixels",
@@ -24,6 +29,11 @@
   "item.backrooms.warm_nights_tape.desc": "Warm Nights - Xori",
   "item.backrooms.title_screen_tape.desc": "Title Screen - Yume Nikki (OST)",
   "item.backrooms.snow_world_tape.desc": "Snow World - Yume Nikki (OST)",
+  "item.backrooms.auditory_guidepost_tape.desc": "Auditory Guidepost - Kane Pixels",
+  "item.backrooms.not_your_decision_tape.desc": "Not Your Decision - Kane Pixels",
+  "item.backrooms.sealed_away_tape.desc": "Sealed Away - Kane Pixels",
+  "item.backrooms.white_cliffs_of_dover_tape.desc": "The White Cliffs of Dover - Vera Lynn",
+  "item.backrooms.thalassophobia_tape.desc": "Thalassophobia - Omori (OST)",
 
   "itemGroup.backrooms.backrooms": "Les Backrooms",
   "itemGroup.backrooms.tapes": "Cassettes musicales",
@@ -47,6 +57,4 @@
 
   "levels.backrooms.overworld.details": "Le monde normal, l'endroit où tout commence.\nQuelques mobs apparaissent la nuit pour vous tuer, même si il y a plusieurs mobs passifs pour vous rapporter de la nourriture.",
   "levels.backrooms.level_0.details": "Vous vous demandez où vous êtes ? Bah si vous savez, vous savez.\nEssayez de ne pas mourrir de faim, de soif, ou juste mourrir.\nBonne chance.",
-
-  "modmenu.contract": "Contrat"
 }
