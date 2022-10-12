@@ -3,7 +3,7 @@
   "generator": {
     "type": "minecraft:flat",
     "settings": {
-      "biome": "backrooms:level_0_biome",
+      "biome": "backrooms:level_0",
       "lakes": false,
       "features": false,
       "layers": [
