@@ -106,5 +106,101 @@
         "stream": true
       }
     ]
+  },
+  "its_just_a_burning_memory": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/burning_memory",
+        "stream": true
+      }
+    ]
+  },
+  "duet": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/duet",
+        "stream": true
+      }
+    ]
+  },
+  "empty_bliss_beyond_this_world": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/empty_bliss_beyond_world",
+        "stream": true
+      }
+    ]
+  },
+  "gross": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/gross",
+        "stream": true
+      }
+    ]
+  },
+  "we_dont_have_many_days": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/have_many_days",
+        "stream": true
+      }
+    ]
+  },
+  "does_it_matter_how_my_heart_breaks": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/my_heart_breaks",
+        "stream": true
+      }
+    ]
+  },
+  "late_afternoon_drifting": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/late_afternoon_drifting",
+        "stream": true
+      }
+    ]
+  },
+  "the_violin": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/the_violin",
+        "stream": true
+      }
+    ]
+  },
+  "place_in_the_world_fades_away": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/world_fades_away",
+        "stream": true
+      }
+    ]
+  },
+  "glimpses_of_hope_in_trying_times": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/glimpses_of_hope",
+        "stream": true
+      }
+    ]
+  },
+  "ahiru_no_sentaku": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/ahiru_no_sentaku",
+        "stream": true
+      }
+    ]
+  },
+  "no_surprises": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/no_surprises",
+        "stream": true
+      }
+    ]
   }
 }

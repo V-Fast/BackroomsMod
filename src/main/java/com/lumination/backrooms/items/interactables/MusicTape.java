@@ -20,7 +20,7 @@ import net.minecraft.world.WorldEvents;
 public class MusicTape extends MusicDiscItem {
 
     public MusicTape(int comparatorOutput, SoundEvent sound, Settings settings, int lengthInSeconds) {
-        super(comparatorOutput, sound, settings.rarity(Rarity.RARE).maxCount(1).group(BackroomsItemsGroup.Tapes), lengthInSeconds);
+        super(comparatorOutput, sound, settings.rarity(Rarity.RARE).maxCount(1).group(BackroomsItemsGroup.MusicTapes), lengthInSeconds);
     }
 
     @Override
