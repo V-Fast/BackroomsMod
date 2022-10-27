@@ -33,6 +33,7 @@ run/
 *.disabled
 *.zip
 *.bbmodel
+*.bat
 
 # super top mega secret files
 src/main/java/com/lumination/backrooms/mixin/AddServerScreenMixin.java
