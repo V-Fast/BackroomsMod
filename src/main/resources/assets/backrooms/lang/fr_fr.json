@@ -9,6 +9,12 @@
   "item.backrooms.camera": "Caméra",
   "item.backrooms.tape": "Cassette",
   "item.backrooms.energy_bar": "Barre énergétique",
+  "item.backrooms.wrench": "Clé à Molette",
+  "item.backrooms.crowbar": "Pied de Biche",
+  "item.backrooms.sharpened_knife": "Couteau Aiguisé",
+  "item.backrooms.nailed_bat": "Batte clouée",
+  "item.backrooms.baseball_bat": "Batte de Baseball",
+  "item.backrooms.broken_bottle": "Bouteille Brisée",
 
   "item.backrooms.halls_tape": "Cassette Musicale",
   "item.backrooms.the_complex_tape": "Cassette Musicale",
@@ -62,7 +68,7 @@
 
   "itemGroup.backrooms.backrooms": "Les Backrooms",
   "itemGroup.backrooms.music_tapes": "Cassettes musicales",
-  "itemGroup.backrooms.audio_tapes": "Cassettes audio",
+  "itemGroup.backrooms.weapons": "Armes",
 
   "block.backrooms.moist_silk": "Soie Humide",
   "block.backrooms.moist_silk_planks": "Planches de Soie Humides",
