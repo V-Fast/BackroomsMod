@@ -24,3 +24,15 @@ We made it just for you that are asking question!
 ## Credits
 This mod is made by [Lumaa](https://lumination.brebond.com/), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1) and we receive music suggestions from [Luvaa](https://namemc.com/profile/_Luvaa_.1).  
 This mod is also heavily inspired by [Kane Pixels](https://www.youtube.com/c/KANEpixels)'s Backrooms series on YouTube.
+
+* * *
+
+# Build
+
+1. Install the repository as a .zip file and extract it.
+2. Open a command prompt from the project's files.
+3. Type `powershell ./gradlew build` and wait for it to finish.
+4. Open the new created directories `build/libs`
+5. Move `thebackrooms-VERSION.jar` to your mods folder and play.
+
+⚠️ The game COULD crash if the name of the file ends with `Dev`, meaning functionnalities are probably not stable yet.
