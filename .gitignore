@@ -35,6 +35,10 @@ run/
 *.bbmodel
 *.bat
 
+# freeze file (change only in github)
+LICENSE
+README.md
+
 # super top mega secret files
 src/main/java/com/lumination/backrooms/mixin/AddServerScreenMixin.java
 ideas/
