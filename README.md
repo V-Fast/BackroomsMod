@@ -29,7 +29,7 @@ This mod is also heavily inspired by [Kane Pixels](https://www.youtube.com/c/KAN
 
 # Build
 
-1. Install the repository as a .zip file and extract it.
+1. Download the repository as a [.zip file](https://github.com/u-lumaa/BackroomsMod/archive/refs/heads/main.zip) and extract it.
 2. Open a command prompt from the project's files.
 3. Type `powershell ./gradlew build` and wait for it to finish.
 4. Open the new created directories `build/libs`
