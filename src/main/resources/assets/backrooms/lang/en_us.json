@@ -81,6 +81,8 @@
   "option.backrooms.disable_record.tooltip": "Hides the word \"Record\" in the Camera HUD",
   "option.backrooms.explain_errors": "Explain when error occurs",
   "option.backrooms.explain_errors.tooltip": "When the mod cannot do an action you wanted,\nIt will explain why it occurs, and if there's a fix.",
+  "option.backrooms.discord_label": "Discord Rich Presence Label",
+  "option.backrooms.discord_label.tooltip": "Write anything you want on your Discord status",
   "option.backrooms.sounds": "Backrooms Sounds",
   "option.backrooms.sounds.title_end": "Sound Options",
 
