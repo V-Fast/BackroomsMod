@@ -2,7 +2,7 @@
   <h1>The Backrooms Mod</h1>
   <img src="https://cdn.modrinth.com/data/83vrcdt0/images/fce03d819ffa1e179ed4d20eba755326f6119e90.png" width=500>
 </div>  
-<sup>Pour les français allez là bas > https://lumination.brebond.com/backrooms</sup>
+<sup>Pour les français allez là-bas > https://lumination.brebond.com/backrooms</sup>
 
 ⚠️ **This is a mod that is still in alpha, so there are probably many unnoticed bugs. You can report them [here](https://github.com/u-lumaa/BackroomsMod/issues)** also suggestions and help are welcome!
 
