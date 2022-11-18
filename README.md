@@ -1,7 +1,7 @@
 <div align="center">
   <h1>The Backrooms Mod</h1>
   <img src="https://cdn.modrinth.com/data/83vrcdt0/images/fce03d819ffa1e179ed4d20eba755326f6119e90.png" width=500>
-    <sup>Handmade builds, by PatateGivree</sup>
+    <br /><sup>Handmade builds, by PatateGivree</sup>
 </div>  
 <div align="center"><img align="center" src="https://raw.githubusercontent.com/u-lumaa/u-lumaa/main/assets/fabric-banner.png" width=600></div>
 
