@@ -1,6 +1,5 @@
 package com.lumination.backrooms.client.screens;
 
-import com.lumination.backrooms.client.Discord;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
@@ -49,16 +48,6 @@ public class SettingsScreen {
                 .setTooltip(Text.translatable("option.backrooms.explain_errors.tooltip"))
                 .setSaveConsumer(newValue -> {
                     BackroomsSettings.setExplainError(newValue);
-                })
-                .build());
-
-        // custom discord rpc label
-        general.addEntry(entryBuilder.startStrField(Text.translatable("option.backrooms.discord_label"), BackroomsSettings.discordLabel())
-                .setDefaultValue("By Lumaa")
-                .setTooltip(Text.translatable("option.backrooms.discord_label.tooltip"))
-                .setSaveConsumer(newValue -> {
-                    BackroomsSettings.setDiscordLabel(newValue);
-
                 })
                 .build());
 

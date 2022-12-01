@@ -3,14 +3,11 @@ package com.lumination.backrooms.items;
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.items.interactables.SilkenBook;
 import com.lumination.backrooms.items.interactables.SilkenBookClient;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-@Environment(EnvType.SERVER)
 public class ModItemsServer {
     public static final Item SILKEN_BOOK = registerItem("silken_book",
             new SilkenBook(new FabricItemSettings().group(BackroomsItemsGroup.Main)));
