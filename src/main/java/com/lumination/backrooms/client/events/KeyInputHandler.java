@@ -3,6 +3,8 @@ package com.lumination.backrooms.client.events;
 import com.lumination.backrooms.client.screens.LevelScreen;
 import com.lumination.backrooms.levels.Backroom;
 import com.lumination.backrooms.utils.extensions.ConvertRooms;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -13,6 +15,7 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.dimension.DimensionType;
 import org.lwjgl.glfw.GLFW;
 
+@Environment(EnvType.CLIENT)
 public class KeyInputHandler {
     private static final ConvertRooms cr = new ConvertRooms();
     public static final String KEY_CATEGORY = "mod.backrooms.name";

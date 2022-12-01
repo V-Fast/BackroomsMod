@@ -19,14 +19,12 @@ public class ModItems {
 
     public static final Item SILK = registerItem("silk",
             new Item(new FabricItemSettings().group(BackroomsItemsGroup.Main)));
-    public static final Item SILKEN_BOOK = registerItem("silken_book",
-            new SilkenBook(new FabricItemSettings().group(BackroomsItemsGroup.Main)));
     public static final Item ALMOND_WATER = registerItem("almond_water", new AlmondWater(
             new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(2*2).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0), 1F).build())));
     public static final Item COOKED_ALMOND_WATER = registerItem("cooked_almond_water", CookedAlmondWater(new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(4*2).saturationModifier(4f).build())));
     public static final Item TAPE = registerItem("tape", new Item(new FabricItemSettings().group(BackroomsItemsGroup.Main)));
-    public static final Item CAMERA = registerItem("camera", new CameraItem(
-            new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
+    public static final Item CAMERA = registerItem("camera",
+            new CameraItem(new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
 
     // tapes
     public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(7, ModSounds.HALLS, new FabricItemSettings(), 1));

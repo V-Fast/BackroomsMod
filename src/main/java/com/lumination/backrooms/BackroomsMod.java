@@ -14,8 +14,7 @@ public class BackroomsMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModRegisteries.registerMod();
-		print("Initialized Backrooms");
+		print("Initialized Main Backrooms");
 	}
 
 	public static void print(String s) {

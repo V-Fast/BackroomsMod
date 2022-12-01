@@ -3,6 +3,8 @@ package com.lumination.backrooms.client.settings;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.lumination.backrooms.BackroomsMod;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
 import org.jetbrains.annotations.Nullable;
 
@@ -12,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+@Environment(EnvType.CLIENT)
 public class BackroomsSettings {
     private static final Path CONFIG_FILE = FabricLoader.getInstance().getConfigDir().resolve(BackroomsMod.SETTINGS_NAME + ".json");
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();

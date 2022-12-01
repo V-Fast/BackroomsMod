@@ -25,6 +25,9 @@
     ],
     "client": [
       "com.lumination.backrooms.BackroomsModClient"
+    ],
+    "server": [
+      "com.lumination.backrooms.BackroomsModServer"
     ]
   },
   "mixins": [
