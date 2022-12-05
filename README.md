@@ -19,6 +19,9 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) 
 - [Fabric API](https://cdn.modrinth.com/data/P7dR8mSH/versions/0.58.5+1.19.1/fabric-api-0.58.5%2B1.19.1.jar)
 - [Cloth Config](https://cdn.modrinth.com/data/9s6osm5g/versions/8.0.75+fabric/cloth-config-8.0.75-fabric.jar)
 
+## Wondering what we are working on?
+We have just created a [devlog](https://github.com/u-lumaa/BackroomsMod/blob/main/DEVLOGS.md)! And we still have our [Trello Board](https://trello.com/b/gDUJ7vvz/the-backrooms-mod) to see it in real time.
+
 ## How do I do [something]?
 Check our [newest wiki](https://github.com/u-lumaa/BackroomsMod/wiki)!  
 We made it just for you that are asking question!
