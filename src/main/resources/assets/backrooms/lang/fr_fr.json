@@ -1,6 +1,10 @@
 {
   "mod.backrooms.name": "Les Backrooms",
 
+  "info.backrooms.update.title": "Une mise à jour est disponible !",
+  "info.backrooms.update.description": "Le mod Les Backrooms à reçu une mise à jour ! Vous utilisez actuellement la version %d et vous pouvez le mettre à jour en version %d. Vous devriez le mettre à jour maintenant !",
+  "info.backrooms.update.button": "Mettre à jour",
+
   "item.backrooms.silk": "Soie",
   "item.backrooms.silken_book": "Livre de Soie",
   "item.backrooms.almond_water": "Eau d'Amande",

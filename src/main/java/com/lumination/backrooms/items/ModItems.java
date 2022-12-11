@@ -4,7 +4,6 @@ import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.items.BackroomsTypeItem.Weapon;
 import com.lumination.backrooms.items.consumables.AlmondWater;
 import com.lumination.backrooms.items.interactables.CameraItem;
-import com.lumination.backrooms.items.interactables.SilkenBook;
 import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -24,10 +23,20 @@ public class ModItems {
             new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(2*2).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0), 1F).build())));
     public static final Item COOKED_ALMOND_WATER = registerItem("cooked_almond_water", CookedAlmondWater(new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(4*2).saturationModifier(4f).build())));
     public static final Item TAPE = registerItem("tape", new Item(new FabricItemSettings().group(BackroomsItemsGroup.Main)));
-    public static final Item CAMERA = registerItem("camera",
-            new CameraItem(new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
+    public static final Item CAMERA = registerItem("camera", new CameraItem(
+            new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
+    public static final Item ENERGY_BAR = registerItem("energy_bar", new Item(
+            new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(64).food(new FoodComponent.Builder().alwaysEdible().hunger(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())));
 
-    // tapes
+    // weapons
+    public static final Item WRENCH = registerItem("wrench", new Weapon(6.5f, 1.6f, 835));
+    public static final Item CROWBAR = registerItem("crowbar", new Weapon(8.0f, 1.6f, 2051));
+    public static final Item SHARPENED_KNIFE = registerItem("sharpened_knife", new Weapon(6.5f, 1.3f, 130));
+    public static final Item NAILED_BAT = registerItem("nailed_bat", new Weapon(7.0f, 1.8f, 515));
+    public static final Item BASEBALL_BAT = registerItem("baseball_bat", new Weapon(2.5f, 1.8f, 481));
+    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new Weapon(1.5f, 0.8f, 3));
+
+    // music tapes
     public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(7, ModSounds.HALLS, new FabricItemSettings(), 1));
     public static final Item GOVERNMENT_TAPE = registerItem("government_funding_tape", new MusicTape(15, ModSounds.GOVERNMENT_FUNDING, new FabricItemSettings(), 1));
     public static final Item COMPLEX_TAPE = registerItem("the_complex_tape", new MusicTape(13, ModSounds.COMPLEX, new FabricItemSettings(), 1));
