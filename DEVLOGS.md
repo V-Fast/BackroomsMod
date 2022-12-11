@@ -8,15 +8,4 @@ Every devlog will often be released **arround 9pm CET**.
 
 * * *
 
-# Devlog #1
-First devlog, wooo!  
-What have we been on working on? We've been trying to make the Bacteria work again, but we still fail relentlessly. We also updated the mod in 1.19.2 because of GeckoLib being inexistant in 1.19.1. But now the Tape Player lost his custom hitbox, and I don't know how to fix it lol.  
-We have **songs being made** just for our mod by Patate Givrée, it will be a music tape. We also thought of making a radio, when you right click on it, it scrolls through all the music tapes (without using tapes). It's been thought of and modeled, but it's unknown if it's really an idea to consider.  
-
-I sadly still have not found a way to generate the Level 0's labyrinth. I thought of something that may work, but it's an idea, and an hard-coded way
-*Side note: I'll add an image later this week-end*
-
-* * *
-
-# Devlog #2
-**2023**.
+*Devlog #1 on Wednesday, December 7th. Arround 9pm CET*
