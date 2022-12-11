@@ -1,10 +1,13 @@
 package com.lumination.backrooms.mixin;
 
+import com.lumaa.libu.Color;
+import com.lumaa.libu.LibuLib;
+import com.lumaa.libu.update.ModrinthMod;
+import com.lumaa.libu.update.UpdateChecker;
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.BackroomsModClient;
 import com.lumination.backrooms.client.Discord;
 import com.lumination.backrooms.client.screens.SettingsScreen;
-import com.lumination.backrooms.client.screens.UpdateScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -17,29 +20,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TitleScreen.class)
 public class TitleScreenMixin extends Screen {
-    private static boolean updatePopped = false;
 
     protected TitleScreenMixin(Text title) {
         super(title);
         BackroomsModClient.setStartDate();
+        LibuLib.addUpdate(new UpdateChecker(new ModrinthMod("The Backrooms", "backrooms", BackroomsModClient.versionId)));
     }
 
     @Inject(at = @At("HEAD"), method = "init()V")
     public void init(CallbackInfo ci) {
-        if (BackroomsModClient.latestVersion.get("version_number").toString().replace("\"", "").trim().equals(BackroomsModClient.versionId.trim()) && !updatePopped) {
-            if (BackroomsModClient.versionId == "Dev") {
-                updatePopped = true;
-            } else {
-                updatePopped = true;
-                this.client.setScreen(new UpdateScreen());
-            }
-        }
-
         BackroomsMod.changeName(Text.translatable("mod.backrooms.name").getString());
         Discord.setPresence("On the title screen", "", "async");
 
         int l = this.height / 4 + 48;
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, l + 48, 20, 20, Text.literal("A").formatted(Formatting.BLUE), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, l + 48, 20, 20, Text.literal("A").formatted(Formatting.byColorIndex(Color.Backrooms.blue)), (button) -> {
             this.client.setScreen(new SettingsScreen().getScreen(this));
         }));
     }

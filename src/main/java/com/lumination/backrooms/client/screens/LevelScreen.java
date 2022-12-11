@@ -1,17 +1,13 @@
 package com.lumination.backrooms.client.screens;
 
-import com.lumination.backrooms.items.ModItems;
+import com.lumaa.libu.Color;
 import com.lumination.backrooms.levels.Backroom;
-import com.lumination.backrooms.utils.Colors;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.font.MultilineText;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
-
-import javax.annotation.RegEx;
 
 @Environment(EnvType.CLIENT)
 public class LevelScreen extends Screen {
@@ -38,11 +34,11 @@ public class LevelScreen extends Screen {
         renderBackground(matrices);
         matrices.push();
         matrices.scale(2.0F, 2.0F, 2.0F);
-        drawCenteredText(matrices, this.textRenderer, this.level.getName(), this.width / 2 / 2, 30, Colors.white);
+        drawCenteredText(matrices, this.textRenderer, this.level.getName(), this.width / 2 / 2, 30, Color.white);
         matrices.pop();
 
         this.text = MultilineText.create(this.textRenderer, this.info, this.width / 2);
-        this.text.drawCenterWithShadow(matrices, this.width / 2, this.height / 2 + 30, 20, Colors.white);
+        this.text.drawCenterWithShadow(matrices, this.width / 2, this.height / 2 + 30, 20, Color.white);
     }
 
 

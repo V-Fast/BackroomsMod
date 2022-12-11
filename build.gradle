@@ -69,6 +69,10 @@ dependencies {
 
 	include 'com.github.Vatuu:discord-rpc:1.6.2'
 	include 'com.github.Vatuu:discord-rpc-binaries:3.4.0'
+
+	// LibuLib
+	modImplementation files("libs/libu-${project.libu_version}.jar")
+	include files("libs/libu-${project.libu_version}.jar")
 }
 
 processResources {

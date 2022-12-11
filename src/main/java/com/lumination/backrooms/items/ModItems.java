@@ -1,9 +1,11 @@
 package com.lumination.backrooms.items;
 
+import com.lumaa.libu.items.LibuWeapon;
+import com.lumaa.libu.items.LibuWeapon.LibuSword;
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.items.BackroomsTypeItem.Weapon;
 import com.lumination.backrooms.items.consumables.AlmondWater;
 import com.lumination.backrooms.items.interactables.CameraItem;
+import com.lumination.backrooms.mixin.BackroomsSword;
 import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -11,11 +13,12 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModItems {
-    //public static final Item TESTITEM = registerItem("test_item", new TestItem(new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(1)));
+    //public static final Item TESTITEM = registerItem("test_item", new LibuWeapon.LibuThrowable(1, true, new FabricItemSettings().group(ItemGroup.MISC)));
 
     public static final Item SILK = registerItem("silk",
             new Item(new FabricItemSettings().group(BackroomsItemsGroup.Main)));
@@ -29,12 +32,12 @@ public class ModItems {
             new FabricItemSettings().group(BackroomsItemsGroup.Main).maxCount(64).food(new FoodComponent.Builder().alwaysEdible().hunger(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())));
 
     // weapons
-    public static final Item WRENCH = registerItem("wrench", new Weapon(6.5f, 1.6f, 835));
-    public static final Item CROWBAR = registerItem("crowbar", new Weapon(8.0f, 1.6f, 2051));
-    public static final Item SHARPENED_KNIFE = registerItem("sharpened_knife", new Weapon(6.5f, 1.3f, 130));
-    public static final Item NAILED_BAT = registerItem("nailed_bat", new Weapon(7.0f, 1.8f, 515));
-    public static final Item BASEBALL_BAT = registerItem("baseball_bat", new Weapon(2.5f, 1.8f, 481));
-    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new Weapon(1.5f, 0.8f, 3));
+    public static final Item WRENCH = registerItem("wrench", new BackroomsSword(6.5f, 1.6f, 835));
+    public static final Item CROWBAR = registerItem("crowbar", new BackroomsSword(8.0f, 1.6f, 2051));
+    public static final Item SHARPENED_KNIFE = registerItem("sharpened_knife", new BackroomsSword(6.5f, 1.3f, 130));
+    public static final Item NAILED_BAT = registerItem("nailed_bat", new BackroomsSword(7.0f, 1.8f, 515));
+    public static final Item BASEBALL_BAT = registerItem("baseball_bat", new BackroomsSword(2.5f, 1.8f, 481));
+    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new BackroomsSword(1.5f, 0.8f, 3));
 
     // music tapes
     public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(7, ModSounds.HALLS, new FabricItemSettings(), 1));

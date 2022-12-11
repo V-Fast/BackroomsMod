@@ -55,18 +55,11 @@ public class CameraRecordHud implements HudRenderCallback {
         }
 
         this.registerHud();
-        this.renderOverlay(BackroomsSettings.canShowRecord() ? RECORD_HUD : VHS_HUD, 1f, width, height);
+        this.renderOverlay(BackroomsSettings.canShowRecord() ? RECORD_HUD : VHS_HUD, width, height);
     }
 
-    // minecraft code
-    // weird hud bug when opening another hud
-    private void renderOverlay(Identifier texture, float opacity, int width, int height) {
-        RenderSystem.disableDepthTest();
-        RenderSystem.depthMask(false);
-        RenderSystem.defaultBlendFunc();
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, opacity);
-        RenderSystem.setShaderTexture(0, texture);
+    private void renderOverlay(Identifier texture, int width, int height) {
+        this.renderImage(texture);
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferBuilder = tessellator.getBuffer();
         bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
@@ -75,9 +68,15 @@ public class CameraRecordHud implements HudRenderCallback {
         bufferBuilder.vertex(width, 0.0, -90.0).texture(1.0f, 0.0f).next();
         bufferBuilder.vertex(0.0, 0.0, -90.0).texture(0.0f, 0.0f).next();
         tessellator.draw();
-        RenderSystem.depthMask(true);
-        RenderSystem.enableDepthTest();
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 0.5f);
+    }
+
+    private void renderImage(Identifier texture) {
+        RenderSystem.disableDepthTest();
+        RenderSystem.depthMask(false);
+        RenderSystem.defaultBlendFunc();
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1f);
+        RenderSystem.setShaderTexture(0, texture);
     }
 
     public void registerHud() {

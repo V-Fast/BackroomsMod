@@ -70,16 +70,4 @@ public class SettingsScreen {
         styleBuilder(parent);
         return builder.build();
     }
-
-    /**
-     * Shows the screen directly, with no interruption
-     * @param parent
-     */
-    public void show(Screen parent) {
-        styleBuilder(parent);
-
-        // convert
-        this.screen = builder.build();
-        MinecraftClient.getInstance().setScreen(this.screen);
-    }
 }

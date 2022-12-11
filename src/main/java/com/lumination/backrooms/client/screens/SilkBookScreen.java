@@ -19,12 +19,13 @@ public class SilkBookScreen extends Screen {
     private Word word;
 
     public SilkBookScreen(Word word) {
-        super(Text.translatable("mod.backrooms.name"));
+        super(Text.translatable("item.backrooms.silken_book"));
         this.word = word;
     }
 
     @Override
-    public void init() {
+    protected void init() {
+        super.init();
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, 196, 200, 20, ScreenTexts.DONE, (button) -> {
             this.client.setScreen((Screen)null);
         }));
