@@ -17,7 +17,6 @@ public class ModItemsClient {
     // Register
 
     public static Item registerItem(String name, Item item) {
-
         return Registry.register(Registry.ITEM, new Identifier(BackroomsMod.MOD_ID, name), item);
     }
 
