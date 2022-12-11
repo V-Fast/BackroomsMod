@@ -22,6 +22,7 @@ public class BackroomsSettings {
 
     private boolean showRecord = true;
     private boolean explainErrors = false;
+    private String discordLabel = "By Lumaa";
 
     private static BackroomsSettings getInstance() {
         if (INSTANCE == null) {
@@ -83,5 +84,13 @@ public class BackroomsSettings {
 
     public static final void setExplainError(boolean bool) {
         getInstance().explainErrors = bool;
+    }
+
+    public static final String discordLabel() {
+        return getInstance().discordLabel;
+    }
+
+    public static final void setDiscordLabel(String label) {
+        getInstance().discordLabel = label;
     }
 }

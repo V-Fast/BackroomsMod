@@ -10,7 +10,10 @@ public class BackroomsItemsGroup {
     public static final ItemGroup Main = FabricItemGroupBuilder.build(
             new Identifier(BackroomsMod.MOD_ID, "backrooms"),
             () -> new ItemStack((ModItems.SILK)));
-    public static final ItemGroup Tapes = FabricItemGroupBuilder.build(
-            new Identifier(BackroomsMod.MOD_ID, "tapes"),
+    public static final ItemGroup Weapons = FabricItemGroupBuilder.build(
+            new Identifier(BackroomsMod.MOD_ID, "weapons"),
+            () -> new ItemStack((ModItems.NAILED_BAT)));
+    public static final ItemGroup MusicTapes = FabricItemGroupBuilder.build(
+            new Identifier(BackroomsMod.MOD_ID, "music_tapes"),
             () -> new ItemStack((ModItems.TAPE)));
 }

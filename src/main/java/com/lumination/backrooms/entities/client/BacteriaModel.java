@@ -27,10 +27,9 @@ public class BacteriaModel extends AnimatedGeoModel<BacteriaEntity> {
         return new Identifier(BackroomsMod.MOD_ID, "animations/entity_backrooms.animation.json");
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public void setLivingAnimations(BacteriaEntity entity, Integer uniqueID, AnimationEvent customPredicate) {
-        super.setLivingAnimations(entity, uniqueID, customPredicate);
+    public void setLivingAnimations(BacteriaEntity animatable, Integer instanceId, AnimationEvent customPredicate) {
+        super.setLivingAnimations(animatable, instanceId, customPredicate);
         IBone head = this.getAnimationProcessor().getBone("head");
 
         EntityModelData extraData = (EntityModelData) customPredicate.getExtraDataOfType(EntityModelData.class).get(0);

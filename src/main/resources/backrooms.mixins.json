@@ -7,7 +7,9 @@
   ],
   "client": [
     "TitleScreenMixin",
-    "LevelPropertiesMixin"
+    "LevelPropertiesMixin",
+    "ConnectScreenMixin",
+    "WorldListWidgetMixin"
   ],
   "injectors": {
     "defaultRequire": 1

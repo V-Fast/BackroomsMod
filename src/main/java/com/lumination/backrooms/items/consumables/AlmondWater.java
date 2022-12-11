@@ -1,4 +1,4 @@
-package com.lumination.backrooms.items.drinks;
+package com.lumination.backrooms.items.consumables;
 
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;

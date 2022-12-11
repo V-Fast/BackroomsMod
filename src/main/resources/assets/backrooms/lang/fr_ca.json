@@ -1,6 +1,10 @@
 {
   "mod.backrooms.name": "Les Backrooms",
 
+  "info.backrooms.update.title": "Une mise à jour est disponible !",
+  "info.backrooms.update.description": "Le mod Les Backrooms à reçu une mise à jour ! Vous utilisez actuellement la version %d et vous pouvez le mettre à jour en version %d. Vous devriez le mettre à jour maintenant !",
+  "info.backrooms.update.button": "Mettre à jour",
+
   "item.backrooms.silk": "Soie",
   "item.backrooms.silken_book": "Livre de Soie",
   "item.backrooms.almond_water": "Eau d'Amande",
@@ -8,6 +12,13 @@
   "item.backrooms.entity_spawn_egg": "Oeuf d'apparition de l'entité",
   "item.backrooms.camera": "Caméra",
   "item.backrooms.tape": "Cassette",
+  "item.backrooms.energy_bar": "Barre énergétique",
+  "item.backrooms.wrench": "Clé à Molette",
+  "item.backrooms.crowbar": "Pied de Biche",
+  "item.backrooms.sharpened_knife": "Couteau Aiguisé",
+  "item.backrooms.nailed_bat": "Batte clouée",
+  "item.backrooms.baseball_bat": "Batte de Baseball",
+  "item.backrooms.broken_bottle": "Bouteille Brisée",
 
   "item.backrooms.halls_tape": "Cassette Musicale",
   "item.backrooms.the_complex_tape": "Cassette Musicale",
@@ -16,6 +27,23 @@
   "item.backrooms.warm_nights_tape": "Cassette Musicale",
   "item.backrooms.title_screen_tape": "Cassette Musicale",
   "item.backrooms.snow_world_tape": "Cassette Musicale",
+  "item.backrooms.auditory_guidepost_tape": "Cassette Musicale",
+  "item.backrooms.not_your_decision_tape": "Cassette Musicale",
+  "item.backrooms.sealed_away_tape": "Cassette Musicale",
+  "item.backrooms.white_cliffs_of_dover_tape": "Cassette Musicale",
+  "item.backrooms.thalassophobia_tape": "Cassette Musicale",
+  "item.backrooms.we_dont_have_many_days_tape": "Cassette Musicale",
+  "item.backrooms.does_it_matter_how_my_heart_breaks_tape": "Cassette Musicale",
+  "item.backrooms.duet_tape": "Cassette Musicale",
+  "item.backrooms.empty_bliss_beyond_this_world_tape": "Cassette Musicale",
+  "item.backrooms.glimpses_of_hope_in_trying_times_tape": "Cassette Musicale",
+  "item.backrooms.gross_tape": "Cassette Musicale",
+  "item.backrooms.its_just_a_burning_memory_tape": "Cassette Musicale",
+  "item.backrooms.late_afternoon_drifting_tape": "Cassette Musicale",
+  "item.backrooms.place_in_the_world_fades_away_tape": "Cassette Musicale",
+  "item.backrooms.the_violin_tape": "Cassette Musicale",
+  "item.backrooms.ahiru_no_sentaku_tape": "Cassette Musicale",
+  "item.backrooms.no_surprises_tape": "Cassette Musicale",
 
   "item.backrooms.halls_tape.desc": "H a L L S - CG5",
   "item.backrooms.the_complex_tape.desc": "The Complex - Kane Pixels",
@@ -24,9 +52,27 @@
   "item.backrooms.warm_nights_tape.desc": "Warm Nights - Xori",
   "item.backrooms.title_screen_tape.desc": "Title Screen - Yume Nikki (OST)",
   "item.backrooms.snow_world_tape.desc": "Snow World - Yume Nikki (OST)",
+  "item.backrooms.auditory_guidepost_tape.desc": "Auditory Guidepost - Kane Pixels",
+  "item.backrooms.not_your_decision_tape.desc": "Not Your Decision - Kane Pixels",
+  "item.backrooms.sealed_away_tape.desc": "Sealed Away - Kane Pixels",
+  "item.backrooms.white_cliffs_of_dover_tape.desc": "The White Cliffs of Dover - Vera Lynn",
+  "item.backrooms.thalassophobia_tape.desc": "Thalassophobia - Omori (OST)",
+  "item.backrooms.we_dont_have_many_days_tape.desc": "We don't have many days - The Caretaker",
+  "item.backrooms.does_it_matter_how_my_heart_breaks_tape.desc": "How does it matter how my heart breaks - The Caretaker",
+  "item.backrooms.duet_tape.desc": "Duet - Omori (OST)",
+  "item.backrooms.empty_bliss_beyond_this_world_tape.desc": "An empty bliss beyond this world - The Caretaker",
+  "item.backrooms.glimpses_of_hope_in_trying_times_tape.desc": "Glimpses of hope in trying times - The Caretaker",
+  "item.backrooms.gross_tape.desc": "Gross... - Omori (OST)",
+  "item.backrooms.its_just_a_burning_memory_tape.desc": "it's just a burning memory - The Caretaker",
+  "item.backrooms.late_afternoon_drifting_tape.desc": "Late afternoon drifting - The Caretaker",
+  "item.backrooms.place_in_the_world_fades_away_tape.desc": "Place in the world fades away - The Caretaker",
+  "item.backrooms.the_violin_tape.desc": "The Violin - Omori (OST)",
+  "item.backrooms.ahiru_no_sentaku_tape.desc": "あひるのせんたく - 佐々川浩子 (Hiroko Sasakawa)",
+  "item.backrooms.no_surprises_tape.desc": "No Surprises - Radiohead",
 
   "itemGroup.backrooms.backrooms": "Les Backrooms",
-  "itemGroup.backrooms.tapes": "Cassettes musicales",
+  "itemGroup.backrooms.music_tapes": "Cassettes musicales",
+  "itemGroup.backrooms.weapons": "Armes",
 
   "block.backrooms.moist_silk": "Soie Humide",
   "block.backrooms.moist_silk_planks": "Planches de Soie Humides",
@@ -39,6 +85,10 @@
   "option.backrooms.disable_record.tooltip": "Cache le mot \"Record\" dans l'HUD de la caméra",
   "option.backrooms.explain_errors": "Expliquer les erreurs (anglais seulement)",
   "option.backrooms.explain_errors.tooltip": "Lorsque le mod n'arrive pas à faire une action que vous vouliez,\nIl expliquera pourquoi le bug arrive, et comment le régler.",
+  "option.backrooms.discord_label": "Texte Discord Rich Presence",
+  "option.backrooms.discord_label.tooltip": "Écrivez ce que vous voulez sur votre statut Discord",
+  "option.backrooms.sounds": "Sons Backrooms",
+  "option.backrooms.sounds.title_end": "Paramètre audio",
 
   "subtitle.backrooms.light_buzzing": "Lumière qui bourdonne",
   "subtitle.backrooms.camera_click": "Clique de Caméra",
@@ -46,7 +96,5 @@
   "key.backrooms.level_info": "Information du Level",
 
   "levels.backrooms.overworld.details": "Le monde normal, l'endroit où tout commence.\nQuelques mobs apparaissent la nuit pour vous tuer, même si il y a plusieurs mobs passifs pour vous rapporter de la nourriture.",
-  "levels.backrooms.level_0.details": "Vous vous demandez où vous êtes ? Bah si vous savez, vous savez.\nEssayez de ne pas mourrir de faim, de soif, ou juste mourrir.\nBonne chance.",
-
-  "modmenu.contract": "Contrat"
+  "levels.backrooms.level_0.details": "Vous vous demandez où vous êtes ? Bah si vous savez, vous savez.\nEssayez de ne pas mourrir de faim, de soif, ou juste mourrir.\nBonne chance."
 }

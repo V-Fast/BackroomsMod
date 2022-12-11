@@ -51,6 +51,16 @@ public class SettingsScreen {
                 })
                 .build());
 
+        // custom discord rpc label
+        general.addEntry(entryBuilder.startStrField(Text.translatable("option.backrooms.discord_label"), BackroomsSettings.discordLabel())
+                .setDefaultValue("By Lumaa")
+                .setTooltip(Text.translatable("option.backrooms.discord_label.tooltip"))
+                .setSaveConsumer(newValue -> {
+                    BackroomsSettings.setDiscordLabel(newValue);
+
+                })
+                .build());
+
         if (parent != null) {
             builder.setParentScreen(parent);
         }

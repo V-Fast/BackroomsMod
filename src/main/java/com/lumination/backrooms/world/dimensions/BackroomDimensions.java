@@ -34,7 +34,7 @@ public class BackroomDimensions {
                 .destDimID(dimensionKey.getValue())
                 .frameBlock(frame)
                 .lightWithItem(lighter)
-                .tintColor(56, 48, 71)
+                .tintColor(195, 180, 10)
                 .onlyLightInOverworld()
                 .registerPortal();
     }
