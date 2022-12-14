@@ -18,6 +18,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.minecraft.text.Text;
 
 import java.util.Date;
 
@@ -32,14 +33,9 @@ public class BackroomsModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        BackroomsSettings.loadConfig();
-        KeyInputHandler.register();
-        setStartDate();
-        Discord.initDiscord();
-        BackroomsRPC.loadingRpc();
         ModRegisteries.registerMod(true);
 
-        HudRenderCallback.EVENT.register(camHud);
+        BackroomsMod.print("Initialized Client Backrooms");
     }
 
     public static void setStartDate() {

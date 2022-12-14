@@ -24,7 +24,6 @@ public class TitleScreenMixin extends Screen {
     protected TitleScreenMixin(Text title) {
         super(title);
         BackroomsModClient.setStartDate();
-        LibuLib.addUpdate(new UpdateChecker(new ModrinthMod("The Backrooms", "backrooms", BackroomsModClient.versionId)));
     }
 
     @Inject(at = @At("HEAD"), method = "init()V")
