@@ -27,7 +27,7 @@ bin/
 run/
 
 # local libraries
-libs/
+libs/*.jar
 
 # paint.net
 *.pdn
