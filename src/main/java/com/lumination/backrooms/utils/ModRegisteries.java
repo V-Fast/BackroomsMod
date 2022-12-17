@@ -3,6 +3,7 @@ package com.lumination.backrooms.utils;
 import com.lumaa.libu.LibuLib;
 import com.lumaa.libu.update.ModrinthMod;
 import com.lumaa.libu.update.UpdateChecker;
+import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.BackroomsModClient;
 import com.lumination.backrooms.blocks.ModBlocks;
 import com.lumination.backrooms.blocks.entity.ModBlockEntities;
@@ -18,6 +19,8 @@ import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.world.dimensions.BackroomDimensions;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.text.Text;
+
+import java.util.List;
 
 public class ModRegisteries {
     private static final boolean serverEntity = false;
@@ -38,7 +41,12 @@ public class ModRegisteries {
             Discord.initDiscord();
             BackroomsRPC.loadingRpc();
             HudRenderCallback.EVENT.register(BackroomsModClient.camHud);
-            LibuLib.addUpdate(new UpdateChecker(new ModrinthMod(Text.translatable("mod.backrooms.name").toString(), "backrooms", BackroomsModClient.versionId)));
+
+            // TODO: WHY WONT IT WORK
+            if (LibuLib.getUpdates() instanceof List<UpdateChecker>) {
+                LibuLib.addUpdate(new UpdateChecker(new ModrinthMod(Text.translatable("mod.backrooms.name").toString(), "backrooms", BackroomsModClient.versionId)));
+                LibuLib.logger.info(LibuLib.getUpdates().toString());
+            }
         } else {
             ModBlocks.registerModBlock();
             ModBlockEntities.registerBlockEntities();
@@ -49,8 +57,6 @@ public class ModRegisteries {
             // server only
             ModItemsServer.registerModItems();
         }
-
-
 
         if (serverEntity) {
             ModEntities.registerMobs();
