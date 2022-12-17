@@ -38,7 +38,7 @@ public class BacteriaEntity extends HostileEntity implements IAnimatable {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.6f);
     }
 
-    // TODO: Fix this
+    // TODO: Passive Entity?
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.6f, false));
