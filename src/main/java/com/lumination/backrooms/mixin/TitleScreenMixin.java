@@ -1,13 +1,10 @@
 package com.lumination.backrooms.mixin;
 
-import com.lumaa.libu.Color;
-import com.lumaa.libu.LibuLib;
-import com.lumaa.libu.update.ModrinthMod;
-import com.lumaa.libu.update.UpdateChecker;
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.BackroomsModClient;
 import com.lumination.backrooms.client.Discord;
 import com.lumination.backrooms.client.screens.SettingsScreen;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -32,7 +29,7 @@ public class TitleScreenMixin extends Screen {
         Discord.setPresence("On the title screen", "", "async");
 
         int l = this.height / 4 + 48;
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, l + 48, 20, 20, Text.literal("A").formatted(Formatting.byColorIndex(Color.Backrooms.blue)), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, l + 48, 20, 20, Text.literal("A").formatted(Formatting.BLUE), (button) -> {
             this.client.setScreen(new SettingsScreen().getScreen(this));
         }));
     }
