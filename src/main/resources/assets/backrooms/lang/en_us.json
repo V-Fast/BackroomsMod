@@ -1,10 +1,6 @@
 {
   "mod.backrooms.name": "The Backrooms",
 
-  "info.backrooms.update.title": "An update is available!",
-  "info.backrooms.update.description": "The Backrooms Mod got an update! You are currently using version %d and you can update it to %d. You should update the mod now!",
-  "info.backrooms.update.button": "Update",
-
   "item.backrooms.silk": "Silk",
   "item.backrooms.silken_book": "Silken Book",
   "item.backrooms.almond_water": "Almond Water",
