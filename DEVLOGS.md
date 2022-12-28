@@ -5,6 +5,15 @@ This file contains devlogs. Some features shown in them may arrive a few months 
 
 * * *
 
+# Devlog #3 - 28/12/2022
+Hey hey.  
+Quick devlog here to talk about the radio block we talked about in the [first Devlog](#devlog-1---08122022). So now, it's a total solid idea and it will be added in. AND (very important), we were allowed to use any music made by [Good Kid](https://youtube.com/@GoodKidband)! They've allowed us to use any of their musics in our mod for some credit.  
+You maybe don't know who they are so you maybe can check them out!
+
+Also while I'm at it, we have a big issue with LibuLib and will (definitely) not release for Alpha A0.0.5. Stay tuned for it though it's coming really soon <3
+
+* * *
+
 # Devlog #2 - 18/12/2022
 Hello again!
 This devlog is kind of unexpected for me since I said that this devlog was supposed to release in 2023, but if you haven't seen it, we shown in [REPOS.txt](https://github.com/u-lumaa/BackroomsMod/blob/main/libs/REPOS.txt) my newest creation. **LibuLib**. It is, for now, my personal Minecraft library (I'll see in the future if I ever open source **LibuLib**). Why did I do this? Well first, I made it to not repeat code in projects, here's an example: [Your Name Your Death's Colors.java](https://github.com/u-lumaa/your-name-your-death/blob/main/src/main/java/com/lumaa/ynyd/utils/Colors.java) and [The Backrooms Mod's Colors.java](https://github.com/u-lumaa/BackroomsMod/blob/541ef3e3764cf9249e5c9d495d78751edb26aec2/src/main/java/com/lumination/backrooms/utils/Colors.java) are the 2 same files.  
