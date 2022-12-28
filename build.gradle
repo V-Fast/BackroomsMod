@@ -11,9 +11,9 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+	mavenCentral()
 	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 	maven { url "https://maven.shedaniel.me/" }
-	maven { url 'https://jitpack.io' }
 	maven {
 		name = 'ladysnake mods'
 		url = 'https://ladysnake.jfrog.io/artifactory/mods'
@@ -23,11 +23,25 @@ repositories {
 		}
 	}
 	maven { url = "https://maven.kyrptonaught.dev" }
-
 	maven {
 		url 'https://api.modrinth.com/maven'
 		content {
 			includeGroup "maven.modrinth"
+		}
+	}
+
+	maven {
+		url "https://jitpack.io"
+		credentials { username authToken }
+	}
+}
+
+allprojects {
+	repositories {
+		mavenCentral()
+		maven {
+			url "https://jitpack.io"
+			credentials { username authToken }
 		}
 	}
 }
@@ -41,8 +55,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// LibuLib
-	modImplementation files("libs/libu-${project.libu_version}.jar")
-	include files("libs/libu-${project.libu_version}.jar")
+	implementation 'com.github.u-lumaa:LibuLib:dev-c'
 
 	// Satin
 	modImplementation "io.github.ladysnake:satin:${satin_version}"
