@@ -32,7 +32,6 @@ repositories {
 
 	maven {
 		url "https://jitpack.io"
-		credentials { username authToken }
 	}
 }
 
@@ -41,7 +40,6 @@ allprojects {
 		mavenCentral()
 		maven {
 			url "https://jitpack.io"
-			credentials { username authToken }
 		}
 	}
 }
@@ -55,7 +53,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// LibuLib
-	implementation 'com.github.u-lumaa:LibuLib:dev-c'
+	modImplementation "com.github.u-lumaa:LibuLib:${libu_version}"
 
 	// Satin
 	modImplementation "io.github.ladysnake:satin:${satin_version}"
