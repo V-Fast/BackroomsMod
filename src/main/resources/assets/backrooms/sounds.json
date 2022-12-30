@@ -202,5 +202,45 @@
         "stream": true
       }
     ]
+  },
+  "tell_me_you_know": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/tell_me_you_know",
+        "stream": true
+      }
+    ]
+  },
+  "drifting": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/drifting",
+        "stream": true
+      }
+    ]
+  },
+  "no_time_to_explain": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/no_time_to_explain",
+        "stream": true
+      }
+    ]
+  },
+  "slingshot": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/slingshot",
+        "stream": true
+      }
+    ]
+  },
+  "orbit": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/orbit",
+        "stream": true
+      }
+    ]
   }
 }
