@@ -40,6 +40,11 @@
   "item.backrooms.the_violin_tape": "Music Tape",
   "item.backrooms.ahiru_no_sentaku_tape": "Music Tape",
   "item.backrooms.no_surprises_tape": "Music Tape",
+  "item.backrooms.no_time_to_explain_tape": "Music Tape",
+  "item.backrooms.orbit_tape": "Music Tape",
+  "item.backrooms.tell_me_you_know_tape": "Music Tape",
+  "item.backrooms.drifting_tape": "Music Tape",
+  "item.backrooms.slingshot_tape": "Music Tape",
 
   "item.backrooms.halls_tape.desc": "H a L L S - CG5",
   "item.backrooms.the_complex_tape.desc": "The Complex - Kane Pixels",
@@ -65,6 +70,11 @@
   "item.backrooms.the_violin_tape.desc": "The Violin - Omori (OST)",
   "item.backrooms.ahiru_no_sentaku_tape.desc": "あひるのせんたく - 佐々川浩子 (Hiroko Sasakawa)",
   "item.backrooms.no_surprises_tape.desc": "No Surprises - Radiohead",
+  "item.backrooms.no_time_to_explain_tape.desc": "No Time to Explain - Good Kid",
+  "item.backrooms.orbit_tape.desc": "Orbit - Good Kid",
+  "item.backrooms.tell_me_you_know_tape.desc": "Tell Me You Know - Good Kid",
+  "item.backrooms.drifting_tape.desc": "Drifting - Good Kid",
+  "item.backrooms.slingshot_tape.desc": "Slingshot - Good Kid",
 
   "itemGroup.backrooms.backrooms": "The Backrooms",
   "itemGroup.backrooms.music_tapes": "Music Tapes",
