@@ -13,20 +13,18 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.*;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Hand;
+import net.minecraft.text.Text;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldEvents;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,7 +37,8 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(RECORD, 0));
     }
 
-    private static VoxelShape SHAPE = Block.createCuboidShape(6, 0, 1.5d, 12, 8, 4);
+    //TODO: Fix shape
+    private static VoxelShape SHAPE = Block.createCuboidShape(2, 0, 4, 12, 8, 6.5d);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -110,6 +109,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
             world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));
             world.setBlockState(pos, state, 2);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
+            world.getPlayers().forEach(player1 -> player1.sendMessage(Text.literal(""), true));
             return ActionResult.success(world.isClient);
         } else {
             this.switchRecord(state, world, pos, player, hand, hit);
@@ -120,15 +120,22 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
     public void switchRecord(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
+            RadioRecord record = null;
             if (blockEntity instanceof RadioEntity) {
                 RadioEntity radioEntity = (RadioEntity) blockEntity;
-                radioEntity.setRecord(smartClamp(radioEntity.getRecordId() + 1, 1, BackroomsMod.getRecords().size()));
+                radioEntity.setRecord(scroll(radioEntity.getRecordId() + 1, 1, BackroomsMod.getRecords().size() - 1));
                 radioEntity.startPlaying();
                 world.setBlockState(pos, (BlockState)state.with(RECORD, radioEntity.getRecordId()), 2);
                 world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
+
+                record = BackroomsMod.getRecords().get(radioEntity.getRecordId());
             }
 
-            world.syncWorldEvent(null, WorldEvents.MUSIC_DISC_PLAYED, pos, 1);
+            //world.syncWorldEvent(null, WorldEvents.MUSIC_DISC_PLAYED, pos, 1);
+            RadioRecord finalRecord = record;
+            world.playSound(pos.getX(), pos.getY(), pos.getZ(), record.sound, SoundCategory.RECORDS, 3f, 1f, false);
+            world.getPlayers().forEach(player1 -> player1.sendMessage(Text.translatable("record.nowPlaying", Text.translatable(finalRecord.name).getString()).formatted(Formatting.YELLOW), true));
+
             if (player != null) {
                 player.incrementStat(Stats.PLAY_RECORD);
             }
@@ -145,7 +152,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
         }
     }
 
-    private static int smartClamp(int value, int min, int max) {
+    private static int scroll(int value, int min, int max) {
         if (value > max || value < min) {
             if (value > max) {
                 value = min;
