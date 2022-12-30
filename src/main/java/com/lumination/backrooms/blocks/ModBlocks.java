@@ -2,6 +2,7 @@ package com.lumination.backrooms.blocks;
 
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.blocks.interactable.FluorescentLight;
+import com.lumination.backrooms.blocks.interactable.Radio;
 import com.lumination.backrooms.blocks.interactable.TapePlayer;
 import com.lumination.backrooms.items.BackroomsItemsGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -35,6 +36,8 @@ public class ModBlocks {
             new FluorescentLight(FabricBlockSettings.of(Material.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(13)), BackroomsItemsGroup.Main);
     public static final Block TAPE_PLAYER = registerBlock("tape_player",
             new TapePlayer(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.Main);
+    public static final Block RADIO = registerBlock("radio",
+            new Radio(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.Main);
 
     // Register
 

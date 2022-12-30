@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "backrooms:tape_player"
+    "backrooms:tape_player",
+    "backrooms:radio"
   ]
 }
