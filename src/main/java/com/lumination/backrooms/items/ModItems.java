@@ -61,6 +61,11 @@ public class ModItems {
     public static final Item WORLD_FADES_AWAY_TAPE = registerItem("place_in_the_world_fades_away_tape", new MusicTape(9, ModSounds.WORLD_FADES_AWAY, new FabricItemSettings(), 1));
     public static final Item AHIRU_NO_SENTAKU_TAPE = registerItem("ahiru_no_sentaku_tape", new MusicTape(2, ModSounds.AHIRU_NO_SENTAKU, new FabricItemSettings(), 1));
     public static final Item NO_SURPRISES_TAPE = registerItem("no_surprises_tape", new MusicTape(2, ModSounds.NO_SURPRISES, new FabricItemSettings(), 1));
+    public static final Item ORBIT_TAPE = registerItem("orbit_tape", new MusicTape(14, ModSounds.ORBIT, new FabricItemSettings(), 1));
+    public static final Item SLINGSHOT_TAPE = registerItem("slingshot_tape", new MusicTape(13, ModSounds.SLINGSHOT, new FabricItemSettings(), 1));
+    public static final Item NO_TIME_TO_EXPLAIN_TAPE = registerItem("no_time_to_explain_tape", new MusicTape(15, ModSounds.NO_TIME_TO_EXPLAIN, new FabricItemSettings(), 1));
+    public static final Item DRIFTING_TAPE = registerItem("drifting_tape", new MusicTape(8, ModSounds.DRIFTING, new FabricItemSettings(), 1));
+    public static final Item TELL_ME_YOU_KNOW_TAPE = registerItem("tell_me_you_know_tape", new MusicTape(2, ModSounds.TELL_ME_YOU_KNOW, new FabricItemSettings(), 1));
 
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);
