@@ -35,6 +35,13 @@ public class ModSounds {
     public static SoundEvent AHIRU_NO_SENTAKU = registerSoundEvent("ahiru_no_sentaku");
     public static SoundEvent NO_SURPRISES = registerSoundEvent("no_surprises");
 
+    // Radio
+    public static SoundEvent SLINGSHOT = registerSoundEvent("slingshot");
+    public static SoundEvent ORBIT = registerSoundEvent("orbit");
+    public static SoundEvent DRIFTING = registerSoundEvent("drifting");
+    public static SoundEvent TELL_ME_YOU_KNOW = registerSoundEvent("tell_me_you_know");
+    public static SoundEvent NO_TIME_TO_EXPLAIN = registerSoundEvent("no_time_to_explain");
+
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(BackroomsMod.MOD_ID, name);
         return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));
