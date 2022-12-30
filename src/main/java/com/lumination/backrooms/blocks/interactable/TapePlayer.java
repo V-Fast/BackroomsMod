@@ -135,14 +135,10 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
                 if (!itemStack.isEmpty()) {
                     world.syncWorldEvent(1010, pos, 0);
                     if (player != null) {
-                        if (!isEmpty(player.getInventory())) {
-                            int freeSlot = player.getStackInHand(player.getActiveHand()).isEmpty() ? player.getInventory().selectedSlot : player.getInventory().getEmptySlot();
-                            tapePlayerEntity.clear();
-                            ItemStack itemStack2 = itemStack.copy();
-                            player.getInventory().setStack(freeSlot, itemStack2);
-                        } else {
-                            throwItem(tapePlayerEntity, world, itemStack, pos);
-                        }
+                        int freeSlot = player.getStackInHand(player.getActiveHand()).isEmpty() ? player.getInventory().selectedSlot : player.getInventory().getEmptySlot();
+                        tapePlayerEntity.clear();
+                        ItemStack itemStack2 = itemStack.copy();
+                        player.getInventory().setStack(freeSlot, itemStack2);
                     } else {
                         throwItem(tapePlayerEntity, world, itemStack, pos);
                     }
