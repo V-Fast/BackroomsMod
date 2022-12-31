@@ -1,6 +1,7 @@
 package com.lumination.backrooms.entities.mod;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -14,15 +15,17 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.PlayState;
+import software.bernie.geckolib.core.builder.AnimationBuilder;
+import software.bernie.geckolib.core.controller.AnimationController;
+import software.bernie.geckolib.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib.core.manager.AnimationData;
+import software.bernie.geckolib.core.manager.AnimationFactory;
+import software.bernie.geckolib.core.object.PlayState;
 
 // the backroom black blob
+// TODO: Update from GeckoLib 3.x to 4.x
 public class BacteriaEntity extends HostileEntity implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
 
@@ -49,8 +52,8 @@ public class BacteriaEntity extends HostileEntity implements IAnimatable {
         this.targetSelector.add(3, new ActiveTargetGoal(this, PlayerEntity.class, true));
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
+    private PlayState predicate(AnimationState event) {
+        if (event.isRunning()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.entity.walk", true));
             return PlayState.CONTINUE;
         }
