@@ -33,6 +33,7 @@ libs/*.jar
 *.pdn
 
 # disabled files
+*.disable
 *.disabled
 *.zip
 *.bbmodel
