@@ -63,10 +63,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Geckolib 3 (wrong version)
-	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19:3.1.6'
-
-	// LimLib (Liminal Library) DOESNT WORK MO MORE
-	// implementation 'com.github.LudoCrypt:Liminal-Library:6.3.1'
+	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19.3:4.0.3'
 
 	// Cloth Config API
 	modApi("me.shedaniel.cloth:cloth-config-fabric:8.0.75") {
@@ -74,8 +71,8 @@ dependencies {
 	}
 
 	// Custom Portal API
-	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta54-1.19'
-	include 'net.kyrptonaught:customportalapi:0.0.1-beta54-1.19'
+	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta59-1.19'
+	include 'net.kyrptonaught:customportalapi:0.0.1-beta59-1.19'
 
 	// Discord Rich Presence
 	include 'com.google.guava:guava:31.1-jre'

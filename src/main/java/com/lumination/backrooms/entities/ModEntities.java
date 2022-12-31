@@ -9,11 +9,12 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class ModEntities {
-    public static final EntityType<BacteriaEntity> BACTERIA = Registry.register(Registry.ENTITY_TYPE, new Identifier(BackroomsMod.MOD_ID, "bacteria"),
+    public static final EntityType<BacteriaEntity> BACTERIA = Registry.register(Registries.ENTITY_TYPE, new Identifier(BackroomsMod.MOD_ID, "bacteria"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BacteriaEntity::new).dimensions(EntityDimensions.fixed(1.4f, 2.7f)).build());
 
     public static void registerMobs(boolean withAttributes) {

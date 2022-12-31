@@ -26,9 +26,11 @@ public class SilkBookScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, 196, 200, 20, ScreenTexts.DONE, (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, (button) -> {
             this.client.setScreen((Screen)null);
-        }));
+        })
+                .dimensions(this.width / 2 - 100, 196, 200, 20)
+                .build());
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
@@ -47,7 +49,7 @@ public class SilkBookScreen extends Screen {
         RenderSystem.disableDepthTest();
         RenderSystem.depthMask(false);
         RenderSystem.defaultBlendFunc();
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1f);
         RenderSystem.setShaderTexture(0, texture);
     }

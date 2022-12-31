@@ -32,7 +32,7 @@ public class SilkenBook extends Item {
         if (!world.isClient) {
             if (!itemStack.hasNbt()) {
                 Random r = new Random();
-                int x = r.nextInt(Word.values().length);
+                int x = r.nextInt(Word.values().length - 1);
                 word = Word.getWordByCode(x);
 
                 // prevent crash
