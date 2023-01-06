@@ -10,8 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 
 public class BackroomDimensions {
-
-
     public static void registerDims() {
         level(new Identifier(BackroomsMod.MOD_ID, "level_0"), Blocks.IRON_BLOCK, ModItems.SILK);
         BackroomsMod.print("Registered custom dimensions and portals");
