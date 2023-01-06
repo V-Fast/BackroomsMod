@@ -6,7 +6,11 @@
 
 <sup>Handmade builds, by PatateGivree</sup>
 
-<img align="center" src="https://raw.githubusercontent.com/u-lumaa/u-lumaa/main/assets/fabric-banner.png" width=600>
+<img src="https://raw.githubusercontent.com/u-lumaa/u-lumaa/main/assets/fabric-banner.png" width=600>
+
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/backrooms?label=Modrinth&logo=modrinth)
+![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/backrooms?label=Minecraft%20Version)
+
 </div></center>
 
 * * *
