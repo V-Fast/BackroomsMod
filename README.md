@@ -8,11 +8,11 @@
 
 <img src="https://raw.githubusercontent.com/u-lumaa/u-lumaa/main/assets/fabric-banner.png" width=600>
 
-![Modrinth Downloads](https://img.shields.io/modrinth/dt/backrooms?label=Modrinth&logo=modrinth)
-![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/backrooms?label=Minecraft%20Version)
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/backrooms?label=Modrinth&logo=modrinth)](https://modrinth.com/mod/backrooms)
+[![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/backrooms?label=Minecraft%20Version)](https://modrinth.com/mod/backrooms)
 
 <!-- Temporary Badge, since we haven't released a version in a while -->
-![GitHub commits since tagged version](https://img.shields.io/github/commits-since/u-lumaa/BackroomsMod/latest)
+[![GitHub commits since tagged version](https://img.shields.io/github/commits-since/u-lumaa/BackroomsMod/latest)](https://github.com/u-lumaa/BackroomsMod/compare/alpha-v0.0.4a...main)
 
 </div></center>
 
