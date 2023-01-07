@@ -11,6 +11,9 @@
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/backrooms?label=Modrinth&logo=modrinth)
 ![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/backrooms?label=Minecraft%20Version)
 
+<!-- Temporary Badge, since we haven't released a version in a while -->
+![GitHub commits since tagged version](https://img.shields.io/github/commits-since/u-lumaa/BackroomsMod/latest)
+
 </div></center>
 
 * * *
