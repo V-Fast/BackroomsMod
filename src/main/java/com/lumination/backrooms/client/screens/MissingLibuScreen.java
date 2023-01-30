@@ -59,6 +59,6 @@ public class MissingLibuScreen extends Screen {
 
     @Override
     public boolean shouldCloseOnEsc() {
-        return true;
+        return false;
     }
 }
