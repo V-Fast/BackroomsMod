@@ -31,6 +31,16 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.WOOL).sounds(BlockSoundGroup.WOOL).requiresTool().strength(2f)), BackroomsItemsGroup.Main);
     public static final Block DROPPED_CEILING = registerBlock("dropped_ceiling",
             new Block(FabricBlockSettings.of(Material.WOOL).sounds(BlockSoundGroup.WOOL).strength(1f)), BackroomsItemsGroup.Main);
+    public static final Block SCRATCHED_CONCRETE = registerBlock("slightly_scratched_concrete",
+            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2f)), BackroomsItemsGroup.Main);
+    public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",
+            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2f)), BackroomsItemsGroup.Main);
+    public static final Block STAINED_CONCRETE = registerBlock("stained_concrete",
+            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2f)), BackroomsItemsGroup.Main);
+    public static final Block STAINED_MARKED_CONCRETE = registerBlock("stained_marked_concrete",
+            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2f)), BackroomsItemsGroup.Main);
+    public static final Block STREET_LIGHT = registerBlock("street_ligbt",
+            new Block(FabricBlockSettings.of(Material.GLASS).sounds(BlockSoundGroup.GLASS).strength(1f)), BackroomsItemsGroup.Main);
 
     // Interactables
 
@@ -50,13 +60,28 @@ public class ModBlocks {
 
     private static Item registerBlockItem(String name, Block block, ItemGroup tab) {
         Item item = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name),
-            new BlockItem(block, new FabricItemSettings()));
+                new BlockItem(block, new FabricItemSettings()));
 
         // put in item group
         ItemGroupEvents.modifyEntriesEvent(tab).register(content -> {
             content.add(item);
         });
 
+        return item;
+    }
+
+    // can be used for new 1.19.3 creative inventory system
+    private static Item registerBlockItem(String name, Block block, ItemGroup[] tabs) {
+        Item item = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name),
+                new BlockItem(block, new FabricItemSettings()));
+
+        // put in item group
+        for (int i = 0; i < tabs.length; i++) {
+            ItemGroup tab = tabs[i];
+            ItemGroupEvents.modifyEntriesEvent(tab).register(content -> {
+                content.add(item);
+            });
+        }
         return item;
     }
 

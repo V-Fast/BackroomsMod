@@ -82,6 +82,10 @@
   "block.backrooms.dropped_ceiling": "Plafond suspendu",
   "block.backrooms.fluorescent_light": "Lumière Fluorescente",
   "block.backrooms.tape_player": "Lecteur Cassette",
+  "block.backrooms.slightly_scratched_concrete": "Béton Légèrement Éraflé",
+  "block.backrooms.smooth_iron_block": "Bloc de Fer poli",
+  "block.backrooms.stained_concrete": "Béton Taché",
+  "block.backrooms.stained_marked_concrete": "Béton Taché Marqué",
 
   "option.backrooms.disable_record": "Désactiver le HUD \"Record\"",
   "option.backrooms.disable_record.tooltip": "Cache le mot \"Record\" dans l'HUD de la caméra",

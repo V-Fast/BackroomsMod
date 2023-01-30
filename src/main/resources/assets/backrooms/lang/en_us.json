@@ -17,6 +17,7 @@
   "item.backrooms.nailed_bat": "Nailed Bat",
   "item.backrooms.baseball_bat": "Baseball Bat",
   "item.backrooms.broken_bottle": "Broken Bottle",
+  "item.backrooms.generation_core": "Generation Core",
 
   "item.backrooms.halls_tape": "Music Tape",
   "item.backrooms.the_complex_tape": "Music Tape",
@@ -88,6 +89,10 @@
   "block.backrooms.dropped_ceiling": "Dropped Ceiling",
   "block.backrooms.fluorescent_light": "Fluorescent Light",
   "block.backrooms.tape_player": "Tape Player",
+  "block.backrooms.slightly_scratched_concrete": "Slightly Scratched Concrete",
+  "block.backrooms.smooth_iron_block": "Smooth Iron Block",
+  "block.backrooms.stained_concrete": "Stained Concrete",
+  "block.backrooms.stained_marked_concrete": "Stained Marked Concrete",
 
   "option.backrooms.disable_record": "Disable the \"Record\" HUD",
   "option.backrooms.disable_record.tooltip": "Hides the word \"Record\" in the Camera HUD",

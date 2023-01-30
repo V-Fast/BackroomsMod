@@ -12,11 +12,12 @@ import net.minecraft.util.Identifier;
 public class BackroomDimensions {
     public static void registerDims() {
         level(new Identifier(BackroomsMod.MOD_ID, "level_0"), Blocks.IRON_BLOCK, ModItems.SILK);
+        level(new Identifier(BackroomsMod.MOD_ID, "level_1"), Blocks.GRAY_CONCRETE, ModItems.WRENCH);
         BackroomsMod.print("Registered custom dimensions and portals");
     }
 
     private static PortalLink level(Identifier dimId, Block frame, Item lighter) {
-        BackroomsMod.print("Registered custom portal of " + dimId);
+        BackroomsMod.print("Registered custom portal of " + dimId.getNamespace());
         return CustomPortalBuilder
                 .beginPortal()
                 .destDimID(dimId)
