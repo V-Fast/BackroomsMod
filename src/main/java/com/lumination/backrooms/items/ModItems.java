@@ -14,12 +14,14 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 public class ModItems {
-    public static final Item TESTITEM = registerItem("test_item", new TestItem(new FabricItemSettings()), BackroomsItemsGroup.Main);
+    public static final Item GENERATION_CORE = registerItem("generation_core", new TestItem(new FabricItemSettings().maxCount(1).fireproof().rarity(Rarity.EPIC)), ItemGroups.FUNCTIONAL);
 
     public static final Item SILK = registerItem("silk",
             new Item(new FabricItemSettings()), BackroomsItemsGroup.Main);
