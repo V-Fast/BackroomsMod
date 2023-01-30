@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "The Backrooms",
-  "description": "Explore, discover, and document the dark, liminal reality known as the Backrooms, experiencing dread and isolation as you navigate it.\n\nWe wish you luck in your travels.",
+  "description": "Experience the mysterious and scary world of the Backrooms in our Minecraft mod. Inspired by Kane Pixels, explore level 0 of this parallel world filled with dangers and adventures. Feel like you're part of the legend and never want to leave. You will feel like you are in the middle of the legend of The Backrooms and you will never want to leave. Don't miss this unique opportunity in the world of Minecraft!",
   "authors": [
     "_Lumaa_",
     "PatateGivree",
@@ -14,7 +14,7 @@
     "Good Kid - For their music"
   ],
   "contact": {
-    "homepage": "https://lumination.brebond.com/",
+    "homepage": "https://lumaa.brebond.com/",
     "sources": "https://github.com/u-lumaa/BackroomsMod",
     "issues": "https://github.com/u-lumaa/BackroomsMod/issues"
   },
@@ -41,7 +41,7 @@
   "depends": {
     "fabricloader": ">=0.14.6",
     "fabric": "*",
-    "minecraft": "~1.19.1",
+    "minecraft": "~1.19.3",
     "java": ">=17"
   }
 }

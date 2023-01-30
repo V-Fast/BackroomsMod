@@ -1,5 +1,6 @@
 package com.lumination.backrooms.client.screens;
 
+import com.lumaa.libu.update.ModrinthMod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.MultilineText;
 import net.minecraft.client.gui.screen.Screen;
@@ -29,10 +30,13 @@ public class MissingLibuScreen extends Screen {
         int i = var10000 * 9;
         int j = MathHelper.clamp(90 + i + 12, this.height / 6 + 96, this.height - 24);
         this.addDrawableChild(ButtonWidget.builder(ScreenTexts.PROCEED, (button) -> {
-                    MinecraftClient.getInstance().close();
-                })
-                .dimensions((this.width - 150) / 2, j + 15, 150, 20)
-                .build());
+            ModrinthMod libu = new ModrinthMod(Text.translatable("mod.libu.name").getString(), "libu", "1.0.0");
+
+            libu.openMod();
+            MinecraftClient.getInstance().close();
+        })
+        .dimensions((this.width - 150) / 2, j + 15, 150, 20)
+        .build());
     }
 
     @Override

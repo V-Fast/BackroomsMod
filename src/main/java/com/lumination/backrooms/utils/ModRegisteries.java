@@ -59,6 +59,10 @@ public class ModRegisteries {
             BackroomsRPC.loadingRpc();
             HudRenderCallback.EVENT.register(BackroomsModClient.camHud);
         } else {
+            if (!FabricLoader.getInstance().isModLoaded("libu")) {
+                BackroomsMod.print("Missing Libu!");
+            }
+
             ModBlocks.registerModBlock();
             ModBlockEntities.registerBlockEntities();
             ModSounds.registerSoundEvents();

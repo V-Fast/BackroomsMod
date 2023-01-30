@@ -26,7 +26,7 @@ public class KeyInputHandler {
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (levelInfoKey.wasPressed()) {
-                String dimension = getBackroom(client.player).getPath();
+                String dimension = getBackroom(client.player).getNamespace();
                 Backroom backroom = cr.convert(dimension);
                 client.setScreen(new LevelScreen(backroom));
             }
