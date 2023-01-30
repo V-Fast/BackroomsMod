@@ -37,6 +37,6 @@ Check our [newest wiki](https://github.com/u-lumaa/BackroomsMod/wiki)!
 We made it just for you that are asking question!
 
 ## Credits
-This mod is made by [Lumaa](https://lumination.brebond.com/), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1) and we receive music suggestions from [Luvaa](https://namemc.com/profile/_Luvaa_.1).  
+This mod is made by [Lumaa](https://lumaa.brebond.com/), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1) and we receive music suggestions from [Luvaa](https://namemc.com/profile/_Luvaa_.1).  
 This mod is also heavily inspired by [Kane Pixels](https://www.youtube.com/c/KANEpixels)'s Backrooms series on YouTube.  
 Thank you very much to [Good Kid](https://www.youtube.com/@GoodKidband) for allowing us to use their songs in the mod!

@@ -5,6 +5,19 @@ This file contains devlogs. Some features shown in them may arrive a few months 
 
 * * *
 
+# Devlog #5 - 20/01/2023
+
+<center><div align="center">
+ 
+ Here is a code-made room. There's only one because it's a test for now.
+ 
+ </div></center>
+
+![2023-01-20_17 30 32](https://user-images.githubusercontent.com/93350976/213752583-ab9ba934-8d4a-4cd5-97c3-d8e4160ee5b5.png)  
+<sup>Using [LibuLib](https://github.com/u-lumaa/LibuLib)'s [GenerationCore](https://github.com/u-lumaa/LibuLib/blob/86bce599da7c829048c355b876d6bf4a4c03518c/src/main/java/com/lumaa/libu/generation/GenerationCore.java)</sup>
+
+* * *
+
 # Devlog #4 - 16/01/2023
 Happy new year and welcome!  
 I was very tempted to write a Devlog last week but finally, I didn't. Why? Before saying why, let me put you in the context:  
