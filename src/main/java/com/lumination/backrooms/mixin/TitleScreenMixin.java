@@ -26,7 +26,7 @@ public class TitleScreenMixin extends Screen {
     @Inject(at = @At("HEAD"), method = "init()V")
     public void init(CallbackInfo ci) {
         BackroomsMod.changeName(Text.translatable("mod.backrooms.name").getString());
-        Discord.setPresence("On the title screen", "", "async");
+        Discord.setPresence("On the title screen", "", "mod");
 
         int l = this.height / 4 + 48;
         Text a = Text.literal("A");

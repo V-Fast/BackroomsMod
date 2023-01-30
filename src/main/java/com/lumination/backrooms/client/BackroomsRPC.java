@@ -15,9 +15,9 @@ public class BackroomsRPC {
 
     public static void customLabelRpc(String subtitle, int playerCount, int maxPlayer) {
         try {
-            Discord.setPresence(BackroomsSettings.discordLabel(), subtitle, "async", playerCount, maxPlayer);
+            Discord.setPresence(BackroomsSettings.discordLabel(), subtitle, "mod", playerCount, maxPlayer);
         } catch (NumberFormatException e) {
-            Discord.setPresence(BackroomsSettings.discordLabel(), subtitle, "async", 0, 0);
+            Discord.setPresence(BackroomsSettings.discordLabel(), subtitle, "mod", 0, 0);
             BackroomsMod.LOGGER.error("Numbers didn't load");
             BackroomsMod.LOGGER.error(e.getLocalizedMessage());
         }
