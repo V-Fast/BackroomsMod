@@ -1,6 +1,5 @@
 package com.lumination.backrooms.items.interactables;
 
-import com.lumaa.libu.generation.GenerationCore;
 import com.lumaa.libu.generation.MazeCore;
 import com.lumination.backrooms.blocks.ModBlocks;
 import net.minecraft.item.Item;
