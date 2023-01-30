@@ -1,6 +1,7 @@
 package com.lumination.backrooms.items.interactables;
 
 import com.lumaa.libu.generation.GenerationCore;
+import com.lumaa.libu.generation.MazeCore;
 import com.lumination.backrooms.blocks.ModBlocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
@@ -17,10 +18,15 @@ public class TestItem extends Item {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         super.useOnBlock(context);
-        GenerationCore generationCore = new GenerationCore(ModBlocks.MOIST_CARPET, ModBlocks.MOIST_SILK, ModBlocks.DROPPED_CEILING);
-        generationCore.setWallsVariants(List.of(ModBlocks.MOIST_SILK_PLANKS));
-        generationCore.generate(context.getWorld(), context.getBlockPos());
+
+        useMazeCore(context);
 
         return ActionResult.PASS;
+    }
+
+    private void useMazeCore(ItemUsageContext context) {
+        MazeCore mazeCore = new MazeCore(ModBlocks.MOIST_CARPET, ModBlocks.MOIST_SILK, ModBlocks.DROPPED_CEILING);
+        mazeCore.setWallsVariants(List.of(ModBlocks.MOIST_SILK_PLANKS));
+        mazeCore.generate(context.getWorld(), context.getBlockPos());
     }
 }
