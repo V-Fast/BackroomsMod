@@ -5,6 +5,17 @@ This file contains devlogs. Some features shown in them may arrive a few months 
 
 * * *
 
+# Devlog #6.5 - 05/02/2023
+Okay so, this devlog is some sort of update from the last one I guess. Let me explain:  
+I never said it publicly but I'm moving out soon, and that means that I have much less time to work on the mod or other projects such as LibuLib or keeping my socials active for a while. I said multiple times that the first beta "will" release before March 2023, but I cannot hold that promise anymore.  
+Sorry if I disappointed some people, but again, I'm the only person (Lumaa) coding the mod, PatateGivrée only makes the assets and Luvaa gives from time to time, music recommendations for music tapes or radio songs.
+
+What I will guarantee, is to release **Beta A0.1.0** as soon as possible, after March 2023.
+
+Little side-note here: This is, and will be, the only devlog of February. So see you then, and remember, __peace n love__.
+
+* * *
+
 # Devlog #6 - 30/01/2023
 New devlog, yeepee!  
 Before even starting this devlog, I wanna say a very **VERY** big thank you for **300 downloads on [Modrinth](https://modrinth.com/mod/backrooms)!** This number is incredibly large and it all feels unreal, I saw it in while I was eating and cheered in public lol, this is big and all but you haven't seen the Beta yet. Because yes, the beta is coming but read the whole thing I'll talk about it in there. But yeah, 300 downloads and still going up. I hope me, PatateGivree and Luvaa can make you enjoy Minecraft even more using our mod and that the updates will make you more and more excited for what's coming.
