@@ -5,6 +5,15 @@ This file contains devlogs. Some features shown in them may arrive a few months 
 
 * * *
 
+# Devlog #7 - 13/02/2023
+Happy news I think. So, if you read the [last devlog](https://github.com/lumaa-dev/BackroomsMod/blob/main/DEVLOGS.md#devlog-65---05022023) I said thate there would no longer be devlogs in February but hey, good news, there will be. Don't asked me why I'm so confused but now you have devlogs coming.
+
+Anyway, now the mod. I added the Level 1 blocks and named them, I still can't make the Radio Block work so it will probably not be in **Beta A0.1.0**. And I'm still relentlessly coding on the [MazeCore](https://github.com/lumaa-dev/LibuLib/blob/298e5cae61655dc199ad77d8fbe121aac7aef78f/src/main/java/com/lumaa/libu/generation/MazeCore.java) for the Backrooms Level 0 generation, and it goes very well!! Look at the following image to see the progression.
+
+![](https://user-images.githubusercontent.com/93350976/218593366-27502c9f-e15e-418d-9c2f-92a2cb8e433e.png)
+
+* * *
+
 # Devlog #6.5 - 05/02/2023
 Okay so, this devlog is some sort of update from the last one I guess. Let me explain:  
 I never said it publicly but I'm moving out soon, and that means that I have much less time to work on the mod or other projects such as LibuLib or keeping my socials active for a while. I said multiple times that the first beta "will" release before March 2023, but I cannot hold that promise anymore.  
