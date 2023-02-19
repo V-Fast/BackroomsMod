@@ -53,7 +53,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// LibuLib
-	modImplementation "com.github.u-lumaa:LibuLib:${libu_version}"
+	modImplementation "com.github.lumaa-dev:LibuLib:${libu_version}"
 
 	// Satin
 	modImplementation "io.github.ladysnake:satin:${satin_version}"
@@ -81,6 +81,9 @@ dependencies {
 
 	include 'com.github.Vatuu:discord-rpc:1.6.2'
 	include 'com.github.Vatuu:discord-rpc-binaries:3.4.0'
+
+	// Track mod usage - MongoDB
+	implementation 'org.mongodb:mongodb-driver-sync:4.9.0'
 }
 
 processResources {

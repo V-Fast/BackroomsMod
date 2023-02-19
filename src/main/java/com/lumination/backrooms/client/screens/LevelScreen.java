@@ -1,6 +1,6 @@
 package com.lumination.backrooms.client.screens;
 
-import com.lumaa.libu.Color;
+import com.lumaa.libu.util.Color;
 import com.lumination.backrooms.levels.Backroom;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

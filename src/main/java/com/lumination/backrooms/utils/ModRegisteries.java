@@ -1,6 +1,6 @@
 package com.lumination.backrooms.utils;
 
-import com.lumaa.libu.LibuLib;
+import com.lumaa.libu.LibuLibClient;
 import com.lumaa.libu.update.ModrinthMod;
 import com.lumaa.libu.update.UpdateChecker;
 import com.lumination.backrooms.BackroomsMod;
@@ -34,7 +34,7 @@ public class ModRegisteries {
                 try {
                     UpdateChecker backroomsUpdate = new UpdateChecker(new ModrinthMod("The Backrooms", "backrooms", BackroomsModClient.versionId));
                     backroomsUpdate.findLatestVersion();
-                    LibuLib.addUpdate(backroomsUpdate);
+                    LibuLibClient.addUpdate(backroomsUpdate);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

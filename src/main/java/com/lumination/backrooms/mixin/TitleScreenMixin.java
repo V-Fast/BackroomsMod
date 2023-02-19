@@ -1,6 +1,8 @@
 package com.lumination.backrooms.mixin;
 
-import com.lumaa.libu.Color;
+import com.lumaa.libu.util.BetterText;
+import com.lumaa.libu.util.BetterText.TextType;
+import com.lumaa.libu.util.Color;
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.BackroomsModClient;
 import com.lumination.backrooms.client.Discord;
@@ -29,9 +31,8 @@ public class TitleScreenMixin extends Screen {
         Discord.setPresence("On the title screen", "", "mod");
 
         int l = this.height / 4 + 48;
-        Text a = Text.literal("A");
         if (FabricLoader.getInstance().isModLoaded("libu")) {
-            this.addDrawableChild(ButtonWidget.builder(a.getWithStyle(a.getStyle().withColor(Color.Backrooms.blue)).get(0), (button) -> {
+            this.addDrawableChild(ButtonWidget.builder(new BetterText("A", TextType.LITERAL).withColor(Color.Backrooms.blue), (button) -> {
                 this.client.setScreen(new SettingsScreen().getScreen(this));
             })
                     .dimensions(this.width / 2 + 104, l + 48, 20, 20)

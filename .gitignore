@@ -46,5 +46,6 @@ DEVLOGS.md
 
 # super top mega secret files
 src/main/java/com/lumination/backrooms/mixin/AddServerScreenMixin.java
+src/main/java/com/lumination/backrooms/utils/ModMongo.java
 ideas/
 bbmodels/
