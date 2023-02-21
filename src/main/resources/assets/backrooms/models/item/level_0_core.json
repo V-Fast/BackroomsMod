@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "libu:item/maze_core"
+    "layer0": "libu:item/maze_tool"
   }
 }
