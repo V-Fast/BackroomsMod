@@ -55,8 +55,8 @@ public class ModRegisteries {
             BackroomsSettings.loadConfig();
             KeyInputHandler.register();
             BackroomsModClient.setStartDate();
-            Discord.initDiscord();
-            BackroomsRPC.loadingRpc();
+            //Discord.initDiscord();
+            //BackroomsRPC.loadingRpc();
             HudRenderCallback.EVENT.register(BackroomsModClient.camHud);
         } else {
             if (!FabricLoader.getInstance().isModLoaded("libu")) {
