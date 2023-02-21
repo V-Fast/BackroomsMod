@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "backrooms:block/slightly_sctatched_concrete"
+    "all": "backrooms:block/slightly_scratched_concrete"
   }
 }
