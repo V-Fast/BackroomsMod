@@ -51,7 +51,7 @@ public class SilkenBook extends Item {
             }
         }
         if (world.isClient) {
-            MinecraftClient.getInstance().setScreen(new SilkBookScreen(word));
+            //MinecraftClient.getInstance().setScreen(new SilkBookScreen(word));
         }
 
         return TypedActionResult.success(itemStack, true);

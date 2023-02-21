@@ -12,7 +12,6 @@ import com.lumination.backrooms.client.Discord;
 import com.lumination.backrooms.client.events.KeyInputHandler;
 import com.lumination.backrooms.client.screens.MissingLibuScreen;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
-import com.lumination.backrooms.entities.ModEntities;
 import com.lumination.backrooms.items.ModItems;
 import com.lumination.backrooms.items.ModItemsClient;
 import com.lumination.backrooms.items.ModItemsServer;
@@ -26,7 +25,6 @@ import net.minecraft.text.Text;
 import java.io.IOException;
 
 public class ModRegisteries {
-    private static final boolean serverEntity = false;
 
     public static void registerMod(boolean client) {
         if (client) {
@@ -40,7 +38,6 @@ public class ModRegisteries {
                 }
             } else {
                 BackroomsMod.print("Missing Libu!");
-                MinecraftClient.getInstance().setScreen(new MissingLibuScreen(Text.empty()));
                 return;
             }
 
@@ -71,10 +68,6 @@ public class ModRegisteries {
 
             // server only
             ModItemsServer.registerModItems();
-        }
-
-        if (serverEntity) {
-            ModEntities.registerMobs();
         }
     }
 }
