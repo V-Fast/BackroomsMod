@@ -32,7 +32,7 @@ public class SilkenBook extends Item {
         if (!world.isClient) {
             if (!itemStack.hasNbt()) {
                 Random r = new Random();
-                int x = r.nextInt(Word.values().length - 1);
+                int x = r.nextInt(Word.values().length);
                 word = Word.getWordByCode(x);
 
                 // prevent crash
@@ -48,12 +48,10 @@ public class SilkenBook extends Item {
                 NbtCompound itemNbt = new NbtCompound();
                 itemNbt.putInt("InscriptionCode", x);
                 itemStack.setNbt(itemNbt);
-            } else {
-                word = Word.getWordByCode(itemStack.getNbt().getInt("InscriptionCode"));
             }
-
-            MinecraftClient client = MinecraftClient.getInstance();
-            client.setScreen(new SilkBookScreen(word));
+        }
+        if (world.isClient) {
+            MinecraftClient.getInstance().setScreen(new SilkBookScreen(word));
         }
 
         return TypedActionResult.success(itemStack, true);
