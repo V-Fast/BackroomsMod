@@ -14,10 +14,13 @@ import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
 
 
 public class ModBlocks {
@@ -31,29 +34,34 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.WOOL).sounds(BlockSoundGroup.WOOL).requiresTool().strength(2f)), BackroomsItemsGroup.Main);
     public static final Block DROPPED_CEILING = registerBlock("dropped_ceiling",
             new Block(FabricBlockSettings.of(Material.WOOL).sounds(BlockSoundGroup.WOOL).strength(1f)), BackroomsItemsGroup.Main);
-    public static final Block SCRATCHED_CONCRETE = registerBlock("slightly_scratched_concrete",
-            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2f)), BackroomsItemsGroup.Main);
     public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",
-            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2f)), BackroomsItemsGroup.Main);
+            new Block(FabricBlockSettings.of(Material.METAL).sounds(BlockSoundGroup.METAL).strength(Blocks.IRON_BLOCK.getHardness())), BackroomsItemsGroup.Main);
+    public static final Block SCRATCHED_CONCRETE = registerBlock("slightly_scratched_concrete",
+            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.BLACK_CONCRETE.getHardness())), BackroomsItemsGroup.Main);
     public static final Block STAINED_CONCRETE = registerBlock("stained_concrete",
-            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2f)), BackroomsItemsGroup.Main);
+            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.BLACK_CONCRETE.getHardness())), BackroomsItemsGroup.Main);
     public static final Block STAINED_MARKED_CONCRETE = registerBlock("stained_marked_concrete",
-            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2f)), BackroomsItemsGroup.Main);
-    public static final Block STREET_LIGHT = registerBlock("street_ligbt",
-            new Block(FabricBlockSettings.of(Material.GLASS).sounds(BlockSoundGroup.GLASS).strength(1f)), BackroomsItemsGroup.Main);
+            new Block(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.BLACK_CONCRETE.getHardness())), BackroomsItemsGroup.Main);
+    public static final Block STREET_LIGHT = registerBlock("street_light",
+            new Block(FabricBlockSettings.of(Material.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(15)), BackroomsItemsGroup.Main);
 
     // Interactables
 
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
             new FluorescentLight(FabricBlockSettings.of(Material.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(13)), BackroomsItemsGroup.Main);
     public static final Block TAPE_PLAYER = registerBlock("tape_player",
-            new TapePlayer(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.Main);
+            new TapePlayer(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), List.of(BackroomsItemsGroup.Main, ItemGroups.REDSTONE));
     public static final Block RADIO = registerBlock("radio",
             new Radio(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.Main);
 
     // Register
 
     private static Block registerBlock(String name, Block block, ItemGroup tab) {
+        registerBlockItem(name, block, tab);
+        return Registry.register(Registries.BLOCK, new Identifier(BackroomsMod.MOD_ID, name), block);
+    }
+
+    private static Block registerBlock(String name, Block block, List<ItemGroup> tab) {
         registerBlockItem(name, block, tab);
         return Registry.register(Registries.BLOCK, new Identifier(BackroomsMod.MOD_ID, name), block);
     }
@@ -71,13 +79,13 @@ public class ModBlocks {
     }
 
     // can be used for new 1.19.3 creative inventory system
-    private static Item registerBlockItem(String name, Block block, ItemGroup[] tabs) {
+    private static Item registerBlockItem(String name, Block block, List<ItemGroup> tabs) {
         Item item = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));
 
         // put in item group
-        for (int i = 0; i < tabs.length; i++) {
-            ItemGroup tab = tabs[i];
+        for (int i = 0; i < tabs.size(); i++) {
+            ItemGroup tab = tabs.get(i);
             ItemGroupEvents.modifyEntriesEvent(tab).register(content -> {
                 content.add(item);
             });

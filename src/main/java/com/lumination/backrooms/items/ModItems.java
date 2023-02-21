@@ -11,17 +11,15 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
+
+import java.util.List;
 
 public class ModItems {
-    public static final Item GENERATION_CORE = registerItem("generation_core", new TestItem(new FabricItemSettings().maxCount(1).fireproof().rarity(Rarity.EPIC)), ItemGroups.FUNCTIONAL);
+    public static final Item LVL_0_CORE = registerItem("level_0_core", new TestItem(new FabricItemSettings().maxCount(1).fireproof()), List.of(ItemGroups.OPERATOR, BackroomsItemsGroup.Main));
 
     public static final Item SILK = registerItem("silk",
             new Item(new FabricItemSettings()), BackroomsItemsGroup.Main);
@@ -87,6 +85,19 @@ public class ModItems {
             content.add(newItem);
         });
 
+        return newItem;
+    }
+
+    // can be used for new 1.19.3 creative inventory system
+    private static Item registerItem(String name, Item item, List<ItemGroup> tabs) {
+        Item newItem = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name), item);
+
+        // put in item group
+        for (int i = 0; i < tabs.size(); i++) {
+            ItemGroupEvents.modifyEntriesEvent(tabs.get(i)).register(content -> {
+                content.add(newItem);
+            });
+        }
         return newItem;
     }
 
