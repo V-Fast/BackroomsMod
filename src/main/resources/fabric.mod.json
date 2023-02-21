@@ -15,8 +15,8 @@
   ],
   "contact": {
     "homepage": "https://lumaa.brebond.com/",
-    "sources": "https://github.com/u-lumaa/BackroomsMod",
-    "issues": "https://github.com/u-lumaa/BackroomsMod/issues"
+    "sources": "https://github.com/lumaa-dev/BackroomsMod",
+    "issues": "https://github.com/lumaa-dev/BackroomsMod/issues"
   },
 
   "license": "MIT",
@@ -42,8 +42,8 @@
     "fabricloader": ">=0.14.6",
     "fabric-api": ">=0.70.0",
     "fabric": "*",
-    "minecraft": "~1.19.3",
+    "minecraft": "=1.19.3",
     "java": ">=17",
-    "libu": ["Dev", ">=1.0.0"]
+    "libu": ">=1.1.0"
   }
 }
