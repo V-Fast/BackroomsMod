@@ -19,8 +19,7 @@
 
 * * *
 
-⚠️ **This is a mod that is still in alpha, so there are probably many unnoticed bugs. You can report them [here](https://github.com/u-lumaa/BackroomsMod/issues)** also suggestions and help are welcome!  
-***We are currently transitionning mod icons...***
+⚠️ **This is a mod that is still in alpha, so there are probably many unnoticed bugs. You can report them [here](https://github.com/u-lumaa/BackroomsMod/issues)** or on our [Discord Server](https://lumaa.brebond.com/support)! also suggestions and help are welcome!
 
 You can see our progresses! Just by looking at our [Trello Board](https://trello.com/b/gDUJ7vvz/the-backrooms-mod)!  
 You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) and on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/thebackrooms).
