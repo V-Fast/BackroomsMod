@@ -5,6 +5,12 @@ This file contains devlogs. Some features shown in them may arrive a few months 
 
 * * *
 
+# Devlog #8
+You surely have seen it, the first beta released! I'm super proud to finally give you the [Beta A0.1.0](https://modrinth.com/mod/backrooms/version/BETA-A0.1.0).  
+This will be a small devlog considering I released the Beta, but consider joining the [Support Discord](https://lumaa.brebond.com/support), follow the mod on [Modrinth](https://modrinth.com/mod/backrooms) and star the [GitHub Repository](https://github.com/lumaa-dev/BackroomsMod)! And thank you again for all the support throughout the development of the [Beta A0.1.0](https://modrinth.com/mod/backrooms/version/BETA-A0.1.0)!
+
+* * *
+
 # Devlog #7 - 13/02/2023
 Happy news I think. So, if you read the [last devlog](https://github.com/lumaa-dev/BackroomsMod/blob/main/DEVLOGS.md#devlog-65---05022023) I said thate there would no longer be devlogs in February but hey, good news, there will be. Don't asked me why I'm so confused but now you have devlogs coming.
 
