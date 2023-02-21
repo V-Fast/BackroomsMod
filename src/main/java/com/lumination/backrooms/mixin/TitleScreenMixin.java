@@ -1,5 +1,6 @@
 package com.lumination.backrooms.mixin;
 
+import com.lumaa.libu.LibuLibClient;
 import com.lumaa.libu.util.BetterText;
 import com.lumaa.libu.util.BetterText.TextType;
 import com.lumaa.libu.util.Color;
@@ -23,6 +24,7 @@ public class TitleScreenMixin extends Screen {
     protected TitleScreenMixin(Text title) {
         super(title);
         BackroomsModClient.setStartDate();
+        LibuLibClient.displayUpdates();
     }
 
     @Inject(at = @At("HEAD"), method = "init()V")
