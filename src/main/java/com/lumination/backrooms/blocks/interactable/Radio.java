@@ -7,6 +7,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
@@ -22,11 +23,14 @@ import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class Radio extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
@@ -117,13 +121,19 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
         }
     }
 
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        tooltip.add(Text.empty());
+        tooltip.add(Text.literal("This block does not work properly").formatted(Formatting.RED));
+    }
+
     public void switchRecord(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             RadioRecord record = null;
             if (blockEntity instanceof RadioEntity) {
                 RadioEntity radioEntity = (RadioEntity) blockEntity;
-                radioEntity.setRecord(scroll(radioEntity.getRecordId() + 1, 1, BackroomsMod.getRecords().size() - 1));
+                radioEntity.setRecord(MathHelper.clamp(radioEntity.getRecordId() + 1, 1, BackroomsMod.getRecords().size() - 1));
                 radioEntity.startPlaying();
                 world.setBlockState(pos, (BlockState)state.with(RECORD, radioEntity.getRecordId()), 2);
                 world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
@@ -133,7 +143,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
 
             //world.syncWorldEvent(null, WorldEvents.MUSIC_DISC_PLAYED, pos, 1);
             RadioRecord finalRecord = record;
-            world.playSound(pos.getX(), pos.getY(), pos.getZ(), record.sound, SoundCategory.RECORDS, 3f, 1f, false);
+            world.playSound(pos.getX(), pos.getY(), pos.getZ(), record.sound, SoundCategory.RECORDS, 1f, 1f, false);
             world.getPlayers().forEach(player1 -> player1.sendMessage(Text.translatable("record.nowPlaying", Text.translatable(finalRecord.name).getString()).formatted(Formatting.YELLOW), true));
 
             if (player != null) {
@@ -150,17 +160,6 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
                 world.syncWorldEvent(1010, pos, 0);
             }
         }
-    }
-
-    private static int scroll(int value, int min, int max) {
-        if (value > max || value < min) {
-            if (value > max) {
-                value = min;
-            } else {
-                value = max;
-            }
-        }
-        return value;
     }
 
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
