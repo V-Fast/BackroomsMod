@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "backrooms:tape_player",
-    "backrooms:radio"
+    "backrooms:radio",
+    "backrooms:stained_concrete",
+    "backrooms:stained_marked_concrete",
+    "backrooms:slightly_scratched_concrete",
+    "backrooms:smooth_iron_block"
   ]
 }
