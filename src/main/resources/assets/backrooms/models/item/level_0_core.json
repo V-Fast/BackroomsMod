@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "libu:item/maze_tool"
+    "layer0": "minecraft:item/stick"
   }
 }
