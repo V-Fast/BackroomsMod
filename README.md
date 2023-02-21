@@ -12,19 +12,16 @@
 [![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/backrooms?label=Minecraft%20Version)](https://modrinth.com/mod/backrooms)  
 [![Discord Server](https://img.shields.io/discord/1033451342984908900?label=Support%20Discord&logo=discord)](https://discord.gg/Rqpn3C7yR5)
 
-<!-- Temporary Badge, since we haven't released a version in a while -->
-[![GitHub commits since tagged version](https://img.shields.io/github/commits-since/u-lumaa/BackroomsMod/latest)](https://github.com/u-lumaa/BackroomsMod/compare/alpha-v0.0.4a...main)
-
 </div></center>
 
 * * *
 
-⚠️ **This is a mod that is still in alpha, so there are probably many unnoticed bugs. You can report them [here](https://github.com/u-lumaa/BackroomsMod/issues)** or on our [Discord Server](https://lumaa.brebond.com/support)! also suggestions and help are welcome!
+⚠️ **This is a mod that is still in alpha, so there are probably many unnoticed bugs. You can report them [here](https://github.com/lumaa-dev/BackroomsMod/issues)** or on our [Discord Server](https://lumaa.brebond.com/support)! also suggestions and help are welcome!
 
 You can see our progresses! Just by looking at our [Trello Board](https://trello.com/b/gDUJ7vvz/the-backrooms-mod)!  
 You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) and on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/thebackrooms).
 
-ℹ️ **If you don't know how to install a Fabric mod, [click here](https://github.com/u-lumaa/u-lumaa/blob/main/installs.md#install-my-fabric-mods)**
+ℹ️ **If you don't know how to install a Fabric mod, [click here](https://github.com/lumaa-dev/lumaa-dev/blob/main/installs.md#install-my-fabric-mods)**
 
 ## Dependencies
 **If you plan on installing this mod, you'll have to install these mods as well**
@@ -32,7 +29,7 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) 
 - [Cloth Config](https://modrinth.com/mod/cloth-config/versions?l=fabric&g=1.19.3)
 
 ## How do I do [something]?
-Check our [newest wiki](https://github.com/u-lumaa/BackroomsMod/wiki)!  
+Check our [newest wiki](https://github.com/lumaa-dev/BackroomsMod/wiki)!  
 We made it just for you that are asking question!
 
 ## Credits
