@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "backrooms:item/generation_core"
+    "layer0": "libu:item/maze_core"
   }
 }
