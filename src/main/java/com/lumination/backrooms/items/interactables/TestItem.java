@@ -29,6 +29,7 @@ public class TestItem extends Item {
         MazeCore mazeCore = new MazeCore(ModBlocks.MOIST_CARPET, ModBlocks.MOIST_SILK, ModBlocks.DROPPED_CEILING, 3);
         mazeCore.setWallsVariants(List.of(ModBlocks.MOIST_SILK_PLANKS));
         mazeCore.setWallsVariantsAmount(GenerationCore.VariantAmount.LOW);
+        mazeCore.setSize(16, 16);
         mazeCore.generate(context.getWorld(), context.getBlockPos());
 
         return ActionResult.PASS;
