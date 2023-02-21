@@ -20,7 +20,15 @@ public class SilkBookScreen extends Screen {
 
     public SilkBookScreen(Word word) {
         super(Text.translatable("item.backrooms.silken_book"));
+        if (word == null) {
+            word = Word.getWordByCode(0);
+        }
         this.word = word;
+    }
+
+    public SilkBookScreen() {
+        super(Text.translatable("item.backrooms.silken_book"));
+        this.word = Word.getWordByCode(0);
     }
 
     @Override
