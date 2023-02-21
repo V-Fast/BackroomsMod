@@ -28,8 +28,8 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) 
 
 ## Dependencies
 **If you plan on installing this mod, you'll have to install these mods as well**
-- [Fabric API](https://cdn.modrinth.com/data/P7dR8mSH/versions/0.58.5+1.19.1/fabric-api-0.58.5%2B1.19.1.jar)
-- [Cloth Config](https://cdn.modrinth.com/data/9s6osm5g/versions/8.0.75+fabric/cloth-config-8.0.75-fabric.jar)
+- [Fabric API](https://modrinth.com/mod/fabric-api/versions?g=1.19.3)
+- [Cloth Config](https://modrinth.com/mod/cloth-config/versions?l=fabric&g=1.19.3)
 
 ## How do I do [something]?
 Check our [newest wiki](https://github.com/u-lumaa/BackroomsMod/wiki)!  
