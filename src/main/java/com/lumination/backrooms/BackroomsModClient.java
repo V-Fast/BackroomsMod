@@ -18,7 +18,6 @@ public class BackroomsModClient implements ClientModInitializer {
             .getMetadata()
             .getVersion()
             .getFriendlyString();
-    public static final boolean hasPrivateServer = false;
     public static long start;
 
 
