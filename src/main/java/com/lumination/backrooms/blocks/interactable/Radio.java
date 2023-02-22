@@ -133,7 +133,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
             RadioRecord record = null;
             if (blockEntity instanceof RadioEntity) {
                 RadioEntity radioEntity = (RadioEntity) blockEntity;
-                radioEntity.setRecord(MathHelper.clamp(radioEntity.getRecordId() + 1, 1, BackroomsMod.getRecords().size() - 1));
+                radioEntity.setRecord(scroll(radioEntity.getRecordId() + 1, 1, BackroomsMod.getRecords().size() - 1));
                 radioEntity.startPlaying();
                 world.setBlockState(pos, (BlockState)state.with(RECORD, radioEntity.getRecordId()), 2);
                 world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
@@ -160,6 +160,17 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
                 world.syncWorldEvent(1010, pos, 0);
             }
         }
+    }
+
+    private static int scroll(int value, int min, int max) {
+        if (value > max || value < min) {
+            if (value > max) {
+                value = min;
+            } else {
+                value = max;
+            }
+        }
+        return value;
     }
 
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
