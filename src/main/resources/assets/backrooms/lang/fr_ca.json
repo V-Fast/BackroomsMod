@@ -88,6 +88,7 @@
   "block.backrooms.smooth_iron_block": "Bloc de Fer poli",
   "block.backrooms.stained_concrete": "Béton Taché",
   "block.backrooms.stained_marked_concrete": "Béton Taché Marqué",
+  "block.backrooms.street_light": "Lumière Rurale",
 
   "option.backrooms.disable_record": "Désactiver le HUD \"Record\"",
   "option.backrooms.disable_record.tooltip": "Cache le mot \"Record\" dans l'HUD de la caméra",

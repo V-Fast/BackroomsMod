@@ -1,7 +1,6 @@
 {
   "mod.backrooms.name": "The Backrooms",
-  "mod.libu.name": "Libu",
-  "mod.libu.missing": "Libu is not installed! You have to install Libu to use The Backrooms mod!",
+  "mod.cc.disabled": "This button is disabled because\nyou do not have Cloth Config",
 
   "item.backrooms.silk": "Silk",
   "item.backrooms.silken_book": "Silken Book",
@@ -94,6 +93,7 @@
   "block.backrooms.smooth_iron_block": "Smooth Iron Block",
   "block.backrooms.stained_concrete": "Stained Concrete",
   "block.backrooms.stained_marked_concrete": "Stained Marked Concrete",
+  "block.backrooms.street_light": "Street Light",
 
   "option.backrooms.disable_record": "Disable the \"Record\" HUD",
   "option.backrooms.disable_record.tooltip": "Hides the word \"Record\" in the Camera HUD",

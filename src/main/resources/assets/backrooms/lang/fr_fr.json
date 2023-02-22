@@ -1,7 +1,6 @@
 {
   "mod.backrooms.name": "Les Backrooms",
-  "mod.libu.name": "Libu",
-  "mod.libu.missing": "Libu n'est pas installé ! Vous devez installer le mod Libu pour utiliser le mod Backrooms !",
+  "mod.cc.disabled": "Ce bouton est désactivé parce que\nvous n'avez pas Cloth Config",
 
   "info.backrooms.update.title": "Une mise à jour est disponible !",
   "info.backrooms.update.description": "Le mod Les Backrooms à reçu une mise à jour ! Vous utilisez actuellement la version %d et vous pouvez le mettre à jour en version %d. Vous devriez le mettre à jour maintenant !",
@@ -88,6 +87,7 @@
   "block.backrooms.smooth_iron_block": "Bloc de Fer poli",
   "block.backrooms.stained_concrete": "Béton Taché",
   "block.backrooms.stained_marked_concrete": "Béton Taché Marqué",
+  "block.backrooms.street_light": "Lumière Rurale",
 
   "option.backrooms.disable_record": "Désactiver le HUD \"Record\"",
   "option.backrooms.disable_record.tooltip": "Cache le mot \"Record\" dans l'HUD de la caméra",
