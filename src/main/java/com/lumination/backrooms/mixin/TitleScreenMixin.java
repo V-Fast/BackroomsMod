@@ -43,8 +43,8 @@ public class TitleScreenMixin extends Screen {
                     .dimensions(this.width / 2 + 104, l + 48, 20, 20)
                     .build());
 
-            this.settingsButton.active = FabricLoader.getInstance().isModLoaded("cloth_config");
-            if (!FabricLoader.getInstance().isModLoaded("cloth_config")) {
+            this.settingsButton.active = FabricLoader.getInstance().isModLoaded("cloth_config") || FabricLoader.getInstance().isModLoaded("cloth-config");
+            if (!this.settingsButton.active) {
                 this.settingsButton.setTooltip(Tooltip.of(Text.translatable("mod.cc.disabled")));
             }
         }
