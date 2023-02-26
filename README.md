@@ -6,7 +6,7 @@
 
 <sup>Handmade builds, by PatateGivree</sup>
 
-<img src="https://raw.githubusercontent.com/u-lumaa/u-lumaa/main/assets/fabric-banner.png" width=600>
+<img src="https://raw.githubusercontent.com/lumaa-dev/lumaa-dev/main/assets/fabric-banner.png" width=600>
 
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/backrooms?label=Modrinth&logo=modrinth)](https://modrinth.com/mod/backrooms)
 [![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/backrooms?label=Minecraft%20Version)](https://modrinth.com/mod/backrooms)  
@@ -24,9 +24,10 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) 
 ℹ️ **If you don't know how to install a Fabric mod, [click here](https://github.com/lumaa-dev/lumaa-dev/blob/main/installs.md#install-my-fabric-mods)**
 
 ## Dependencies
-**If you plan on installing this mod, you'll have to install these mods as well**
+**If you plan on installing this mod, you'll have to install these mods as well**, italicized mods are optional.
 - [Fabric API](https://modrinth.com/mod/fabric-api/versions?g=1.19.3)
-- [Cloth Config](https://modrinth.com/mod/cloth-config/versions?l=fabric&g=1.19.3)
+- [LibuLib](https://modrinth.com/mod/libu/version/versions?g=1.19.3)
+- *[Cloth Config](https://modrinth.com/mod/cloth-config/versions?l=fabric&g=1.19.3)*
 
 ## How do I do [something]?
 Check our [newest wiki](https://github.com/lumaa-dev/BackroomsMod/wiki)!  
