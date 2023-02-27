@@ -49,12 +49,12 @@ Anyways, that was a lot for one devlog, so I'll see you on the next one. With, h
 
 <center><div align="center">
  
- Here is a code-made room. There's only one because it's a test for now.
+Here is a code-made room. There's only one because it's a test for now.
  
- </div></center>
+</div></center>
 
 ![2023-01-20_17 30 32](https://user-images.githubusercontent.com/93350976/213752583-ab9ba934-8d4a-4cd5-97c3-d8e4160ee5b5.png)  
-<sup>Using [LibuLib](https://github.com/u-lumaa/LibuLib)'s [GenerationCore](https://github.com/u-lumaa/LibuLib/blob/86bce599da7c829048c355b876d6bf4a4c03518c/src/main/java/com/lumaa/libu/generation/GenerationCore.java)</sup>
+<sup>Using [LibuLib](https://github.com/lumaa-dev/LibuLib)'s [GenerationCore](https://github.com/lumaa-dev/LibuLib/blob/86bce599da7c829048c355b876d6bf4a4c03518c/src/main/java/com/lumaa/libu/generation/GenerationCore.java)</sup>
 
 * * *
 
