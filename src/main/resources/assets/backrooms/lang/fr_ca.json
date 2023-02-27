@@ -1,11 +1,6 @@
 {
   "mod.backrooms.name": "Les Backrooms",
-  "mod.libu.name": "Libu",
-  "mod.libu.missing": "Libu n'est pas installé ! Vous devez installer le mod Libu pour utiliser le mod Backrooms !",
-
-  "info.backrooms.update.title": "Une mise à jour est disponible !",
-  "info.backrooms.update.description": "Le mod Les Backrooms à reçu une mise à jour ! Vous utilisez actuellement la version %d et vous pouvez le mettre à jour en version %d. Vous devriez le mettre à jour maintenant !",
-  "info.backrooms.update.button": "Mettre à jour",
+  "mod.yacl.disabled": "Ce bouton est désactivé parce que\nvous n'avez pas Yet Another Config Lib",
 
   "item.backrooms.silk": "Soie",
   "item.backrooms.silken_book": "Livre de Soie",
@@ -47,6 +42,11 @@
   "item.backrooms.the_violin_tape": "Cassette Musicale",
   "item.backrooms.ahiru_no_sentaku_tape": "Cassette Musicale",
   "item.backrooms.no_surprises_tape": "Cassette Musicale",
+  "item.backrooms.no_time_to_explain_tape": "Cassette Musicale",
+  "item.backrooms.orbit_tape": "Cassette Musicale",
+  "item.backrooms.tell_me_you_know_tape": "Cassette Musicale",
+  "item.backrooms.drifting_tape": "Cassette Musicale",
+  "item.backrooms.slingshot_tape": "Cassette Musicale",
 
   "item.backrooms.halls_tape.desc": "H a L L S - CG5",
   "item.backrooms.the_complex_tape.desc": "The Complex - Kane Pixels",
@@ -72,6 +72,11 @@
   "item.backrooms.the_violin_tape.desc": "The Violin - Omori (OST)",
   "item.backrooms.ahiru_no_sentaku_tape.desc": "あひるのせんたく - 佐々川浩子 (Hiroko Sasakawa)",
   "item.backrooms.no_surprises_tape.desc": "No Surprises - Radiohead",
+  "item.backrooms.no_time_to_explain_tape.desc": "No Time to Explain - Good Kid",
+  "item.backrooms.orbit_tape.desc": "Orbit - Good Kid",
+  "item.backrooms.tell_me_you_know_tape.desc": "Tell Me You Know - Good Kid",
+  "item.backrooms.drifting_tape.desc": "Drifting - Good Kid",
+  "item.backrooms.slingshot_tape.desc": "Slingshot - Good Kid",
 
   "itemGroup.backrooms.backrooms": "Les Backrooms",
   "itemGroup.backrooms.music_tapes": "Cassettes musicales",

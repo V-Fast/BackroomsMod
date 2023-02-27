@@ -1,10 +1,6 @@
 {
   "mod.backrooms.name": "Les Backrooms",
-  "mod.cc.disabled": "Ce bouton est désactivé parce que\nvous n'avez pas Cloth Config",
-
-  "info.backrooms.update.title": "Une mise à jour est disponible !",
-  "info.backrooms.update.description": "Le mod Les Backrooms à reçu une mise à jour ! Vous utilisez actuellement la version %d et vous pouvez le mettre à jour en version %d. Vous devriez le mettre à jour maintenant !",
-  "info.backrooms.update.button": "Mettre à jour",
+  "mod.yacl.disabled": "Ce bouton est désactivé parce que\nvous n'avez pas Yet Another Config Lib",
 
   "item.backrooms.silk": "Soie",
   "item.backrooms.silken_book": "Livre de Soie",
@@ -46,6 +42,11 @@
   "item.backrooms.the_violin_tape": "Cassette Musicale",
   "item.backrooms.ahiru_no_sentaku_tape": "Cassette Musicale",
   "item.backrooms.no_surprises_tape": "Cassette Musicale",
+  "item.backrooms.no_time_to_explain_tape": "Cassette Musicale",
+  "item.backrooms.orbit_tape": "Cassette Musicale",
+  "item.backrooms.tell_me_you_know_tape": "Cassette Musicale",
+  "item.backrooms.drifting_tape": "Cassette Musicale",
+  "item.backrooms.slingshot_tape": "Cassette Musicale",
 
   "item.backrooms.halls_tape.desc": "H a L L S - CG5",
   "item.backrooms.the_complex_tape.desc": "The Complex - Kane Pixels",
@@ -71,6 +72,11 @@
   "item.backrooms.the_violin_tape.desc": "The Violin - Omori (OST)",
   "item.backrooms.ahiru_no_sentaku_tape.desc": "あひるのせんたく - 佐々川浩子 (Hiroko Sasakawa)",
   "item.backrooms.no_surprises_tape.desc": "No Surprises - Radiohead",
+  "item.backrooms.no_time_to_explain_tape.desc": "No Time to Explain - Good Kid",
+  "item.backrooms.orbit_tape.desc": "Orbit - Good Kid",
+  "item.backrooms.tell_me_you_know_tape.desc": "Tell Me You Know - Good Kid",
+  "item.backrooms.drifting_tape.desc": "Drifting - Good Kid",
+  "item.backrooms.slingshot_tape.desc": "Slingshot - Good Kid",
 
   "itemGroup.backrooms.backrooms": "Les Backrooms",
   "itemGroup.backrooms.music_tapes": "Cassettes musicales",
@@ -89,14 +95,16 @@
   "block.backrooms.stained_marked_concrete": "Béton Taché Marqué",
   "block.backrooms.street_light": "Lumière Rurale",
 
+  "option.backrooms.general": "Général",
+  "option.backrooms.dev": "Développeur",
   "option.backrooms.disable_record": "Désactiver le HUD \"Record\"",
   "option.backrooms.disable_record.tooltip": "Cache le mot \"Record\" dans l'HUD de la caméra",
   "option.backrooms.explain_errors": "Expliquer les erreurs (anglais seulement)",
   "option.backrooms.explain_errors.tooltip": "Lorsque le mod n'arrive pas à faire une action que vous vouliez,\nIl expliquera pourquoi le bug arrive, et comment le régler.",
-  "option.backrooms.discord_label": "Texte Discord Rich Presence",
+  "option.backrooms.enable_discord": "Activer le Discord Rich Presence",
+  "option.backrooms.enable_discord.tooltip": "Affiche une activité comme status Discord",
+  "option.backrooms.discord_label": "Status Discord Rich Presence",
   "option.backrooms.discord_label.tooltip": "Écrivez ce que vous voulez sur votre statut Discord",
-  "option.backrooms.sounds": "Sons Backrooms",
-  "option.backrooms.sounds.title_end": "Paramètre audio",
 
   "subtitle.backrooms.light_buzzing": "Lumière qui bourdonne",
   "subtitle.backrooms.camera_click": "Clique de Caméra",

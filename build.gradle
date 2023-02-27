@@ -13,7 +13,12 @@ group = project.maven_group
 repositories {
 	mavenCentral()
 	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-	maven { url "https://maven.shedaniel.me/" }
+	repositories {
+		maven {
+			name 'Xander Maven'
+			url 'https://maven.isxander.dev/releases'
+		}
+	}
 	maven {
 		name = 'ladysnake mods'
 		url = 'https://ladysnake.jfrog.io/artifactory/mods'
@@ -66,9 +71,7 @@ dependencies {
 	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19.3:4.0.3'
 
 	// Cloth Config API
-	modApi("me.shedaniel.cloth:cloth-config-fabric:8.0.75") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
+	modImplementation "dev.isxander:yet-another-config-lib:2.2.0"
 
 	// Custom Portal API
 	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta59-1.19'
