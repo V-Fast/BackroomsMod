@@ -72,7 +72,10 @@ public class Discord {
         setPresence("The Backrooms Mod", "By Lumaa", "mod", 0, 0);
     }
 
-    protected static void shutdown() {
+    /**
+     * Stops the Discord RPC
+     */
+    public static void shutdown() {
         DiscordRPC.discordShutdown();
     }
 }

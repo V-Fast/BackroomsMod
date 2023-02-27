@@ -1,12 +1,11 @@
 package com.lumination.backrooms.utils;
 
-import com.lumaa.libu.LibuLibClient;
-import com.lumaa.libu.update.ModrinthMod;
-import com.lumaa.libu.update.UpdateChecker;
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.BackroomsModClient;
 import com.lumination.backrooms.blocks.ModBlocks;
 import com.lumination.backrooms.blocks.entity.ModBlockEntities;
+import com.lumination.backrooms.client.BackroomsRPC;
+import com.lumination.backrooms.client.Discord;
 import com.lumination.backrooms.client.events.KeyInputHandler;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
 import com.lumination.backrooms.items.ModItems;
@@ -14,28 +13,16 @@ import com.lumination.backrooms.items.ModItemsClient;
 import com.lumination.backrooms.items.ModItemsServer;
 import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.world.dimensions.BackroomDimensions;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.loader.api.FabricLoader;
 
-import java.io.IOException;
+import java.util.Objects;
 
 public class ModRegisteries {
-
     public static void registerMod(boolean client) {
         if (client) {
-            if (FabricLoader.getInstance().isModLoaded("libu")) {
-                try {
-                    UpdateChecker backroomsUpdate = new UpdateChecker(new ModrinthMod("The Backrooms Mod", "backrooms", BackroomsModClient.versionId));
-                    backroomsUpdate.findLatestVersion();
-                    LibuLibClient.addUpdate(backroomsUpdate);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                BackroomsMod.print("Missing Libu!");
-                return;
-            }
-
             ModBlocks.registerModBlock();
             ModBlockEntities.registerBlockEntities();
             ModSounds.registerSoundEvents();
@@ -47,9 +34,10 @@ public class ModRegisteries {
             BackroomsSettings.loadConfig();
             KeyInputHandler.register();
             BackroomsModClient.setStartDate();
-            //Discord.initDiscord();
-            //BackroomsRPC.loadingRpc();
-            HudRenderCallback.EVENT.register(BackroomsModClient.camHud);
+            Discord.initDiscord();
+            BackroomsRPC.loadingRpc();
+
+            registerEvents();
         } else {
             if (!FabricLoader.getInstance().isModLoaded("libu")) {
                 BackroomsMod.print("Missing Libu!");
@@ -64,5 +52,31 @@ public class ModRegisteries {
             // server only
             ModItemsServer.registerModItems();
         }
+    }
+
+    private static void registerEvents() {
+        HudRenderCallback.EVENT.register(BackroomsModClient.camHud);
+
+        ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+            if (handler.getServerInfo() != null) {
+                BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), handler.getPlayerList().size());
+            } else {
+                BackroomsRPC.customLabelRpc("Playing Singleplayer", 1, 1);
+            }
+            BackroomsModClient.setStartDate();
+        });
+
+        ClientPlayConnectionEvents.INIT.register((handler, client) -> {
+            if (handler.getServerInfo() != null) {
+                BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), handler.getPlayerList().size());
+            } else {
+                BackroomsRPC.customLabelRpc("Playing Singleplayer", 1, 1);
+            }
+        });
+
+        ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
+            Discord.setPresence("On the title screen", "", "mod");
+            BackroomsModClient.setStartDate();
+        });
     }
 }

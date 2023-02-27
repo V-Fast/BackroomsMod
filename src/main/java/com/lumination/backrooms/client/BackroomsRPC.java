@@ -10,7 +10,7 @@ public class BackroomsRPC {
     public static final String appId = "1036661108154585098";
 
     public static void loadingRpc() {
-        Discord.setPresence("Loading...", "", "async");
+        Discord.setPresence("Loading...", "", "mod");
     }
 
     public static void customLabelRpc(String subtitle, int playerCount, int maxPlayer) {
