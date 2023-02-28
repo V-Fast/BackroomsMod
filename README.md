@@ -27,7 +27,7 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) 
 **If you plan on installing this mod, you'll have to install these mods as well**, italicized mods are optional.
 - [Fabric API](https://modrinth.com/mod/fabric-api/versions?g=1.19.3)
 - [LibuLib](https://modrinth.com/mod/libu/versions?g=1.19.3)
-- *[Cloth Config](https://modrinth.com/mod/cloth-config/versions?l=fabric&g=1.19.3)*
+- *[Yet Another Config Lib](https://modrinth.com/mod/yacl/versions?l=fabric&g=1.19.3)*
 
 ## How do I do [something]?
 Check our [newest wiki](https://github.com/lumaa-dev/BackroomsMod/wiki)!  
