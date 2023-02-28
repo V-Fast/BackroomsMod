@@ -7,10 +7,10 @@
   "description": "Experience the mysterious and scary world of the Backrooms in our Minecraft mod. Inspired by Kane Pixels, explore level 0 of this parallel world filled with dangers and adventures. Feel like you're part of the legend and never want to leave. You will feel like you are in the middle of the legend of The Backrooms and you will never want to leave. Don't miss this unique opportunity in the world of Minecraft!",
   "authors": [
     "_Lumaa_",
-    "PatateGivree",
-    "_Luvaa_"
+    "PatateGivree"
   ],
   "contributors": [
+    "_Luvaa_ - For tape suggestions",
     "Good Kid - For their music"
   ],
   "contact": {
@@ -44,6 +44,18 @@
     "fabric": "*",
     "minecraft": "=1.19.3",
     "java": ">=17",
-    "libu": "1.1.x"
+    "libu": ">=1.2.0"
+  },
+  "recommends": {
+    "yet-another-config-lib": ">=2.2.0"
+  },
+  "suggests": {
+    "modmenu": ">=5.0.0"
+  },
+
+  "custom": {
+    "modmenu": {
+      "parent": "libu"
+    }
   }
 }
