@@ -27,7 +27,6 @@ public class TitleScreenMixin extends Screen {
     protected TitleScreenMixin(Text title) {
         super(title);
         BackroomsModClient.setStartDate();
-        LibuLibClient.displayUpdates();
     }
 
     @Inject(at = @At("HEAD"), method = "init()V")
