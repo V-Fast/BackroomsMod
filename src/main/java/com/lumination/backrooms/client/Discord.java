@@ -77,6 +77,7 @@ public class Discord {
      */
     public static void shutdown() {
         DiscordRPC.discordShutdown();
+        initialized = false;
     }
 
     public static boolean isInitialized() {
