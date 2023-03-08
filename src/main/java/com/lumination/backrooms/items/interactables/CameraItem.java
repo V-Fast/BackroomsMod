@@ -20,11 +20,11 @@ public class CameraItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        world.playSound(user.getX(), user.getY(), user.getZ(), ModSounds.CAMERA_CLICK, SoundCategory.PLAYERS, 0.5f, 1f, true);
         ItemStack itemStack = user.getStackInHand(hand);
 
         user.setCurrentHand(hand);
         if (!world.isClient && !user.isSpectator()) {
+            world.playSound(user.getX(), user.getY(), user.getZ(), ModSounds.CAMERA_CLICK, SoundCategory.PLAYERS, 0.5f, 1f, true);
             if (itemStack.hasNbt()) {
                 NbtCompound nbt = itemStack.getNbt();
                 setRecord(itemStack, !nbt.getBoolean("records"));
