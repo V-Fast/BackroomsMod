@@ -103,6 +103,8 @@
   "option.backrooms.explain_errors.tooltip": "When the mod cannot do an action you wanted,\nIt will explain why it occurs, and if there's a fix.",
   "option.backrooms.enable_discord": "Enable Discord Rich Presence",
   "option.backrooms.enable_discord.tooltip": "Displays an Activity as your Discord status",
+  "option.backrooms.restart_rpc": "Restart Rich Presence",
+  "option.backrooms.restart_rpc.tooltip": "You can restart ONCE every time you play",
   "option.backrooms.discord_label": "Discord Rich Presence Label",
   "option.backrooms.discord_label.tooltip": "Write anything you want on your Discord status",
 

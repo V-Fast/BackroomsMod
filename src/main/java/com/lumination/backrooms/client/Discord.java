@@ -80,6 +80,15 @@ public class Discord {
         initialized = false;
     }
 
+    /**
+     * Restarts the Discord RPC
+     */
+    public static void restart() {
+        shutdown();
+        initDiscord();
+        BackroomsRPC.loadingRpc();
+    }
+
     public static boolean isInitialized() {
         return initialized;
     }

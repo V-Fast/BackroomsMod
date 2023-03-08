@@ -3,10 +3,8 @@ package com.lumination.backrooms.client.screens;
 import com.lumination.backrooms.client.BackroomsRPC;
 import com.lumination.backrooms.client.Discord;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
-import dev.isxander.yacl.api.ConfigCategory;
-import dev.isxander.yacl.api.Option;
-import dev.isxander.yacl.api.OptionGroup;
-import dev.isxander.yacl.api.YetAnotherConfigLib;
+import dev.isxander.yacl.api.*;
+import dev.isxander.yacl.gui.controllers.ActionController;
 import dev.isxander.yacl.gui.controllers.BooleanController;
 import dev.isxander.yacl.gui.controllers.TickBoxController;
 import dev.isxander.yacl.gui.controllers.string.StringController;
@@ -21,6 +19,7 @@ import org.jetbrains.annotations.Nullable;
 @Environment(EnvType.CLIENT)
 public class SettingsScreen {
     public YetAnotherConfigLib.Builder builder = YetAnotherConfigLib.createBuilder();
+    private static boolean restarted = false;
 
     private void styleBuilder() {
         // on click save
@@ -34,6 +33,17 @@ public class SettingsScreen {
             }
         });
 
+        Option restartRPC = ButtonOption.createBuilder()
+                .name(Text.translatable("option.backrooms.restart_rpc"))
+                .tooltip(Text.translatable("option.backrooms.restart_rpc.tooltip"))
+                .action(((yaclScreen, buttonOption) -> {
+                    Discord.restart();
+                    restarted = !restarted;
+                    buttonOption.setAvailable(!restarted); // if restarted once than false
+                }))
+                .controller(ActionController::new)
+                .available(BackroomsSettings.hasDiscordPresence() && !restarted)
+                .build();
         Option discordLabel = Option.createBuilder(String.class)
                 .controller(StringController::new)
                 .name(Text.translatable("option.backrooms.discord_label"))
@@ -45,7 +55,10 @@ public class SettingsScreen {
                 .controller(TickBoxController::new)
                 .name(Text.translatable("option.backrooms.enable_discord"))
                 .tooltip(Text.translatable("option.backrooms.enable_discord.tooltip"))
-                .listener((opt, newVal) -> discordLabel.setAvailable(newVal))
+                .listener((opt, newVal) -> {
+                    discordLabel.setAvailable(newVal);
+                    restartRPC.setAvailable(newVal && !restarted);
+                })
                 .binding(true, () -> BackroomsSettings.hasDiscordPresence(), newVal -> BackroomsSettings.setDiscordPresence(newVal))
                 .build();
 
@@ -58,6 +71,7 @@ public class SettingsScreen {
                                 .name(Text.literal("Discord"))
                                 .collapsed(false)
                                 .option(hasDiscordRPC)
+                                .option(restartRPC)
                                 .option(discordLabel)
                                 .build())
                         .group(OptionGroup.createBuilder()
