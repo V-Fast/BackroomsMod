@@ -16,6 +16,8 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
+// Download Yet Another Config Lib here: https://modrinth.com/mod/yacl
+
 @Environment(EnvType.CLIENT)
 public class SettingsScreen {
     public YetAnotherConfigLib.Builder builder = YetAnotherConfigLib.createBuilder();
@@ -24,9 +26,9 @@ public class SettingsScreen {
         // on click save
         builder.save(() -> {
             BackroomsSettings.saveConfig();
-            if (!BackroomsSettings.hasDiscordPresence()) {
+            if (!BackroomsSettings.hasDiscordPresence() && Discord.isInitialized()) {
                 Discord.shutdown();
-            } else {
+            } else if (BackroomsSettings.hasDiscordPresence() && !Discord.isInitialized()) {
                 Discord.initDiscord();
                 BackroomsRPC.loadingRpc();
             }
@@ -52,6 +54,16 @@ public class SettingsScreen {
                                         .tooltip(Text.translatable("option.backrooms.discord_label.tooltip"))
                                         .binding("By Lumaa", () -> BackroomsSettings.discordLabel(), newVal -> BackroomsSettings.setDiscordLabel(newVal))
                                         .available(BackroomsSettings.hasDiscordPresence())
+                                        .build())
+                                .build())
+                        .group(OptionGroup.createBuilder()
+                                .name(Text.literal("GUI"))
+                                .collapsed(false)
+                                .option(Option.createBuilder(boolean.class)
+                                        .controller(BooleanController::new)
+                                        .binding(true, () -> BackroomsSettings.canShowRecord(), newVal -> BackroomsSettings.setShowRecord(newVal))
+                                        .name(Text.translatable("option.backrooms.disable_record"))
+                                        .tooltip(Text.translatable("option.backrooms.disable_record.tooltip"))
                                         .build())
                                 .build())
                         .build()
