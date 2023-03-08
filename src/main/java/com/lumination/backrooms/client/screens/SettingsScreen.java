@@ -34,6 +34,21 @@ public class SettingsScreen {
             }
         });
 
+        Option discordLabel = Option.createBuilder(String.class)
+                .controller(StringController::new)
+                .name(Text.translatable("option.backrooms.discord_label"))
+                .tooltip(Text.translatable("option.backrooms.discord_label.tooltip"))
+                .binding("By Lumaa", () -> BackroomsSettings.discordLabel(), newVal -> BackroomsSettings.setDiscordLabel(newVal))
+                .available(BackroomsSettings.hasDiscordPresence())
+                .build();
+        Option hasDiscordRPC = Option.createBuilder(boolean.class)
+                .controller(TickBoxController::new)
+                .name(Text.translatable("option.backrooms.enable_discord"))
+                .tooltip(Text.translatable("option.backrooms.enable_discord.tooltip"))
+                .listener((opt, newVal) -> discordLabel.setAvailable(newVal))
+                .binding(true, () -> BackroomsSettings.hasDiscordPresence(), newVal -> BackroomsSettings.setDiscordPresence(newVal))
+                .build();
+
         // styling & actions
         builder
                 .title(Text.translatable("mod.backrooms.name"))
@@ -42,19 +57,8 @@ public class SettingsScreen {
                         .group(OptionGroup.createBuilder()
                                 .name(Text.literal("Discord"))
                                 .collapsed(false)
-                                .option(Option.createBuilder(boolean.class)
-                                        .controller(TickBoxController::new)
-                                        .name(Text.translatable("option.backrooms.enable_discord"))
-                                        .tooltip(Text.translatable("option.backrooms.enable_discord.tooltip"))
-                                        .binding(true, () -> BackroomsSettings.hasDiscordPresence(), newVal -> BackroomsSettings.setDiscordPresence(newVal))
-                                        .build())
-                                .option(Option.createBuilder(String.class)
-                                        .controller(StringController::new)
-                                        .name(Text.translatable("option.backrooms.discord_label"))
-                                        .tooltip(Text.translatable("option.backrooms.discord_label.tooltip"))
-                                        .binding("By Lumaa", () -> BackroomsSettings.discordLabel(), newVal -> BackroomsSettings.setDiscordLabel(newVal))
-                                        .available(BackroomsSettings.hasDiscordPresence())
-                                        .build())
+                                .option(hasDiscordRPC)
+                                .option(discordLabel)
                                 .build())
                         .group(OptionGroup.createBuilder()
                                 .name(Text.literal("GUI"))
