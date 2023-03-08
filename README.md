@@ -8,9 +8,8 @@
 
 <img src="https://raw.githubusercontent.com/lumaa-dev/lumaa-dev/main/assets/fabric-banner.png" width=600>
 
-[![Modrinth Downloads](https://img.shields.io/modrinth/dt/backrooms?label=Modrinth&logo=modrinth)](https://modrinth.com/mod/backrooms)
-[![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/backrooms?label=Minecraft%20Version)](https://modrinth.com/mod/backrooms)  
-[![Discord Server](https://img.shields.io/discord/1033451342984908900?label=Support%20Discord&logo=discord)](https://discord.gg/Rqpn3C7yR5)
+<a href="https://modrinth.com/mod/backrooms"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/only_modrinth.png" width=150></a>
+<a href="https://discord.gg/Rqpn3C7yR5"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/support_discord.png" width=150></a>
 
 </div></center>
 
@@ -27,7 +26,7 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) 
 **If you plan on installing this mod, you'll have to install these mods as well**, italicized mods are optional.
 - [Fabric API](https://modrinth.com/mod/fabric-api/versions?g=1.19.3)
 - [LibuLib](https://modrinth.com/mod/libu/versions?g=1.19.3)
-- *[Cloth Config](https://modrinth.com/mod/cloth-config/versions?l=fabric&g=1.19.3)*
+- *[Yet Another Config Lib](https://modrinth.com/mod/yacl/versions?l=fabric&g=1.19.3)*
 
 ## How do I do [something]?
 Check our [newest wiki](https://github.com/lumaa-dev/BackroomsMod/wiki)!  
