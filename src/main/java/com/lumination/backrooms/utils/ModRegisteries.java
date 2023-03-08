@@ -13,12 +13,9 @@ import com.lumination.backrooms.items.ModItemsClient;
 import com.lumination.backrooms.items.ModItemsServer;
 import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.world.dimensions.BackroomDimensions;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.loader.api.FabricLoader;
-
-import java.util.Objects;
 
 public class ModRegisteries {
     public static void registerMod(boolean client) {
@@ -59,7 +56,7 @@ public class ModRegisteries {
 
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
             if (handler.getServerInfo() != null) {
-                BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), handler.getPlayerList().size());
+                BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getMaxPlayerCount());
             } else {
                 BackroomsRPC.customLabelRpc("Playing Singleplayer", 1, 1);
             }
@@ -68,7 +65,7 @@ public class ModRegisteries {
 
         ClientPlayConnectionEvents.INIT.register((handler, client) -> {
             if (handler.getServerInfo() != null) {
-                BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), handler.getPlayerList().size());
+                BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getMaxPlayerCount());
             } else {
                 BackroomsRPC.customLabelRpc("Playing Singleplayer", 1, 1);
             }
