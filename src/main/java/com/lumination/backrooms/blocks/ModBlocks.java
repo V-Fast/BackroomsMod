@@ -34,6 +34,8 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.WOOL).sounds(BlockSoundGroup.WOOL).requiresTool().strength(2f)), BackroomsItemsGroup.Main);
     public static final Block DROPPED_CEILING = registerBlock("dropped_ceiling",
             new Block(FabricBlockSettings.of(Material.WOOL).sounds(BlockSoundGroup.WOOL).strength(1f)), BackroomsItemsGroup.Main);
+    public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
+            new FluorescentLight(FabricBlockSettings.of(Material.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(13)), BackroomsItemsGroup.Main);
     public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",
             new Block(FabricBlockSettings.of(Material.METAL).sounds(BlockSoundGroup.METAL).strength(Blocks.IRON_BLOCK.getHardness())), BackroomsItemsGroup.Main);
     public static final Block SCRATCHED_CONCRETE = registerBlock("slightly_scratched_concrete",
@@ -47,8 +49,6 @@ public class ModBlocks {
 
     // Interactables
 
-    public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
-            new FluorescentLight(FabricBlockSettings.of(Material.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(13)), BackroomsItemsGroup.Main);
     public static final Block TAPE_PLAYER = registerBlock("tape_player",
             new TapePlayer(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), List.of(BackroomsItemsGroup.Main, ItemGroups.REDSTONE));
     public static final Block RADIO = registerBlock("radio",
