@@ -27,11 +27,7 @@ public class CameraRecordHud implements HudRenderCallback {
         Hand hand = player.getActiveHand();
         ItemStack itemStack = player.getStackInHand(hand);
         boolean holdingItem = itemStack.getItem() == ModItems.CAMERA;
-        if (holdingItem &&
-                itemStack.hasNbt() &&
-                itemStack.getNbt().getBoolean("records") &&
-                !player.isSpectator()
-        ) v = true;
+        if (holdingItem && itemStack != null && itemStack.hasNbt() && itemStack.getNbt().getBoolean("records") && !player.isSpectator()) v = true;
         visible = v;
     }
 
