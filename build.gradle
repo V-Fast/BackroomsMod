@@ -67,7 +67,7 @@ dependencies {
 	// Fabric API
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	// Geckolib 3 (wrong version)
+	// Geckolib 4
 	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19.3:4.0.3'
 
 	// Cloth Config API
@@ -85,7 +85,7 @@ dependencies {
 	include 'com.github.Vatuu:discord-rpc:1.6.2'
 	include 'com.github.Vatuu:discord-rpc-binaries:3.4.0'
 
-	// Track mod usage - MongoDB
+	// Track mod usage and announces - MongoDB
 	implementation 'org.mongodb:mongodb-driver-sync:4.9.0'
 }
 
