@@ -106,19 +106,20 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.isSneaking()) {
-            this.stopRecords(world, pos, player);
+        if (!world.isClient) {
+            if (player.isSneaking()) {
+                this.stopRecords(world, pos, player);
 
-            state = (BlockState)state.with(RECORD, 0);
-            world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));
-            world.setBlockState(pos, state, 2);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
-            world.getPlayers().forEach(player1 -> player1.sendMessage(Text.literal(""), true));
-            return ActionResult.success(world.isClient);
-        } else {
-            this.switchRecord(state, world, pos, player, hand, hit);
-            return ActionResult.success(world.isClient);
+                state = (BlockState)state.with(RECORD, 0);
+                world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));
+                world.setBlockState(pos, state, 2);
+                world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
+                world.getPlayers().forEach(player1 -> player1.sendMessage(Text.literal(""), true));
+            } else {
+                this.switchRecord(state, world, pos, player, hand, hit);
+            }
         }
+        return ActionResult.success(!world.isClient);
     }
 
     @Override
