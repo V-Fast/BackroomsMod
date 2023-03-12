@@ -4,7 +4,7 @@ import com.lumaa.libu.items.LibuWeapon;
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.items.consumables.AlmondWater;
 import com.lumination.backrooms.items.interactables.CameraItem;
-import com.lumination.backrooms.items.interactables.TestItem;
+import com.lumination.backrooms.items.interactables.BackroomsGenCore;
 import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -19,7 +19,7 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 
 public class ModItems {
-    public static final Item LVL_0_CORE = registerItem("level_0_core", new TestItem(new FabricItemSettings().maxCount(1).fireproof()), List.of(ItemGroups.OPERATOR, BackroomsItemsGroup.Main));
+    public static final Item BACKROOMS_CORE = registerItem("backrooms_core", new BackroomsGenCore(new FabricItemSettings().maxCount(1).fireproof()), List.of(ItemGroups.OPERATOR, BackroomsItemsGroup.Main));
 
     public static final Item SILK = registerItem("silk",
             new Item(new FabricItemSettings()), BackroomsItemsGroup.Main);
