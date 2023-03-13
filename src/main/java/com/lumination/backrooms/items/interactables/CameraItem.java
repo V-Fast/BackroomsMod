@@ -23,8 +23,8 @@ public class CameraItem extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
 
         user.setCurrentHand(hand);
+        world.playSound(user.getX(), user.getY(), user.getZ(), ModSounds.CAMERA_CLICK, SoundCategory.PLAYERS, 0.5f, 1f, true);
         if (!world.isClient && !user.isSpectator()) {
-            world.playSound(user.getX(), user.getY(), user.getZ(), ModSounds.CAMERA_CLICK, SoundCategory.PLAYERS, 0.5f, 1f, true);
             if (itemStack.hasNbt()) {
                 NbtCompound nbt = itemStack.getNbt();
                 setRecord(itemStack, !nbt.getBoolean("records"));
