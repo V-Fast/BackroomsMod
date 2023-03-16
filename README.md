@@ -2,13 +2,13 @@
 
 # The Backrooms Mod
 
-<img src="https://cdn.modrinth.com/data/83vrcdt0/images/fce03d819ffa1e179ed4d20eba755326f6119e90.png" width=500>
+<img src="https://cdn.modrinth.com/data/83vrcdt0/images/e549c490873bbe31250dba0ec3c2a8d1419e2821.png" width=500>
 
-<sup>Handmade builds, by PatateGivree</sup>
+<sup>Handmade builds, by Lumaa</sup>
 
 <img src="https://raw.githubusercontent.com/lumaa-dev/lumaa-dev/main/assets/fabric-banner.png" width=600>
 
-<a href="https://modrinth.com/mod/backrooms"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/only_modrinth.png" width=150></a>
+<a href="https://github.com/lumaa-dev/BackroomsMod"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/star_github.png" width=150></a>
 <a href="https://discord.gg/Rqpn3C7yR5"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/support_discord.png" width=150></a>
 
 </div></center>
@@ -33,6 +33,9 @@ Check our [newest wiki](https://github.com/lumaa-dev/BackroomsMod/wiki)!
 We made it just for you that are asking question!
 
 ## Credits
-This mod is made by [Lumaa](https://lumaa.brebond.com/), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1) and we receive music suggestions from [Luvaa](https://namemc.com/profile/_Luvaa_.1).  
-This mod is also heavily inspired by [Kane Pixels](https://www.youtube.com/c/KANEpixels)'s Backrooms series on YouTube.  
-Thank you very much to [Good Kid](https://www.youtube.com/@GoodKidband) for allowing us to use their songs in the mod!
+This mod is made by [Lumaa](https://lumaa.brebond.com/), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1).
+This mod includes content originally made by [Kane Pixels](https://www.youtube.com/c/KANEpixels) on his famous Backrooms series on YouTube.  
+
+### Contributors
+- [Good Kid](https://www.youtube.com/@GoodKidband) - Songs
+- Luvaa - Music suggestions
