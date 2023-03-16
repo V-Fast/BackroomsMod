@@ -15,7 +15,7 @@ public class BackroomsMod implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final String SETTINGS_NAME = "the_backrooms";
 	private static final List<Radio.RadioRecord> records = Arrays.asList(
-			null,
+			null, // The "additional" record
 			new Radio.RadioRecord(Text.translatable("item.backrooms.halls_tape.desc").getString(), ModSounds.HALLS),
 			new Radio.RadioRecord(Text.translatable("item.backrooms.duet_tape.desc").getString(), ModSounds.DUET),
 			new Radio.RadioRecord(Text.translatable("item.backrooms.drifting_tape.desc").getString(), ModSounds.DRIFTING),

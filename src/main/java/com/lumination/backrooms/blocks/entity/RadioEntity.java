@@ -55,7 +55,7 @@ public class RadioEntity extends BlockEntity implements Clearable {
     }
 
     public void clear() {
-        this.recordId = -1;
+        this.recordId = 0;
         this.isPlaying = false;
     }
 

@@ -12,24 +12,15 @@ import java.util.Date;
 @Environment(EnvType.CLIENT)
 public class BackroomsModClient implements ClientModInitializer {
     public static final CameraRecordHud camHud = new CameraRecordHud();
-    public static final String versionId = FabricLoader.getInstance()
-            .getModContainer("backrooms")
-            .orElseThrow()
-            .getMetadata()
-            .getVersion()
-            .getFriendlyString();
     public static long start;
-
 
     @Override
     public void onInitializeClient() {
         ModRegisteries.registerMod(true);
-
         BackroomsMod.print("Initialized Client Backrooms");
     }
 
     public static void setStartDate() {
-        long now = new Date().getTime();
-        start = now;
+        start = new Date().getTime();
     }
 }
