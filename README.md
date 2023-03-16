@@ -8,7 +8,7 @@
 
 <img src="https://raw.githubusercontent.com/lumaa-dev/lumaa-dev/main/assets/fabric-banner.png" width=600>
 
-<a href="https://github.com/lumaa-dev/BackroomsMod"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/star_github.png" width=150></a>
+<a href="https://modrinth.com/mod/backrooms"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/only_modrinth.png" width=150></a>
 <a href="https://discord.gg/Rqpn3C7yR5"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/support_discord.png" width=150></a>
 
 </div></center>
