@@ -19,8 +19,6 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 
 public class ModItems {
-    public static final Item BACKROOMS_CORE = registerItem("backrooms_core", new BackroomsGenCore(new FabricItemSettings().maxCount(1).fireproof()), List.of(ItemGroups.OPERATOR, BackroomsItemsGroup.Main));
-
     public static final Item SILK = registerItem("silk",
             new Item(new FabricItemSettings()), BackroomsItemsGroup.Main);
     public static final Item ALMOND_WATER = registerItem("almond_water", new AlmondWater(
@@ -71,6 +69,9 @@ public class ModItems {
     public static final Item DRIFTING_TAPE = registerItem("drifting_tape", new MusicTape(8, ModSounds.DRIFTING, new FabricItemSettings(), 1), BackroomsItemsGroup.MusicTapes);
     public static final Item TELL_ME_YOU_KNOW_TAPE = registerItem("tell_me_you_know_tape", new MusicTape(2, ModSounds.TELL_ME_YOU_KNOW, new FabricItemSettings(), 1), BackroomsItemsGroup.MusicTapes);
 
+    // experimental / operator
+    public static final Item BACKROOMS_CORE = registerItem("backrooms_core", new BackroomsGenCore(new FabricItemSettings().maxCount(1).fireproof()), List.of(ItemGroups.OPERATOR, BackroomsItemsGroup.Main));
+
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);
     }
@@ -88,7 +89,7 @@ public class ModItems {
         return newItem;
     }
 
-    // can be used for new 1.19.3 creative inventory system
+    // can be used for new 1.19.3+ creative inventory system
     private static Item registerItem(String name, Item item, List<ItemGroup> tabs) {
         Item newItem = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name), item);
 
