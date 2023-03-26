@@ -33,7 +33,6 @@ public class MusicTape extends MusicDiscItem {
         ItemStack itemStack = context.getStack();
         if (!world.isClient) {
             ((TapePlayer) ModBlocks.TAPE_PLAYER).setRecord(context.getPlayer(), world, blockPos, blockState, itemStack);
-            world.syncWorldEvent(null, WorldEvents.MUSIC_DISC_PLAYED, blockPos, Item.getRawId(this));
             PlayerEntity playerEntity = context.getPlayer();
             if (playerEntity != null) {
                 if (!playerEntity.isCreative()) {

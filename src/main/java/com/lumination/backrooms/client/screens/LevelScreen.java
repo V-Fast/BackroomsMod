@@ -34,7 +34,7 @@ public class LevelScreen extends Screen {
         renderBackground(matrices);
         matrices.push();
         matrices.scale(2.0F, 2.0F, 2.0F);
-        drawCenteredText(matrices, this.textRenderer, this.level.getName(), this.width / 2 / 2, 30, Color.white);
+        drawCenteredTextWithShadow(matrices, this.textRenderer, this.level.getName(), this.width / 2 / 2, 30, Color.white);
         matrices.pop();
 
         this.text = MultilineText.create(this.textRenderer, this.info, this.width / 2);
