@@ -115,9 +115,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
                 world.setBlockState(pos, state, 2);
                 world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
                 world.getPlayers().forEach(player1 -> player1.sendMessage(Text.literal(""), true));
-            }
-
-            if (player.isSneaking()) {
+                
                 this.stopRecords(state, world, pos, player);
             } else {
                 this.switchRecord(state, world, pos, player, hand, hit);
