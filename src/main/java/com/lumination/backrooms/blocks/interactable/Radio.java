@@ -28,6 +28,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -46,17 +47,31 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
     }
 
     //TODO: Fix shape
-    private static VoxelShape SHAPE = Block.createCuboidShape(2, 0, 4, 12, 8, 6.5d);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        Direction dir = state.get(FACING);
+        switch(dir) {
+            case NORTH -> {
+                return Block.createCuboidShape(2, 0, 6.5d, 14, 8, 10.5d);
+            }
+            case SOUTH -> {
+                return Block.createCuboidShape(2, 0, 5.5d, 14, 8, 9.5d);
+            }
+            case EAST -> {
+                return Block.createCuboidShape(5.5d, 0, 2, 9.5d, 8, 14);
+            }
+            case WEST -> {
+                return Block.createCuboidShape(6.5d, 0, 2, 10.5d, 8, 14);
+            }
+        }
+        return Block.createCuboidShape(2, 0, 5.5d, 14, 8, 9.5d);
     }
 
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getPlayerLookDirection().getOpposite());
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override

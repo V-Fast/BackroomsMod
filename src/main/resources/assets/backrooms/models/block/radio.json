@@ -1,8 +1,9 @@
 {
-	"credit": "Made with Blockbench by Lumaa",
+	"credit": "Made with Blockbench by PatateGivree",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "backrooms:block/radio"
+		"0": "backrooms:block/radio",
+		"particle": "backrooms:block/radio"
 	},
 	"elements": [
 		{
@@ -32,8 +33,8 @@
 			}
 		},
 		{
-			"from": [1.81738, 0, 6.43262],
-			"to": [13.81738, 8, 10.43262],
+			"from": [2, 0, 6.5],
+			"to": [14, 8, 10.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8.125, 6.97992, 8.30762]},
 			"faces": {
 				"north": {"uv": [0, 0, 6, 4], "texture": "#0"},
@@ -81,8 +82,6 @@
 			"name": "group",
 			"origin": [8, 8, 8],
 			"color": 0,
-			"nbt": "{}",
-			"armAnimationEnabled": false,
 			"children": [0, 1, 2]
 		}
 	]
