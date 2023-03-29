@@ -1,7 +1,9 @@
 package com.lumination.backrooms.blocks.interactable;
 
+import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.blocks.entity.ModBlockEntities;
 import com.lumination.backrooms.blocks.entity.TapePlayerEntity;
+import com.lumination.backrooms.items.ModItems;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -14,6 +16,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.packet.s2c.play.StopSoundS2CPacket;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -133,7 +138,10 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
                 TapePlayerEntity tapePlayerEntity = (TapePlayerEntity)blockEntity;
                 ItemStack itemStack = tapePlayerEntity.getRecord();
                 if (!itemStack.isEmpty()) {
-                    world.syncWorldEvent(1010, pos, 0);
+                    MusicTape record = (MusicTape) itemStack.getItem();
+                    MinecraftServer server = world.getServer();
+                    StopSoundS2CPacket stopSoundS2CPacket = new StopSoundS2CPacket(record.getSound().getId(), null);
+                    server.getPlayerManager().getPlayerList().forEach(player1 -> player1.networkHandler.sendPacket(stopSoundS2CPacket));
                     if (player != null) {
                         int freeSlot = player.getStackInHand(player.getActiveHand()).isEmpty() ? player.getInventory().selectedSlot : player.getInventory().getEmptySlot();
                         tapePlayerEntity.clear();
