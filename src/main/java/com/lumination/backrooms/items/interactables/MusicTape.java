@@ -36,7 +36,7 @@ public class MusicTape extends MusicDiscItem {
         if (!world.isClient) {
             ((TapePlayer) ModBlocks.TAPE_PLAYER).setRecord(context.getPlayer(), world, blockPos, blockState, itemStack);
             world.playSound(null, context.getBlockPos(), this.getSound(), SoundCategory.RECORDS, 0.75f, 1f);
-            world.getServer().getPlayerManager().broadcast(Text.translatable("record.nowPlaying", Text.translatable(this.getTranslationKey()).getString() + ".desc").formatted(Formatting.YELLOW), true);
+            world.getServer().getPlayerManager().broadcast(Text.translatable("record.nowPlaying", Text.translatable(this.getTranslationKey() + ".desc").getString()).formatted(Formatting.YELLOW), true);
             PlayerEntity playerEntity = context.getPlayer();
             if (playerEntity != null) {
                 if (!playerEntity.isCreative()) {
