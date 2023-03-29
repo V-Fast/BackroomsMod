@@ -173,7 +173,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
 
         if (!world.isClient) {
             RadioRecord finalRecord = record;
-            world.getPlayers().forEach(player1 -> player1.sendMessage(Text.translatable("record.nowPlaying", Text.translatable(finalRecord.name).getString()).formatted(Formatting.YELLOW), true));
+            world.getServer().getPlayerManager().broadcast(Text.translatable("record.nowPlaying", Text.translatable(finalRecord.name).getString()).formatted(Formatting.YELLOW), true);
 
             if (player != null) {
                 player.incrementStat(Stats.PLAY_RECORD);
