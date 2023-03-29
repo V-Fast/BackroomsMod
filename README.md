@@ -10,6 +10,7 @@
 
 <a href="https://modrinth.com/mod/backrooms"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/only_modrinth.png" width=150></a>
 <a href="https://discord.gg/Rqpn3C7yR5"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/support_discord.png" width=150></a>
+<a href="https://docs.google.com/spreadsheets/d/1zrBJshX48qSnxicYFW-AIy_CmrKOT0d91QpU24vDvdQ/edit?usp=sharing"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/only_modrinth.png" width=150></a>
 
 </div></center>
 
