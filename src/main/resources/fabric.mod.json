@@ -55,7 +55,6 @@
 
   "custom": {
     "modmenu": {
-      "parent": "libu",
       "links": {
         "modmenu.discord": "https://lumaa.brebond.com/support"
       }
