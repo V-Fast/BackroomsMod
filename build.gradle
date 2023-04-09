@@ -64,7 +64,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Geckolib 4
-	// modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19.3:4.0.3'
+	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19.4:4.1.1'
 
 	// YACL
 	modImplementation "dev.isxander:yet-another-config-lib:2.3.0"

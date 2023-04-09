@@ -8,6 +8,7 @@ import com.lumination.backrooms.client.BackroomsRPC;
 import com.lumination.backrooms.client.Discord;
 import com.lumination.backrooms.client.events.KeyInputHandler;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
+import com.lumination.backrooms.entities.ModEntities;
 import com.lumination.backrooms.items.ModItems;
 import com.lumination.backrooms.items.ModItemsClient;
 import com.lumination.backrooms.items.ModItemsServer;
@@ -19,13 +20,14 @@ import net.fabricmc.loader.api.FabricLoader;
 
 public class ModRegisteries {
     public static void registerMod(boolean client) {
-        if (client) {
-            ModBlocks.registerModBlock();
-            ModBlockEntities.registerBlockEntities();
-            ModSounds.registerSoundEvents();
-            BackroomDimensions.registerDims();
-            ModItems.registerModItems();
+        ModBlocks.registerModBlock();
+        ModBlockEntities.registerBlockEntities();
+        ModSounds.registerSoundEvents();
+        BackroomDimensions.registerDims();
+        ModItems.registerModItems();
+        ModEntities.registerMobs();
 
+        if (client) {
             // client only
             ModItemsClient.registerModItems();
             BackroomsSettings.loadConfig();
@@ -39,12 +41,6 @@ public class ModRegisteries {
             if (!FabricLoader.getInstance().isModLoaded("libu")) {
                 BackroomsMod.print("Missing Libu!");
             }
-
-            ModBlocks.registerModBlock();
-            ModBlockEntities.registerBlockEntities();
-            ModSounds.registerSoundEvents();
-            BackroomDimensions.registerDims();
-            ModItems.registerModItems();
 
             // server only
             ModItemsServer.registerModItems();

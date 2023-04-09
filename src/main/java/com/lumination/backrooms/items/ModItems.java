@@ -2,6 +2,7 @@ package com.lumination.backrooms.items;
 
 import com.lumaa.libu.items.LibuWeapon;
 import com.lumination.backrooms.BackroomsMod;
+import com.lumination.backrooms.entities.ModEntities;
 import com.lumination.backrooms.items.consumables.AlmondWater;
 import com.lumination.backrooms.items.interactables.CameraItem;
 import com.lumination.backrooms.items.interactables.BackroomsGenCore;
@@ -29,6 +30,9 @@ public class ModItems {
             new FabricItemSettings().maxCount(1)), BackroomsItemsGroup.Main);
     public static final Item ENERGY_BAR = registerItem("energy_bar", new Item(
             new FabricItemSettings().maxCount(64).food(new FoodComponent.Builder().alwaysEdible().hunger(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())), BackroomsItemsGroup.Main);
+
+    // spawn eggs
+    public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(ModEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.Entites);
 
     // weapons
     public static final Item WRENCH = registerItem("wrench", new LibuWeapon.LibuSword(6.5f, 1.6f, 835, new Item.Settings()), BackroomsItemsGroup.Weapons);
@@ -72,7 +76,7 @@ public class ModItems {
     // experimental / operator
     public static final Item BACKROOMS_CORE = registerItem("backrooms_core", new BackroomsGenCore(new FabricItemSettings().maxCount(1).fireproof()), List.of(ItemGroups.OPERATOR, BackroomsItemsGroup.Main));
 
-    public static AlmondWater CookedAlmondWater(Item.Settings settings) {
+    public static final AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);
     }
 

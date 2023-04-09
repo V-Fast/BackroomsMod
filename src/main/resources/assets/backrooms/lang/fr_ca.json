@@ -16,7 +16,11 @@
   "item.backrooms.nailed_bat": "Batte clouée",
   "item.backrooms.baseball_bat": "Batte de Baseball",
   "item.backrooms.broken_bottle": "Bouteille Brisée",
-  "item.backrooms.level_0_core": "Level 0 Core",
+  "item.backrooms.bacteria_spawn_egg": "Œuf d'apparition de Bactérie",
+  "item.backrooms.backrooms_core": "Cœur des Backrooms",
+
+  "item.backrooms.backrooms_core.desc": "Type : %s",
+  "item.backrooms.backrooms_core.use": "Défini Type à %s",
 
   "item.backrooms.halls_tape": "Cassette Musicale",
   "item.backrooms.the_complex_tape": "Cassette Musicale",
@@ -81,6 +85,7 @@
   "itemGroup.backrooms.backrooms": "Les Backrooms",
   "itemGroup.backrooms.music_tapes": "Cassettes musicales",
   "itemGroup.backrooms.weapons": "Armes",
+  "itemGroup.backrooms.entities": "Entités des Backrooms",
 
   "block.backrooms.moist_silk": "Soie Humide",
   "block.backrooms.moist_silk_planks": "Planches de Soie Humides",
@@ -94,6 +99,8 @@
   "block.backrooms.stained_concrete": "Béton Taché",
   "block.backrooms.stained_marked_concrete": "Béton Taché Marqué",
   "block.backrooms.street_light": "Lumière Rurale",
+
+  "entity.backrooms.bacteria": "Bactérie",
 
   "option.backrooms.general": "Général",
   "option.backrooms.dev": "Développeur",
