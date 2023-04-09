@@ -51,7 +51,7 @@
     "yet-another-config-lib": ">=2.2.0"
   },
   "suggests": {
-    "modmenu": ">=5.0.0",
+    "modmenu": ">=5.0.0"
   },
 
   "custom": {
