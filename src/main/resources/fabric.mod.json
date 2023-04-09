@@ -44,13 +44,14 @@
     "fabric": "*",
     "minecraft": "~1.19.4",
     "java": ">=17",
-    "libu": "1.2.x"
+    "libu": "1.2.x",
+    "geckolib": ">=4.1.1"
   },
   "recommends": {
     "yet-another-config-lib": ">=2.2.0"
   },
   "suggests": {
-    "modmenu": ">=5.0.0"
+    "modmenu": ">=5.0.0",
   },
 
   "custom": {
