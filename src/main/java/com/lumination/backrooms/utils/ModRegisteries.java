@@ -16,7 +16,10 @@ import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.world.dimensions.BackroomDimensions;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.util.Identifier;
 
 public class ModRegisteries {
     public static void registerMod(boolean client) {
@@ -29,6 +32,10 @@ public class ModRegisteries {
 
         if (client) {
             // client only
+            FabricLoader.getInstance().getModContainer(BackroomsMod.MOD_ID).ifPresent(modContainer -> {
+                ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(BackroomsMod.MOD_ID, "old_ssc"), modContainer, ResourcePackActivationType.NORMAL);
+            });
+
             ModItemsClient.registerModItems();
             BackroomsSettings.loadConfig();
             KeyInputHandler.register();

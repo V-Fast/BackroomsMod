@@ -1,6 +1,5 @@
 package com.lumination.backrooms.mixin;
 
-import com.lumaa.libu.LibuLibClient;
 import com.lumaa.libu.util.BetterText;
 import com.lumaa.libu.util.BetterText.TextType;
 import com.lumaa.libu.util.Color;
