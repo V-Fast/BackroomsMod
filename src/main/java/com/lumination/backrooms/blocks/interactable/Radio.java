@@ -138,12 +138,6 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
         return ActionResult.success(!world.isClient);
     }
 
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        //tooltip.add(Text.empty());
-        //tooltip.add(Text.literal("This block does not work properly").formatted(Formatting.RED));
-    }
-
     public void switchRecord(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         List<RadioRecord> allRecords = BackroomsMod.getRecords();
@@ -164,14 +158,19 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
             if (currentId != 0) {
                 MinecraftServer server = world.getServer();
                 StopSoundS2CPacket stopSoundS2CPacket = new StopSoundS2CPacket(oldRecord, null);
-                server.getPlayerManager().getPlayerList().forEach(player1 -> player1.networkHandler.sendPacket(stopSoundS2CPacket));
-                world.playSound(null, pos, record.sound, SoundCategory.RECORDS, 0.75f, 1f);
+                Identifier finalOldRecord = oldRecord;
+                server.getPlayerManager().getPlayerList().forEach(player1 -> {
+                    boolean l = player1.getBlockPos().isWithinDistance(pos.toCenterPos(), 65d);
+                    assert l && finalOldRecord != null;
+                    player1.networkHandler.sendPacket(stopSoundS2CPacket);
+                });
+                world.playSoundAtBlockCenter(pos, record.sound, SoundCategory.RECORDS, 0.75f, 1f, true);
             }
         }
 
         if (!world.isClient) {
             RadioRecord finalRecord = record;
-            world.getServer().getPlayerManager().broadcast(Text.translatable("record.nowPlaying", Text.translatable(finalRecord.name).getString()).formatted(Formatting.YELLOW), true);
+            world.getServer().getPlayerManager().getPlayerList().stream().filter(player1 -> player1.getBlockPos().isWithinDistance(pos.toCenterPos(), 65d)).forEach(player1 -> player1.sendMessage(Text.translatable("record.nowPlaying", Text.translatable(finalRecord.name).getString()).formatted(Formatting.YELLOW), true));
 
             if (player != null) {
                 player.incrementStat(Stats.PLAY_RECORD);
