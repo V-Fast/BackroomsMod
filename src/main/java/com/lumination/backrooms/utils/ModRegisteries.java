@@ -6,7 +6,6 @@ import com.lumination.backrooms.blocks.ModBlocks;
 import com.lumination.backrooms.blocks.entity.ModBlockEntities;
 import com.lumination.backrooms.client.BackroomsRPC;
 import com.lumination.backrooms.client.Discord;
-import com.lumination.backrooms.client.events.KeyInputHandler;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
 import com.lumination.backrooms.entities.ModEntities;
 import com.lumination.backrooms.items.ModItems;
@@ -38,7 +37,7 @@ public class ModRegisteries {
 
             ModItemsClient.registerModItems();
             BackroomsSettings.loadConfig();
-            KeyInputHandler.register();
+            // KeyInputHandler.register();
             BackroomsModClient.setStartDate();
             Discord.initDiscord();
             BackroomsRPC.loadingRpc();

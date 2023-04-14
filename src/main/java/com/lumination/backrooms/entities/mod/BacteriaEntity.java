@@ -65,6 +65,8 @@ public class BacteriaEntity extends HostileEntity implements GeoEntity {
                 0, this::predicate));
     }
 
+    //TODO: Do custom sounds
+
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.ENTITY_DOLPHIN_AMBIENT;

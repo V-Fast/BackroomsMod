@@ -46,8 +46,6 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(RECORD, 0));
     }
 
-    //TODO: Fix shape
-
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         Direction dir = state.get(FACING);
