@@ -121,5 +121,7 @@
   "key.backrooms.level_info": "Information du Level",
 
   "levels.backrooms.overworld.details": "Le monde normal, l'endroit où tout commence.\nQuelques mobs apparaissent la nuit pour vous tuer, même si il y a plusieurs mobs passifs pour vous rapporter de la nourriture.",
-  "levels.backrooms.level_0.details": "Vous vous demandez où vous êtes ? Bah si vous savez, vous savez.\nEssayez de ne pas mourrir de faim, de soif, ou juste mourrir.\nBonne chance."
+  "levels.backrooms.level_0.details": "Vous vous demandez où vous êtes ? Bah si vous savez, vous savez.\nEssayez de ne pas mourrir de faim, de soif, ou juste mourrir.\nBonne chance.",
+
+  "resourcePack.old_ssc.name": "Ancien Béton Légèrement Éraflé"
 }

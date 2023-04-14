@@ -121,5 +121,8 @@
   "key.backrooms.level_info": "Level Info",
 
   "levels.backrooms.overworld.details": "The Overworld, the place where it all begins.\nA few mobs spawn at night to try and kill you, though, there are also many passive mobs to get you food.",
-  "levels.backrooms.level_0.details": "Wondering where you are? Well, if you know you know.\nTry to not die of hunger, thirst, or just die.\nGood luck."
+  "levels.backrooms.level_0.details": "Wondering where you are? Well, if you know you know.\nTry to not die of hunger, thirst, or just die.\nGood luck.",
+  "levels.backrooms.level_1.details": "A very familiar place, looking like an infinite parking underground.\nThere's a low amount of lights and some frightening sounds can be heard",
+
+  "resourcePack.old_ssc.name": "Old Slightly Scratched Concrete"
 }
