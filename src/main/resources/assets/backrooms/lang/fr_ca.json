@@ -95,8 +95,10 @@
   "block.backrooms.tape_player": "Lecteur Cassette",
   "block.backrooms.radio": "Radio",
   "block.backrooms.slightly_scratched_concrete": "Béton Légèrement Éraflé",
+  "block.backrooms.slightly_scratched_concrete_stairs": "Escalier en Béton Légèrement Éraflé",
   "block.backrooms.smooth_iron_block": "Bloc de Fer poli",
   "block.backrooms.stained_concrete": "Béton Taché",
+  "block.backrooms.stained_concrete_stairs": "Escalier en Béton Taché",
   "block.backrooms.stained_marked_concrete": "Béton Taché Marqué",
   "block.backrooms.street_light": "Lumière Rurale",
 

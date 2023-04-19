@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "backrooms:block/slightly_scratched_concrete",
+    "side": "backrooms:block/slightly_scratched_concrete",
+    "top": "backrooms:block/slightly_scratched_concrete"
+  }
+}
