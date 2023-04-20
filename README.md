@@ -22,7 +22,7 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms).
 - *[Yet Another Config Lib](https://modrinth.com/mod/yacl/versions?l=fabric&g=1.19.4)*
 
 ## How do I do [something]?
-[![GitHub Wiki](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/gitbook_64h.png)](https://github.com/lumaa-dev/BackroomsMod/wiki)
+[![GitHub Wiki](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/gitbook_64h.png)](https://lumaa.gitbook.io/backrooms)
 
 ## Credits
 This mod is made by [Lumaa](https://lumaa.brebond.com/), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1).
