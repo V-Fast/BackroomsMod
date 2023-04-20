@@ -1,37 +1,28 @@
-<center><div align="center">
-
 # The Backrooms Mod
 
-<img src="https://cdn.modrinth.com/data/83vrcdt0/images/e549c490873bbe31250dba0ec3c2a8d1419e2821.png" width=500>
+<sup>Experience the mysterious and scary world of the Backrooms in our Minecraft mod. Inspired by Kane Pixels, explore level 0 of this parallel world filled with dangers and adventures. Feel like you're part of the legend and never want to leave.</sup>
 
-<sup>Handmade builds, by Lumaa</sup>
-
-<img src="https://raw.githubusercontent.com/lumaa-dev/lumaa-dev/main/assets/fabric-banner.png" width=600>
-
-<a href="https://modrinth.com/mod/backrooms"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/only_modrinth.png" width=150></a>
-<a href="https://discord.gg/Rqpn3C7yR5"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/support_discord.png" width=150></a>
-<a href="https://docs.google.com/spreadsheets/d/1zrBJshX48qSnxicYFW-AIy_CmrKOT0d91QpU24vDvdQ/edit?usp=sharing"><img src="https://raw.githubusercontent.com/lumaa-dev/art/main/badges/modrinth_stats.png" width=150></a>
-
-</div></center>
+[![Only available on Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_64h.png)](https://modrinth.com/mod/backrooms)
+![Won't Support Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_64h.png)
+[![Support Discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-singular_64h.png)](https://discord.gg/Rqpn3C7yR5)
 
 * * *
 
-⚠️ **This is a mod that is still in alpha, so there are probably many unnoticed bugs. You can report them [here](https://github.com/lumaa-dev/BackroomsMod/issues)** or on our [Discord Server](https://lumaa.brebond.com/support)! also suggestions and help are welcome!
+⚠️ **This is a mod that is still in beta, so there are probably many unnoticed bugs. You can report them [here](https://github.com/lumaa-dev/BackroomsMod/issues)** or on our [Discord Server](https://lumaa.brebond.com/support)! also suggestions and help are welcome!
 
 You can see our progresses! Just by looking at our [Trello Board](https://trello.com/b/gDUJ7vvz/the-backrooms-mod)!  
-You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) and on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/thebackrooms).
+You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms).
 
 ℹ️ **If you don't know how to install a Fabric mod, [click here](https://github.com/lumaa-dev/lumaa-dev/blob/main/installs.md#install-my-fabric-mods)**
 
 ## Dependencies
 **If you plan on installing this mod, you'll have to install these mods as well**, italicized mods are optional.
-- [Fabric API](https://modrinth.com/mod/fabric-api/versions?g=1.19.3)
-- [LibuLib](https://modrinth.com/mod/libu/versions?g=1.19.3)
-- *[Yet Another Config Lib](https://modrinth.com/mod/yacl/versions?l=fabric&g=1.19.3)*
+- [![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/fabric-api_64h.png)](https://modrinth.com/mod/fabric-api) [![Requires Fabric GeckoLib](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/geckolib_64h.png)](https://modrinth.com/mod/geckolib)
+- [LibuLib](https://modrinth.com/mod/libu/versions?g=1.19.4)
+- *[Yet Another Config Lib](https://modrinth.com/mod/yacl/versions?l=fabric&g=1.19.4)*
 
 ## How do I do [something]?
-Check our [newest wiki](https://github.com/lumaa-dev/BackroomsMod/wiki)!  
-We made it just for you that are asking question!
+[![GitHub Wiki](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/gitbook_64h.png)](https://github.com/lumaa-dev/BackroomsMod/wiki)
 
 ## Credits
 This mod is made by [Lumaa](https://lumaa.brebond.com/), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1).
