@@ -1,51 +1,19 @@
-# gradle
-.gradle/
 build/
-out/
-classes/
-
-# eclipse
-*.launch
-
-# idea
-.idea/
-*.iml
 *.ipr
+run/
 *.iws
-
-# vscode
-.settings/
-.vscode/
+out/
+*.iml
+.gradle/
+output/
 bin/
+libs/
+
 .classpath
 .project
-
-# macos
-*.DS_Store
-
-# fabric
-run/
-
-# local libraries
-libs/*.jar
-
-# paint.net
-*.pdn
-
-# disabled files
-*.disable
-*.disabled
-*.zip
-*.bbmodel
-*.bat
-
-# freeze file (change only in github)
-LICENSE
-README.md
-DEVLOGS.md
-
-# super top mega secret files
-src/main/java/com/lumination/backrooms/mixin/AddServerScreenMixin.java
-src/main/java/com/lumination/backrooms/utils/ModMongo.java
-ideas/
-bbmodels/
+.idea/
+classes/
+.metadata
+.vscode
+.settings
+*.launch

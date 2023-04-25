@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "backrooms:block/stained_concrete",
-    "side": "backrooms:block/stained_concrete",
-    "top": "backrooms:block/stained_concrete"
-  }
-}

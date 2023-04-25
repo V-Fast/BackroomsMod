@@ -1,122 +1,51 @@
 plugins {
-	id 'fabric-loom' version '0.12-SNAPSHOT'
-	id 'maven-publish'
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "1.1-SNAPSHOT" apply false
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+architectury {
+    minecraft = rootProject.minecraft_version
+}
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
+subprojects {
+    apply plugin: "dev.architectury.loom"
 
-repositories {
-	mavenCentral()
-	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-	repositories {
-		maven {
-			name 'Xander Maven'
-			url 'https://maven.isxander.dev/releases'
-		}
-	}
-	maven {
-		name = 'ladysnake mods'
-		url = 'https://ladysnake.jfrog.io/artifactory/mods'
-		content {
-			includeGroup 'io.github.ladysnake'
-			includeGroupByRegex 'io\\.github\\.onyxstudios.*'
-		}
-	}
-	maven { url = "https://maven.kyrptonaught.dev" }
-	maven {
-		url 'https://api.modrinth.com/maven'
-		content {
-			includeGroup "maven.modrinth"
-		}
-	}
+    loom {
+        silentMojangMappingsLicense()
+    }
 
-	maven {
-		url "https://jitpack.io"
-	}
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        // The following line declares the mojmap mappings, you may use other mappings as well
+//        mappings loom.officialMojangMappings()
+        // The following line declares the yarn mappings you may select this one as well.
+         mappings "net.fabricmc:yarn:1.19.4+build.2:v2"
+    }
 }
 
 allprojects {
-	repositories {
-		mavenCentral()
-		maven {
-			url "https://jitpack.io"
-		}
-	}
-}
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
 
-dependencies {
-	// Minecraft
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    archivesBaseName = rootProject.archives_base_name
+    version = rootProject.mod_version
+    group = rootProject.maven_group
 
-	// Fabric
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    repositories {
+        // Add repositories to retrieve artifacts from in here.
+        // You should only use this when depending on other mods because
+        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+        // for more information about repositories.
+    }
 
-	// LibuLib
-	modImplementation "com.github.lumaa-dev:LibuLib:${libu_version}"
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 17
+    }
 
-	// Fabric API
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-	// Geckolib 4
-	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19.4:4.1.1'
-
-	// YACL
-	modImplementation "dev.isxander:yet-another-config-lib:2.3.0"
-
-	// Custom Portal API
-	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta60-1.19'
-	include 'net.kyrptonaught:customportalapi:0.0.1-beta60-1.19'
-
-	// Discord Rich Presence
-	include 'com.google.guava:guava:31.1-jre'
-	modImplementation 'com.github.Vatuu:discord-rpc:1.6.2'
-	modImplementation 'com.github.Vatuu:discord-rpc-binaries:3.4.0'
-
-	include 'com.github.Vatuu:discord-rpc:1.6.2'
-	include 'com.github.Vatuu:discord-rpc-binaries:3.4.0'
-
-	// Track mod usage and announces - MongoDB
-	implementation 'org.mongodb:mongodb-driver-sync:4.9.0'
-}
-
-processResources {
-	inputs.property "version", project.version
-
-	filesMatching("fabric.mod.json") {
-		expand "version": project.version
-	}
-}
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
-}
-
-java {
-	withSourcesJar()
-}
-
-jar {
-	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
-	}
-}
-
-// configure the maven publication
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-
-	}
+    java {
+        withSourcesJar()
+    }
 }
