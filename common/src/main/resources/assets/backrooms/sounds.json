@@ -1,0 +1,246 @@
+{
+  "light_buzzing": {
+    "subtitle": "subtitle.backrooms.light_buzzing",
+    "sounds": [
+      "backrooms:light_buzzing"
+    ]
+  },
+  "camera_click": {
+    "subtitle": "subtitle.backrooms.camera_click",
+    "sounds": [
+      "backrooms:camera_click"
+    ]
+  },
+  "halls": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/halls",
+        "stream": true
+      }
+    ]
+  },
+  "government_funding": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/government_funding",
+        "stream": true
+      }
+    ]
+  },
+  "the_complex": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/the_complex",
+        "stream": true
+      }
+    ]
+  },
+  "instances": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/instances",
+        "stream": true
+      }
+    ]
+  },
+  "title_screen": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/title_screen",
+        "stream": true
+      }
+    ]
+  },
+  "warm_nights": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/warm_nights",
+        "stream": true
+      }
+    ]
+  },
+  "snow_world": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/snow_world",
+        "stream": true
+      }
+    ]
+  },
+  "auditory_guidepost": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/auditory_guidepost",
+        "stream": true
+      }
+    ]
+  },
+  "not_your_decision": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/not_your_decision",
+        "stream": true
+      }
+    ]
+  },
+  "sealed_away": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/sealed_away",
+        "stream": true
+      }
+    ]
+  },
+  "the_white_cliffs_of_dover": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/white_cliffs_of_dover",
+        "stream": true
+      }
+    ]
+  },
+  "thalassophobia": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/thalassophobia",
+        "stream": true
+      }
+    ]
+  },
+  "its_just_a_burning_memory": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/burning_memory",
+        "stream": true
+      }
+    ]
+  },
+  "duet": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/duet",
+        "stream": true
+      }
+    ]
+  },
+  "empty_bliss_beyond_this_world": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/empty_bliss_beyond_world",
+        "stream": true
+      }
+    ]
+  },
+  "gross": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/gross",
+        "stream": true
+      }
+    ]
+  },
+  "we_dont_have_many_days": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/have_many_days",
+        "stream": true
+      }
+    ]
+  },
+  "does_it_matter_how_my_heart_breaks": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/my_heart_breaks",
+        "stream": true
+      }
+    ]
+  },
+  "late_afternoon_drifting": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/late_afternoon_drifting",
+        "stream": true
+      }
+    ]
+  },
+  "the_violin": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/the_violin",
+        "stream": true
+      }
+    ]
+  },
+  "place_in_the_world_fades_away": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/world_fades_away",
+        "stream": true
+      }
+    ]
+  },
+  "glimpses_of_hope_in_trying_times": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/glimpses_of_hope",
+        "stream": true
+      }
+    ]
+  },
+  "ahiru_no_sentaku": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/ahiru_no_sentaku",
+        "stream": true
+      }
+    ]
+  },
+  "no_surprises": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/no_surprises",
+        "stream": true
+      }
+    ]
+  },
+  "tell_me_you_know": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/tell_me_you_know",
+        "stream": true
+      }
+    ]
+  },
+  "drifting": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/drifting",
+        "stream": true
+      }
+    ]
+  },
+  "no_time_to_explain": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/no_time_to_explain",
+        "stream": true
+      }
+    ]
+  },
+  "slingshot": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/slingshot",
+        "stream": true
+      }
+    ]
+  },
+  "orbit": {
+    "sounds": [
+      {
+        "name": "backrooms:radio/orbit",
+        "stream": true
+      }
+    ]
+  }
+}

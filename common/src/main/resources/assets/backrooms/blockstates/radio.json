@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "backrooms:block/radio"
+    },
+    "facing=south": {
+      "model": "backrooms:block/radio",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "backrooms:block/radio",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "backrooms:block/radio",
+      "y": 90
+    }
+  }
+}
