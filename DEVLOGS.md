@@ -4,6 +4,11 @@ This file contains devlogs. Some features shown in them may arrive a few months 
 <sup>(btw we use this date format: DD/MM/YYYY)</sup>  
 
 * * *
+# Devlog #10 - 11/05/2023
+Hello everyone, this devlog won't have any introduction sadly because this devlog is a section of my main devlog I did on my [Support Discord](https://discord.gg/Rqpn3C7yR5), in the "Devlogs" channel.\
+There has been an unknown bug that popped during my moving when the game launches, [I opened an issue already on GitHub](https://github.com/lumaa-dev/BackroomsMod/issues/14), you can see there yourself. There is also the 1k downloads coming very very soon, I also said many times there would be a surprise at the 1k milestone. But during the production of the suprise, one of the persons that was working on it with us left us without saying anything. Therefore we might have a delay, and we're sorry.
+
+* * *
 
 # Devlog #9 - 20/03/2023
 Wow it's been a month...  
