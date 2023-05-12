@@ -7,27 +7,28 @@ assignees: lumaa-dev
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+# Bug
+*A clear and concise description of what the bug is.*
 
-**To Reproduce**
+## Screenshots
+*If applicable, add screenshots to help explain your problem.*
+
+# How to reproduce
+*Follow the example below:*
 Steps to reproduce the behavior:
-1. Go to '...'
+1. Place the '...'
 2. Click on '....'
-3. Scroll down to '....'
+3. Scroll through '....'
 4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+# Expected behavior
+*A clear and concise description of what you expected to happen.*
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+# Informations
+- OS: [e.g. Windows 10]
+- Mod Version [e.g. Beta A0.1.4]
+- Minecraft Version [e.g. 1.19.4]
+- Logs [e.g. [Example Logs](https://ecocitycraft.com/forum/proxy.php?image=https%3A%2F%2Fi.imgur.com%2Fv2rgqbF.png&hash=d7850841c26372d1086eb194c8cfb80b)]
 
-**Informations**
- - OS: [e.g. Windows]
- - Mod Version [e.g. Beta A0.1.2]
-- Minecraft Version [e.g. 1.19.3]
-- Logs [e.g. [2022-11-06-6.log](https://github.com/u-lumaa/BackroomsMod/files/9946924/2022-11-06-6.log)]
-
-**Additional context**
-Add any other context about the problem here.
+# Additional context
+*Add any other context about the problem here.*
