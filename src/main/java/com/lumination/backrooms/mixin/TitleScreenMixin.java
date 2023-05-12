@@ -19,6 +19,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.io.IOException;
+
 @Mixin(TitleScreen.class)
 public class TitleScreenMixin extends Screen {
     private static ClickableWidget settingsButton;
@@ -29,7 +31,7 @@ public class TitleScreenMixin extends Screen {
     }
 
     @Inject(at = @At("HEAD"), method = "init()V")
-    public void init(CallbackInfo ci) {
+    public void init(CallbackInfo ci) throws IOException {
         BackroomsMod.changeName(Text.translatable("mod.backrooms.name").getString());
         Discord.setPresence("On the title screen", "", "mod");
 

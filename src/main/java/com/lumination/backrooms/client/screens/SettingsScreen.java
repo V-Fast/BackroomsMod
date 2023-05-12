@@ -25,25 +25,7 @@ public class SettingsScreen {
         // on click save
         builder.save(() -> {
             BackroomsSettings.saveConfig();
-            if (!BackroomsSettings.hasDiscordPresence() && Discord.isInitialized()) {
-                Discord.shutdown();
-            } else if (BackroomsSettings.hasDiscordPresence() && !Discord.isInitialized()) {
-                Discord.initDiscord();
-                BackroomsRPC.loadingRpc();
-            }
         });
-
-        Option restartRPC = ButtonOption.createBuilder()
-                .name(Text.translatable("option.backrooms.restart_rpc"))
-                .tooltip(Text.translatable("option.backrooms.restart_rpc.tooltip"))
-                .action(((yaclScreen, buttonOption) -> {
-                    Discord.restart();
-                    restarted = !restarted;
-                    buttonOption.setAvailable(!restarted); // if restarted once than false
-                }))
-                .controller(ActionController::new)
-                .available(BackroomsSettings.hasDiscordPresence() && !restarted)
-                .build();
         Option discordLabel = Option.createBuilder(String.class)
                 .controller(StringController::new)
                 .name(Text.translatable("option.backrooms.discord_label"))
@@ -55,10 +37,7 @@ public class SettingsScreen {
                 .controller(TickBoxController::new)
                 .name(Text.translatable("option.backrooms.enable_discord"))
                 .tooltip(Text.translatable("option.backrooms.enable_discord.tooltip"))
-                .listener((opt, newVal) -> {
-                    discordLabel.setAvailable(newVal);
-                    restartRPC.setAvailable(newVal && !restarted);
-                })
+                .listener((opt, newVal) -> discordLabel.setAvailable(newVal))
                 .binding(true, () -> BackroomsSettings.hasDiscordPresence(), newVal -> BackroomsSettings.setDiscordPresence(newVal))
                 .build();
 
@@ -71,7 +50,6 @@ public class SettingsScreen {
                                 .name(Text.literal("Discord"))
                                 .collapsed(false)
                                 .option(hasDiscordRPC)
-                                .option(restartRPC)
                                 .option(discordLabel)
                                 .build())
                         .group(OptionGroup.createBuilder()

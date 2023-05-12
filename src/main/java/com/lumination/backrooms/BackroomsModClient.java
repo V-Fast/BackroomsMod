@@ -7,6 +7,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
 
+import java.io.IOException;
 import java.util.Date;
 
 @Environment(EnvType.CLIENT)
@@ -16,7 +17,11 @@ public class BackroomsModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ModRegisteries.registerMod(true);
+        try {
+            ModRegisteries.registerMod(true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         BackroomsMod.print("Initialized Client Backrooms");
     }
 

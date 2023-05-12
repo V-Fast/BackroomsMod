@@ -20,8 +20,10 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 
+import java.io.IOException;
+
 public class ModRegisteries {
-    public static void registerMod(boolean client) {
+    public static void registerMod(boolean client) throws IOException {
         ModBlocks.registerModBlock();
         ModBlockEntities.registerBlockEntities();
         ModSounds.registerSoundEvents();
@@ -39,7 +41,7 @@ public class ModRegisteries {
             BackroomsSettings.loadConfig();
             // KeyInputHandler.register();
             BackroomsModClient.setStartDate();
-            Discord.initDiscord();
+            Discord.library();
             BackroomsRPC.loadingRpc();
 
             registerEvents();
@@ -58,23 +60,43 @@ public class ModRegisteries {
 
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
             if (handler.getServerInfo() != null) {
-                BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getMaxPlayerCount());
+                try {
+                    BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getMaxPlayerCount());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             } else {
-                BackroomsRPC.customLabelRpc("Playing Singleplayer", 1, 1);
+                try {
+                    BackroomsRPC.customLabelRpc("Playing Singleplayer", 1, 1);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
             BackroomsModClient.setStartDate();
         });
 
         ClientPlayConnectionEvents.INIT.register((handler, client) -> {
             if (handler.getServerInfo() != null) {
-                BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getMaxPlayerCount());
+                try {
+                    BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getMaxPlayerCount());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             } else {
-                BackroomsRPC.customLabelRpc("Playing Singleplayer", 1, 1);
+                try {
+                    BackroomsRPC.customLabelRpc("Playing Singleplayer", 1, 1);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
         ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
-            Discord.setPresence("On the title screen", "", "mod");
+            try {
+                Discord.setPresence("On the title screen", "", "mod");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             BackroomsModClient.setStartDate();
         });
     }
