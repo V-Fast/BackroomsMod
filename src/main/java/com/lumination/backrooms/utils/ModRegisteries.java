@@ -41,7 +41,7 @@ public class ModRegisteries {
             BackroomsSettings.loadConfig();
             // KeyInputHandler.register();
             BackroomsModClient.setStartDate();
-            Discord.library();
+//            Discord.library();
             BackroomsRPC.loadingRpc();
 
             registerEvents();

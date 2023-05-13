@@ -60,15 +60,12 @@ public class Discord {
 
         // Search for the right file inside the ZIP
         ZipEntry entry;
-        while((entry = zin.getNextEntry())!=null)
-        {
-            if(entry.getName().equals(zipPath))
-            {
+        while ((entry = zin.getNextEntry())!=null) {
+            if (entry.getName().equals(zipPath)) {
                 // Create a new temporary directory
                 // We need to do this, because we may not change the filename on Windows
                 File tempDir = new File(System.getProperty("java.io.tmpdir"), "java-"+name+System.nanoTime());
-                if(!tempDir.mkdir())
-                    throw new IOException("Cannot create temporary directory");
+                if (!tempDir.mkdir()) throw new IOException("Cannot create temporary directory");
                 tempDir.deleteOnExit();
 
                 // Create a temporary file inside our directory (with a "normal" name)
@@ -93,46 +90,46 @@ public class Discord {
     }
 
     public static void setPresence(String details, String state, String image, int playerCount, int playerMax) throws IOException {
-        if (!BackroomsSettings.hasDiscordPresence()) return;
-
-        File discordLibrary = library();
-        if (discordLibrary == null) {
-            System.err.println("Cannot download DiscordSDK.");
-            return;
-        }
-
-        Core.init(discordLibrary);
-
-        try (CreateParams params = new CreateParams()) {
-            params.setClientID(appId);
-            params.setFlags(CreateParams.getDefaultFlags());
-            try (Core core = new Core(params)) {
-                try (Activity activity = new Activity()) {
-                    activity.setDetails(details);
-                    activity.setState(state);
-                    activity.timestamps().setStart(Instant.ofEpochSecond(BackroomsModClient.start));
-                    if (playerCount > 0) activity.party().size().setMaxSize(100);
-                    if (playerMax > 0) activity.party().size().setCurrentSize(10);
-                    activity.assets().setLargeImage(image);
-                    activity.assets().setSmallImage("lumaa");
-                    activity.assets().setSmallText("By Lumaa");
-
-                    core.activityManager().updateActivity(activity);
-                }
-
-                while (true) {
-                    core.runCallbacks();
-                    try {
-                        Thread.sleep(16);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
+//        BackroomsSettings.hasDiscordPresence();
+//
+//        File discordLibrary = library();
+//        if (discordLibrary == null) {
+//            System.err.println("Cannot download DiscordSDK.");
+//            return;
+//        }
+//
+//        Core.init(discordLibrary);
+//
+//        try (CreateParams params = new CreateParams()) {
+//            params.setClientID(appId);
+//            params.setFlags(CreateParams.getDefaultFlags());
+//            try (Core core = new Core(params)) {
+//                try (Activity activity = new Activity()) {
+//                    activity.setDetails(details);
+//                    activity.setState(state);
+//                    activity.timestamps().setStart(Instant.ofEpochSecond(BackroomsModClient.start));
+//                    if (playerCount > 0) activity.party().size().setMaxSize(100);
+//                    if (playerMax > 0) activity.party().size().setCurrentSize(10);
+//                    activity.assets().setLargeImage(image);
+//                    activity.assets().setSmallImage("lumaa");
+//                    activity.assets().setSmallText("By Lumaa");
+//
+//                    core.activityManager().updateActivity(activity);
+//                }
+//
+//                while (true) {
+//                    core.runCallbacks();
+//                    try {
+//                        Thread.sleep(16);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        }
     }
 
     public static void setPresence(String details, String state, String image) throws IOException {
-        setPresence(details, state, image, 0, 0);
+//        setPresence(details, state, image, 0, 0);
     }
 }
