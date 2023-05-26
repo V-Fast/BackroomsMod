@@ -42,9 +42,9 @@ public class ModRegisteries {
             // KeyInputHandler.register();
             BackroomsModClient.setStartDate();
 //            Discord.library();
-            BackroomsRPC.loadingRpc();
+//            BackroomsRPC.loadingRpc();
 
-            registerEvents();
+//            registerEvents();
         } else {
             if (!FabricLoader.getInstance().isModLoaded("libu")) {
                 BackroomsMod.print("Missing Libu!");
