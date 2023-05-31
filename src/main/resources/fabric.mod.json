@@ -45,7 +45,7 @@
     "fabric": "*",
     "minecraft": "~1.19.4",
     "java": ">=17",
-    "libu": "1.2.x",
+    "libu": ">=1.2.0",
     "geckolib": ">=4.1.1"
   },
   "recommends": {
