@@ -1,11 +1,9 @@
 package com.lumination.backrooms.items.interactables;
 
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.client.screens.SilkBookScreen;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,6 +19,7 @@ import java.util.Random;
 
 @Environment(EnvType.SERVER)
 public class SilkenBook extends Item {
+
     public SilkenBook(Settings settings) {
         super(settings.maxCount(1));
     }

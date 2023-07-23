@@ -4,7 +4,6 @@ import com.lumination.backrooms.blocks.ModBlocks;
 import com.lumination.backrooms.blocks.interactable.TapePlayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.MusicDiscItem;
@@ -17,7 +16,6 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldEvents;
 
 public class MusicTape extends MusicDiscItem {
     public MusicTape(int comparatorOutput, SoundEvent sound, Settings settings, int lengthInSeconds) {

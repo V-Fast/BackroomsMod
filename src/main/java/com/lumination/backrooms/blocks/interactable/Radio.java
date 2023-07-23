@@ -43,7 +43,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
 
     public Radio(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(RECORD, 0));
+        this.setDefaultState(this.stateManager.getDefaultState().with(RECORD, 0));
     }
 
     @Override
@@ -143,8 +143,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
         List<RadioRecord> allRecords = BackroomsMod.getRecords();
         RadioRecord record = null;
         Identifier oldRecord = null;
-        if (blockEntity instanceof RadioEntity) {
-            RadioEntity radioEntity = (RadioEntity) blockEntity;
+        if (blockEntity instanceof RadioEntity radioEntity) {
             int currentId = radioEntity.getRecordId();
             if (currentId != 0) oldRecord = allRecords.get(currentId).sound.getId();
             currentId = scroll(currentId + 1, 1, allRecords.size() - 1);
@@ -182,7 +181,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
         if (!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof RadioEntity) {
-                world.setBlockState(pos, (BlockState)state.with(RECORD, 0), 2);
+                world.setBlockState(pos, state.with(RECORD, 0), 2);
                 Identifier soundId = BackroomsMod.getRecords().get(((RadioEntity) blockEntity).getRecordId()).sound.getId();
                 StopSoundS2CPacket stopSoundS2CPacket = new StopSoundS2CPacket(soundId, null);
                 ((RadioEntity) blockEntity).setRecord(0);

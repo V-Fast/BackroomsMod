@@ -26,6 +26,7 @@ public class KeyInputHandler {
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (levelInfoKey.wasPressed()) {
+                assert client.player != null;
                 String dimension = getBackroom(client.player).getNamespace();
                 Backroom backroom = cr.convert(dimension);
                 client.setScreen(new LevelScreen(backroom));
@@ -44,7 +45,7 @@ public class KeyInputHandler {
         registerKeyInputs();
     }
 
-    public static final Identifier getBackroom(ClientPlayerEntity player) {
+    public static Identifier getBackroom(ClientPlayerEntity player) {
         RegistryKey<DimensionType> dim = player.getWorld().getDimensionKey();
         return dim.getValue();
     }

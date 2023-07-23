@@ -8,9 +8,9 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.*;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -24,15 +24,17 @@ public class CameraRecordHud implements HudRenderCallback {
     public void updateVisible() {
         boolean v = false;
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        assert player != null;
         Hand hand = player.getActiveHand();
         ItemStack itemStack = player.getStackInHand(hand);
         boolean holdingItem = itemStack.getItem() == ModItems.CAMERA;
-        if (holdingItem && itemStack != null && itemStack.hasNbt() && itemStack.getNbt().getBoolean("records") && !player.isSpectator()) v = true;
+        if (holdingItem && !itemStack.isEmpty() && itemStack.hasNbt() && itemStack.getNbt().getBoolean("records") && !player.isSpectator()) v = true;
         visible = v;
     }
 
     public boolean getVisible() {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        assert player != null;
         Hand hand = player.getActiveHand();
         if (player.isSpectator() && player.getStackInHand(hand).getItem() != ModItems.CAMERA) return false;
 
@@ -40,7 +42,7 @@ public class CameraRecordHud implements HudRenderCallback {
     }
 
     @Override
-    public void onHudRender(MatrixStack matrixStack, float tickDelta) {
+    public void onHudRender(DrawContext drawContext, float tickDelta) {
         if (!getVisible()) return;
         int width = 0;
         int height = 0;
@@ -76,7 +78,7 @@ public class CameraRecordHud implements HudRenderCallback {
     }
 
     public void registerHud() {
-        this.RECORD_HUD = new Identifier(BackroomsMod.MOD_ID, "textures/hud/vhs_record.png");
-        this.VHS_HUD = new Identifier(BackroomsMod.MOD_ID, "textures/hud/vhs.png");
+        RECORD_HUD = new Identifier(BackroomsMod.MOD_ID, "textures/hud/vhs_record.png");
+        VHS_HUD = new Identifier(BackroomsMod.MOD_ID, "textures/hud/vhs.png");
     }
 }

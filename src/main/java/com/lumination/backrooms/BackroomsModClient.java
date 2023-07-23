@@ -5,7 +5,6 @@ import com.lumination.backrooms.utils.ModRegisteries;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.IOException;
 import java.util.Date;

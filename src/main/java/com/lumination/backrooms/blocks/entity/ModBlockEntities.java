@@ -22,6 +22,6 @@ public class ModBlockEntities {
                 FabricBlockEntityTypeBuilder.create(RadioEntity::new,
                         ModBlocks.RADIO).build(null));
 
-        BackroomsMod.print("Registered ModBlockEntites");
+        BackroomsMod.print("Registered ModBlockEntities");
     }
 }

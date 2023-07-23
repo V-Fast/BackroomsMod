@@ -71,27 +71,27 @@ public class BackroomsSettings {
         }
     }
 
-    public static final Boolean canShowRecord() {
+    public static Boolean canShowRecord() {
         return getInstance().showRecord;
     }
 
-    public static final void setShowRecord(boolean bool) {
+    public static void setShowRecord(boolean bool) {
         getInstance().showRecord = bool;
     }
 
-    public static final Boolean explainsError() {
+    public static Boolean explainsError() {
         return getInstance().explainErrors;
     }
 
-    public static final void setExplainError(boolean bool) {
+    public static void setExplainError(boolean bool) {
         getInstance().explainErrors = bool;
     }
 
-    public static final String discordLabel() {
+    public static String discordLabel() {
         return getInstance().discordLabel;
     }
 
-    public static final void setDiscordLabel(String label) {
+    public static void setDiscordLabel(String label) {
         getInstance().discordLabel = label;
     }
 

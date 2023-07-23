@@ -71,8 +71,7 @@ public class TapePlayerEntity extends BlockEntity implements Clearable {
         ++blockEntity.ticksThisSecond;
         if (isPlayingRecord(state, blockEntity)) {
             Item var5 = blockEntity.getRecord().getItem();
-            if (var5 instanceof MusicTape) {
-                MusicTape musicDiscItem = (MusicTape)var5;
+            if (var5 instanceof MusicTape musicDiscItem) {
                 if (isSongFinished(blockEntity, musicDiscItem)) {
                     world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));
                     blockEntity.isPlaying = false;
@@ -87,7 +86,7 @@ public class TapePlayerEntity extends BlockEntity implements Clearable {
     }
 
     private static boolean isPlayingRecord(BlockState state, TapePlayerEntity blockEntity) {
-        return (Boolean)state.get(TapePlayer.HAS_RECORD) && blockEntity.isPlaying;
+        return state.get(TapePlayer.HAS_RECORD) && blockEntity.isPlaying;
     }
 
     private static boolean isSongFinished(TapePlayerEntity blockEntity, MusicTape musicDisc) {

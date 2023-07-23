@@ -6,6 +6,7 @@ import com.lumination.backrooms.items.interactables.SilkenBook.Word;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.render.GameRenderer;
@@ -16,6 +17,7 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class SilkBookScreen extends Screen {
+
     private Word word;
 
     public SilkBookScreen(Word word) {
@@ -34,23 +36,24 @@ public class SilkBookScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        this.addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, (button) -> {
-            this.client.setScreen((Screen)null);
-        })
-                .dimensions(this.width / 2 - 100, 196, 200, 20)
-                .build());
+        this.addDrawableChild(
+            ButtonWidget.builder(ScreenTexts.DONE, (button) -> {
+                assert this.client != null;
+                this.client.setScreen(null);
+            }).dimensions(this.width / 2 - 100, 196, 200, 20).build()
+        );
     }
 
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        Identifier wordTexture = this.word.getTexture();
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         Identifier bookTexture = new Identifier(BackroomsMod.MOD_ID, "textures/screen/silken_book.png");
+        Identifier wordTexture = this.word.getTexture();
         int i = (this.width - 192) / 2;
 
-        renderImage(bookTexture);
-        this.drawTexture(matrices, i, 2, 0, 0, 192, 192);
+        this.renderImage(bookTexture);
+        context.drawTexture(bookTexture, i, 2, 0, 0, 192, 192);
 
-        renderImage(wordTexture);
-        this.drawTexture(matrices, i, 2, 0, 1, 192, 192);
+        this.renderImage(wordTexture);
+        context.drawTexture(wordTexture, i, 2, 0, 1, 192, 192);
     }
 
     private void renderImage(Identifier texture) {
@@ -60,11 +63,6 @@ public class SilkBookScreen extends Screen {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1f);
         RenderSystem.setShaderTexture(0, texture);
-    }
-
-    @Override
-    public boolean shouldCloseOnEsc() {
-        return true;
     }
 
     @Override

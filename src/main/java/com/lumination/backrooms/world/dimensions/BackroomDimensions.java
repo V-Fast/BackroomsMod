@@ -12,8 +12,8 @@ import net.minecraft.util.math.MathHelper;
 
 public class BackroomDimensions {
     public static void registerDims() {
-        level(new Identifier(BackroomsMod.MOD_ID, "level_0"), Blocks.IRON_BLOCK, ModItems.SILK, 195, 180, 10);
-        level(new Identifier(BackroomsMod.MOD_ID, "level_1"), Blocks.GRAY_CONCRETE, ModItems.WRENCH, new RGB());
+        BackroomDimensions.level(new Identifier(BackroomsMod.MOD_ID, "level_0"), Blocks.IRON_BLOCK, ModItems.SILK, 195, 180, 10);
+        BackroomDimensions.level(new Identifier(BackroomsMod.MOD_ID, "level_1"), Blocks.GRAY_CONCRETE, ModItems.WRENCH, RGB.zero());
         BackroomsMod.print("Registered custom dimensions and portals");
     }
 
@@ -30,13 +30,10 @@ public class BackroomDimensions {
     }
 
     public static PortalLink level(Identifier dimId, Block frame, Item lighter, int r, int g, int b) {
-        return level(dimId, frame, lighter, new RGB(r, g, b));
+        return BackroomDimensions.level(dimId, frame, lighter, new RGB(r, g, b));
     }
 
-    private static class RGB {
-        public int r;
-        public int g;
-        public int b;
+    private record RGB(int r, int g, int b) {
 
         private RGB(int r, int g, int b) {
             this.r = MathHelper.clamp(r, 0, 255);
@@ -44,10 +41,8 @@ public class BackroomDimensions {
             this.b = MathHelper.clamp(b, 0, 255);
         }
 
-        private RGB() {
-            this.r = 0;
-            this.g = 0;
-            this.b = 0;
+        private static RGB zero() {
+            return new RGB(0, 0, 0);
         }
     }
 }

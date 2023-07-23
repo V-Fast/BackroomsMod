@@ -68,8 +68,7 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{HAS_RECORD});
-        builder.add(FACING);
+        builder.add(HAS_RECORD, FACING);
     }
 
     static {
@@ -122,8 +121,7 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
 
     public void setRecord(@Nullable Entity user, WorldAccess world, BlockPos pos, BlockState state, ItemStack stack) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof TapePlayerEntity) {
-            TapePlayerEntity tapePlayerEntity = (TapePlayerEntity)blockEntity;
+        if (blockEntity instanceof TapePlayerEntity tapePlayerEntity) {
             tapePlayerEntity.setRecord(stack.copy());
             tapePlayerEntity.startPlaying();
             world.setBlockState(pos, (BlockState)state.with(HAS_RECORD, true), 2);
@@ -134,8 +132,7 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
     private void removeRecord(World world, BlockPos pos, @Nullable PlayerEntity player) {
         if (!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof TapePlayerEntity) {
-                TapePlayerEntity tapePlayerEntity = (TapePlayerEntity)blockEntity;
+            if (blockEntity instanceof TapePlayerEntity tapePlayerEntity) {
                 ItemStack itemStack = tapePlayerEntity.getRecord();
                 if (!itemStack.isEmpty()) {
                     MusicTape record = (MusicTape) itemStack.getItem();
