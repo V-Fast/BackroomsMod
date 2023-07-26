@@ -13,6 +13,7 @@ group = project.maven_group
 repositories {
 	mavenCentral()
 	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+	maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 	repositories {
 		maven {
 			name 'Xander Maven'
@@ -61,20 +62,22 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Geckolib 4
-	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19.4:4.1.1'
+	modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_mcver}:${project.geckolib_version}"
 
 	// YACL
-	modImplementation "dev.isxander:yet-another-config-lib:2.3.0"
+	modImplementation ("dev.isxander.yacl:yet-another-config-lib-fabric:${project.yacl_version}") {
+		exclude group: 'com.terraformersmc'
+	}
 
 	// Custom Portal API
-	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta60-1.19'
-	include 'net.kyrptonaught:customportalapi:0.0.1-beta60-1.19'
+	modImplementation "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
+	include "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
 
 	// Discord Rich Presence
-	implementation 'com.github.JnCrMx:discord-game-sdk4j:v0.5.5'
+	implementation "com.github.JnCrMx:discord-game-sdk4j:$project.discord_game_sdk4j"
 
 	// Track mod usage and announces - MongoDB
-	implementation 'org.mongodb:mongodb-driver-sync:4.9.0'
+	implementation "org.mongodb:mongodb-driver-sync:$project.mongodb_driver_sync_version"
 }
 
 processResources {

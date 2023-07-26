@@ -1,10 +1,10 @@
 package com.lumination.backrooms.client.screens;
 
 import com.lumination.backrooms.client.settings.BackroomsSettings;
-import dev.isxander.yacl.api.*;
-import dev.isxander.yacl.gui.controllers.BooleanController;
-import dev.isxander.yacl.gui.controllers.TickBoxController;
-import dev.isxander.yacl.gui.controllers.string.StringController;
+import dev.isxander.yacl3.api.*;
+import dev.isxander.yacl3.api.controller.BooleanControllerBuilder;
+import dev.isxander.yacl3.api.controller.StringControllerBuilder;
+import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
@@ -23,16 +23,16 @@ public class SettingsScreen {
         // On Click Save
         builder.save(BackroomsSettings::saveConfig);
         Option<String> discordLabel = Option.createBuilder(String.class)
-            .controller(StringController::new)
+            .controller(StringControllerBuilder::create)
             .name(Text.translatable("option.backrooms.discord_label"))
-            .tooltip(Text.translatable("option.backrooms.discord_label.tooltip"))
+            .description(OptionDescription.of(Text.translatable("option.backrooms.discord_label.tooltip")))
             .binding("By Lumaa", BackroomsSettings::discordLabel, BackroomsSettings::setDiscordLabel)
             .available(BackroomsSettings.hasDiscordPresence())
             .build();
         Option<Boolean> hasDiscordRPC = Option.createBuilder(boolean.class)
-            .controller(TickBoxController::new)
+            .controller(TickBoxControllerBuilder::create)
             .name(Text.translatable("option.backrooms.enable_discord"))
-            .tooltip(Text.translatable("option.backrooms.enable_discord.tooltip"))
+            .description(OptionDescription.of(Text.translatable("option.backrooms.enable_discord.tooltip")))
             .listener((opt, newVal) -> discordLabel.setAvailable(newVal))
             .binding(true, BackroomsSettings::hasDiscordPresence, BackroomsSettings::setDiscordPresence)
             .build();
@@ -51,10 +51,10 @@ public class SettingsScreen {
                     .name(Text.literal("GUI"))
                     .collapsed(false)
                     .option(Option.createBuilder(boolean.class)
-                        .controller(BooleanController::new)
+                        .controller(BooleanControllerBuilder::create)
                         .binding(true, BackroomsSettings::canShowRecord, BackroomsSettings::setShowRecord)
                         .name(Text.translatable("option.backrooms.disable_record"))
-                        .tooltip(Text.translatable("option.backrooms.disable_record.tooltip"))
+                        .description(OptionDescription.of(Text.translatable("option.backrooms.disable_record.tooltip")))
                         .build())
                     .build())
                 .build()
@@ -63,9 +63,9 @@ public class SettingsScreen {
                 .name(Text.translatable("option.backrooms.dev"))
                 .option(Option.createBuilder(boolean.class)
                     .name(Text.translatable("option.backrooms.explain_errors"))
-                    .tooltip(Text.translatable("option.backrooms.explain_errors.tooltip"))
+                    .description(OptionDescription.of(Text.translatable("option.backrooms.explain_errors.tooltip")))
                     .binding(false, BackroomsSettings::explainsError, BackroomsSettings::setExplainError)
-                    .controller(BooleanController::new)
+                    .controller(BooleanControllerBuilder::create)
                     .build())
                 .build());
     }

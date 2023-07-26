@@ -44,7 +44,7 @@ public class TitleScreenMixin extends Screen {
             this.client.setScreen(new SettingsScreen().getScreen(this));
         }).dimensions(this.width / 2 + 104, l + 48, 20, 20).build());
 
-        this.settingsButton.active = FabricLoader.getInstance().isModLoaded("yet-another-config-lib");
+        this.settingsButton.active = FabricLoader.getInstance().isModLoaded("yet_another_config_lib_v3");
         if (!this.settingsButton.active) {
             this.settingsButton.setTooltip(Tooltip.of(Text.translatable("mod.yacl.disabled")));
         }

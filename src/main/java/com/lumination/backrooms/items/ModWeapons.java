@@ -1,5 +1,6 @@
 package com.lumination.backrooms.items;
 
+import jdk.jfr.Experimental;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
@@ -26,8 +27,9 @@ public class ModWeapons {
     }
 
     /**
-     * @deprecated Does not work properly
+     * @apiNote Does not work properly
      */
+    @Experimental
     public static class ModThrowable extends Item {
         private static ModProjectile.ProjectileInfo projectileInfo;
 

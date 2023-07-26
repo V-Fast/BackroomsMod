@@ -1,5 +1,7 @@
 package com.lumination.backrooms.generation.type;
 
+import jdk.jfr.Experimental;
+
 public enum ShapeType {
     /** Makes a box structure */
     BOX,
@@ -8,7 +10,8 @@ public enum ShapeType {
     RECTANGLE,
 
     /** Generates a circle structure
-     * @deprecated In the work
+     * @apiNote In the work
      */
+    @Experimental
     CIRCLE
 }
