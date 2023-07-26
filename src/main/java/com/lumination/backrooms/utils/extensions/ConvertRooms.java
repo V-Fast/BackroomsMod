@@ -29,9 +29,9 @@ public class ConvertRooms {
         if (dimension.contains("type")) {
             dimension = dimension.replace("_type", "");
         }
-        if (dimension.toLowerCase() == "level_0") {
+        if (dimension.equalsIgnoreCase("level_0")) {
             return convert(Backrooms.LEVEL_0);
-        } else if (dimension == "overworld") {
+        } else if (dimension.equals("overworld")) {
             return convert(Backrooms.OVERWORLD);
         }
         return convert(Backrooms.UNKNOWN);
@@ -45,10 +45,11 @@ public class ConvertRooms {
     }
 
     /*
-    public void find(MinecraftServer server, Identifier dimId) {
-        HashMap<Identifier, RegistryKey<World>> dims = new HashMap<>();
-        for (RegistryKey<World> registryKey : server.getWorldRegistryKeys()) {
-            dims.put(registryKey.getValue(), registryKey);
-        }
-    }*/
+     * public void find(MinecraftServer server, Identifier dimId) {
+     *     HashMap<Identifier, RegistryKey<World>> dims = new HashMap<>();
+     *     for (RegistryKey<World> registryKey : server.getWorldRegistryKeys()) {
+     *         dims.put(registryKey.getValue(), registryKey);
+     *     }
+     * }
+     */
 }

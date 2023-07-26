@@ -19,7 +19,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
 public class AlmondWater extends Item {
-    private static int MAX_USE_TIME = 40;
+    private static int maxUseTime = 40;
     private static boolean isCooked = false;
 
     public AlmondWater(Settings settings) {
@@ -54,7 +54,7 @@ public class AlmondWater extends Item {
     }
 
     public int getMaxUseTime(ItemStack stack) {
-        return MAX_USE_TIME;
+        return maxUseTime;
     }
 
     public boolean getCooked() {
@@ -74,7 +74,7 @@ public class AlmondWater extends Item {
     }
 
     public AlmondWater setMaxUseTime(int tick) {
-        MAX_USE_TIME = tick;
+        maxUseTime = tick;
         return this;
     }
 

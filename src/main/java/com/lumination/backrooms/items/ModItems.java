@@ -1,11 +1,11 @@
 package com.lumination.backrooms.items;
 
-import com.lumaa.libu.items.LibuWeapon;
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.entities.ModEntities;
 import com.lumination.backrooms.items.consumables.AlmondWater;
 import com.lumination.backrooms.items.interactables.CameraItem;
 import com.lumination.backrooms.items.interactables.BackroomsGenCore;
+import com.lumination.backrooms.items.interactables.MazeTool;
 import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -18,9 +18,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
-import java.util.List;
-
 public class ModItems {
+    public static final Item MAZE_TOOL = registerItem("maze_tool", new MazeTool(new FabricItemSettings().maxCount(1)), ItemGroups.OPERATOR);
+
     public static final Item SILK = registerItem("silk",
             new Item(new FabricItemSettings()), BackroomsItemsGroup.MAIN);
     public static final Item ALMOND_WATER = registerItem("almond_water", new AlmondWater(
@@ -36,12 +36,12 @@ public class ModItems {
     public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(ModEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES);
 
     // weapons
-    public static final Item WRENCH = registerItem("wrench", new LibuWeapon.LibuSword(6.5f, 1.6f, 835, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item CROWBAR = registerItem("crowbar", new LibuWeapon.LibuSword(8.0f, 1.6f, 2051, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item SHARPENED_KNIFE = registerItem("sharpened_knife", new LibuWeapon.LibuSword(6.5f, 1.3f, 130, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item NAILED_BAT = registerItem("nailed_bat", new LibuWeapon.LibuSword(7.0f, 1.8f, 515, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item BASEBALL_BAT = registerItem("baseball_bat", new LibuWeapon.LibuSword(2.5f, 1.8f, 481, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new LibuWeapon.LibuSword(1.5f, 0.8f, 3, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
+    public static final Item WRENCH = registerItem("wrench", new ModWeapons.ModSword(6.5f, 1.6f, 835, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
+    public static final Item CROWBAR = registerItem("crowbar", new ModWeapons.ModSword(8.0f, 1.6f, 2051, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
+    public static final Item SHARPENED_KNIFE = registerItem("sharpened_knife", new ModWeapons.ModSword(6.5f, 1.3f, 130, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
+    public static final Item NAILED_BAT = registerItem("nailed_bat", new ModWeapons.ModSword(7.0f, 1.8f, 515, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
+    public static final Item BASEBALL_BAT = registerItem("baseball_bat", new ModWeapons.ModSword(2.5f, 1.8f, 481, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
+    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new ModWeapons.ModSword(1.5f, 0.8f, 3, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
 
     // music tapes
     public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(7, ModSounds.HALLS, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
@@ -74,7 +74,7 @@ public class ModItems {
     public static final Item DRIFTING_TAPE = registerItem("drifting_tape", new MusicTape(8, ModSounds.DRIFTING, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
     public static final Item TELL_ME_YOU_KNOW_TAPE = registerItem("tell_me_you_know_tape", new MusicTape(2, ModSounds.TELL_ME_YOU_KNOW, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
 
-    // experimental / operator
+    // Experimental / Operator
     public static final Item BACKROOMS_CORE = registerItem("backrooms_core", new BackroomsGenCore(new FabricItemSettings().maxCount(1).fireproof()), ItemGroups.OPERATOR, BackroomsItemsGroup.MAIN);
 
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
@@ -86,7 +86,7 @@ public class ModItems {
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
         Item newItem = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name), item);
 
-        // put in item group
+        // Put In Item Group
         ItemGroupEvents.modifyEntriesEvent(group).register(content -> {
             content.add(newItem);
         });
@@ -94,12 +94,12 @@ public class ModItems {
         return newItem;
     }
 
-    // can be used for new 1.19.3+ creative inventory system
+    // Can be used for new 1.19.3+ creative inventory system
     @SafeVarargs
     private static Item registerItem(String name, Item item, RegistryKey<ItemGroup>... groups) {
         Item newItem = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name), item);
 
-        // put in item group
+        // Put In Item Group
         for (RegistryKey<ItemGroup> group : groups) {
             ItemGroupEvents.modifyEntriesEvent(group).register(content -> {
                 content.add(newItem);

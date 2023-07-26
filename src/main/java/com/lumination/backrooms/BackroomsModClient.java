@@ -1,7 +1,7 @@
 package com.lumination.backrooms;
 
 import com.lumination.backrooms.client.huds.CameraRecordHud;
-import com.lumination.backrooms.utils.ModRegisteries;
+import com.lumination.backrooms.utils.ModRegistries;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -17,7 +17,7 @@ public class BackroomsModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         try {
-            ModRegisteries.registerMod(true);
+            ModRegistries.registerMod(true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

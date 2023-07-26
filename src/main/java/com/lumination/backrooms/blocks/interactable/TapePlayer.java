@@ -1,9 +1,7 @@
 package com.lumination.backrooms.blocks.interactable;
 
-import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.blocks.entity.ModBlockEntities;
 import com.lumination.backrooms.blocks.entity.TapePlayerEntity;
-import com.lumination.backrooms.items.ModItems;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -18,12 +16,10 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.StopSoundS2CPacket;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -40,10 +36,10 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
 
     public TapePlayer(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(HAS_RECORD, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(HAS_RECORD, false));
     }
 
-    private static VoxelShape SHAPE = Block.createCuboidShape(2, 0, 2, 14, 6, 14);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(2, 0, 2, 14, 6, 14);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -92,7 +88,7 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.TAPE_PLAYER, TapePlayerEntity::tick);
+        return checkType(type, ModBlockEntities.tapePlayer, TapePlayerEntity::tick);
     }
 
     /* JUKEBOX CODE */

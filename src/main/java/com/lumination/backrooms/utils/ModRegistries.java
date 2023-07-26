@@ -22,7 +22,7 @@ import net.minecraft.util.Identifier;
 
 import java.io.IOException;
 
-public class ModRegisteries {
+public class ModRegistries {
     public static void registerMod(boolean client) throws IOException {
         ModBlocks.registerModBlock();
         ModBlockEntities.registerBlockEntities();
@@ -32,7 +32,7 @@ public class ModRegisteries {
         ModEntities.registerMobs();
 
         if (client) {
-            // client only
+            // Client Only
             FabricLoader.getInstance().getModContainer(BackroomsMod.MOD_ID).ifPresent(modContainer -> {
                 ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(BackroomsMod.MOD_ID, "old_ssc"), modContainer, ResourcePackActivationType.NORMAL);
             });
@@ -44,13 +44,9 @@ public class ModRegisteries {
 //            Discord.library();
 //            BackroomsRPC.loadingRpc();
 
-//            registerEvents();
+//            MobRegistries.registerEvents();
         } else {
-            if (!FabricLoader.getInstance().isModLoaded("libu")) {
-                BackroomsMod.print("Missing Libu!");
-            }
-
-            // server only
+            // Server Only
             ModItemsServer.registerModItems();
         }
     }

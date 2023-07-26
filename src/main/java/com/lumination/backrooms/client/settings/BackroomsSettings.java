@@ -18,7 +18,7 @@ import java.nio.file.Path;
 public class BackroomsSettings {
     private static final Path CONFIG_FILE = FabricLoader.getInstance().getConfigDir().resolve(BackroomsMod.SETTINGS_NAME + ".json");
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private static BackroomsSettings INSTANCE;
+    private static BackroomsSettings instance;
 
     private boolean showRecord = true;
     private boolean explainErrors = false;
@@ -26,29 +26,29 @@ public class BackroomsSettings {
     private String discordLabel = "By Lumaa";
 
     private static BackroomsSettings getInstance() {
-        if (INSTANCE == null) {
-            loadConfig();
+        if (BackroomsSettings.instance == null) {
+            BackroomsSettings.loadConfig();
         }
 
-        return INSTANCE;
+        return BackroomsSettings.instance;
     }
 
     public static void saveConfig() {
-        if (INSTANCE != null) {
-            writeFile(INSTANCE);
+        if (BackroomsSettings.instance != null) {
+            BackroomsSettings.writeFile(BackroomsSettings.instance);
         }
     }
 
     public static void loadConfig() {
-        BackroomsMod.print(INSTANCE == null ? "Loading config..." : "Reloading config...");
+        BackroomsMod.print(instance == null ? "Loading config..." : "Reloading config...");
 
-        INSTANCE = readFile();
+        BackroomsSettings.instance = readFile();
 
-        if (INSTANCE == null) {
-            INSTANCE = new BackroomsSettings();
+        if (BackroomsSettings.instance == null) {
+            BackroomsSettings.instance = new BackroomsSettings();
         }
 
-        writeFile(INSTANCE);
+        BackroomsSettings.writeFile(BackroomsSettings.instance);
     }
 
     @Nullable
@@ -72,34 +72,34 @@ public class BackroomsSettings {
     }
 
     public static Boolean canShowRecord() {
-        return getInstance().showRecord;
+        return BackroomsSettings.getInstance().showRecord;
     }
 
     public static void setShowRecord(boolean bool) {
-        getInstance().showRecord = bool;
+        BackroomsSettings.getInstance().showRecord = bool;
     }
 
     public static Boolean explainsError() {
-        return getInstance().explainErrors;
+        return BackroomsSettings.getInstance().explainErrors;
     }
 
     public static void setExplainError(boolean bool) {
-        getInstance().explainErrors = bool;
+        BackroomsSettings.getInstance().explainErrors = bool;
     }
 
     public static String discordLabel() {
-        return getInstance().discordLabel;
+        return BackroomsSettings.getInstance().discordLabel;
     }
 
     public static void setDiscordLabel(String label) {
-        getInstance().discordLabel = label;
+        BackroomsSettings.getInstance().discordLabel = label;
     }
 
     public static boolean hasDiscordPresence() {
-        return getInstance().discordPresence;
+        return BackroomsSettings.getInstance().discordPresence;
     }
 
     public static void setDiscordPresence(boolean bool) {
-        getInstance().discordPresence = bool;
+        BackroomsSettings.getInstance().discordPresence = bool;
     }
 }

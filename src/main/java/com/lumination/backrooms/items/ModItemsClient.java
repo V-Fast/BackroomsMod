@@ -23,7 +23,7 @@ public class ModItemsClient {
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
         Item newItem = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name), item);
 
-        // put in item group
+        // Put In Item Group
         ItemGroupEvents.modifyEntriesEvent(group).register(content -> {
             content.add(item);
         });

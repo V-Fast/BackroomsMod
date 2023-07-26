@@ -22,7 +22,7 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks {
 
-    // level 0
+    // Level 0
     public static final Block MOIST_SILK = registerBlock("moist_silk",
             new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOD).requiresTool().strength(2f)), BackroomsItemsGroup.MAIN);
     public static final Block MOIST_SILK_PLANKS = registerBlock("moist_silk_planks",
@@ -34,7 +34,7 @@ public class ModBlocks {
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
             new FluorescentLight(FabricBlockSettings.copyOf(Blocks.GRASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(13)), BackroomsItemsGroup.MAIN);
 
-    // level 1
+    // Level 1
     public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.METAL).strength(Blocks.IRON_BLOCK.getHardness())), BackroomsItemsGroup.MAIN);
     public static final Block SCRATCHED_CONCRETE = registerBlock("slightly_scratched_concrete",
@@ -50,7 +50,7 @@ public class ModBlocks {
     public static final Block STREET_LIGHT = registerBlock("street_light",
             new Block(FabricBlockSettings.copyOf(Blocks.GRASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(15)), BackroomsItemsGroup.MAIN);
 
-    // other
+    // Other
 
     public static final Block TAPE_PLAYER = registerBlock("tape_player",
             new TapePlayer(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.MAIN, ItemGroups.REDSTONE);
@@ -74,19 +74,19 @@ public class ModBlocks {
         Item item = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));
 
-        // put in item group
+        // Put in item group
         ItemGroupEvents.modifyEntriesEvent(group).register(content -> {
             content.add(item);
         });
     }
 
-    // can be used for new 1.19.3+ creative inventory system
+    // Can be used for new 1.19.3+ creative inventory system
     @SafeVarargs
     private static void registerBlockItem(String name, Block block, RegistryKey<ItemGroup>... groups) {
         Item item = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));
 
-        // put in item group
+        // Put in item group
         for (int i = 0; i < groups.length; i++) {
             RegistryKey<ItemGroup> tab = groups[i];
             ItemGroupEvents.modifyEntriesEvent(tab).register(content -> {

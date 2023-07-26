@@ -20,26 +20,25 @@ public class SettingsScreen {
 
     private void styleBuilder() {
 
-        // on click save
+        // On Click Save
         builder.save(BackroomsSettings::saveConfig);
         Option<String> discordLabel = Option.createBuilder(String.class)
-                .controller(StringController::new)
-                .name(Text.translatable("option.backrooms.discord_label"))
-                .tooltip(Text.translatable("option.backrooms.discord_label.tooltip"))
-                .binding("By Lumaa", BackroomsSettings::discordLabel, BackroomsSettings::setDiscordLabel)
-                .available(BackroomsSettings.hasDiscordPresence())
-                .build();
+            .controller(StringController::new)
+            .name(Text.translatable("option.backrooms.discord_label"))
+            .tooltip(Text.translatable("option.backrooms.discord_label.tooltip"))
+            .binding("By Lumaa", BackroomsSettings::discordLabel, BackroomsSettings::setDiscordLabel)
+            .available(BackroomsSettings.hasDiscordPresence())
+            .build();
         Option<Boolean> hasDiscordRPC = Option.createBuilder(boolean.class)
-                .controller(TickBoxController::new)
-                .name(Text.translatable("option.backrooms.enable_discord"))
-                .tooltip(Text.translatable("option.backrooms.enable_discord.tooltip"))
-                .listener((opt, newVal) -> discordLabel.setAvailable(newVal))
-                .binding(true, BackroomsSettings::hasDiscordPresence, BackroomsSettings::setDiscordPresence)
-                .build();
+            .controller(TickBoxController::new)
+            .name(Text.translatable("option.backrooms.enable_discord"))
+            .tooltip(Text.translatable("option.backrooms.enable_discord.tooltip"))
+            .listener((opt, newVal) -> discordLabel.setAvailable(newVal))
+            .binding(true, BackroomsSettings::hasDiscordPresence, BackroomsSettings::setDiscordPresence)
+            .build();
 
-        // styling & actions
-        builder
-            .title(Text.translatable("mod.backrooms.name"))
+        // Styling & Actions
+        builder.title(Text.translatable("mod.backrooms.name"))
             .category(ConfigCategory.createBuilder()
                 .name(Text.translatable("option.backrooms.general"))
                 .group(OptionGroup.createBuilder()

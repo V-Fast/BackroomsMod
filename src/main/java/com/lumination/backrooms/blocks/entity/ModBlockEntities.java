@@ -9,15 +9,15 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModBlockEntities {
-    public static BlockEntityType<TapePlayerEntity> TAPE_PLAYER;
-    public static BlockEntityType<RadioEntity> RADIO;
+    public static BlockEntityType<TapePlayerEntity> tapePlayer;
+    public static BlockEntityType<RadioEntity> radio;
 
     public static void registerBlockEntities() {
-        TAPE_PLAYER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+        ModBlockEntities.tapePlayer = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BackroomsMod.MOD_ID, "tape_player"),
                 FabricBlockEntityTypeBuilder.create(TapePlayerEntity::new,
                         ModBlocks.TAPE_PLAYER).build(null));
-        RADIO = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+        ModBlockEntities.radio = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BackroomsMod.MOD_ID, "radio"),
                 FabricBlockEntityTypeBuilder.create(RadioEntity::new,
                         ModBlocks.RADIO).build(null));

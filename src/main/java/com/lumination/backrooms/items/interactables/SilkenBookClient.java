@@ -21,8 +21,10 @@ public class SilkenBookClient extends Item {
         SilkenBook.Word word;
 
         if (world.isClient()) {
-            //word = SilkenBook.Word.getWordByCode(itemStack.getNbt().getInt("InscriptionCode"));
-            //MinecraftClient.getInstance().setScreen(new SilkBookScreen(word));
+            /*
+             * word = SilkenBook.Word.getWordByCode(itemStack.getNbt().getInt("InscriptionCode"));
+             * MinecraftClient.getInstance().setScreen(new SilkBookScreen(word));
+             */
         }
         return TypedActionResult.success(itemStack, true);
     }

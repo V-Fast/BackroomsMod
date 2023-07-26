@@ -25,7 +25,7 @@ public class KeyInputHandler {
 
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (levelInfoKey.wasPressed()) {
+            if (KeyInputHandler.levelInfoKey.wasPressed()) {
                 assert client.player != null;
                 String dimension = getBackroom(client.player).getNamespace();
                 Backroom backroom = cr.convert(dimension);
@@ -35,14 +35,14 @@ public class KeyInputHandler {
     }
 
     public static void register() {
-        levelInfoKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+        KeyInputHandler.levelInfoKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 KEY_LEVEL_INFO,
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_R,
                 KEY_CATEGORY
         ));
 
-        registerKeyInputs();
+        KeyInputHandler.registerKeyInputs();
     }
 
     public static Identifier getBackroom(ClientPlayerEntity player) {
