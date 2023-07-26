@@ -24,9 +24,9 @@ public class ModBlocks {
 
     // Level 0
     public static final Block MOIST_SILK = registerBlock("moist_silk",
-            new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOD).requiresTool().strength(2f)), BackroomsItemsGroup.MAIN);
+            new Block(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).requiresTool().strength(2f)), BackroomsItemsGroup.MAIN);
     public static final Block MOIST_SILK_PLANKS = registerBlock("moist_silk_planks",
-            new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN);
+            new Block(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN);
     public static final Block MOIST_CARPET = registerBlock("moist_carpet",
             new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).requiresTool().strength(2f)), BackroomsItemsGroup.MAIN);
     public static final Block DROPPED_CEILING = registerBlock("dropped_ceiling",
@@ -48,7 +48,7 @@ public class ModBlocks {
     public static final Block STAINED_MARKED_CONCRETE = registerBlock("stained_marked_concrete",
             new Block(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.BLACK_CONCRETE.getHardness())), BackroomsItemsGroup.MAIN);
     public static final Block STREET_LIGHT = registerBlock("street_light",
-            new Block(FabricBlockSettings.copyOf(Blocks.GRASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(15)), BackroomsItemsGroup.MAIN);
+            new Block(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(15)), BackroomsItemsGroup.MAIN);
 
     // Other
 
