@@ -29,7 +29,7 @@ public class ModRegistries {
         ModSounds.registerSoundEvents();
         BackroomDimensions.registerDims();
         ModItems.registerModItems();
-        ModEntities.registerMobs();
+//        ModEntities.registerMobs();
 
         if (client) {
             // Client Only

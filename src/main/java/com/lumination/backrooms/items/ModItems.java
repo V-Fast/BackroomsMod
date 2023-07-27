@@ -33,7 +33,7 @@ public class ModItems {
             new FabricItemSettings().maxCount(64).food(new FoodComponent.Builder().alwaysEdible().hunger(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())), BackroomsItemsGroup.MAIN);
 
     // spawn eggs
-    public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(ModEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES);
+//    public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(ModEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES);
 
     // weapons
     public static final Item WRENCH = registerItem("wrench", new ModWeapons.ModSword(6.5f, 1.6f, 835, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
