@@ -7,7 +7,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
@@ -43,7 +42,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
 
     public Radio(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(RECORD, 0));
+        this.setDefaultState(this.stateManager.getDefaultState().with(RECORD, 0));
     }
 
     @Override
@@ -109,21 +108,21 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.RADIO, RadioEntity::tick);
+        return checkType(type, ModBlockEntities.radio, RadioEntity::tick);
     }
 
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         super.onPlaced(world, pos, state, placer, itemStack);
         NbtCompound nbtCompound = BlockItem.getBlockEntityNbt(itemStack);
         if (nbtCompound != null && nbtCompound.contains("Record")) {
-            world.setBlockState(pos, (BlockState)state.with(RECORD, 0), 2);
+            world.setBlockState(pos, state.with(RECORD, 0), 2);
         }
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
             if (player.isSneaking()) {
-                state = (BlockState)state.with(RECORD, 0);
+                state = state.with(RECORD, 0);
                 world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));
                 world.setBlockState(pos, state, 2);
                 world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
@@ -131,26 +130,25 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
                 
                 this.stopRecords(state, world, pos, player);
             } else {
-                this.switchRecord(state, world, pos, player, hand, hit);
+                this.switchRecord(state, world, pos, player);
             }
         }
 
         return ActionResult.success(!world.isClient);
     }
 
-    public void switchRecord(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public void switchRecord(BlockState state, World world, BlockPos pos, PlayerEntity player) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         List<RadioRecord> allRecords = BackroomsMod.getRecords();
         RadioRecord record = null;
         Identifier oldRecord = null;
-        if (blockEntity instanceof RadioEntity) {
-            RadioEntity radioEntity = (RadioEntity) blockEntity;
+        if (blockEntity instanceof RadioEntity radioEntity) {
             int currentId = radioEntity.getRecordId();
             if (currentId != 0) oldRecord = allRecords.get(currentId).sound.getId();
-            currentId = scroll(currentId + 1, 1, allRecords.size() - 1);
+            currentId = Radio.scroll(currentId + 1, 1, allRecords.size() - 1);
             radioEntity.setRecord(currentId);
             radioEntity.startPlaying();
-            world.setBlockState(pos, (BlockState)state.with(RECORD, currentId), 2);
+            world.setBlockState(pos, state.with(RECORD, currentId), 2);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
 
             record = allRecords.get(currentId);
@@ -159,10 +157,11 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
                 MinecraftServer server = world.getServer();
                 StopSoundS2CPacket stopSoundS2CPacket = new StopSoundS2CPacket(oldRecord, null);
                 Identifier finalOldRecord = oldRecord;
-                server.getPlayerManager().getPlayerList().forEach(player1 -> {
-                    boolean l = player1.getBlockPos().isWithinDistance(pos.toCenterPos(), 65d);
+                assert server != null;
+                server.getPlayerManager().getPlayerList().forEach(actualPlayer -> {
+                    boolean l = actualPlayer.getBlockPos().isWithinDistance(pos.toCenterPos(), 65d);
                     assert l && finalOldRecord != null;
-                    player1.networkHandler.sendPacket(stopSoundS2CPacket);
+                    actualPlayer.networkHandler.sendPacket(stopSoundS2CPacket);
                 });
                 world.playSoundAtBlockCenter(pos, record.sound, SoundCategory.RECORDS, 0.75f, 1f, true);
             }
@@ -170,7 +169,11 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
 
         if (!world.isClient) {
             RadioRecord finalRecord = record;
-            world.getServer().getPlayerManager().getPlayerList().stream().filter(player1 -> player1.getBlockPos().isWithinDistance(pos.toCenterPos(), 65d)).forEach(player1 -> player1.sendMessage(Text.translatable("record.nowPlaying", Text.translatable(finalRecord.name).getString()).formatted(Formatting.YELLOW), true));
+            assert world.getServer() != null;
+            world.getServer().getPlayerManager().getPlayerList().stream().filter(actualPlayer -> actualPlayer.getBlockPos().isWithinDistance(pos.toCenterPos(), 65d)).forEach(filteredPlayer -> {
+                assert finalRecord != null;
+                filteredPlayer.sendMessage(Text.translatable("record.nowPlaying", Text.translatable(finalRecord.name).getString()).formatted(Formatting.YELLOW), true);
+            });
 
             if (player != null) {
                 player.incrementStat(Stats.PLAY_RECORD);
@@ -182,12 +185,13 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
         if (!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof RadioEntity) {
-                world.setBlockState(pos, (BlockState)state.with(RECORD, 0), 2);
+                world.setBlockState(pos, state.with(RECORD, 0), 2);
                 Identifier soundId = BackroomsMod.getRecords().get(((RadioEntity) blockEntity).getRecordId()).sound.getId();
                 StopSoundS2CPacket stopSoundS2CPacket = new StopSoundS2CPacket(soundId, null);
                 ((RadioEntity) blockEntity).setRecord(0);
 
                 ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) player;
+                assert serverPlayerEntity != null;
                 serverPlayerEntity.networkHandler.sendPacket(stopSoundS2CPacket);
             }
         }
@@ -206,7 +210,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
 
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (!state.isOf(newState.getBlock())) {
-            // stop records
+            // Stop Records
             super.onStateReplaced(state, world, pos, newState, moved);
         }
     }

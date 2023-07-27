@@ -19,7 +19,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
 public class AlmondWater extends Item {
-    private static int MAX_USE_TIME = 40;
+    private static int maxUseTime = 40;
     private static boolean isCooked = false;
 
     public AlmondWater(Settings settings) {
@@ -28,14 +28,13 @@ public class AlmondWater extends Item {
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         super.finishUsing(stack, world, user);
-        if (user instanceof ServerPlayerEntity) {
-            ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity)user;
+        if (user instanceof ServerPlayerEntity serverPlayerEntity) {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
         }
 
         if (!world.isClient) {
-            if (getCooked() == false) {
+            if (!getCooked()) {
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0));
             }
         }
@@ -43,9 +42,8 @@ public class AlmondWater extends Item {
         if (stack.isEmpty()) {
             return new ItemStack(Items.GLASS_BOTTLE);
         } else {
-            if (user instanceof PlayerEntity && !((PlayerEntity)user).getAbilities().creativeMode) {
+            if (user instanceof PlayerEntity playerEntity && !playerEntity.getAbilities().creativeMode) {
                 ItemStack itemStack = new ItemStack(Items.GLASS_BOTTLE);
-                PlayerEntity playerEntity = (PlayerEntity)user;
                 if (!playerEntity.getInventory().insertStack(itemStack)) {
                     playerEntity.dropItem(itemStack, false);
                 }
@@ -56,7 +54,7 @@ public class AlmondWater extends Item {
     }
 
     public int getMaxUseTime(ItemStack stack) {
-        return MAX_USE_TIME;
+        return maxUseTime;
     }
 
     public boolean getCooked() {
@@ -76,7 +74,7 @@ public class AlmondWater extends Item {
     }
 
     public AlmondWater setMaxUseTime(int tick) {
-        MAX_USE_TIME = tick;
+        maxUseTime = tick;
         return this;
     }
 

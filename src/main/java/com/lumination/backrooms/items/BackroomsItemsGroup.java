@@ -4,23 +4,45 @@ import com.lumination.backrooms.BackroomsMod;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import java.util.function.Function;
+
 public class BackroomsItemsGroup {
-    public static final ItemGroup Main = FabricItemGroup.builder(
-            new Identifier(BackroomsMod.MOD_ID, "backrooms"))
-            .icon(() -> new ItemStack(ModItems.SILK))
-            .build();
-    public static final ItemGroup Weapons = FabricItemGroup.builder(
-            new Identifier(BackroomsMod.MOD_ID, "weapons"))
+
+    public static final RegistryKey<ItemGroup> MAIN = BackroomsItemsGroup.createItemGroup("backrooms", (builder -> builder
+        .icon(() -> new ItemStack(ModItems.SILK))
+        .displayName(Text.translatable("itemGroup.backrooms.backrooms"))
+    ));
+
+    public static final RegistryKey<ItemGroup> WEAPONS = BackroomsItemsGroup.createItemGroup("weapons", (builder -> builder
             .icon(() -> new ItemStack(ModItems.NAILED_BAT))
-            .build();
-    public static final ItemGroup MusicTapes = FabricItemGroup.builder(
-            new Identifier(BackroomsMod.MOD_ID, "music_tapes"))
+            .displayName(Text.translatable("itemGroup.backrooms.weapons"))
+    ));
+
+    public static final RegistryKey<ItemGroup> MUSIC_TAPES = BackroomsItemsGroup.createItemGroup("music_tapes", (builder -> builder
             .icon(() -> new ItemStack(ModItems.TAPE))
-            .build();
-    public static final ItemGroup Entites = FabricItemGroup.builder(
-            new Identifier(BackroomsMod.MOD_ID, "entities"))
+            .displayName(Text.translatable("itemGroup.backrooms.music_tapes"))
+    ));
+
+    public static final RegistryKey<ItemGroup> ENTITIES = BackroomsItemsGroup.createItemGroup("entities", (builder -> builder
             .icon(() -> new ItemStack(ModItems.BACTERIA_EGG))
-            .build();
+            .displayName(Text.translatable("itemGroup.backrooms.entities"))
+    ));
+
+    public static RegistryKey<ItemGroup> createItemGroup(String idPath, Function<ItemGroup.Builder, ItemGroup.Builder> builderSupplier) {
+
+        ItemGroup.Builder itemGroupBuilder = builderSupplier.apply(FabricItemGroup.builder());
+
+        RegistryKey<ItemGroup> itemGroupKey = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(BackroomsMod.MOD_ID, idPath));
+
+        Registry.register(Registries.ITEM_GROUP, itemGroupKey, itemGroupBuilder.build());
+
+        return itemGroupKey;
+    }
 }

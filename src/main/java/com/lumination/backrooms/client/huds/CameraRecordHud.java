@@ -8,40 +8,45 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.*;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class CameraRecordHud implements HudRenderCallback {
-    private static Identifier RECORD_HUD;
-    private static Identifier VHS_HUD;
+    private static Identifier recordHud;
+    private static Identifier vhsHud;
     private boolean visible = false;
 
     public void updateVisible() {
         boolean v = false;
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        assert player != null;
         Hand hand = player.getActiveHand();
         ItemStack itemStack = player.getStackInHand(hand);
         boolean holdingItem = itemStack.getItem() == ModItems.CAMERA;
-        if (holdingItem && itemStack != null && itemStack.hasNbt() && itemStack.getNbt().getBoolean("records") && !player.isSpectator()) v = true;
-        visible = v;
+        if (holdingItem && !itemStack.isEmpty() && itemStack.hasNbt()) {
+            assert itemStack.getNbt() != null;
+            if (itemStack.getNbt().getBoolean("records") && !player.isSpectator()) v = true;
+        }
+        this.visible = v;
     }
 
     public boolean getVisible() {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        assert player != null;
         Hand hand = player.getActiveHand();
         if (player.isSpectator() && player.getStackInHand(hand).getItem() != ModItems.CAMERA) return false;
 
-        return visible;
+        return this.visible;
     }
 
     @Override
-    public void onHudRender(MatrixStack matrixStack, float tickDelta) {
-        if (!getVisible()) return;
+    public void onHudRender(DrawContext drawContext, float tickDelta) {
+        if (!this.getVisible()) return;
         int width = 0;
         int height = 0;
         MinecraftClient client = MinecraftClient.getInstance();
@@ -51,7 +56,7 @@ public class CameraRecordHud implements HudRenderCallback {
         }
 
         this.registerHud();
-        this.renderOverlay(BackroomsSettings.canShowRecord() ? RECORD_HUD : VHS_HUD, width, height);
+        this.renderOverlay(BackroomsSettings.canShowRecord() ? recordHud : vhsHud, width, height);
     }
 
     private void renderOverlay(Identifier texture, int width, int height) {
@@ -76,7 +81,7 @@ public class CameraRecordHud implements HudRenderCallback {
     }
 
     public void registerHud() {
-        this.RECORD_HUD = new Identifier(BackroomsMod.MOD_ID, "textures/hud/vhs_record.png");
-        this.VHS_HUD = new Identifier(BackroomsMod.MOD_ID, "textures/hud/vhs.png");
+        CameraRecordHud.recordHud = new Identifier(BackroomsMod.MOD_ID, "textures/hud/vhs_record.png");
+        CameraRecordHud.vhsHud = new Identifier(BackroomsMod.MOD_ID, "textures/hud/vhs.png");
     }
 }

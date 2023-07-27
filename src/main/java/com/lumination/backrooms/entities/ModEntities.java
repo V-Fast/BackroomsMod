@@ -21,7 +21,7 @@ public class ModEntities {
         EntityRendererRegistry.register(ModEntities.BACTERIA, BacteriaRenderer::new);
 
         if (withAttributes) {
-            registerAttributes();
+            ModEntities.registerAttributes();
         }
     }
 
@@ -30,6 +30,6 @@ public class ModEntities {
     }
 
     public static void registerMobs() {
-        registerMobs(true);
+        ModEntities.registerMobs(true);
     }
 }

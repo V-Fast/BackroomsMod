@@ -1,13 +1,8 @@
 package com.lumination.backrooms.blocks.entity;
 
-import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.blocks.interactable.Radio;
-import com.lumination.backrooms.blocks.interactable.TapePlayer;
-import com.lumination.backrooms.items.interactables.MusicTape;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.math.BlockPos;
@@ -22,7 +17,7 @@ public class RadioEntity extends BlockEntity implements Clearable {
     private boolean isPlaying;
 
     public RadioEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.RADIO, pos, state);
+        super(ModBlockEntities.radio, pos, state);
         this.recordId = 0;
     }
 
@@ -64,7 +59,7 @@ public class RadioEntity extends BlockEntity implements Clearable {
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, RadioEntity blockEntity) {
-        ++blockEntity.ticksThisSecond;
+        blockEntity.ticksThisSecond++;
         if (isPlayingRecord(state, blockEntity)) {
             if (isSongFinished(blockEntity)) {
                 world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));
@@ -75,7 +70,7 @@ public class RadioEntity extends BlockEntity implements Clearable {
             }
         }
 
-        ++blockEntity.tickCount;
+        blockEntity.tickCount++;
     }
 
     private static boolean isPlayingRecord(BlockState state, RadioEntity blockEntity) {
