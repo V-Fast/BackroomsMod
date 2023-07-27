@@ -18,7 +18,6 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms).
 ## Dependencies
 **If you plan on installing this mod, you'll have to install these mods as well**, italicized mods are optional.
 - [![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/fabric-api_64h.png)](https://modrinth.com/mod/fabric-api) [![Requires Fabric GeckoLib](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/geckolib_64h.png)](https://modrinth.com/mod/geckolib)
-- [LibuLib](https://modrinth.com/mod/libu/versions?g=1.19.4)
 - *[Yet Another Config Lib](https://modrinth.com/mod/yacl/versions?l=fabric&g=1.19.4)*
 
 ## How do I do [something]?
@@ -31,3 +30,4 @@ This mod includes content originally made by [Kane Pixels](https://www.youtube.c
 ### Contributors
 - [Good Kid](https://www.youtube.com/@GoodKidband) - Songs
 - Luvaa - Music suggestions
+- FirstMegaGame4 - 1.20.1 Port

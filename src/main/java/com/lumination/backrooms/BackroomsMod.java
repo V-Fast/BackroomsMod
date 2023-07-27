@@ -3,6 +3,7 @@ package com.lumination.backrooms;
 import com.lumination.backrooms.blocks.interactable.Radio;
 import com.lumination.backrooms.sounds.ModSounds;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +12,20 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BackroomsMod implements ModInitializer {
+
 	public static final String MOD_ID = "backrooms";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	public static final Logger LOGGER = LoggerFactory.getLogger(BackroomsMod.MOD_ID);
+
+	private static final String VERSION_ID = FabricLoader.getInstance()
+			.getModContainer(BackroomsMod.MOD_ID)
+			.orElseThrow()
+			.getMetadata()
+			.getVersion()
+			.getFriendlyString();
+
 	public static final String SETTINGS_NAME = "the_backrooms";
+
 	private static final List<Radio.RadioRecord> records = Arrays.asList(
 			null, // The unplayable
 			new Radio.RadioRecord(Text.translatable("item.backrooms.halls_tape.desc").getString(), ModSounds.HALLS),

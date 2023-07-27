@@ -21,9 +21,9 @@ import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInst
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 
-// the backroom black blob
+// The Backroom Black Blob
 public class BacteriaEntity extends HostileEntity implements GeoEntity {
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     public BacteriaEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -45,8 +45,8 @@ public class BacteriaEntity extends HostileEntity implements GeoEntity {
         this.goalSelector.add(1, new LookAroundGoal(this));
         this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
 
-        this.targetSelector.add(7, new ActiveTargetGoal(this, IronGolemEntity.class, true));
-        this.targetSelector.add(8, new ActiveTargetGoal(this, PlayerEntity.class, false));
+        this.targetSelector.add(7, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
+        this.targetSelector.add(8, new ActiveTargetGoal<>(this, PlayerEntity.class, false));
     }
 
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
@@ -65,7 +65,7 @@ public class BacteriaEntity extends HostileEntity implements GeoEntity {
                 0, this::predicate));
     }
 
-    //TODO: Do custom sounds
+    // TODO: Do custom sounds
 
     @Override
     protected SoundEvent getAmbientSound() {

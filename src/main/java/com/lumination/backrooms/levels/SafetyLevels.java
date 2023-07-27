@@ -1,7 +1,7 @@
 package com.lumination.backrooms.levels;
 
 /**
- * A level's security level. Depending if the player could live in a level or not
+ * A level's security level. Depending on if the player could live in a level or not
  */
 public enum SafetyLevels {
     /**

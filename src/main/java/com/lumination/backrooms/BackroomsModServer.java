@@ -1,6 +1,6 @@
 package com.lumination.backrooms;
 
-import com.lumination.backrooms.utils.ModRegisteries;
+import com.lumination.backrooms.utils.ModRegistries;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -12,7 +12,7 @@ public class BackroomsModServer implements DedicatedServerModInitializer {
     @Override
     public void onInitializeServer() {
         try {
-            ModRegisteries.registerMod(false);
+            ModRegistries.registerMod(false);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

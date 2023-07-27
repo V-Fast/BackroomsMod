@@ -1,17 +1,14 @@
 package com.lumination.backrooms.items.interactables;
 
-import com.lumaa.libu.generation.GenerationCore;
-import com.lumaa.libu.generation.MazeCore;
-import com.lumaa.libu.util.BetterText;
-import com.lumaa.libu.util.Color;
 import com.lumination.backrooms.blocks.ModBlocks;
+import com.lumination.backrooms.generation.GenerationCore;
+import com.lumination.backrooms.generation.MazeCore;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;

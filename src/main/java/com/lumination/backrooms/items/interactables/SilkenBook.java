@@ -1,11 +1,9 @@
 package com.lumination.backrooms.items.interactables;
 
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.client.screens.SilkBookScreen;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,6 +19,7 @@ import java.util.Random;
 
 @Environment(EnvType.SERVER)
 public class SilkenBook extends Item {
+
     public SilkenBook(Settings settings) {
         super(settings.maxCount(1));
     }
@@ -28,14 +27,14 @@ public class SilkenBook extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        Word word = null;
+        Word word;
         if (!world.isClient) {
             if (!itemStack.hasNbt()) {
                 Random r = new Random();
                 int x = r.nextInt(Word.values().length);
                 word = Word.getWordByCode(x);
 
-                // prevent crash
+                // Prevent Crash
                 if (word == null) {
                     BackroomsMod.print("Recurrent anomaly");
                     user.sendMessage(Text.literal("Please click again."), true);
@@ -74,8 +73,8 @@ public class SilkenBook extends Item {
         LightsOff(16),
         EndlessWalls(17);
 
-        // constructor
-        private int code;
+        // Constructor
+        private final int code;
 
         Word(int code) {
             this.code = code;

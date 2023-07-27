@@ -4,8 +4,6 @@ import com.lumination.backrooms.blocks.interactable.TapePlayer;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.JukeboxBlockEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -22,7 +20,7 @@ public class TapePlayerEntity extends BlockEntity implements Clearable {
     private boolean isPlaying;
 
     public TapePlayerEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.TAPE_PLAYER, pos, state);
+        super(ModBlockEntities.tapePlayer, pos, state);
         this.record = ItemStack.EMPTY;
     }
 
@@ -68,11 +66,10 @@ public class TapePlayerEntity extends BlockEntity implements Clearable {
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, TapePlayerEntity blockEntity) {
-        ++blockEntity.ticksThisSecond;
+        blockEntity.ticksThisSecond++;
         if (isPlayingRecord(state, blockEntity)) {
             Item var5 = blockEntity.getRecord().getItem();
-            if (var5 instanceof MusicTape) {
-                MusicTape musicDiscItem = (MusicTape)var5;
+            if (var5 instanceof MusicTape musicDiscItem) {
                 if (isSongFinished(blockEntity, musicDiscItem)) {
                     world.emitGameEvent(GameEvent.JUKEBOX_STOP_PLAY, pos, GameEvent.Emitter.of(state));
                     blockEntity.isPlaying = false;
@@ -83,11 +80,11 @@ public class TapePlayerEntity extends BlockEntity implements Clearable {
             }
         }
 
-        ++blockEntity.tickCount;
+        blockEntity.tickCount++;
     }
 
     private static boolean isPlayingRecord(BlockState state, TapePlayerEntity blockEntity) {
-        return (Boolean)state.get(TapePlayer.HAS_RECORD) && blockEntity.isPlaying;
+        return state.get(TapePlayer.HAS_RECORD) && blockEntity.isPlaying;
     }
 
     private static boolean isSongFinished(TapePlayerEntity blockEntity, MusicTape musicDisc) {
