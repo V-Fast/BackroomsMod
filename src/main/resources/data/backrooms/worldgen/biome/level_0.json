@@ -3,10 +3,16 @@
   "downfall": 0,
   "has_precipitation": false,
   "effects": {
-    "sky_color": 0,
+    "sky_color": 7254527,
     "fog_color": 14741646,
     "water_color": 4159204,
-    "water_fog_color": 329011
+    "water_fog_color": 329011,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    }
   },
   "spawners": {
     "monster": [
