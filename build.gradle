@@ -75,9 +75,6 @@ dependencies {
 
 	// Discord Rich Presence
 	implementation "com.github.JnCrMx:discord-game-sdk4j:$project.discord_game_sdk4j"
-
-	// Track mod usage and announces - MongoDB
-	implementation "org.mongodb:mongodb-driver-sync:$project.mongodb_driver_sync_version"
 }
 
 processResources {
