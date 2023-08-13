@@ -1,8 +1,5 @@
 package com.lumination.backrooms.items.interactables;
 
-import com.lumination.backrooms.blocks.ModBlocks;
-import com.lumination.backrooms.generation.GenerationCore;
-import com.lumination.backrooms.generation.MazeCore;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -32,11 +29,8 @@ public class BackroomsGenCore extends Item {
 
         int type = context.getPlayer().getMainHandStack().getNbt().getInt("type");
         if (type == 0) {
-            MazeCore mazeCore = new MazeCore(ModBlocks.MOIST_CARPET, ModBlocks.MOIST_SILK, ModBlocks.DROPPED_CEILING, 3);
-            mazeCore.setWallsVariants(List.of(ModBlocks.MOIST_SILK_PLANKS));
-            mazeCore.setWallsVariantsAmount(GenerationCore.VariantAmount.LOW);
-            mazeCore.setSize(16, 16);
-            mazeCore.generate(context.getWorld(), context.getBlockPos());
+            // full-on rewrite planned
+            return ActionResult.FAIL;
         } else if (type == 1) {
             return ActionResult.FAIL;
         }
