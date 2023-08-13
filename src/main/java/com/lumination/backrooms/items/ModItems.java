@@ -75,7 +75,7 @@ public class ModItems {
     public static final Item TELL_ME_YOU_KNOW_TAPE = registerItem("tell_me_you_know_tape", new MusicTape(2, ModSounds.TELL_ME_YOU_KNOW, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
 
     // Experimental / Operator
-    public static final Item BACKROOMS_CORE = registerItem("backrooms_core", new BackroomsGenCore(new FabricItemSettings().maxCount(1).fireproof()), ItemGroups.OPERATOR, BackroomsItemsGroup.MAIN);
+//    public static final Item BACKROOMS_CORE = registerItem("backrooms_core", new BackroomsGenCore(new FabricItemSettings().maxCount(1).fireproof()), ItemGroups.OPERATOR, BackroomsItemsGroup.MAIN);
 
     public static AlmondWater CookedAlmondWater(Item.Settings settings) {
         return new AlmondWater(settings).setCooked(true);
