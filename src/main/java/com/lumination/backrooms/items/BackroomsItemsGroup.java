@@ -30,10 +30,10 @@ public class BackroomsItemsGroup {
             .displayName(Text.translatable("itemGroup.backrooms.music_tapes"))
     ));
 
-    public static final RegistryKey<ItemGroup> ENTITIES = BackroomsItemsGroup.createItemGroup("entities", (builder -> builder
-            .icon(() -> new ItemStack(ModItems.BACTERIA_EGG))
-            .displayName(Text.translatable("itemGroup.backrooms.entities"))
-    ));
+//    public static final RegistryKey<ItemGroup> ENTITIES = BackroomsItemsGroup.createItemGroup("entities", (builder -> builder
+//            .icon(() -> new ItemStack(ModItems.BACTERIA_EGG))
+//            .displayName(Text.translatable("itemGroup.backrooms.entities"))
+//    ));
 
     public static RegistryKey<ItemGroup> createItemGroup(String idPath, Function<ItemGroup.Builder, ItemGroup.Builder> builderSupplier) {
 
