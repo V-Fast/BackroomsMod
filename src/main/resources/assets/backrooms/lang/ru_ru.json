@@ -89,7 +89,7 @@
 
   "block.backrooms.moist_silk": "Влажный шёлк",
   "block.backrooms.moist_silk_planks": "Влажные шёлковые доски",
-  "block.backrooms.moist_carpet": "Влажнйы ковёр",
+  "block.backrooms.moist_carpet": "Влажный ковёр",
   "block.backrooms.dropped_ceiling": "Подвесной потолок",
   "block.backrooms.fluorescent_light": "Флуоресцентный свет",
   "block.backrooms.tape_player": "Магнитофон",
@@ -97,9 +97,9 @@
   "block.backrooms.slightly_scratched_concrete": "Слегка поцарапанный бетон",
   "block.backrooms.slightly_scratched_concrete_stairs": "Слегка поцарапанные бетонные ступеньки",
   "block.backrooms.smooth_iron_block": "Гладкий железный блок",
-  "block.backrooms.stained_concrete": "Окрашенный бетон",
-  "block.backrooms.stained_concrete_stairs": "Окрашенные бетонные ступеньки",
-  "block.backrooms.stained_marked_concrete": "Окрашенный маркированный бетон",
+  "block.backrooms.stained_concrete": "Запятнанный бетон",
+  "block.backrooms.stained_concrete_stairs": "Запятнанные бетонные ступеньки",
+  "block.backrooms.stained_marked_concrete": "Запятнанный маркированный бетон",
   "block.backrooms.street_light": "Уличный свет",
 
   "entity.backrooms.bacteria": "Бактерия",
