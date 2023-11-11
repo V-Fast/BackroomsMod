@@ -5,15 +5,15 @@ import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.BooleanControllerBuilder;
 import dev.isxander.yacl3.api.controller.StringControllerBuilder;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
+import org.quiltmc.loader.api.minecraft.ClientOnly;
 
 // Download Yet Another Config Lib here: https://modrinth.com/mod/yacl
 
-@Environment(EnvType.CLIENT)
+@ClientOnly
 public class SettingsScreen {
     public YetAnotherConfigLib.Builder builder = YetAnotherConfigLib.createBuilder();
     private static boolean restarted = false;

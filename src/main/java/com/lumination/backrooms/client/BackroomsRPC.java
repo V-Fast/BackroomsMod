@@ -2,12 +2,11 @@ package com.lumination.backrooms.client;
 
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+import org.quiltmc.loader.api.minecraft.ClientOnly;
 
 import java.io.IOException;
 
-@Environment(EnvType.CLIENT)
+@ClientOnly
 public class BackroomsRPC {
 
     public static void loadingRpc() throws IOException {

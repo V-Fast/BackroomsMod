@@ -2,17 +2,17 @@ package com.lumination.backrooms.entities.client;
 
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.entities.mod.BacteriaEntity;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
+import org.quiltmc.loader.api.minecraft.ClientOnly;
 import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
-@Environment(EnvType.CLIENT)
+@ClientOnly
 public class BacteriaModel extends GeoModel<BacteriaEntity> {
     @Override
     public Identifier getModelResource(BacteriaEntity object) {

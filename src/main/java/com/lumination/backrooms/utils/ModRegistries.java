@@ -13,12 +13,12 @@ import com.lumination.backrooms.items.ModItemsClient;
 import com.lumination.backrooms.items.ModItemsServer;
 import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.world.dimensions.BackroomDimensions;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
+import org.quiltmc.loader.api.QuiltLoader;
+import org.quiltmc.qsl.networking.api.client.ClientPlayConnectionEvents;
+import org.quiltmc.qsl.resource.loader.api.ResourceLoader;
+import org.quiltmc.qsl.resource.loader.api.ResourcePackActivationType;
 
 import java.io.IOException;
 
@@ -33,8 +33,8 @@ public class ModRegistries {
 
         if (client) {
             // Client Only
-            FabricLoader.getInstance().getModContainer(BackroomsMod.MOD_ID).ifPresent(modContainer -> {
-                ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(BackroomsMod.MOD_ID, "old_ssc"), modContainer, ResourcePackActivationType.NORMAL);
+            QuiltLoader.getModContainer(BackroomsMod.MOD_ID).ifPresent(modContainer -> {
+                ResourceLoader.registerBuiltinResourcePack(new Identifier(BackroomsMod.MOD_ID, "old_ssc"), modContainer, ResourcePackActivationType.NORMAL);
             });
 
             ModItemsClient.registerModItems();
@@ -57,7 +57,7 @@ public class ModRegistries {
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
             if (handler.getServerInfo() != null) {
                 try {
-                    BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getMaxPlayerCount());
+                    BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getPlayerManager().getMaxPlayerCount());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -74,7 +74,7 @@ public class ModRegistries {
         ClientPlayConnectionEvents.INIT.register((handler, client) -> {
             if (handler.getServerInfo() != null) {
                 try {
-                    BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getMaxPlayerCount());
+                    BackroomsRPC.customLabelRpc("Playing on " + handler.getServerInfo().name, handler.getPlayerList().size(), client.getServer().getPlayerManager().getMaxPlayerCount());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

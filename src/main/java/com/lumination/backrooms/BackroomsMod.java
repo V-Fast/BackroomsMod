@@ -2,9 +2,11 @@ package com.lumination.backrooms;
 
 import com.lumination.backrooms.blocks.interactable.Radio;
 import com.lumination.backrooms.sounds.ModSounds;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
+import com.lumination.backrooms.world.biome.BackroomBiomes;
 import net.minecraft.text.Text;
+import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.loader.api.QuiltLoader;
+import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,12 +19,12 @@ public class BackroomsMod implements ModInitializer {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(BackroomsMod.MOD_ID);
 
-	private static final String VERSION_ID = FabricLoader.getInstance()
+	private static final String VERSION_ID = QuiltLoader
 			.getModContainer(BackroomsMod.MOD_ID)
 			.orElseThrow()
-			.getMetadata()
-			.getVersion()
-			.getFriendlyString();
+			.metadata()
+			.version()
+			.toString();
 
 	public static final String SETTINGS_NAME = "the_backrooms";
 
@@ -44,8 +46,9 @@ public class BackroomsMod implements ModInitializer {
 	public static String NAME = "The Backrooms";
 
 	@Override
-	public void onInitialize() {
+	public void onInitialize(ModContainer mod) {
 		print("Initialized Main Backrooms");
+		BackroomBiomes.init();
 	}
 
 	public static void print(String s) {

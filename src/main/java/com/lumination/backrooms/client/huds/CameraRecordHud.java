@@ -4,8 +4,6 @@ import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
 import com.lumination.backrooms.items.ModItems;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -14,8 +12,9 @@ import net.minecraft.client.render.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import org.quiltmc.loader.api.minecraft.ClientOnly;
 
-@Environment(EnvType.CLIENT)
+@ClientOnly
 public class CameraRecordHud implements HudRenderCallback {
     private static Identifier recordHud;
     private static Identifier vhsHud;

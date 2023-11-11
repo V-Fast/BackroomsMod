@@ -5,8 +5,7 @@ import com.lumination.backrooms.client.settings.BackroomsSettings;
 import de.jcm.discordgamesdk.Core;
 import de.jcm.discordgamesdk.CreateParams;
 import de.jcm.discordgamesdk.activity.Activity;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+import org.quiltmc.loader.api.minecraft.ClientOnly;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +17,7 @@ import java.util.Locale;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-@Environment(EnvType.CLIENT)
+@ClientOnly
 public class Discord {
     public static final long appId = 1036661108154585098L;
 

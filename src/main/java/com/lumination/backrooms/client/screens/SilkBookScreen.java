@@ -4,8 +4,7 @@ package com.lumination.backrooms.client.screens;
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.items.interactables.SilkenBook.Word;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -13,8 +12,9 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.quiltmc.loader.api.minecraft.ClientOnly;
 
-@Environment(EnvType.CLIENT)
+@ClientOnly
 public class SilkBookScreen extends Screen {
 
     private final Word word;

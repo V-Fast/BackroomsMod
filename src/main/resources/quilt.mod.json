@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "com.lumination",
+    "id": "backrooms",
+    "version": "${version}",
+    "metadata": {
+      "name": "The Backrooms",
+      "description": "Experience the mysterious and scary world of the Backrooms in our Minecraft mod. Inspired by Kane Pixels, explore level 0 of this parallel world filled with dangers and adventures. Feel like you're part of the legend and never want to leave. You will feel like you are in the middle of the legend of The Backrooms and you will never want to leave. Don't miss this unique opportunity in the world of Minecraft!",
+      "contributors": {
+        "LumaaDev": "Co-author",
+        "PatateGivree": "Co-author",
+        "mash1133": "Contributor",
+        "_Luvaa_": "Contributor",
+        "Good Kid": "Contributor",
+        "FirstMegaGame4": "Contributor"
+      },
+      "contact": {
+        "homepage": "https://lumaa.fr/",
+        "sources": "https://github.com/V-Fast/BackroomsMod",
+        "issues": "https://github.com/V-Fast/BackroomsMod/issues"
+      },
+      "icon": "assets/backrooms/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": "com.lumination.backrooms.BackroomsMod",
+      "client_init": "com.lumination.backrooms.BackroomsModClient",
+      "server_init": "com.lumination.backrooms.BackroomsModServer",
+      "limlib:registrar": "com.lumination.backrooms.world.dimensions.BackroomDimensions"
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.19.1"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": ">=7.0.2"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.20"
+      },
+      {
+        "id": "geckolib",
+        "versions": ">=4.2"
+      },
+      "limlib"
+    ]
+  },
+  "mixin": "backrooms.mixins.json"
+}

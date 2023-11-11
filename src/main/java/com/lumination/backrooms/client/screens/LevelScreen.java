@@ -2,14 +2,13 @@ package com.lumination.backrooms.client.screens;
 
 import com.lumination.backrooms.levels.Backroom;
 import com.lumination.backrooms.utils.Color;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.font.MultilineText;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
+import org.quiltmc.loader.api.minecraft.ClientOnly;
 
-@Environment(EnvType.CLIENT)
+@ClientOnly
 public class LevelScreen extends Screen {
     public Text info;
     public Backroom level;
@@ -31,7 +30,7 @@ public class LevelScreen extends Screen {
         } else {
             this.info = Text.translatable("levels.backrooms.overworld.details");
         }
-        this.renderBackground(context);
+        this.renderBackgroundTexture(context);
         context.getMatrices().push();
         context.getMatrices().scale(2.0F, 2.0F, 2.0F);
         context.drawCenteredTextWithShadow(this.textRenderer, this.level.getName(), this.width / 2 / 2, 30, Color.white);
