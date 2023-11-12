@@ -1,31 +1,23 @@
 package com.lumination.backrooms.world.chunk;
 
-import com.google.common.collect.Lists;
-import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.world.biome.BackroomBiomes;
+import com.lumination.backrooms.blocks.ModBlocks;
 import com.lumination.backrooms.world.dimensions.BackroomDimensions;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.ludocrypt.limlib.api.world.chunk.AbstractNbtChunkGenerator;
-import net.ludocrypt.limlib.api.world.maze.DepthFirstMazeSolver;
-import net.ludocrypt.limlib.api.world.maze.DilateMaze;
-import net.ludocrypt.limlib.api.world.maze.MazeComponent;
-import net.ludocrypt.limlib.api.world.maze.RectangularMazeGenerator;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.loot.LootTables;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerLightingProvider;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureTemplateManager;
-import net.minecraft.util.BlockMirror;
+import net.minecraft.text.Text;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -34,13 +26,10 @@ import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.noise.NoiseConfig;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.function.Function;
-import java.util.random.RandomGenerator;
-import java.util.random.RandomGeneratorFactory;
 
 public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
 
@@ -80,25 +69,9 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         generateRandomPiece(chunkRegion, start.add(8, 0, 0), random);
         generateRandomPiece(chunkRegion, start.add(0, 0, 8), random);
         generateRandomPiece(chunkRegion, start.add(8, 0, 8), random);
+        decorateChunk(chunk, random);
         return CompletableFuture.completedFuture(chunk);
     }
-
-    /*public void generateNextPieces(ChunkRegion region, BlockPos pos, List<BlockPos> alreadyGenerated, int type, BlockRotation rotation) {
-        switch (type) {
-            case 0: // crossroad
-
-                break;
-
-            case 1: // end
-                break;
-
-            case 2: // hall
-                break;
-
-            case 3: // turn
-                break;
-        }
-    } */
 
     // Assumes a piece hasn't generated there yet.
     public void generateRandomPiece(ChunkRegion region, BlockPos pos, Random random) {
@@ -115,6 +88,33 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
             type = 1;
         }
         generateNbt(region, pos, "level_0_"+type, rotation);
+    }
+
+    public void decorateChunk(Chunk chunk, Random random) {
+        BlockPos start = chunk.getPos().getStartPos();
+        for (int i = 0; i <= 8; i++) {
+            for (int j = 0; j <= 8; j++) {
+                for (int k = 0; k <= 4; k++) {
+                    BlockPos pos = start.add(i, k, j);
+                    BlockState block = chunk.getBlockState(pos);
+                    if (block.isOf(ModBlocks.MOIST_SILK)) {
+                        if (random.nextBetween(0, 9) == 9) {
+                            chunk.setBlockState(pos, ModBlocks.MOIST_SILK_PLANKS.getDefaultState(), false);
+                        }
+                    }
+                    if (block.isAir() && pos.getY() == 1) {
+                        if (random.nextBetween(0, 200) == 200) {
+                            block = Blocks.CHEST.getDefaultState().rotate(BlockRotation.random(random));
+                            chunk.setBlockState(pos, block, false);
+                            ChestBlockEntity chest = new ChestBlockEntity(pos, block);
+                            chest.setCustomName(Text.literal("Level 0 Chest"));
+                            chest.setLootTable(new Identifier("backrooms", "chests/level_0"), random.nextLong());
+                            chunk.setBlockEntity(chest);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -146,5 +146,22 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
     public void getDebugHudText(List<String> text, NoiseConfig noiseConfig, BlockPos pos) {
 
     }
+
+    /*public void generateNextPieces(ChunkRegion region, BlockPos pos, List<BlockPos> alreadyGenerated, int type, BlockRotation rotation) {
+        switch (type) {
+            case 0: // crossroad
+
+                break;
+
+            case 1: // end
+                break;
+
+            case 2: // hall
+                break;
+
+            case 3: // turn
+                break;
+        }
+    } */
 
 }
