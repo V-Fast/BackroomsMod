@@ -48,6 +48,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         store("level_0", world, 0, 3);
     }
 
+    // TODO Look into this
     @Override
     public int getChunkDistance() {
         return 2;
@@ -65,10 +66,10 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
             random = Random.create(chunkRegion.getSeed() + ((long) (chunk.getPos().x+2) * (chunk.getPos().z-3)));
         }
         BlockPos start = chunk.getPos().getStartPos();
-        generateRandomPiece(chunkRegion, start, random);
-        generateRandomPiece(chunkRegion, start.add(8, 0, 0), random);
-        generateRandomPiece(chunkRegion, start.add(0, 0, 8), random);
-        generateRandomPiece(chunkRegion, start.add(8, 0, 8), random);
+        generateRandomPiece(chunkRegion, start.add(0, 1, 0), random);
+        generateRandomPiece(chunkRegion, start.add(8, 1, 0), random);
+        generateRandomPiece(chunkRegion, start.add(0, 1, 8), random);
+        generateRandomPiece(chunkRegion, start.add(8, 1, 8), random);
         decorateChunk(chunk, random);
         return CompletableFuture.completedFuture(chunk);
     }
@@ -78,10 +79,10 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         BlockRotation rotation = BlockRotation.random(random);
         int num = random.nextBetween(0, 9);
         int type = 0;
-        if (num == 3 || num == 4 || num == 5) {
+        if (num == 4 || num == 5) {
             type = 2;
         }
-        if (num == 6 || num == 7 || num == 8) {
+        if (num == 7 || num == 8) {
             type = 3;
         }
         if (num == 9) {
@@ -92,11 +93,14 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
 
     public void decorateChunk(Chunk chunk, Random random) {
         BlockPos start = chunk.getPos().getStartPos();
-        for (int i = 0; i <= 8; i++) {
-            for (int j = 0; j <= 8; j++) {
-                for (int k = 0; k <= 4; k++) {
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 16; j++) {
+                for (int k = 0; k < 7; k++) {
                     BlockPos pos = start.add(i, k, j);
                     BlockState block = chunk.getBlockState(pos);
+                    if (pos.getY() == 0 || pos.getY() == 6) {
+                        chunk.setBlockState(pos, Blocks.BEDROCK.getDefaultState(), false);
+                    }
                     if (block.isOf(ModBlocks.MOIST_SILK)) {
                         if (random.nextBetween(0, 9) == 9) {
                             chunk.setBlockState(pos, ModBlocks.MOIST_SILK_PLANKS.getDefaultState(), false);
@@ -115,11 +119,6 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
                 }
             }
         }
-    }
-
-    @Override
-    protected Identifier getBarrelLootTable() {
-        return LootTables.SPAWN_BONUS_CHEST;
     }
 
     @Override
@@ -146,22 +145,5 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
     public void getDebugHudText(List<String> text, NoiseConfig noiseConfig, BlockPos pos) {
 
     }
-
-    /*public void generateNextPieces(ChunkRegion region, BlockPos pos, List<BlockPos> alreadyGenerated, int type, BlockRotation rotation) {
-        switch (type) {
-            case 0: // crossroad
-
-                break;
-
-            case 1: // end
-                break;
-
-            case 2: // hall
-                break;
-
-            case 3: // turn
-                break;
-        }
-    } */
 
 }
