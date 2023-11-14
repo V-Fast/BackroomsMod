@@ -77,6 +77,11 @@ dependencies {
 	include libs.ludocrypt.limlib
 }
 
+project.configurations.all {
+	exclude(group: "net.fabricmc", module: "fabric-loader")
+	exclude(group: "net.fabricmc.fabric-api")
+}
+
 processResources {
 	inputs.property 'version', version
 
