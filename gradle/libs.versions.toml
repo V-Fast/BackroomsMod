@@ -12,7 +12,6 @@ customportalapi = "0.0.1-beta64-1.20"
 discord_game_sdk4j = "v0.5.5"
 limlib = "8.1.8"
 modmenu = "7.2.2"
-mongodb_driver_sync = "4.9.0"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }

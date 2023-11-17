@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 4,
+          "weight": 8,
           "quality": 1,
           "name": "backrooms:silk",
           "functions": [
@@ -29,6 +29,23 @@
         {
           "type": "minecraft:item",
           "weight": 1,
+          "quality": 1,
+          "name": "backrooms:silken_book",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
           "name": "minecraft:oak_planks",
           "functions": [
             {

@@ -121,7 +121,8 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
                             bacteria.setPosition(pos.getX(), pos.getY(), pos.getZ());
                             world.spawnEntity(bacteria);
 
-                            BackroomsMod.LOGGER.info("Chest spawned at "+i+" "+k+" "+j);
+                            // For debug purposes
+                            //BackroomsMod.LOGGER.info("Chest spawned at "+pos.getX()+" "+pos.getY()+" "+pos.getZ());
                         }
                     }
                 }
