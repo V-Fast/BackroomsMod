@@ -21,8 +21,6 @@ public class BackroomsSettings {
 
     private boolean showRecord = true;
     private boolean explainErrors = false;
-    private boolean discordPresence = true;
-    private String discordLabel = "By Lumaa";
 
     private static BackroomsSettings getInstance() {
         if (BackroomsSettings.instance == null) {
@@ -84,21 +82,5 @@ public class BackroomsSettings {
 
     public static void setExplainError(boolean bool) {
         BackroomsSettings.getInstance().explainErrors = bool;
-    }
-
-    public static String discordLabel() {
-        return BackroomsSettings.getInstance().discordLabel;
-    }
-
-    public static void setDiscordLabel(String label) {
-        BackroomsSettings.getInstance().discordLabel = label;
-    }
-
-    public static boolean hasDiscordPresence() {
-        return BackroomsSettings.getInstance().discordPresence;
-    }
-
-    public static void setDiscordPresence(boolean bool) {
-        BackroomsSettings.getInstance().discordPresence = bool;
     }
 }
