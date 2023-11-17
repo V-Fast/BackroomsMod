@@ -10,13 +10,15 @@
       "contributors": {
         "LumaaDev": "Co-author",
         "PatateGivree": "Co-author",
+        "Clomclem": "Maintainer",
         "mash1133": "Contributor",
         "_Luvaa_": "Contributor",
         "Good Kid": "Contributor",
         "FirstMegaGame4": "Contributor"
       },
       "contact": {
-        "homepage": "https://lumaa.fr/",
+        "homepage": "https://modrinth.com/mod/backrooms",
+        "discord": "https://discord.com/invite/Rqpn3C7yR5",
         "sources": "https://github.com/V-Fast/BackroomsMod",
         "issues": "https://github.com/V-Fast/BackroomsMod/issues"
       },
@@ -46,7 +48,15 @@
         "id": "geckolib",
         "versions": ">=4.2"
       },
-      "limlib"
+      {
+        "id": "limlib",
+        "reason": "For worldgen"
+      },
+      {
+        "id": "yet_another_config_lib_v3",
+        "versions": ">=3.1.0+1.20",
+        "optional": true
+      }
     ]
   },
   "mixin": "backrooms.mixins.json"
