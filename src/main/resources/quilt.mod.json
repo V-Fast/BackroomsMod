@@ -29,7 +29,7 @@
       "init": "com.lumination.backrooms.BackroomsMod",
       "client_init": "com.lumination.backrooms.BackroomsModClient",
       "server_init": "com.lumination.backrooms.BackroomsModServer",
-      "limlib:registrar": "com.lumination.backrooms.world.dimensions.BackroomDimensions"
+      "limlib:registrar": "com.lumination.backrooms.world.dimensions.BackroomsDimensions"
     },
     "depends": [
       {
