@@ -1,8 +1,13 @@
 package com.lumination.backrooms;
 
+import com.lumination.backrooms.blocks.ModBlocks;
+import com.lumination.backrooms.blocks.entity.ModBlockEntities;
 import com.lumination.backrooms.blocks.interactable.Radio;
+import com.lumination.backrooms.entities.ModEntities;
+import com.lumination.backrooms.items.ModItems;
 import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.world.biome.BackroomBiomes;
+import com.lumination.backrooms.world.dimensions.BackroomDimensions;
 import net.minecraft.text.Text;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.loader.api.QuiltLoader;
@@ -29,7 +34,6 @@ public class BackroomsMod implements ModInitializer {
 	public static final String SETTINGS_NAME = "the_backrooms";
 
 	private static final List<Radio.RadioRecord> records = Arrays.asList(
-			null, // The unplayable
 			new Radio.RadioRecord(Text.translatable("item.backrooms.halls_tape.desc").getString(), ModSounds.HALLS),
 			new Radio.RadioRecord(Text.translatable("item.backrooms.duet_tape.desc").getString(), ModSounds.DUET),
 			new Radio.RadioRecord(Text.translatable("item.backrooms.drifting_tape.desc").getString(), ModSounds.DRIFTING),
@@ -47,8 +51,14 @@ public class BackroomsMod implements ModInitializer {
 
 	@Override
 	public void onInitialize(ModContainer mod) {
-		print("Initialized Main Backrooms");
+		ModBlocks.registerModBlock();
+		ModBlockEntities.registerBlockEntities();
+		ModItems.registerModItems();
+		ModSounds.registerSoundEvents();
 		BackroomBiomes.init();
+		BackroomDimensions.registerDims();
+		ModEntities.registerMobs();
+		print("Initialized Main Backrooms");
 	}
 
 	public static void print(String s) {

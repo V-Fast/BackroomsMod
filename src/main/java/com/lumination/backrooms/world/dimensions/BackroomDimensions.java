@@ -36,9 +36,9 @@ public class BackroomDimensions implements LimlibRegistrar {
     public static final Identifier LEVEL_ZERO_ID = new Identifier(BackroomsMod.MOD_ID, "level_0");
     public static final Identifier LEVEL_ONE_ID = new Identifier(BackroomsMod.MOD_ID, "level_1");
 
-    public static final Supplier<DimensionType> levelDimType = () -> new DimensionType(OptionalLong.of(6000), false, true, false, true,
+    public static final Supplier<DimensionType> levelDimType = () -> new DimensionType(OptionalLong.of(14000), false, true, false, true,
             1, true, false, 0, 96, 16, TagKey.of(RegistryKeys.BLOCK, Identifier.of("minecraft", "infiniburn_overworld")), Identifier.of("minecraft", "overworld"),
-            0.1f, new DimensionType.MonsterSettings(false, false, ConstantIntProvider.ZERO, 0));
+            0.0f, new DimensionType.MonsterSettings(false, false, ConstantIntProvider.ZERO, 0));
 
     public static final LimlibWorld LEVEL_ZERO = new LimlibWorld(levelDimType,
             (registry) ->

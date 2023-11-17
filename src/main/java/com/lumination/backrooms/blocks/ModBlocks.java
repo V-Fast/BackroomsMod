@@ -32,7 +32,7 @@ public class ModBlocks {
     public static final Block DROPPED_CEILING = registerBlock("dropped_ceiling",
             new Block(QuiltBlockSettings.copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).strength(1f)), BackroomsItemsGroup.MAIN);
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
-            new FluorescentLight(QuiltBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(13)), BackroomsItemsGroup.MAIN);
+            new FluorescentLight(QuiltBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(9)), BackroomsItemsGroup.MAIN);
 
     // Level 1
     public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",

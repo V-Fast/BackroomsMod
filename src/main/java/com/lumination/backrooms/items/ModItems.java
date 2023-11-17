@@ -1,8 +1,10 @@
 package com.lumination.backrooms.items;
 
 import com.lumination.backrooms.BackroomsMod;
+import com.lumination.backrooms.entities.ModEntities;
 import com.lumination.backrooms.items.consumables.AlmondWater;
 import com.lumination.backrooms.items.interactables.CameraItem;
+import com.lumination.backrooms.items.interactables.SilkenBook;
 import com.lumination.backrooms.sounds.ModSounds;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -16,6 +18,8 @@ import net.minecraft.util.Identifier;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public class ModItems {
+    public static final Item SILKEN_BOOK = registerItem("silken_book",
+            new SilkenBook(new QuiltItemSettings()), BackroomsItemsGroup.MAIN);
     public static final Item SILK = registerItem("silk",
             new Item(new QuiltItemSettings()), BackroomsItemsGroup.MAIN);
     public static final Item ALMOND_WATER = registerItem("almond_water", new AlmondWater(
@@ -28,7 +32,7 @@ public class ModItems {
             new QuiltItemSettings().maxCount(64).food(new FoodComponent.Builder().alwaysEdible().hunger(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())), BackroomsItemsGroup.MAIN);
 
     // spawn eggs
-//    public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(ModEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES);
+    public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(ModEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES);
 
     // weapons
     public static final Item WRENCH = registerItem("wrench", new ModWeapons.ModSword(6.5f, 1.6f, 835, new Item.Settings()), BackroomsItemsGroup.WEAPONS);

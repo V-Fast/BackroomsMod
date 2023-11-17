@@ -11,25 +11,23 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import org.quiltmc.loader.api.minecraft.ClientOnly;
 import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
 
 public class ModEntities {
     public static final EntityType<BacteriaEntity> BACTERIA = Registry.register(Registries.ENTITY_TYPE, new Identifier(BackroomsMod.MOD_ID, "bacteria"),
             QuiltEntityTypeBuilder.create(SpawnGroup.CREATURE, BacteriaEntity::new).setDimensions(EntityDimensions.fixed(1.4f, 2.7f)).build());
 
-    public static void registerMobs(boolean withAttributes) {
-        EntityRendererRegistry.register(ModEntities.BACTERIA, BacteriaRenderer::new);
+    public static void registerMobs() {
+        ModEntities.registerAttributes();
+    }
 
-        if (withAttributes) {
-            ModEntities.registerAttributes();
-        }
+    @ClientOnly
+    public static void registerRenderers() {
+        EntityRendererRegistry.register(ModEntities.BACTERIA, BacteriaRenderer::new);
     }
 
     private static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(ModEntities.BACTERIA, BacteriaEntity.setAttributes());
-    }
-
-    public static void registerMobs() {
-        ModEntities.registerMobs(true);
     }
 }
