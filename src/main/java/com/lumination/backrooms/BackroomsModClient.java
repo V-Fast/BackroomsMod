@@ -2,7 +2,7 @@ package com.lumination.backrooms;
 
 import com.lumination.backrooms.client.huds.CameraRecordHud;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
-import com.lumination.backrooms.entities.ModEntities;
+import com.lumination.backrooms.entities.BackroomsEntities;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
@@ -23,7 +23,7 @@ public class BackroomsModClient implements ClientModInitializer {
             ResourceLoader.registerBuiltinResourcePack(new Identifier(BackroomsMod.MOD_ID, "old_ssc"), modContainer, ResourcePackActivationType.NORMAL);
         });
         BackroomsSettings.loadConfig();
-        ModEntities.registerRenderers();
+        BackroomsEntities.registerRenderers();
         HudRenderCallback.EVENT.register(BackroomsModClient.camHud);
         BackroomsMod.print("Initialized Client Backrooms");
     }

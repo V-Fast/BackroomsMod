@@ -1,7 +1,7 @@
 package com.lumination.backrooms.items.interactables;
 
 import com.lumination.backrooms.BackroomsModClient;
-import com.lumination.backrooms.sounds.ModSounds;
+import com.lumination.backrooms.sounds.BackroomsSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -23,7 +23,7 @@ public class CameraItem extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
 
         user.setCurrentHand(hand);
-        world.playSound(user.getX(), user.getY(), user.getZ(), ModSounds.CAMERA_CLICK, SoundCategory.PLAYERS, 0.5f, 1f, true);
+        world.playSound(user.getX(), user.getY(), user.getZ(), BackroomsSounds.CAMERA_CLICK, SoundCategory.PLAYERS, 0.5f, 1f, true);
         if (!world.isClient && !user.isSpectator()) {
             if (itemStack.hasNbt()) {
                 NbtCompound nbt = itemStack.getNbt();

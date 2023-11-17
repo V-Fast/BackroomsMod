@@ -16,22 +16,22 @@ import java.util.function.Function;
 public class BackroomsItemsGroup {
 
     public static final RegistryKey<ItemGroup> MAIN = BackroomsItemsGroup.createItemGroup("backrooms", (builder -> builder
-        .icon(() -> new ItemStack(ModItems.SILK))
+        .icon(() -> new ItemStack(BackroomsItems.SILK))
         .displayName(Text.translatable("itemGroup.backrooms.backrooms"))
     ));
 
     public static final RegistryKey<ItemGroup> WEAPONS = BackroomsItemsGroup.createItemGroup("weapons", (builder -> builder
-            .icon(() -> new ItemStack(ModItems.NAILED_BAT))
+            .icon(() -> new ItemStack(BackroomsItems.NAILED_BAT))
             .displayName(Text.translatable("itemGroup.backrooms.weapons"))
     ));
 
     public static final RegistryKey<ItemGroup> MUSIC_TAPES = BackroomsItemsGroup.createItemGroup("music_tapes", (builder -> builder
-            .icon(() -> new ItemStack(ModItems.TAPE))
+            .icon(() -> new ItemStack(BackroomsItems.TAPE))
             .displayName(Text.translatable("itemGroup.backrooms.music_tapes"))
     ));
 
     public static final RegistryKey<ItemGroup> ENTITIES = BackroomsItemsGroup.createItemGroup("entities", (builder -> builder
-            .icon(() -> new ItemStack(ModItems.BACTERIA_EGG))
+            .icon(() -> new ItemStack(BackroomsItems.BACTERIA_EGG))
             .displayName(Text.translatable("itemGroup.backrooms.entities"))
     ));
 

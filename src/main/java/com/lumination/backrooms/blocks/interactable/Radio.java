@@ -1,7 +1,7 @@
 package com.lumination.backrooms.blocks.interactable;
 
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.blocks.entity.ModBlockEntities;
+import com.lumination.backrooms.blocks.entity.BackroomsBlockEntities;
 import com.lumination.backrooms.blocks.entity.RadioEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -108,7 +108,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.radio, RadioEntity::tick);
+        return validateTicker(type, BackroomsBlockEntities.radio, RadioEntity::tick);
     }
 
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {

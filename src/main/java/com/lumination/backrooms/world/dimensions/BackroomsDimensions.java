@@ -2,9 +2,9 @@ package com.lumination.backrooms.world.dimensions;
 
 import com.google.common.base.Supplier;
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.items.ModItems;
+import com.lumination.backrooms.items.BackroomsItems;
 import com.lumination.backrooms.utils.Color;
-import com.lumination.backrooms.world.biome.BackroomBiomes;
+import com.lumination.backrooms.world.biome.BackroomsBiomes;
 import com.lumination.backrooms.world.biome.LevelOneBiome;
 import com.lumination.backrooms.world.biome.LevelZeroBiome;
 import com.lumination.backrooms.world.chunk.LevelZeroChunkGenerator;
@@ -31,7 +31,7 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 
 import java.util.OptionalLong;
 
-public class BackroomDimensions implements LimlibRegistrar {
+public class BackroomsDimensions implements LimlibRegistrar {
 
     public static final Identifier LEVEL_ZERO_ID = new Identifier(BackroomsMod.MOD_ID, "level_0");
     public static final Identifier LEVEL_ONE_ID = new Identifier(BackroomsMod.MOD_ID, "level_1");
@@ -50,7 +50,7 @@ public class BackroomDimensions implements LimlibRegistrar {
                             new LevelZeroChunkGenerator(
                                     new FixedBiomeSource(registry
                                             .get(RegistryKeys.BIOME)
-                                            .getOptional(BackroomBiomes.LEVEL_ZERO_BIOME)
+                                            .getOptional(BackroomsBiomes.LEVEL_ZERO_BIOME)
                                             .get())
                             )));
 
@@ -64,17 +64,17 @@ public class BackroomDimensions implements LimlibRegistrar {
                             new LevelZeroChunkGenerator(
                                     new FixedBiomeSource(registry
                                             .get(RegistryKeys.BIOME)
-                                            .getOptional(BackroomBiomes.LEVEL_ONE_BIOME)
+                                            .getOptional(BackroomsBiomes.LEVEL_ONE_BIOME)
                                             .get())
                             )));
 
-    public static void registerDims() {
-        BackroomDimensions.level(LEVEL_ZERO_ID, Blocks.IRON_BLOCK, ModItems.SILK, 195, 180, 10);
-        BackroomDimensions.level(LEVEL_ONE_ID, Blocks.GRAY_CONCRETE, ModItems.WRENCH, Color.RGB.zero());
-        BackroomsMod.print("Registered custom dimensions and portals");
+    public static void registerPortals() {
+        BackroomsDimensions.portal(LEVEL_ZERO_ID, Blocks.IRON_BLOCK, BackroomsItems.SILK, 195, 180, 10);
+        BackroomsDimensions.portal(LEVEL_ONE_ID, Blocks.GRAY_CONCRETE, BackroomsItems.WRENCH, Color.RGB.zero());
+        BackroomsMod.print("Registered custom portals");
     }
 
-    private static PortalLink level(Identifier dimId, Block frame, Item lighter, Color.RGB portalColor) {
+    private static PortalLink portal(Identifier dimId, Block frame, Item lighter, Color.RGB portalColor) {
         BackroomsMod.print("Registered custom portal of " + dimId.getNamespace());
         return CustomPortalBuilder
                 .beginPortal()
@@ -87,8 +87,8 @@ public class BackroomDimensions implements LimlibRegistrar {
                 .registerPortal();
     }
 
-    public static PortalLink level(Identifier dimId, Block frame, Item lighter, int r, int g, int b) {
-        return BackroomDimensions.level(dimId, frame, lighter, new Color.RGB(r, g, b));
+    public static PortalLink portal(Identifier dimId, Block frame, Item lighter, int r, int g, int b) {
+        return BackroomsDimensions.portal(dimId, frame, lighter, new Color.RGB(r, g, b));
     }
 
     @Override
@@ -107,8 +107,8 @@ public class BackroomDimensions implements LimlibRegistrar {
             RegistryEntryLookup<PlacedFeature> features = infoLookup.getRegistryInfo(RegistryKeys.PLACED_FEATURE).get().entryLookup();
             RegistryEntryLookup<ConfiguredCarver<?>> carvers = infoLookup.getRegistryInfo(RegistryKeys.CONFIGURED_CARVER).get().entryLookup();
 
-            registry.add(BackroomBiomes.LEVEL_ZERO_BIOME, LevelZeroBiome.create(features, carvers), Lifecycle.stable());
-            registry.add(BackroomBiomes.LEVEL_ONE_BIOME, LevelOneBiome.create(features, carvers), Lifecycle.stable());
+            registry.add(BackroomsBiomes.LEVEL_ZERO_BIOME, LevelZeroBiome.create(features, carvers), Lifecycle.stable());
+            registry.add(BackroomsBiomes.LEVEL_ONE_BIOME, LevelOneBiome.create(features, carvers), Lifecycle.stable());
         });
     }
 }

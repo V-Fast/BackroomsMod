@@ -6,7 +6,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
-public class ModSounds {
+public class BackroomsSounds {
     public static SoundEvent LIGHT_BUZZING = registerSoundEvent("light_buzzing");
     public static SoundEvent CAMERA_CLICK = registerSoundEvent("camera_click");
 

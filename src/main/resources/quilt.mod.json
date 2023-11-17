@@ -49,6 +49,10 @@
         "versions": ">=4.2"
       },
       {
+        "id": "customportalapi",
+        "reason": "For custom portals"
+      },
+      {
         "id": "limlib",
         "reason": "For worldgen"
       },

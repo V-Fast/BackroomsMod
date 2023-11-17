@@ -2,7 +2,7 @@ package com.lumination.backrooms.world.biome;
 
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.world.chunk.LevelZeroChunkGenerator;
-import com.lumination.backrooms.world.dimensions.BackroomDimensions;
+import com.lumination.backrooms.world.dimensions.BackroomsDimensions;
 import com.mojang.serialization.Codec;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -12,10 +12,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
-public class BackroomBiomes {
+public class BackroomsBiomes {
 
-    public static final RegistryKey<Biome> LEVEL_ZERO_BIOME = get(BackroomDimensions.LEVEL_ZERO_ID.getPath());
-    public static final RegistryKey<Biome> LEVEL_ONE_BIOME = get(BackroomDimensions.LEVEL_ONE_ID.getPath());
+    public static final RegistryKey<Biome> LEVEL_ZERO_BIOME = get(BackroomsDimensions.LEVEL_ZERO_ID.getPath());
+    public static final RegistryKey<Biome> LEVEL_ONE_BIOME = get(BackroomsDimensions.LEVEL_ONE_ID.getPath());
 
     public static void init() {
         get("level_zero_chunk_generator", LevelZeroChunkGenerator.CODEC);

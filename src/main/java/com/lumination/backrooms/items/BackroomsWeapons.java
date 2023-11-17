@@ -13,7 +13,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class ModWeapons {
+public class BackroomsWeapons {
     public static class ModSword extends SwordItem {
         public ModSword(float attackDamage, float attackSpeed, int durability, Settings settings) {
             super(new ModMaterial(durability, attackDamage - 1.0f), 0, attackSpeed - 4.0f, settings.maxCount(1));

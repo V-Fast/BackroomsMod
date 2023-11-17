@@ -1,10 +1,9 @@
 package com.lumination.backrooms.world.chunk;
 
-import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.blocks.ModBlocks;
-import com.lumination.backrooms.entities.ModEntities;
+import com.lumination.backrooms.blocks.BackroomsBlocks;
+import com.lumination.backrooms.entities.BackroomsEntities;
 import com.lumination.backrooms.entities.mod.BacteriaEntity;
-import com.lumination.backrooms.world.dimensions.BackroomDimensions;
+import com.lumination.backrooms.world.dimensions.BackroomsDimensions;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -42,7 +41,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
     });
 
     public LevelZeroChunkGenerator(BiomeSource source) {
-        super(source, BackroomDimensions.LEVEL_ZERO_ID);
+        super(source, BackroomsDimensions.LEVEL_ZERO_ID);
     }
 
     @Override
@@ -103,9 +102,9 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
                     if (pos.getY() == 0 || pos.getY() == 6) {
                         chunk.setBlockState(pos, Blocks.BEDROCK.getDefaultState(), false);
                     }
-                    if (block.isOf(ModBlocks.MOIST_SILK)) {
+                    if (block.isOf(BackroomsBlocks.MOIST_SILK)) {
                         if (random.nextBetween(0, 19) == 19) {
-                            chunk.setBlockState(pos, ModBlocks.MOIST_SILK_PLANKS.getDefaultState(), false);
+                            chunk.setBlockState(pos, BackroomsBlocks.MOIST_SILK_PLANKS.getDefaultState(), false);
                         }
                     }
                     if (block.isAir() && pos.getY() == 2) {
@@ -117,7 +116,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
                             chest.setLootTable(new Identifier("backrooms", "chests/level_0"), random.nextLong());
                             chunk.setBlockEntity(chest);
 
-                            BacteriaEntity bacteria = new BacteriaEntity(ModEntities.BACTERIA, world);
+                            BacteriaEntity bacteria = new BacteriaEntity(BackroomsEntities.BACTERIA, world);
                             bacteria.setPosition(pos.getX(), pos.getY(), pos.getZ());
                             world.spawnEntity(bacteria);
 

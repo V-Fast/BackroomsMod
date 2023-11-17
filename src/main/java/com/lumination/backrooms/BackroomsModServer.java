@@ -1,13 +1,8 @@
 package com.lumination.backrooms;
 
-import com.lumination.backrooms.items.BackroomsItemsGroup;
-import com.lumination.backrooms.items.ModItems;
-import com.lumination.backrooms.items.interactables.SilkenBook;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.loader.api.minecraft.DedicatedServerOnly;
 import org.quiltmc.qsl.base.api.entrypoint.server.DedicatedServerModInitializer;
-import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 @DedicatedServerOnly
 public class BackroomsModServer implements DedicatedServerModInitializer {

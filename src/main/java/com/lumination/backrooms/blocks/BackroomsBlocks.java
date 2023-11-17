@@ -20,7 +20,7 @@ import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 
-public class ModBlocks {
+public class BackroomsBlocks {
 
     // Level 0
     public static final Block MOIST_SILK = registerBlock("moist_silk",
@@ -60,13 +60,13 @@ public class ModBlocks {
     // Register
 
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {
-        ModBlocks.registerBlockItem(name, block, group);
+        BackroomsBlocks.registerBlockItem(name, block, group);
         return Registry.register(Registries.BLOCK, new Identifier(BackroomsMod.MOD_ID, name), block);
     }
 
     @SafeVarargs
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup>... groups) {
-        ModBlocks.registerBlockItem(name, block, groups);
+        BackroomsBlocks.registerBlockItem(name, block, groups);
         return Registry.register(Registries.BLOCK, new Identifier(BackroomsMod.MOD_ID, name), block);
     }
 

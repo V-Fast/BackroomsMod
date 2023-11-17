@@ -17,7 +17,7 @@ public class RadioEntity extends BlockEntity implements Clearable {
     private boolean isPlaying;
 
     public RadioEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.radio, pos, state);
+        super(BackroomsBlockEntities.radio, pos, state);
         this.recordId = 0;
     }
 

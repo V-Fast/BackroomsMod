@@ -2,7 +2,7 @@ package com.lumination.backrooms.client.huds;
 
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.client.settings.BackroomsSettings;
-import com.lumination.backrooms.items.ModItems;
+import com.lumination.backrooms.items.BackroomsItems;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
@@ -26,7 +26,7 @@ public class CameraRecordHud implements HudRenderCallback {
         assert player != null;
         Hand hand = player.getActiveHand();
         ItemStack itemStack = player.getStackInHand(hand);
-        boolean holdingItem = itemStack.getItem() == ModItems.CAMERA;
+        boolean holdingItem = itemStack.getItem() == BackroomsItems.CAMERA;
         if (holdingItem && !itemStack.isEmpty() && itemStack.hasNbt()) {
             assert itemStack.getNbt() != null;
             if (itemStack.getNbt().getBoolean("records") && !player.isSpectator()) v = true;
@@ -38,7 +38,7 @@ public class CameraRecordHud implements HudRenderCallback {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         assert player != null;
         Hand hand = player.getActiveHand();
-        if (player.isSpectator() && player.getStackInHand(hand).getItem() != ModItems.CAMERA) return false;
+        if (player.isSpectator() && player.getStackInHand(hand).getItem() != BackroomsItems.CAMERA) return false;
 
         return this.visible;
     }

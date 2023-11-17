@@ -1,8 +1,6 @@
 package com.lumination.backrooms.world.biome;
 
-import com.lumination.backrooms.sounds.ModSounds;
 import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;

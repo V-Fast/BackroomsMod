@@ -1,6 +1,6 @@
 package com.lumination.backrooms.blocks.interactable;
 
-import com.lumination.backrooms.blocks.entity.ModBlockEntities;
+import com.lumination.backrooms.blocks.entity.BackroomsBlockEntities;
 import com.lumination.backrooms.blocks.entity.TapePlayerEntity;
 import com.lumination.backrooms.items.interactables.MusicTape;
 import net.minecraft.block.*;
@@ -88,7 +88,7 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.tapePlayer, TapePlayerEntity::tick);
+        return validateTicker(type, BackroomsBlockEntities.tapePlayer, TapePlayerEntity::tick);
     }
 
     /* JUKEBOX CODE */
