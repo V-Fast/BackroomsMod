@@ -43,6 +43,11 @@ repositories {
 		url "https://jitpack.io"
 	}
 
+	maven {
+		name = 'TerraformersMC'
+		url = 'https://maven.terraformersmc.com/releases/'
+	}
+
 }
 
 allprojects {
@@ -63,6 +68,7 @@ dependencies {
 	modImplementation libs.quilted.fabric.api
 
 	modImplementation libs.geckolib
+
 	modImplementation (libs.yacl) {
 		exclude group: 'com.terraformersmc'
 	}
@@ -75,6 +81,8 @@ dependencies {
 	modImplementation libs.ludocrypt.limlib
 
 	include libs.ludocrypt.limlib
+
+	modRuntimeOnly libs.modmenu
 }
 
 project.configurations.all {
