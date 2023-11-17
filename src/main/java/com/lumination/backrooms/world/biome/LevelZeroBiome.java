@@ -20,12 +20,12 @@ public class LevelZeroBiome {
         GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(features, carvers);
 
         BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
-        biomeEffects.skyColor(7254527);
-        biomeEffects.waterColor(4159204);
-        biomeEffects.waterFogColor(329011);
-        biomeEffects.fogColor(14741646);
+        biomeEffects.skyColor(10131250);
+        biomeEffects.waterColor(11711733);
+        biomeEffects.waterFogColor(4145165);
+        biomeEffects.fogColor(9474352);
         biomeEffects.grassColor(13818488);
-        biomeEffects.loopSound(RegistryEntry.of(ModSounds.COMPLEX));
+        //biomeEffects.loopSound(RegistryEntry.of(ModSounds.COMPLEX));
         //biomeEffects.moodSound(BiomeMoodSound.CAVE);
         BiomeEffects effects = biomeEffects.build();
 

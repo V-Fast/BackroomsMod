@@ -1,6 +1,9 @@
 package com.lumination.backrooms.world.chunk;
 
+import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.blocks.ModBlocks;
+import com.lumination.backrooms.entities.ModEntities;
+import com.lumination.backrooms.entities.mod.BacteriaEntity;
 import com.lumination.backrooms.world.dimensions.BackroomDimensions;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
@@ -9,7 +12,6 @@ import net.ludocrypt.limlib.api.world.chunk.AbstractNbtChunkGenerator;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.ChestBlockEntity;
-import net.minecraft.loot.LootTables;
 import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerLightingProvider;
 import net.minecraft.server.world.ServerWorld;
@@ -70,7 +72,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         generateRandomPiece(chunkRegion, start.add(8, 1, 0), random);
         generateRandomPiece(chunkRegion, start.add(0, 1, 8), random);
         generateRandomPiece(chunkRegion, start.add(8, 1, 8), random);
-        decorateChunk(chunk, random);
+        decorateChunk(world, chunk, random);
         return CompletableFuture.completedFuture(chunk);
     }
 
@@ -91,7 +93,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         generateNbt(region, pos, "level_0_"+type, rotation);
     }
 
-    public void decorateChunk(Chunk chunk, Random random) {
+    public void decorateChunk(ServerWorld world, Chunk chunk, Random random) {
         BlockPos start = chunk.getPos().getStartPos();
         for (int i = 0; i < 16; i++) {
             for (int j = 0; j < 16; j++) {
@@ -102,18 +104,24 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
                         chunk.setBlockState(pos, Blocks.BEDROCK.getDefaultState(), false);
                     }
                     if (block.isOf(ModBlocks.MOIST_SILK)) {
-                        if (random.nextBetween(0, 9) == 9) {
+                        if (random.nextBetween(0, 19) == 19) {
                             chunk.setBlockState(pos, ModBlocks.MOIST_SILK_PLANKS.getDefaultState(), false);
                         }
                     }
-                    if (block.isAir() && pos.getY() == 1) {
-                        if (random.nextBetween(0, 200) == 200) {
+                    if (block.isAir() && pos.getY() == 2) {
+                        if (random.nextBetween(0, 5000) == 5000) {
                             block = Blocks.CHEST.getDefaultState().rotate(BlockRotation.random(random));
                             chunk.setBlockState(pos, block, false);
                             ChestBlockEntity chest = new ChestBlockEntity(pos, block);
                             chest.setCustomName(Text.literal("Level 0 Chest"));
                             chest.setLootTable(new Identifier("backrooms", "chests/level_0"), random.nextLong());
                             chunk.setBlockEntity(chest);
+
+                            BacteriaEntity bacteria = new BacteriaEntity(ModEntities.BACTERIA, world);
+                            bacteria.setPosition(pos.getX(), pos.getY(), pos.getZ());
+                            world.spawnEntity(bacteria);
+
+                            BackroomsMod.LOGGER.info("Chest spawned at "+i+" "+k+" "+j);
                         }
                     }
                 }

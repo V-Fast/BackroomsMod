@@ -26,7 +26,7 @@ public class LevelOneBiome {
         biomeEffects.waterFogColor(329011);
         biomeEffects.fogColor(3223857);
         biomeEffects.grassColor(13818488);
-        biomeEffects.loopSound(RegistryEntry.of(ModSounds.SEALED_AWAY));
+        //biomeEffects.loopSound(RegistryEntry.of(ModSounds.SEALED_AWAY));
         //biomeEffects.moodSound(BiomeMoodSound.CAVE);
         BiomeEffects effects = biomeEffects.build();
 
