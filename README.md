@@ -13,12 +13,12 @@
 You can see our progresses! Just by looking at our [Trello Board](https://trello.com/b/gDUJ7vvz/the-backrooms-mod)!  
 You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms).
 
-ℹ️ **If you don't know how to install a Fabric mod, [click here](https://github.com/lumaa-dev/lumaa-dev/blob/main/installs.md#install-my-fabric-mods)**
+ℹ️ **If you don't know how to install a Quilt mod, [click here](https://quiltmc.org/en/install/client/)**
 
 ## Dependencies
 **If you plan on installing this mod, you'll have to install these mods as well**, italicized mods are optional.
-- [![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/fabric-api_64h.png)](https://modrinth.com/mod/fabric-api) [![Requires Fabric GeckoLib](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/geckolib_64h.png)](https://modrinth.com/mod/geckolib)
-- *[Yet Another Config Lib](https://modrinth.com/mod/yacl/versions?l=fabric&g=1.19.4)*
+- [![Requires Quilted Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.1.2/assets/cozy/requires/quilted-fabric-api_64h.png)](https://modrinth.com/mod/qsl) [![Requires GeckoLib](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/geckolib_64h.png)](https://modrinth.com/mod/geckolib)
+- *[Yet Another Config Lib](https://modrinth.com/mod/yacl/)*
 
 ## How do I do [something]?
 [![GitHub Wiki](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/gitbook_64h.png)](https://lumaa.gitbook.io/backrooms)
@@ -31,3 +31,4 @@ This mod includes content originally made by [Kane Pixels](https://www.youtube.c
 - [Good Kid](https://www.youtube.com/@GoodKidband) - Songs
 - Luvaa - Music suggestions
 - FirstMegaGame4 - 1.20.1 Port
+- Clomclem - Major contributions
