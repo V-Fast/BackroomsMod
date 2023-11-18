@@ -18,6 +18,5 @@ public class BackroomsModServer implements DedicatedServerModInitializer {
                 }
             }
         });*/
-        BackroomsMod.print("Initialized Server Backrooms");
     }
 }

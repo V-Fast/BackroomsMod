@@ -22,7 +22,7 @@ public class BackroomsMod implements ModInitializer {
 
 	public static final String MOD_ID = "backrooms";
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(BackroomsMod.MOD_ID);
+	public static final Logger LOGGER = LoggerFactory.getLogger("The Backrooms");
 
 	private static final String VERSION_ID = QuiltLoader
 			.getModContainer(BackroomsMod.MOD_ID)
@@ -58,11 +58,7 @@ public class BackroomsMod implements ModInitializer {
 		BackroomsBiomes.init();
 		BackroomsDimensions.registerPortals();
 		BackroomsEntities.registerMobs();
-		print("Initialized Main Backrooms");
-	}
-
-	public static void print(String s) {
-		LOGGER.info("[" + NAME + "] " + s);
+		BackroomsMod.LOGGER.info("Initialized Backrooms");
 	}
 
 	public static void changeName(String name) {

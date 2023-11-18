@@ -96,6 +96,6 @@ public class BackroomsBlocks {
     }
 
     public static void registerModBlock() {
-        BackroomsMod.print("Registering ModBlocks for " + BackroomsMod.MOD_ID);
+        BackroomsMod.LOGGER.debug("Registered Blocks");
     }
 }

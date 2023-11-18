@@ -71,11 +71,10 @@ public class BackroomsDimensions implements LimlibRegistrar {
     public static void registerPortals() {
         BackroomsDimensions.portal(LEVEL_ZERO_ID, Blocks.IRON_BLOCK, BackroomsItems.SILK, 195, 180, 10);
         BackroomsDimensions.portal(LEVEL_ONE_ID, Blocks.GRAY_CONCRETE, BackroomsItems.WRENCH, Color.RGB.zero());
-        BackroomsMod.print("Registered custom portals");
+        BackroomsMod.LOGGER.debug("Registered custom portals");
     }
 
     private static PortalLink portal(Identifier dimId, Block frame, Item lighter, Color.RGB portalColor) {
-        BackroomsMod.print("Registered custom portal of " + dimId.getNamespace());
         return CustomPortalBuilder
                 .beginPortal()
                 .destDimID(dimId)

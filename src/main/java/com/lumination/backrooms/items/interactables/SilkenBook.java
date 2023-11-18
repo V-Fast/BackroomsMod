@@ -39,7 +39,7 @@ public class SilkenBook extends Item {
 
                 // Prevent Crash
                 if (word == null) {
-                    BackroomsMod.print("Recurrent anomaly");
+                    BackroomsMod.LOGGER.info("Recurrent anomaly");
                     user.sendMessage(Text.literal("Please click again."), true);
                     if (BackroomsSettings.explainsError()) {
                         user.sendMessage(Text.literal("[The Backrooms - Error] The problem is occurs when selecting a random inscription. A fix has not been found yet.").formatted(Formatting.GRAY, Formatting.ITALIC));

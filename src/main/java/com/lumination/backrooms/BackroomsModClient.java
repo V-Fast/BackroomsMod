@@ -25,6 +25,6 @@ public class BackroomsModClient implements ClientModInitializer {
         BackroomsSettings.loadConfig();
         BackroomsEntities.registerRenderers();
         HudRenderCallback.EVENT.register(BackroomsModClient.camHud);
-        BackroomsMod.print("Initialized Client Backrooms");
+        BackroomsMod.LOGGER.info("Initialized Client Backrooms");
     }
 }

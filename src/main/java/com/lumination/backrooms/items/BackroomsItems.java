@@ -108,6 +108,6 @@ public class BackroomsItems {
     }
 
     public static void registerModItems() {
-        BackroomsMod.print("Registering ModItems");
+        BackroomsMod.LOGGER.debug("Registered Items");
     }
 }

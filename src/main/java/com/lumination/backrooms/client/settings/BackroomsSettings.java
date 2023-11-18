@@ -37,7 +37,7 @@ public class BackroomsSettings {
     }
 
     public static void loadConfig() {
-        BackroomsMod.print(instance == null ? "Loading config..." : "Reloading config...");
+        BackroomsMod.LOGGER.info(instance == null ? "Loading config..." : "Reloading config...");
 
         BackroomsSettings.instance = readFile();
 

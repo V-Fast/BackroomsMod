@@ -49,6 +49,6 @@ public class BackroomsSounds {
     }
 
     public static void registerSoundEvents() {
-        BackroomsMod.print("Registering ModSounds for " + BackroomsMod.MOD_ID);
+        BackroomsMod.LOGGER.debug("Registered Sounds");
     }
 }
