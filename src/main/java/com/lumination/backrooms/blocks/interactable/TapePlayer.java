@@ -30,7 +30,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
+public class TapePlayer extends BlockWithEntity {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty HAS_RECORD;
 
@@ -88,7 +88,7 @@ public class TapePlayer extends BlockWithEntity implements BlockEntityProvider {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, BackroomsBlockEntities.tapePlayer, TapePlayerEntity::tick);
+        return checkType(type, BackroomsBlockEntities.tapePlayer, TapePlayerEntity::tick);
     }
 
     /* JUKEBOX CODE */

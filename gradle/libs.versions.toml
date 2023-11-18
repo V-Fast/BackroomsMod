@@ -1,13 +1,13 @@
 [versions]
 # The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
 minecraft = "1.20.1"
-yarn_mappings = "1.20.2+build.1"
-quilt_loader = "0.21.0"
+yarn_mappings = "1.20.1+build.10"
+quilt_loader = "0.21.2"
 
 quilted_fabric_api = "7.3.1+0.89.3-1.20.1"
 
 geckolib = "4.2.4"
-yacl = "3.1.0+1.20"
+yacl = "3.2.1+1.20"
 customportalapi = "0.0.1-beta64-1.20"
 limlib = "8.1.8"
 modmenu = "7.2.2"

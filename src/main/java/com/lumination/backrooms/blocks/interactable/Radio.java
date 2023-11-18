@@ -36,7 +36,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class Radio extends BlockWithEntity implements BlockEntityProvider {
+public class Radio extends BlockWithEntity {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty RECORD;
 
@@ -108,7 +108,7 @@ public class Radio extends BlockWithEntity implements BlockEntityProvider {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, BackroomsBlockEntities.radio, RadioEntity::tick);
+        return checkType(type, BackroomsBlockEntities.radio, RadioEntity::tick);
     }
 
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
