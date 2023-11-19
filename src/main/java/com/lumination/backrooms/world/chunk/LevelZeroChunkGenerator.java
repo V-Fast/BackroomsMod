@@ -7,6 +7,7 @@ import com.lumination.backrooms.world.dimensions.BackroomsDimensions;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.ludocrypt.limlib.api.world.NbtGroup;
 import net.ludocrypt.limlib.api.world.chunk.AbstractNbtChunkGenerator;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -41,12 +42,16 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
     });
 
     public LevelZeroChunkGenerator(BiomeSource source) {
-        super(source, BackroomsDimensions.LEVEL_ZERO_ID);
+        super(source, getNbtGroup());
     }
 
-    @Override
-    public void storeStructures(ServerWorld world) {
-        store("level_0", world, 0, 3);
+    public static NbtGroup getNbtGroup() {
+        return NbtGroup.Builder.create(BackroomsDimensions.LEVEL_ZERO_ID)
+                .with("normal",
+                        "crossroad",
+                        "hall",
+                        "turn",
+                        "end").build();
     }
 
     // TODO Look into this
@@ -79,17 +84,17 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
     public void generateRandomPiece(ChunkRegion region, BlockPos pos, Random random) {
         BlockRotation rotation = BlockRotation.random(random);
         int num = random.nextBetween(0, 9);
-        int type = 0;
+        String name = "crossroad";
         if (num == 4 || num == 5) {
-            type = 2;
+            name = "hall";
         }
         if (num == 7 || num == 8) {
-            type = 3;
+            name = "turn";
         }
         if (num == 9) {
-            type = 1;
+            name = "end";
         }
-        generateNbt(region, pos, "level_0_"+type, rotation);
+        generateNbt(region, pos, nbtGroup.nbtId("normal", name), rotation);
     }
 
     public void decorateChunk(ServerWorld world, Chunk chunk, Random random) {
