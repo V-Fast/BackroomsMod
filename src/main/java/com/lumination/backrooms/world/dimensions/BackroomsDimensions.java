@@ -2,21 +2,14 @@ package com.lumination.backrooms.world.dimensions;
 
 import com.google.common.base.Supplier;
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.items.BackroomsItems;
-import com.lumination.backrooms.utils.Color;
 import com.lumination.backrooms.world.biome.BackroomsBiomes;
 import com.lumination.backrooms.world.biome.LevelOneBiome;
 import com.lumination.backrooms.world.biome.LevelZeroBiome;
 import com.lumination.backrooms.world.chunk.LevelZeroChunkGenerator;
 import com.mojang.serialization.Lifecycle;
-import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
-import net.kyrptonaught.customportalapi.util.PortalLink;
 import net.ludocrypt.limlib.api.LimlibRegistrar;
 import net.ludocrypt.limlib.api.LimlibRegistryHooks;
 import net.ludocrypt.limlib.api.LimlibWorld;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -71,24 +64,6 @@ public class BackroomsDimensions implements LimlibRegistrar {
 
     public static final RegistryKey<World> LEVEL_ZERO_KEY = RegistryKey.of(RegistryKeys.WORLD, LEVEL_ZERO_ID);
     public static final RegistryKey<World> LEVEL_ONE_KEY = RegistryKey.of(RegistryKeys.WORLD, LEVEL_ONE_ID);
-
-    public static void registerPortals() {
-        BackroomsDimensions.portal(LEVEL_ZERO_ID, Blocks.IRON_BLOCK, BackroomsItems.SILK, new Color.RGB(195, 180, 10));
-        BackroomsDimensions.portal(LEVEL_ONE_ID, Blocks.GRAY_CONCRETE, BackroomsItems.WRENCH, Color.RGB.zero());
-        BackroomsMod.LOGGER.debug("Registered custom portals");
-    }
-
-    public static PortalLink portal(Identifier dimId, Block frame, Item lighter, Color.RGB portalColor) {
-        return CustomPortalBuilder
-                .beginPortal()
-                .destDimID(dimId)
-                .frameBlock(frame)
-                .lightWithItem(lighter)
-                .tintColor(portalColor.r(), portalColor.g(), portalColor.b())
-                .onlyLightInOverworld()
-                .setPortalSearchYRange(0, 3)
-                .registerPortal();
-    }
 
     @Override
     public void registerHooks() {

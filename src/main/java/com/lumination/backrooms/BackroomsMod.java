@@ -8,16 +8,13 @@ import com.lumination.backrooms.items.BackroomsItems;
 import com.lumination.backrooms.sounds.BackroomsSounds;
 import com.lumination.backrooms.world.biome.BackroomsBiomes;
 import com.lumination.backrooms.world.dimensions.BackroomsDimensions;
-import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.text.Text;
-import net.minecraft.util.math.BlockPos;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.loader.api.QuiltLoader;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.entity.event.api.EntityWorldChangeEvents;
-import org.quiltmc.qsl.entity.event.api.ServerPlayerEntityCopyCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,7 +59,6 @@ public class BackroomsMod implements ModInitializer {
 		BackroomsItems.registerModItems();
 		BackroomsSounds.registerSoundEvents();
 		BackroomsBiomes.init();
-		BackroomsDimensions.registerPortals();
 		BackroomsEntities.registerMobs();
 		EntityWorldChangeEvents.AFTER_PLAYER_WORLD_CHANGE.register((player, origin, destination) -> {
 			if (destination == player.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY)) {

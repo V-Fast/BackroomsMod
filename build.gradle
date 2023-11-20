@@ -31,7 +31,6 @@ repositories {
 			includeGroupByRegex 'io\\.github\\.onyxstudios.*'
 		}
 	}
-	maven { url = "https://maven.kyrptonaught.dev" }
 	maven {
 		url 'https://api.modrinth.com/maven'
 		content {
@@ -72,9 +71,6 @@ dependencies {
 	modImplementation (libs.yacl) {
 		exclude group: 'com.terraformersmc'
 	}
-	modImplementation libs.customportalapi
-
-	include libs.customportalapi
 
 	modImplementation libs.ludocrypt.limlib
 
