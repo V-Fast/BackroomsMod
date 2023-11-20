@@ -23,6 +23,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.source.FixedBiomeSource;
 import net.minecraft.world.dimension.DimensionOptions;
 import net.minecraft.world.dimension.DimensionType;
@@ -37,7 +38,7 @@ public class BackroomsDimensions implements LimlibRegistrar {
     public static final Identifier LEVEL_ONE_ID = new Identifier(BackroomsMod.MOD_ID, "level_1");
 
     public static final Supplier<DimensionType> levelDimType = () -> new DimensionType(OptionalLong.of(14000), false, true, false, true,
-            1, true, false, 0, 96, 16, TagKey.of(RegistryKeys.BLOCK, Identifier.of("minecraft", "infiniburn_overworld")), Identifier.of("minecraft", "overworld"),
+            1, true, false, 0, 96, 16, TagKey.of(RegistryKeys.BLOCK, Identifier.of("minecraft", "infiniburn_overworld")), Identifier.of("minecraft", "the_nether"),
             0.0f, new DimensionType.MonsterSettings(false, false, ConstantIntProvider.ZERO, 0));
 
     public static final LimlibWorld LEVEL_ZERO = new LimlibWorld(levelDimType,
@@ -68,13 +69,16 @@ public class BackroomsDimensions implements LimlibRegistrar {
                                             .get())
                             )));
 
+    public static final RegistryKey<World> LEVEL_ZERO_KEY = RegistryKey.of(RegistryKeys.WORLD, LEVEL_ZERO_ID);
+    public static final RegistryKey<World> LEVEL_ONE_KEY = RegistryKey.of(RegistryKeys.WORLD, LEVEL_ONE_ID);
+
     public static void registerPortals() {
-        BackroomsDimensions.portal(LEVEL_ZERO_ID, Blocks.IRON_BLOCK, BackroomsItems.SILK, 195, 180, 10);
+        BackroomsDimensions.portal(LEVEL_ZERO_ID, Blocks.IRON_BLOCK, BackroomsItems.SILK, new Color.RGB(195, 180, 10));
         BackroomsDimensions.portal(LEVEL_ONE_ID, Blocks.GRAY_CONCRETE, BackroomsItems.WRENCH, Color.RGB.zero());
         BackroomsMod.LOGGER.debug("Registered custom portals");
     }
 
-    private static PortalLink portal(Identifier dimId, Block frame, Item lighter, Color.RGB portalColor) {
+    public static PortalLink portal(Identifier dimId, Block frame, Item lighter, Color.RGB portalColor) {
         return CustomPortalBuilder
                 .beginPortal()
                 .destDimID(dimId)
@@ -84,10 +88,6 @@ public class BackroomsDimensions implements LimlibRegistrar {
                 .onlyLightInOverworld()
                 .setPortalSearchYRange(0, 3)
                 .registerPortal();
-    }
-
-    public static PortalLink portal(Identifier dimId, Block frame, Item lighter, int r, int g, int b) {
-        return BackroomsDimensions.portal(dimId, frame, lighter, new Color.RGB(r, g, b));
     }
 
     @Override
