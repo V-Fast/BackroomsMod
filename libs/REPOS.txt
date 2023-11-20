@@ -1,2 +1,0 @@
-Fabric API - https://modrinth.com/mod/fabric-api
-*OPTIONAL* Yet Another Config Lib - https://modrinth.com/mod/yacl
