@@ -22,6 +22,12 @@
         "sources": "https://github.com/V-Fast/BackroomsMod",
         "issues": "https://github.com/V-Fast/BackroomsMod/issues"
       },
+      "license": {
+        "name": "MIT License",
+        "id": "MIT",
+        "url": "https://choosealicense.com/licenses/mit/",
+        "description": "A short and simple permissive license with conditions only requiring preservation of copyright and license notices."
+      },
       "icon": "assets/backrooms/icon.png"
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
