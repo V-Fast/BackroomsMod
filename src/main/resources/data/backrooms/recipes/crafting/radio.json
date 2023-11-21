@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "RCR",
+    "IDI"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:lightning_rod"
+    },
+    "R": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "C": {
+      "item": "minecraft:redstone_block"
+    },
+    "I": {
+      "item": "backrooms:smooth_iron_block"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "backrooms:radio",
+    "count": 1
+  }
+}

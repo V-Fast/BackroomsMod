@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#G#",
+    "DTD",
+    "#G#"
+  ],
+  "key": {
+    "#": {
+      "item": "backrooms:silk"
+    },
+    "G": {
+      "item": "minecraft:golden_apple"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "backrooms:level_zero_portal",
+    "count": 1
+  }
+}
