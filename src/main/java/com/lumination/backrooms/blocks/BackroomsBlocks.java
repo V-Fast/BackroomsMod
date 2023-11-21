@@ -34,7 +34,7 @@ public class BackroomsBlocks {
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
             new FluorescentLight(QuiltBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(9)), BackroomsItemsGroup.MAIN);
     public static final Block LEVEL_ZERO_PORTAl = registerBlock("level_zero_portal",
-            new LevelZeroPortalBlock(QuiltBlockSettings.copyOf(Blocks.NETHER_PORTAL).sounds(BlockSoundGroup.GLASS).luminance(15)), BackroomsItemsGroup.MAIN);
+            new LevelZeroPortalBlock(QuiltBlockSettings.copyOf(Blocks.NETHER_PORTAL).luminance(15).breakInstantly()), BackroomsItemsGroup.MAIN);
 
     // Level 1
     public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",
