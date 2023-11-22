@@ -7,7 +7,8 @@ import com.lumination.backrooms.entities.BackroomsEntities;
 import com.lumination.backrooms.items.BackroomsItems;
 import com.lumination.backrooms.sounds.BackroomsSounds;
 import com.lumination.backrooms.world.biome.BackroomsBiomes;
-import com.lumination.backrooms.world.dimensions.BackroomsDimensions;
+import com.lumination.backrooms.world.BackroomsDimensions;
+import com.lumination.backrooms.world.chunk.BackroomsChunkGenerators;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.text.Text;
@@ -58,7 +59,8 @@ public class BackroomsMod implements ModInitializer {
 		BackroomsBlockEntities.registerBlockEntities();
 		BackroomsItems.registerModItems();
 		BackroomsSounds.registerSoundEvents();
-		BackroomsBiomes.init();
+		BackroomsBiomes.registerBiomes();
+		BackroomsChunkGenerators.registerChunkGenerators();
 		BackroomsEntities.registerMobs();
 		EntityWorldChangeEvents.AFTER_PLAYER_WORLD_CHANGE.register((player, origin, destination) -> {
 			if (destination == player.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY)) {

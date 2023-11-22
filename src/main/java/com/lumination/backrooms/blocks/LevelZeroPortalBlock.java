@@ -1,6 +1,6 @@
 package com.lumination.backrooms.blocks;
 
-import com.lumination.backrooms.world.dimensions.BackroomsDimensions;
+import com.lumination.backrooms.world.BackroomsDimensions;
 import net.ludocrypt.limlib.api.LimlibTravelling;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

@@ -34,7 +34,7 @@
     "entrypoints": {
       "init": "com.lumination.backrooms.BackroomsMod",
       "client_init": "com.lumination.backrooms.BackroomsModClient",
-      "limlib:registrar": "com.lumination.backrooms.world.dimensions.BackroomsDimensions"
+      "limlib:registrar": "com.lumination.backrooms.world.BackroomsDimensions"
     },
     "depends": [
       {

@@ -1,4 +1,4 @@
-package com.lumination.backrooms.world.dimensions;
+package com.lumination.backrooms.world;
 
 import com.google.common.base.Supplier;
 import com.lumination.backrooms.BackroomsMod;

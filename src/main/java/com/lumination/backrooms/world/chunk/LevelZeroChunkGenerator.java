@@ -3,7 +3,7 @@ package com.lumination.backrooms.world.chunk;
 import com.lumination.backrooms.blocks.BackroomsBlocks;
 import com.lumination.backrooms.entities.BackroomsEntities;
 import com.lumination.backrooms.entities.mod.BacteriaEntity;
-import com.lumination.backrooms.world.dimensions.BackroomsDimensions;
+import com.lumination.backrooms.world.BackroomsDimensions;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

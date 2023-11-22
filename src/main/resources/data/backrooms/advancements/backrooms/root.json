@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "backrooms:moist_silk"
+    },
+    "title": {
+      "translate": "advancements.backrooms.root.title"
+    },
+    "description": {
+      "translate": "advancements.backrooms.root.description"
+    },
+    "frame": "task",
+    "background": "backrooms:textures/block/moist_silk.png",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "backrooms:crafting/level_zero_portal"
+      }
+    }
+  },
+  "sends_telemetry_event": false
+}
