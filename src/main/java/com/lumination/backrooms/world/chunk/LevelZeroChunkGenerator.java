@@ -38,11 +38,17 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
     public static final Codec<LevelZeroChunkGenerator> CODEC = RecordCodecBuilder.create((instance) -> {
         return instance.group(BiomeSource.CODEC.fieldOf("biome_source").stable().forGetter((chunkGenerator) -> {
             return chunkGenerator.biomeSource;
+        }), NbtGroup.CODEC.fieldOf("nbt_group").stable().forGetter((chunkGenerator) -> {
+            return chunkGenerator.nbtGroup;
         })).apply(instance, instance.stable(LevelZeroChunkGenerator::new));
     });
 
     public LevelZeroChunkGenerator(BiomeSource source) {
-        super(source, getNbtGroup());
+        this(source, getNbtGroup());
+    }
+
+    public LevelZeroChunkGenerator(BiomeSource source, NbtGroup nbtGroup) {
+        super(source, nbtGroup);
     }
 
     public static NbtGroup getNbtGroup() {
@@ -54,10 +60,9 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
                         "end").build();
     }
 
-    // TODO Look into this
     @Override
     public int getChunkDistance() {
-        return 2;
+        return 0;
     }
 
     @Override
@@ -76,7 +81,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         generateRandomPiece(chunkRegion, start.add(8, 1, 0), random);
         generateRandomPiece(chunkRegion, start.add(0, 1, 8), random);
         generateRandomPiece(chunkRegion, start.add(8, 1, 8), random);
-        decorateChunk(world, chunk, random);
+        decorateChunk(start, world, chunk, random);
         return CompletableFuture.completedFuture(chunk);
     }
 
@@ -97,8 +102,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         generateNbt(region, pos, nbtGroup.nbtId("normal", name), rotation);
     }
 
-    public void decorateChunk(ServerWorld world, Chunk chunk, Random random) {
-        BlockPos start = chunk.getPos().getStartPos();
+    public void decorateChunk(BlockPos start, ServerWorld world, Chunk chunk, Random random) {
         for (int i = 0; i < 16; i++) {
             for (int j = 0; j < 16; j++) {
                 for (int k = 0; k < 7; k++) {

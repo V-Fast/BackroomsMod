@@ -14,16 +14,16 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 
 public class BackroomsBiomes {
 
-    public static final RegistryKey<Biome> LEVEL_ZERO_BIOME = get(BackroomsDimensions.LEVEL_ZERO_ID.getPath());
-    public static final RegistryKey<Biome> LEVEL_ONE_BIOME = get(BackroomsDimensions.LEVEL_ONE_ID.getPath());
+    public static final RegistryKey<Biome> LEVEL_ZERO_BIOME = get(BackroomsDimensions.LEVEL_ZERO_ID);
+    public static final RegistryKey<Biome> LEVEL_ONE_BIOME = get(BackroomsDimensions.LEVEL_ONE_ID);
 
     public static void init() {
         get("level_zero_chunk_generator", LevelZeroChunkGenerator.CODEC);
         // get("level_one_chunk_generator", LevelOneChunkGenerator.CODEC);
     }
 
-    public static RegistryKey<Biome> get(String id) {
-        return RegistryKey.of(RegistryKeys.BIOME, new Identifier(BackroomsMod.MOD_ID, id));
+    public static RegistryKey<Biome> get(Identifier id) {
+        return RegistryKey.of(RegistryKeys.BIOME, id);
     }
 
     public static <C extends ChunkGenerator, D extends Codec<C>> D get(String id, D chunkGeneratorCodec) {
