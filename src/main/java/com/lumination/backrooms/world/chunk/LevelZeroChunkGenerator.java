@@ -3,20 +3,24 @@ package com.lumination.backrooms.world.chunk;
 import com.lumination.backrooms.blocks.BackroomsBlocks;
 import com.lumination.backrooms.entities.BackroomsEntities;
 import com.lumination.backrooms.entities.mod.BacteriaEntity;
+import com.lumination.backrooms.utils.SeedGenerator;
 import com.lumination.backrooms.world.BackroomsDimensions;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.ludocrypt.limlib.api.world.LimlibHelper;
 import net.ludocrypt.limlib.api.world.NbtGroup;
 import net.ludocrypt.limlib.api.world.chunk.AbstractNbtChunkGenerator;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.ChestBlockEntity;
+import net.minecraft.block.entity.LootableContainerBlockEntity;
+import net.minecraft.loot.LootTables;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerLightingProvider;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureTemplateManager;
-import net.minecraft.text.Text;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -29,6 +33,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.noise.NoiseConfig;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.function.Function;
@@ -70,72 +75,59 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
                                                   ServerWorld world, ChunkGenerator generator, StructureTemplateManager structureTemplateManager,
                                                   ServerLightingProvider lightingProvider, Function<Chunk, CompletableFuture<Either<Chunk,
             ChunkHolder.Unloaded>>> fullChunkConverter, List<Chunk> chunks, Chunk chunk) {
-        Random random;
-        if (chunk.getPos().x != 0 && chunk.getPos().z != 0) { // Avoids the weird repeating patterns
-           random = Random.create(chunkRegion.getSeed() + ((long) (chunk.getPos().x) * (chunk.getPos().z)));
-        } else {
-            random = Random.create(chunkRegion.getSeed() + ((long) (chunk.getPos().x+2) * (chunk.getPos().z-3)));
-        }
+        Random random = SeedGenerator.getFromPos(chunkRegion, chunk);
         BlockPos start = chunk.getPos().getStartPos();
-        generateRandomPiece(chunkRegion, start.add(0, 1, 0), random);
-        generateRandomPiece(chunkRegion, start.add(8, 1, 0), random);
-        generateRandomPiece(chunkRegion, start.add(0, 1, 8), random);
-        generateRandomPiece(chunkRegion, start.add(8, 1, 8), random);
-        decorateChunk(start, world, chunk, random);
+        generateRandomPiece(chunkRegion, start, random);
+        generateRandomPiece(chunkRegion, start.add(8, 0, 0), random);
+        generateRandomPiece(chunkRegion, start.add(0, 0, 8), random);
+        generateRandomPiece(chunkRegion, start.add(8, 0, 8), random);
         return CompletableFuture.completedFuture(chunk);
     }
 
     // Assumes a piece hasn't generated there yet.
     public void generateRandomPiece(ChunkRegion region, BlockPos pos, Random random) {
         BlockRotation rotation = BlockRotation.random(random);
-        int num = random.nextBetween(0, 9);
+        int num = random.nextBetween(1, 1000);
         String name = "crossroad";
-        if (num == 4 || num == 5) {
+        if (num > 500 && num <= 750) {
             name = "hall";
         }
-        if (num == 7 || num == 8) {
+        if (num > 750 && num <= 998) {
             name = "turn";
         }
-        if (num == 9) {
+        if (num > 998) {
             name = "end";
         }
         generateNbt(region, pos, nbtGroup.nbtId("normal", name), rotation);
     }
 
-    public void decorateChunk(BlockPos start, ServerWorld world, Chunk chunk, Random random) {
-        for (int i = 0; i < 16; i++) {
-            for (int j = 0; j < 16; j++) {
-                for (int k = 0; k < 7; k++) {
-                    BlockPos pos = start.add(i, k, j);
-                    BlockState block = chunk.getBlockState(pos);
-                    if (pos.getY() == 0 || pos.getY() == 6) {
-                        chunk.setBlockState(pos, Blocks.BEDROCK.getDefaultState(), false);
-                    }
-                    if (block.isOf(BackroomsBlocks.MOIST_SILK)) {
-                        if (random.nextBetween(0, 19) == 19) {
-                            chunk.setBlockState(pos, BackroomsBlocks.MOIST_SILK_PLANKS.getDefaultState(), false);
-                        }
-                    }
-                    if (block.isAir() && pos.getY() == 2) {
-                        if (random.nextBetween(0, 5000) == 5000) {
-                            block = Blocks.CHEST.getDefaultState().rotate(BlockRotation.random(random));
-                            chunk.setBlockState(pos, block, false);
-                            ChestBlockEntity chest = new ChestBlockEntity(pos, block);
-                            chest.setCustomName(Text.literal("Level 0 Chest"));
-                            chest.setLootTable(new Identifier("backrooms", "chests/level_0"), random.nextLong());
-                            chunk.setBlockEntity(chest);
+    @Override
+    protected void modifyStructure(ChunkRegion region, BlockPos pos, BlockState state, Optional<NbtCompound> blockEntityNbt) {
+        super.modifyStructure(region, pos, state, blockEntityNbt);
 
-                            BacteriaEntity bacteria = new BacteriaEntity(BackroomsEntities.BACTERIA, world);
-                            bacteria.setPosition(pos.getX(), pos.getY(), pos.getZ());
-                            world.spawnEntity(bacteria);
-
-                            // For debug purposes
-                            //BackroomsMod.LOGGER.debug("Chest spawned at "+pos.getX()+" "+pos.getY()+" "+pos.getZ());
-                        }
-                    }
-                }
+        Random random = SeedGenerator.getFromPos(region, region.getChunk(pos), pos);
+        BlockState block = region.getBlockState(pos);
+        if (block.isOf(BackroomsBlocks.MOIST_SILK)) {
+            if (random.nextBetween(1, 20) == 20) {
+                region.setBlockState(pos, BackroomsBlocks.MOIST_SILK_PLANKS.getDefaultState(), Block.NOTIFY_ALL);
+            }
+            return;
+        }
+        if (block.isOf(Blocks.CHEST)) {
+            if (random.nextBetween(1, 50) != 50) {
+                region.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
+            } else if (random.nextBoolean()) {
+                ServerWorld world = region.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY);
+                BacteriaEntity bacteria = new BacteriaEntity(BackroomsEntities.BACTERIA, world);
+                bacteria.setPosition(pos.toCenterPos());
+                world.spawnEntity(bacteria);
             }
         }
+    }
+
+    @Override
+    protected Identifier getContainerLootTable(LootableContainerBlockEntity container) {
+        return Random.create(LimlibHelper.blockSeed(container.getPos())).nextBoolean() ? new Identifier("backrooms", "chests/level_0") : LootTables.SPAWN_BONUS_CHEST;
     }
 
     @Override

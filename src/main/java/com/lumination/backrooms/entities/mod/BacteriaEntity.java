@@ -1,5 +1,6 @@
 package com.lumination.backrooms.entities.mod;
 
+import com.lumination.backrooms.entities.BackroomsEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;

@@ -27,6 +27,7 @@ public class BackroomsEntities {
         EntityRendererRegistry.register(BackroomsEntities.BACTERIA, BacteriaRenderer::new);
     }
 
+    @SuppressWarnings("deprecation")
     private static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(BackroomsEntities.BACTERIA, BacteriaEntity.setAttributes());
     }
