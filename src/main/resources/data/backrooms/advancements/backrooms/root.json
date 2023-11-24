@@ -4,10 +4,10 @@
       "item": "backrooms:moist_silk"
     },
     "title": {
-      "translate": "advancements.backrooms.root.title"
+      "translate": "advancements.backrooms.backrooms.root.title"
     },
     "description": {
-      "translate": "advancements.backrooms.root.description"
+      "translate": "advancements.backrooms.backrooms.root.description"
     },
     "frame": "task",
     "background": "backrooms:textures/block/moist_silk.png",

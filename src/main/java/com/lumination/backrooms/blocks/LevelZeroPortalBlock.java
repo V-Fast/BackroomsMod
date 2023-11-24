@@ -18,6 +18,7 @@ public class LevelZeroPortalBlock extends Block {
         super(settings);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onEntityCollision(BlockState state, World fromWorld, BlockPos pos, Entity entity) {
         if (!fromWorld.isClient()) {

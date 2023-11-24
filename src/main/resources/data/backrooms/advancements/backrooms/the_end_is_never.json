@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "backrooms:level_zero_portal"
+    },
+    "title": {
+      "translate": "advancements.backrooms.backrooms.the_end_is_never.title"
+    },
+    "description": {
+      "translate": "advancements.backrooms.backrooms.the_end_is_never.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "backrooms:backrooms/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "backrooms:level_0"
+      }
+    }
+  },
+  "sends_telemetry_event": false
+}
