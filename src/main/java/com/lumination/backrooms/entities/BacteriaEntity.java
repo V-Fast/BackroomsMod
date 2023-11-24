@@ -1,4 +1,4 @@
-package com.lumination.backrooms.entities.mod;
+package com.lumination.backrooms.entities;
 
 import com.lumination.backrooms.entities.BackroomsEntities;
 import net.minecraft.block.BlockState;

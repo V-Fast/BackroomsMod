@@ -2,6 +2,11 @@
   "mod.backrooms.name": "Los Backrooms",
   "mod.yacl.disabled": "Este botòn esta deshabilitado porque\ntu no tienes Yet Another Config Lib",
 
+  "advancements.backrooms.backrooms.root.title": "Los Backrooms",
+  "advancements.backrooms.backrooms.root.description": "Craftea un portal del nivel 0",
+  "advancements.backrooms.backrooms.the_end_is_never.title": "El final nunca es el final nunca es...",
+  "advancements.backrooms.backrooms.the_end_is_never.description": "Entra al nivel 0",
+
   "item.backrooms.silk": "Seda",
   "item.backrooms.silken_book": "Libro de seda",
   "item.backrooms.almond_water": "Agua de almendras",

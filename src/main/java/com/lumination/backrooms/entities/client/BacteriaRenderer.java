@@ -1,7 +1,7 @@
 package com.lumination.backrooms.entities.client;
 
 import com.lumination.backrooms.BackroomsMod;
-import com.lumination.backrooms.entities.mod.BacteriaEntity;
+import com.lumination.backrooms.entities.BacteriaEntity;
 
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.util.Identifier;

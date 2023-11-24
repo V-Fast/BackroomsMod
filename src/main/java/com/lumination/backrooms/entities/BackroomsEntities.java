@@ -2,7 +2,6 @@ package com.lumination.backrooms.entities;
 
 import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.entities.client.BacteriaRenderer;
-import com.lumination.backrooms.entities.mod.BacteriaEntity;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.entity.EntityDimensions;
