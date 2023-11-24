@@ -11,7 +11,7 @@ public class BackroomsChunkGenerators {
 
     public static void registerChunkGenerators() {
         registerChunkGenerator("level_zero_chunk_generator", LevelZeroChunkGenerator.CODEC);
-        // registerChunkGenerator("level_one_chunk_generator", LevelOneChunkGenerator.CODEC);
+        registerChunkGenerator("level_one_chunk_generator", LevelOneChunkGenerator.CODEC);
         BackroomsMod.LOGGER.debug("Registered Chunk Generators");
     }
 

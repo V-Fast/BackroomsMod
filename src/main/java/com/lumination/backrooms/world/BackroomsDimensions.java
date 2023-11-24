@@ -5,6 +5,7 @@ import com.lumination.backrooms.BackroomsMod;
 import com.lumination.backrooms.world.biome.BackroomsBiomes;
 import com.lumination.backrooms.world.biome.LevelOneBiome;
 import com.lumination.backrooms.world.biome.LevelZeroBiome;
+import com.lumination.backrooms.world.chunk.LevelOneChunkGenerator;
 import com.lumination.backrooms.world.chunk.LevelZeroChunkGenerator;
 import com.mojang.serialization.Lifecycle;
 import net.ludocrypt.limlib.api.LimlibRegistrar;
@@ -55,7 +56,7 @@ public class BackroomsDimensions implements LimlibRegistrar {
                                     .getOptional(RegistryKey
                                             .of(RegistryKeys.DIMENSION_TYPE, LEVEL_ONE_ID))
                                     .get(),
-                            new LevelZeroChunkGenerator(
+                            new LevelOneChunkGenerator(
                                     new FixedBiomeSource(registry
                                             .get(RegistryKeys.BIOME)
                                             .getOptional(BackroomsBiomes.LEVEL_ONE_BIOME)
