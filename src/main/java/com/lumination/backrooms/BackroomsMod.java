@@ -9,13 +9,19 @@ import com.lumination.backrooms.sounds.BackroomsSounds;
 import com.lumination.backrooms.world.biome.BackroomsBiomes;
 import com.lumination.backrooms.world.BackroomsDimensions;
 import com.lumination.backrooms.world.chunk.BackroomsChunkGenerators;
+import net.ludocrypt.limlib.api.LimlibTravelling;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3i;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.TeleportTarget;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.loader.api.QuiltLoader;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.entity.event.api.EntityWorldChangeEvents;
+import org.quiltmc.qsl.entity.event.api.ServerEntityTickCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +32,9 @@ public class BackroomsMod implements ModInitializer {
 
 	public static final String MOD_ID = "backrooms";
 
-	public static final Logger LOGGER = LoggerFactory.getLogger("The Backrooms");
+	public static String NAME = "The Backrooms";
+
+	public static final Logger LOGGER = LoggerFactory.getLogger(NAME);
 
 	private static final String VERSION_ID = QuiltLoader
 			.getModContainer(BackroomsMod.MOD_ID)
@@ -51,8 +59,6 @@ public class BackroomsMod implements ModInitializer {
 			new Radio.RadioRecord(Text.translatable("item.backrooms.government_funding_tape.desc").getString(), BackroomsSounds.GOVERNMENT_FUNDING )
 	);
 
-	public static String NAME = "The Backrooms";
-
 	@Override
 	public void onInitialize(ModContainer mod) {
 		BackroomsBlocks.registerModBlock();
@@ -62,6 +68,11 @@ public class BackroomsMod implements ModInitializer {
 		BackroomsBiomes.registerBiomes();
 		BackroomsChunkGenerators.registerChunkGenerators();
 		BackroomsEntities.registerMobs();
+		registerEvents();
+		BackroomsMod.LOGGER.info("Initialized Backrooms");
+	}
+
+	public void registerEvents() {
 		EntityWorldChangeEvents.AFTER_PLAYER_WORLD_CHANGE.register((player, origin, destination) -> {
 			if (destination == player.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY)) {
 				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 1, true, false, false);
@@ -73,11 +84,15 @@ public class BackroomsMod implements ModInitializer {
 				player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
 			}
 		});
-		BackroomsMod.LOGGER.info("Initialized Backrooms");
-	}
-
-	public static void changeName(String name) {
-		NAME = name;
+		ServerEntityTickCallback.EVENT.register((entity, isPassengerTick) -> {
+			Random rand = entity.getWorld().getRandom();
+			if (entity.isInsideWall() && rand.nextBetween(1, 50) == 50) {
+				LimlibTravelling.travelTo(entity, entity.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY), new TeleportTarget(
+								Vec3d.of(new Vec3i(rand.nextBetween(entity.getBlockX()-200, entity.getBlockX()+200), 2, rand.nextBetween(entity.getBlockZ()-200, entity.getBlockZ()+200))),
+								Vec3d.ZERO, 0.0f, 0.0f),
+						/* TODO add sound effect */ null, 5.0f, 1.0f);
+			}
+		});
 	}
 
 	public static List<Radio.RadioRecord> getRecords() {
