@@ -1,5 +1,6 @@
 package com.lumination.backrooms.blocks;
 
+import com.lumination.backrooms.sounds.BackroomsSounds;
 import com.lumination.backrooms.world.BackroomsDimensions;
 import net.ludocrypt.limlib.api.LimlibTravelling;
 import net.minecraft.block.Block;
@@ -29,12 +30,12 @@ public class LevelZeroPortalBlock extends Block {
                 LimlibTravelling.travelTo(entity, level_zero, new TeleportTarget(
                                 Vec3d.of(new Vec3i(rand.nextBetween(entity.getBlockX()-200, entity.getBlockX()+200), 2, rand.nextBetween(entity.getBlockZ()-200, entity.getBlockZ()+200))),
                                 Vec3d.ZERO, 0.0f, 0.0f),
-                        /* TODO add sound effect */ null, 5.0f, 1.0f);
+                        BackroomsSounds.CAMERA_CLICK, 5.0f, 1.0f);
             } else {
                 LimlibTravelling.travelTo(entity, overworld, new TeleportTarget(
                                 overworld.getSpawnPos().toCenterPos(),
                                 Vec3d.ZERO, 0.0f, 0.0f),
-                        /* TODO add sound effect */ null, 5.0f, 1.0f);
+                        BackroomsSounds.CAMERA_CLICK, 5.0f, 1.0f);
             }
             if (rand.nextBetween(0, 2) == 2) {
                 Vec3d explodePos = Vec3d.of(pos);

@@ -9,6 +9,7 @@ import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.ludocrypt.limlib.api.world.LimlibHelper;
+import net.ludocrypt.limlib.api.world.Manipulation;
 import net.ludocrypt.limlib.api.world.NbtGroup;
 import net.ludocrypt.limlib.api.world.chunk.AbstractNbtChunkGenerator;
 import net.minecraft.block.Block;
@@ -66,7 +67,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
     }
 
     @Override
-    public int getChunkDistance() {
+    public int getPlacementRadius() {
         return 0;
     }
 
@@ -86,7 +87,6 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
 
     // Assumes a piece hasn't generated there yet.
     public void generateRandomPiece(ChunkRegion region, BlockPos pos, Random random) {
-        BlockRotation rotation = BlockRotation.random(random);
         int num = random.nextBetween(1, 1000);
         String name = "crossroad";
         if (num > 500 && num <= 750) {
@@ -98,7 +98,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         if (num > 998) {
             name = "end";
         }
-        generateNbt(region, pos, nbtGroup.nbtId("normal", name), rotation);
+        generateNbt(region, pos, nbtGroup.nbtId("normal", name), Manipulation.random(random));
     }
 
     @Override

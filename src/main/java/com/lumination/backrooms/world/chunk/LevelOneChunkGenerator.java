@@ -51,7 +51,7 @@ public class LevelOneChunkGenerator extends AbstractNbtChunkGenerator {
     }
 
     @Override
-    public int getChunkDistance() {
+    public int getPlacementRadius() {
         return 0;
     }
 

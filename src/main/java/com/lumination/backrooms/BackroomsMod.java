@@ -75,10 +75,10 @@ public class BackroomsMod implements ModInitializer {
 	public void registerEvents() {
 		EntityWorldChangeEvents.AFTER_PLAYER_WORLD_CHANGE.register((player, origin, destination) -> {
 			if (destination == player.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY)) {
-				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 1, true, false, false);
+				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 1, false, false, false);
 				player.addStatusEffect(effect);
 				player.setSpawnPoint(BackroomsDimensions.LEVEL_ZERO_KEY,
-						player.getBlockPos(), // TODO make position randomized
+						player.getBlockPos(), // TODO make spawnpoint position randomized
 						0.0f, true, false);
 			} else if (origin == player.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY)){
 				player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
@@ -86,11 +86,11 @@ public class BackroomsMod implements ModInitializer {
 		});
 		ServerEntityTickCallback.EVENT.register((entity, isPassengerTick) -> {
 			Random rand = entity.getWorld().getRandom();
-			if (entity.isInsideWall() && rand.nextBetween(1, 50) == 50) {
+			if (entity.isInsideWall() && rand.nextBetween(1, 60) == 60) {
 				LimlibTravelling.travelTo(entity, entity.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY), new TeleportTarget(
 								Vec3d.of(new Vec3i(rand.nextBetween(entity.getBlockX()-200, entity.getBlockX()+200), 2, rand.nextBetween(entity.getBlockZ()-200, entity.getBlockZ()+200))),
 								Vec3d.ZERO, 0.0f, 0.0f),
-						/* TODO add sound effect */ null, 5.0f, 1.0f);
+						BackroomsSounds.CAMERA_CLICK, 5.0f, 1.0f);
 			}
 		});
 	}
