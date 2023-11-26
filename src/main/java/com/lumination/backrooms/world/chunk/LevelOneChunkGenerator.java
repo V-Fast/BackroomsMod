@@ -1,5 +1,6 @@
 package com.lumination.backrooms.world.chunk;
 
+import com.lumination.backrooms.blocks.BackroomsBlocks;
 import com.lumination.backrooms.utils.RngUtils;
 import com.lumination.backrooms.world.BackroomsDimensions;
 import com.mojang.datafixers.util.Either;
@@ -8,7 +9,9 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.ludocrypt.limlib.api.world.Manipulation;
 import net.ludocrypt.limlib.api.world.NbtGroup;
 import net.ludocrypt.limlib.api.world.chunk.AbstractNbtChunkGenerator;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerLightingProvider;
@@ -92,6 +95,18 @@ public class LevelOneChunkGenerator extends AbstractNbtChunkGenerator {
     @Override
     protected void modifyStructure(ChunkRegion region, BlockPos pos, BlockState state, Optional<NbtCompound> blockEntityNbt) {
         super.modifyStructure(region, pos, state, blockEntityNbt);
+
+        Random random = RngUtils.getFromPos(region, region.getChunk(pos), pos);
+
+        if (random.nextBetween(1, 50) == 50 && state.isOf(BackroomsBlocks.SCRATCHED_CONCRETE)) { // Generate wet "puddles"
+            List<BlockPos> puddle = RngUtils.generatePuddle(pos, random);
+            for (BlockPos puddleBlock : puddle) {
+                BlockState puddleBlockState = region.getBlockState(puddleBlock);
+                if (!puddleBlockState.isAir() && !puddleBlockState.isOf(Blocks.BEDROCK)) {
+                    region.setBlockState(puddleBlock, BackroomsBlocks.STAINED_CONCRETE.getDefaultState(), Block.NOTIFY_ALL);
+                }
+            }
+        }
     }
 
     /*@Override

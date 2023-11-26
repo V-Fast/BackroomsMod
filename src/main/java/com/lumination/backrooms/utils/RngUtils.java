@@ -41,4 +41,21 @@ public class RngUtils {
         }
         return pos.add(diff);
     }
+
+    public static List<BlockPos> generatePuddle(BlockPos pos, Random random) {
+        List<BlockPos> blocks = new ArrayList<>();
+        List<Integer> possiblePos = new ArrayList<>(List.of(1, 0, -1));
+
+        blocks.add(pos);
+        while (random.nextBetween(1, 3) != 3) {
+            List<BlockPos> blocksToAdd = new ArrayList<>();
+            for (BlockPos block : blocks) {
+                BlockPos newBlock = block.add(possiblePos.get(random.nextBetween(0, 2)), possiblePos.get(random.nextBetween(0, 2)), possiblePos.get(random.nextBetween(0, 2)));
+                if (!blocks.contains(newBlock) && !blocksToAdd.contains(newBlock))
+                    blocksToAdd.add(newBlock);
+            }
+            blocks.addAll(blocksToAdd);
+        }
+        return blocks;
+    }
 }
