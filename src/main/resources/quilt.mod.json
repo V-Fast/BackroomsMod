@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "quilt_loader": {
-    "group": "com.lumination",
+    "group": "org.vfast",
     "id": "backrooms",
     "version": "${version}",
     "metadata": {
@@ -32,9 +32,9 @@
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
-      "init": "com.lumination.backrooms.BackroomsMod",
-      "client_init": "com.lumination.backrooms.BackroomsModClient",
-      "limlib:registrar": "com.lumination.backrooms.world.BackroomsDimensions"
+      "init": "org.vfast.backrooms.BackroomsMod",
+      "client_init": "org.vfast.backrooms.BackroomsModClient",
+      "limlib:registrar": "org.vfast.backrooms.world.BackroomsDimensions"
     },
     "depends": [
       {
