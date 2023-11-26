@@ -2,11 +2,15 @@ package com.lumination.backrooms.utils;
 
 import net.ludocrypt.limlib.api.world.LimlibHelper;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.chunk.Chunk;
 
-public class SeedGenerator {
+import java.util.ArrayList;
+import java.util.List;
+
+public class RngUtils {
     public static Random getFromPos(ChunkRegion region, Chunk chunk, BlockPos pos) {
         if (chunk.getPos().x != 0 && chunk.getPos().z != 0) { // Avoids the weird repeating patterns
             return Random.create(region.getSeed() + ((long) (chunk.getPos().x) * (chunk.getPos().z)) + LimlibHelper.blockSeed(pos));
@@ -21,5 +25,20 @@ public class SeedGenerator {
         } else {
             return Random.create(region.getSeed() + ((long) (chunk.getPos().x + 2) * (chunk.getPos().z - 3)));
         }
+    }
+
+    /**
+     * Gets random chunk in a 1-chunk radius around the specified position.
+     * @param pos The position of the chunk.
+     * @param random The random generator.
+     * @return The position of a random chunk adjacent to the specified one.
+     */
+    public static BlockPos getRandomChunkAround(BlockPos pos, Random random) {
+        List<Integer> possiblePos = new ArrayList<>(List.of(16, 0, -16));
+        Vec3i diff = Vec3i.ZERO;
+        while (diff.getX() == 0 && diff.getZ() == 0) {
+            diff = new Vec3i(possiblePos.get(random.nextBetween(0, 2)), 0, possiblePos.get(random.nextBetween(0, 2)));
+        }
+        return pos.add(diff);
     }
 }

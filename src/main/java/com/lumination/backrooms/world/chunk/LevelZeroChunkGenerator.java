@@ -3,7 +3,7 @@ package com.lumination.backrooms.world.chunk;
 import com.lumination.backrooms.blocks.BackroomsBlocks;
 import com.lumination.backrooms.entities.BackroomsEntities;
 import com.lumination.backrooms.entities.BacteriaEntity;
-import com.lumination.backrooms.utils.SeedGenerator;
+import com.lumination.backrooms.utils.RngUtils;
 import com.lumination.backrooms.world.BackroomsDimensions;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
@@ -22,7 +22,6 @@ import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerLightingProvider;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureTemplateManager;
-import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
@@ -59,11 +58,12 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
 
     public static NbtGroup getNbtGroup() {
         return NbtGroup.Builder.create(BackroomsDimensions.LEVEL_ZERO_ID)
-                .with("normal",
+                .with("4x4",
                         "crossroad",
                         "hall",
                         "turn",
-                        "end").build();
+                        "end")
+                .build();
     }
 
     @Override
@@ -76,7 +76,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
                                                   ServerWorld world, ChunkGenerator generator, StructureTemplateManager structureTemplateManager,
                                                   ServerLightingProvider lightingProvider, Function<Chunk, CompletableFuture<Either<Chunk,
             ChunkHolder.Unloaded>>> fullChunkConverter, List<Chunk> chunks, Chunk chunk) {
-        Random random = SeedGenerator.getFromPos(chunkRegion, chunk);
+        Random random = RngUtils.getFromPos(chunkRegion, chunk);
         BlockPos start = chunk.getPos().getStartPos();
         generateRandomPiece(chunkRegion, start, random);
         generateRandomPiece(chunkRegion, start.add(8, 0, 0), random);
@@ -98,14 +98,14 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         if (num > 998) {
             name = "end";
         }
-        generateNbt(region, pos, nbtGroup.nbtId("normal", name), Manipulation.random(random));
+        generateNbt(region, pos, nbtGroup.nbtId("4x4", name), Manipulation.random(random));
     }
 
     @Override
     protected void modifyStructure(ChunkRegion region, BlockPos pos, BlockState state, Optional<NbtCompound> blockEntityNbt) {
         super.modifyStructure(region, pos, state, blockEntityNbt);
 
-        Random random = SeedGenerator.getFromPos(region, region.getChunk(pos), pos);
+        Random random = RngUtils.getFromPos(region, region.getChunk(pos), pos);
         BlockState block = region.getBlockState(pos);
         if (block.isOf(BackroomsBlocks.MOIST_SILK)) {
             if (random.nextBetween(1, 20) == 20) {

@@ -1,10 +1,11 @@
 package com.lumination.backrooms.world.chunk;
 
-import com.lumination.backrooms.utils.SeedGenerator;
+import com.lumination.backrooms.utils.RngUtils;
 import com.lumination.backrooms.world.BackroomsDimensions;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.ludocrypt.limlib.api.world.Manipulation;
 import net.ludocrypt.limlib.api.world.NbtGroup;
 import net.ludocrypt.limlib.api.world.chunk.AbstractNbtChunkGenerator;
 import net.minecraft.block.BlockState;
@@ -47,12 +48,18 @@ public class LevelOneChunkGenerator extends AbstractNbtChunkGenerator {
     }
 
     public static NbtGroup getNbtGroup() {
-        return NbtGroup.Builder.create(BackroomsDimensions.LEVEL_ONE_ID).build();
+        return NbtGroup.Builder.create(BackroomsDimensions.LEVEL_ONE_ID)
+                .with("8x8",
+                        "pillar",
+                        "empty",
+                        "wall",
+                        "corner")
+                .build();
     }
 
     @Override
     public int getPlacementRadius() {
-        return 0;
+        return 1;
     }
 
     @Override
@@ -60,13 +67,26 @@ public class LevelOneChunkGenerator extends AbstractNbtChunkGenerator {
                                                   ServerWorld world, ChunkGenerator generator, StructureTemplateManager structureTemplateManager,
                                                   ServerLightingProvider lightingProvider, Function<Chunk, CompletableFuture<Either<Chunk,
             ChunkHolder.Unloaded>>> fullChunkConverter, List<Chunk> chunks, Chunk chunk) {
-        Random random = SeedGenerator.getFromPos(chunkRegion, chunk);
+        Random random = RngUtils.getFromPos(chunkRegion, chunk);
         BlockPos start = chunk.getPos().getStartPos();
+        generateRandomPiece(chunkRegion, start, random);
         return CompletableFuture.completedFuture(chunk);
     }
 
     // Assumes a piece hasn't generated there yet.
     public void generateRandomPiece(ChunkRegion region, BlockPos pos, Random random) {
+        int num = random.nextBetween(1, 100);
+        Manipulation manipulation = Manipulation.random(random);
+        String name = "pillar";
+        if (num > 50 && num <= 75) {
+            name = "wall";
+            generateNbt(region, RngUtils.getRandomChunkAround(pos, random), nbtGroup.nbtId("8x8", "wall"));
+            generateNbt(region, RngUtils.getRandomChunkAround(pos, random), nbtGroup.nbtId("8x8", "corner"));
+        }
+        if (num > 75) {
+            name = "empty";
+        }
+        generateNbt(region, pos, nbtGroup.nbtId("8x8", name));
     }
 
     @Override
