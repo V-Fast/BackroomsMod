@@ -24,11 +24,4 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms).
 [![GitHub Wiki](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/gitbook_64h.png)](https://lumaa.gitbook.io/backrooms)
 
 ## Credits
-This mod is made by [Lumaa](https://lumaa.brebond.com/), textures & models are made by [PatateGivree](https://namemc.com/profile/PatateGivree.1).
-This mod includes content originally made by [Kane Pixels](https://www.youtube.com/c/KANEpixels) on his famous Backrooms series on YouTube.  
-
-### Contributors
-- [Good Kid](https://www.youtube.com/@GoodKidband) - Songs
-- Luvaa - Music suggestions
-- FirstMegaGame4 - 1.20.1 Port
-- Clomclem - Major contributions
+See [CREDITS](https://github.com/V-Fast/BackroomsMod/blob/main/CREDITS.md) file.
