@@ -10,7 +10,7 @@
       "contributors": {
         "LumaaDev": "Co-author",
         "PatateGivree": "Co-author",
-        "Clomclem": "Maintainer",
+        "Clomclem": "Developer",
         "mash1133": "Contributor",
         "_Luvaa_": "Contributor",
         "Good Kid": "Contributor",
@@ -55,7 +55,7 @@
       },
       {
         "id": "limlib",
-        "reason": "For worldgen"
+        "versions": ">=11.0.0"
       },
       {
         "id": "yet_another_config_lib_v3",
