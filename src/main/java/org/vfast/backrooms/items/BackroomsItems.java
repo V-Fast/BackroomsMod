@@ -39,8 +39,8 @@ public class BackroomsItems {
     public static final Item CROWBAR = registerItem("crowbar", new BackroomsWeapons.ModSword(8.0f, 1.6f, 2051, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
     public static final Item SHARPENED_KNIFE = registerItem("sharpened_knife", new BackroomsWeapons.ModSword(6.5f, 1.3f, 130, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
     public static final Item NAILED_BAT = registerItem("nailed_bat", new BackroomsWeapons.ModSword(7.0f, 1.8f, 515, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item BASEBALL_BAT = registerItem("baseball_bat", new BackroomsWeapons.ModSword(2.5f, 1.8f, 481, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new BackroomsWeapons.ModSword(1.5f, 0.8f, 3, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
+    public static final Item BASEBALL_BAT = registerItem("baseball_bat", new BackroomsWeapons.ModSword(3.0f, 1.8f, 481, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
+    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new BackroomsWeapons.ModSword(2.0f, 0.8f, 3, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
 
     // music tapes
     public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(7, BackroomsSounds.HALLS, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);

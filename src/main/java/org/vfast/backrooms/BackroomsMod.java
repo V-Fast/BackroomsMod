@@ -75,7 +75,7 @@ public class BackroomsMod implements ModInitializer {
 	public void registerEvents() {
 		EntityWorldChangeEvents.AFTER_PLAYER_WORLD_CHANGE.register((player, origin, destination) -> {
 			if (destination == player.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY)) {
-				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 1, false, false, false);
+				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 2, false, false, false);
 				player.addStatusEffect(effect);
 				player.setSpawnPoint(BackroomsDimensions.LEVEL_ZERO_KEY,
 						player.getBlockPos(), // TODO make spawnpoint position randomized

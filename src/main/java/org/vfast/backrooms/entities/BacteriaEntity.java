@@ -33,20 +33,20 @@ public class BacteriaEntity extends HostileEntity implements GeoEntity {
         return AnimalEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5.0f)
-                .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.15f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.6f);
+                .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.0f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
     }
 
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(8, new MeleeAttackGoal(this, 1.0d, false));
+        this.goalSelector.add(50, new MeleeAttackGoal(this, 1.0d, false));
         this.goalSelector.add(1, new WanderAroundPointOfInterestGoal(this, 0.6f, false));
         this.goalSelector.add(1, new WanderAroundFarGoal(this, 0.6f, 1));
         this.goalSelector.add(1, new LookAroundGoal(this));
-        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
+        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f));
 
-        this.targetSelector.add(7, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
-        this.targetSelector.add(8, new ActiveTargetGoal<>(this, PlayerEntity.class, false));
+        this.targetSelector.add(5, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
+        this.targetSelector.add(50, new ActiveTargetGoal<>(this, PlayerEntity.class, false));
     }
 
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {

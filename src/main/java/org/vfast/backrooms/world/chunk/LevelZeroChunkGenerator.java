@@ -92,10 +92,10 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
         if (num > 500 && num <= 750) {
             name = "hall";
         }
-        if (num > 750 && num <= 998) {
+        if (num > 750 && num <= 999) {
             name = "turn";
         }
-        if (num > 998) {
+        if (num == 1000) {
             name = "end";
         }
         generateNbt(region, pos, nbtGroup.nbtId("4x4", name), Manipulation.random(random));
@@ -114,7 +114,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
             return;
         }
         if (block.isOf(Blocks.CHEST)) {
-            if (random.nextBetween(1, 50) != 50) {
+            if (random.nextBetween(1, 500) != 500) {
                 region.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
             } else if (random.nextBoolean()) {
                 ServerWorld world = region.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY);
@@ -127,7 +127,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
 
     @Override
     protected Identifier getContainerLootTable(LootableContainerBlockEntity container) {
-        return Random.create(LimlibHelper.blockSeed(container.getPos())).nextBoolean() ? new Identifier("backrooms", "chests/level_0") : LootTables.SPAWN_BONUS_CHEST;
+        return Random.create(LimlibHelper.blockSeed(container.getPos())).nextBetween(1, 5) != 5 ? new Identifier("backrooms", "chests/level_0") : LootTables.SPAWN_BONUS_CHEST;
     }
 
     @Override

@@ -36,6 +36,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+@SuppressWarnings("deprecation")
 public class Radio extends BlockWithEntity {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty RECORD;
@@ -45,7 +46,6 @@ public class Radio extends BlockWithEntity {
         this.setDefaultState(this.stateManager.getDefaultState().with(RECORD, 0));
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         Direction dir = state.get(FACING);

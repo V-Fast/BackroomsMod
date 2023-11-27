@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 8,
+          "weight": 16,
           "quality": 1,
           "name": "backrooms:silk",
           "functions": [
@@ -28,7 +28,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "quality": 1,
           "name": "backrooms:silken_book",
           "functions": [
@@ -45,14 +45,59 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:oak_planks",
+          "weight": 5,
+          "quality": 1,
+          "name": "backrooms:cooked_almond_water",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "backrooms:energy_bar",
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "backrooms:broken_bottle",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "backrooms:baseball_bat",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
               }
             }
           ]
