@@ -137,17 +137,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
 
     @Override
     public int getWorldHeight() {
-        return 96;
-    }
-
-    @Override
-    public int getSeaLevel() {
-        return 0;
-    }
-
-    @Override
-    public int getMinimumY() {
-        return 0;
+        return 16;
     }
 
     @Override

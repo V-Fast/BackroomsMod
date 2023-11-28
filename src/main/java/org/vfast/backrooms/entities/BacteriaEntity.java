@@ -31,8 +31,8 @@ public class BacteriaEntity extends HostileEntity implements GeoEntity {
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return AnimalEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5.0f)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 200.0D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
     }
@@ -40,8 +40,8 @@ public class BacteriaEntity extends HostileEntity implements GeoEntity {
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(50, new MeleeAttackGoal(this, 1.0d, false));
-        this.goalSelector.add(1, new WanderAroundPointOfInterestGoal(this, 0.6f, false));
-        this.goalSelector.add(1, new WanderAroundFarGoal(this, 0.6f, 1));
+        this.goalSelector.add(1, new WanderAroundPointOfInterestGoal(this, 0.8f, false));
+        this.goalSelector.add(1, new WanderAroundFarGoal(this, 0.8f, 1));
         this.goalSelector.add(1, new LookAroundGoal(this));
         this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f));
 
