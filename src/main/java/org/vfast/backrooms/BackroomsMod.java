@@ -86,7 +86,7 @@ public class BackroomsMod implements ModInitializer {
 		});
 		ServerEntityTickCallback.EVENT.register((entity, isPassengerTick) -> {
 			Random rand = entity.getWorld().getRandom();
-			if ((entity.isInsideWall() && rand.nextBetween(1, 50) == 50) || (rand.nextBetween(1, 1800) == 1800)) {
+			if ((entity.isInsideWall() && rand.nextBetween(1, 50) == 50) || (rand.nextBetween(1, 36000) == 36000 && entity.isPlayer())) {
 				LimlibTravelling.travelTo(entity, entity.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY), new TeleportTarget(
 								Vec3d.of(new Vec3i(rand.nextBetween(entity.getBlockX()-200, entity.getBlockX()+200), 2, rand.nextBetween(entity.getBlockZ()-200, entity.getBlockZ()+200))),
 								Vec3d.ZERO, 0.0f, 0.0f),

@@ -141,8 +141,6 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
     }
 
     @Override
-    public void getDebugHudText(List<String> text, NoiseConfig noiseConfig, BlockPos pos) {
-
-    }
+    public void getDebugHudText(List<String> text, NoiseConfig noiseConfig, BlockPos pos) {}
 
 }
