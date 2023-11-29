@@ -2,6 +2,11 @@
   "mod.backrooms.name": "Les Backrooms",
   "mod.yacl.disabled": "Ce bouton est désactivé parce que\nvous n'avez pas Yet Another Config Lib",
 
+  "advancements.backrooms.backrooms.root.title": "Les Backrooms",
+  "advancements.backrooms.backrooms.root.description": "Fabriquez un Portail du Niveau 0",
+  "advancements.backrooms.backrooms.the_end_is_never.title": "La fin n'est jamais la fin n'est jamais...",
+  "advancements.backrooms.backrooms.the_end_is_never.description": "Entrez dans le Niveau 0",
+
   "item.backrooms.silk": "Soie",
   "item.backrooms.silken_book": "Livre de Soie",
   "item.backrooms.almond_water": "Eau d'Amande",
@@ -101,6 +106,7 @@
   "block.backrooms.stained_concrete_stairs": "Escalier en Béton Taché",
   "block.backrooms.stained_marked_concrete": "Béton Taché Marqué",
   "block.backrooms.street_light": "Lumière Rurale",
+  "block.backrooms.level_zero_portal": "Portail du Niveau 0",
 
   "entity.backrooms.bacteria": "Bactérie",
 
@@ -124,6 +130,7 @@
 
   "levels.backrooms.overworld.details": "Le monde normal, l'endroit où tout commence.\nQuelques mobs apparaissent la nuit pour vous tuer, même si il y a plusieurs mobs passifs pour vous rapporter de la nourriture.",
   "levels.backrooms.level_0.details": "Vous vous demandez où vous êtes ? Bah si vous savez, vous savez.\nEssayez de ne pas mourrir de faim, de soif, ou juste mourrir.\nBonne chance.",
+  "levels.backrooms.level_1.details": "Un endroit très familier, ça ressemble à un parking sous-terrain infini.\nLa luminosité est faible et quelques bruits effrayants peuvent être entendu.",
 
   "resourcePack.old_ssc.name": "Ancien Béton Légèrement Éraflé"
 }
