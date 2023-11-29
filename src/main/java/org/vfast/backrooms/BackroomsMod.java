@@ -1,9 +1,13 @@
 package org.vfast.backrooms;
 
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.ActionResult;
 import org.vfast.backrooms.blocks.BackroomsBlocks;
 import org.vfast.backrooms.blocks.entity.BackroomsBlockEntities;
 import org.vfast.backrooms.blocks.interactable.Radio;
 import org.vfast.backrooms.entities.BackroomsEntities;
+import org.vfast.backrooms.entities.BacteriaEntity;
 import org.vfast.backrooms.items.BackroomsItems;
 import org.vfast.backrooms.sounds.BackroomsSounds;
 import org.vfast.backrooms.world.biome.BackroomsBiomes;
@@ -24,6 +28,7 @@ import org.quiltmc.qsl.entity.event.api.EntityWorldChangeEvents;
 import org.quiltmc.qsl.entity.event.api.ServerEntityTickCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import software.bernie.geckolib.GeckoLib;
 
 import java.util.Arrays;
 import java.util.List;
@@ -67,6 +72,7 @@ public class BackroomsMod implements ModInitializer {
 		BackroomsSounds.registerSoundEvents();
 		BackroomsBiomes.registerBiomes();
 		BackroomsChunkGenerators.registerChunkGenerators();
+		GeckoLib.initialize();
 		BackroomsEntities.registerMobs();
 		registerEvents();
 		BackroomsMod.LOGGER.info("Initialized Backrooms");
@@ -86,12 +92,20 @@ public class BackroomsMod implements ModInitializer {
 		});
 		ServerEntityTickCallback.EVENT.register((entity, isPassengerTick) -> {
 			Random rand = entity.getWorld().getRandom();
-			if ((entity.isInsideWall() && rand.nextBetween(1, 50) == 50) || (rand.nextBetween(1, 36000) == 36000 && entity.isPlayer() && entity.getWorld() != entity.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY))) {
+			if ((entity.isInsideWall() && rand.nextBetween(1, 50) == 50) || (rand.nextBetween(1, 36000) == 36000 && entity.isPlayer() && entity.getWorld() != entity.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY) && !(((ServerPlayerEntity)entity).isCreative() || ((ServerPlayerEntity)entity).isSpectator()))) {
 				LimlibTravelling.travelTo(entity, entity.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY), new TeleportTarget(
 								Vec3d.of(new Vec3i(rand.nextBetween(entity.getBlockX()-200, entity.getBlockX()+200), 2, rand.nextBetween(entity.getBlockZ()-200, entity.getBlockZ()+200))),
 								Vec3d.ZERO, 0.0f, 0.0f),
 						BackroomsSounds.CAMERA_CLICK, 5.0f, 1.0f);
 			}
+		});
+		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+			if (entity.getType() == BackroomsEntities.BACTERIA && player.getStackInHand(hand).isOf(BackroomsItems.BROKEN_BOTTLE)) {
+				BacteriaEntity bacteria = (BacteriaEntity) entity;
+				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.SLOWNESS, 5, 2, false, false, false);
+				bacteria.addStatusEffect(effect);
+			}
+			return ActionResult.PASS;
 		});
 	}
 

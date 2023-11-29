@@ -87,15 +87,15 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
 
     // Assumes a piece hasn't generated there yet.
     public void generateRandomPiece(ChunkRegion region, BlockPos pos, Random random) {
-        int num = random.nextBetween(1, 1000);
+        int num = random.nextBetween(1, 10000);
         String name = "crossroad";
-        if (num > 500 && num <= 750) {
+        if (num > 5000 && num <= 7500) {
             name = "hall";
         }
-        if (num > 750 && num <= 999) {
+        if (num > 7500 && num <= 9999) {
             name = "turn";
         }
-        if (num == 1000) {
+        if (num == 10000) {
             name = "end";
         }
         generateNbt(region, pos, nbtGroup.nbtId("4x4", name), Manipulation.random(random));
