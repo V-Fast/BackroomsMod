@@ -43,7 +43,7 @@ public class BacteriaEntity extends HostileEntity implements GeoEntity {
         this.goalSelector.add(1, new WanderAroundPointOfInterestGoal(this, 0.8f, false));
         this.goalSelector.add(1, new WanderAroundFarGoal(this, 0.8f, 1));
         this.goalSelector.add(1, new LookAroundGoal(this));
-        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f));
+        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 20.0f));
 
         this.targetSelector.add(5, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
         this.targetSelector.add(50, new ActiveTargetGoal<>(this, PlayerEntity.class, false));
