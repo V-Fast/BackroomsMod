@@ -1,4 +1,4 @@
-package org.vfast.backrooms.entities.client;
+package org.vfast.backrooms.entities.client.model;
 
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.entities.BacteriaEntity;

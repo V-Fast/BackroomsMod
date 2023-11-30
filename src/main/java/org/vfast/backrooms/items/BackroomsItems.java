@@ -33,6 +33,7 @@ public class BackroomsItems {
 
     // spawn eggs
     public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(BackroomsEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES);
+    public static final Item SMILER_EGG = registerItem("smiler_spawn_egg", new SpawnEggItem(BackroomsEntities.SMILER, 0x1c1c1c, 0xc90000, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES);
 
     // weapons
     public static final Item WRENCH = registerItem("wrench", new BackroomsWeapons.ModSword(6.5f, 1.6f, 835, new Item.Settings()), BackroomsItemsGroup.WEAPONS);

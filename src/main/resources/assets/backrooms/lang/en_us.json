@@ -22,6 +22,7 @@
   "item.backrooms.baseball_bat": "Baseball Bat",
   "item.backrooms.broken_bottle": "Broken Bottle",
   "item.backrooms.bacteria_spawn_egg": "Bacteria Spawn Egg",
+  "item.backrooms.smiler_spawn_egg": "Smiler Spawn Egg",
   "item.backrooms.backrooms_core": "Backrooms Core",
 
   "item.backrooms.backrooms_core.desc": "Type: %s",
@@ -109,6 +110,7 @@
   "block.backrooms.level_zero_portal": "Level 0 Portal",
 
   "entity.backrooms.bacteria": "Bacteria",
+  "entity.backrooms.smiler": "Smiler",
 
   "option.backrooms.general": "General",
   "option.backrooms.dev": "Dev",
