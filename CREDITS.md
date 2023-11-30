@@ -17,6 +17,6 @@ mash113, _Luvaa_, Good Kid: Various contributions
 
 ### Creators of libraries
 
-[LudoCrypt](https://github.com/LudoCrypt): Creator of [limlib](https://github.com/LudoCrypt/Liminal-Library)
+[LudoCrypt](https://github.com/LudoCrypt): Creator of [LimLib](https://github.com/LudoCrypt/Liminal-Library)
 
-[Bernie-G](https://github.com/bernie-g): Creator of [geckolib](https://github.com/bernie-g/geckolib)
+[Bernie-G](https://github.com/bernie-g): Creator of [GeckoLib](https://github.com/bernie-g/geckolib)
