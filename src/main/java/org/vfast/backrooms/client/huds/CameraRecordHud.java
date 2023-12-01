@@ -1,5 +1,7 @@
 package org.vfast.backrooms.client.huds;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.client.settings.BackroomsSettings;
 import org.vfast.backrooms.items.BackroomsItems;
@@ -12,9 +14,8 @@ import net.minecraft.client.render.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import org.quiltmc.loader.api.minecraft.ClientOnly;
 
-@ClientOnly
+@Environment(EnvType.CLIENT)
 public class CameraRecordHud implements HudRenderCallback {
     private static Identifier recordHud;
     private static Identifier vhsHud;

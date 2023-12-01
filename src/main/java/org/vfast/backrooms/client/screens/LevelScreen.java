@@ -1,14 +1,15 @@
 package org.vfast.backrooms.client.screens;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import org.vfast.backrooms.levels.Backroom;
 import org.vfast.backrooms.utils.Color;
 import net.minecraft.client.font.MultilineText;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
-import org.quiltmc.loader.api.minecraft.ClientOnly;
 
-@ClientOnly
+@Environment(EnvType.CLIENT)
 public class LevelScreen extends Screen {
     public Text info;
     public Backroom level;

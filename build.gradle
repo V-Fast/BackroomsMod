@@ -1,13 +1,13 @@
 plugins {
+	id 'fabric-loom' version '1.4-SNAPSHOT'
 	id 'maven-publish'
-	alias libs.plugins.quilt.loom
 }
 
 base {
 	archivesName = project.archives_base_name
 }
 
-version = "$project.version+${libs.versions.minecraft.get()}"
+version = project.version+"+"+project.minecraft_version
 group = project.maven_group
 
 repositories {
@@ -43,6 +43,11 @@ repositories {
 	}
 
 	maven {
+		name = 'Quilt'
+		url = 'https://maven.quiltmc.org/repository/release'
+	}
+
+	maven {
 		name = 'TerraformersMC'
 		url = 'https://maven.terraformersmc.com/releases/'
 	}
@@ -59,29 +64,23 @@ allprojects {
 }
 
 dependencies {
-	minecraft libs.minecraft
-	mappings variantOf(libs.yarn.mappings) { classifier 'v2' }
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	modImplementation libs.quilt.loader
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation libs.quilted.fabric.api
+	modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.1:${project.geckolib_version}"
 
-	modImplementation libs.geckolib
-
-	modImplementation (libs.yacl) {
+	modImplementation ("dev.isxander.yacl:yet-another-config-lib-fabric:${project.yacl_version}") {
 		exclude group: 'com.terraformersmc'
 	}
 
-	modImplementation libs.ludocrypt.limlib
+	modImplementation "com.github.Clomclem:Liminal-Library-fabric:${project.limlib_version}"
 
-	include libs.ludocrypt.limlib
+	include "com.github.Clomclem:Liminal-Library-fabric:${project.limlib_version}"
 
-	modRuntimeOnly libs.modmenu
-}
-
-project.configurations.all {
-	exclude(group: "net.fabricmc", module: "fabric-loader")
-	exclude(group: "net.fabricmc.fabric-api")
+	modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
 loom {
@@ -95,7 +94,7 @@ loom {
 processResources {
 	inputs.property 'version', version
 
-	filesMatching('quilt.mod.json') {
+	filesMatching('fabric.mod.json') {
 		expand 'version': version
 	}
 }
