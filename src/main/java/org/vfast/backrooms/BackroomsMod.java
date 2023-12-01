@@ -1,9 +1,11 @@
 package org.vfast.backrooms;
 
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.entity.event.v1.ServerEntityWorldChangeEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
-import net.minecraft.server.network.ServerPlayerEntity;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.ActionResult;
-import org.quiltmc.qsl.lifecycle.api.event.ServerLifecycleEvents;
 import org.vfast.backrooms.block.BackroomsBlocks;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
 import org.vfast.backrooms.block.interactable.Radio;
@@ -16,19 +18,9 @@ import org.vfast.backrooms.sound.BackroomsSounds;
 import org.vfast.backrooms.world.biome.BackroomsBiomes;
 import org.vfast.backrooms.world.BackroomsDimensions;
 import org.vfast.backrooms.world.chunk.BackroomsChunkGenerators;
-import net.ludocrypt.limlib.api.LimlibTravelling;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.text.Text;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3i;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.TeleportTarget;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.loader.api.QuiltLoader;
-import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
-import org.quiltmc.qsl.entity.event.api.EntityWorldChangeEvents;
-import org.quiltmc.qsl.entity.event.api.ServerEntityTickCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.bernie.geckolib.GeckoLib;
@@ -44,11 +36,11 @@ public class BackroomsMod implements ModInitializer {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(NAME);
 
-	private static final String VERSION_ID = QuiltLoader
+	private static final String VERSION_ID = FabricLoader.getInstance()
 			.getModContainer(BackroomsMod.ID)
 			.orElseThrow()
-			.metadata()
-			.version()
+			.getMetadata()
+			.getVersion()
 			.toString();
 
 	private static final List<Radio.RadioRecord> records = Arrays.asList(
@@ -66,7 +58,7 @@ public class BackroomsMod implements ModInitializer {
 	);
 
 	@Override
-	public void onInitialize(ModContainer mod) {
+	public void onInitialize() {
 		BackroomsConfig.HANDLER.load();
 		BackroomsBlocks.registerBlocks();
 		BackroomsBlockEntities.registerBlockEntities();
@@ -82,10 +74,10 @@ public class BackroomsMod implements ModInitializer {
 	}
 
 	public void registerEvents() {
-		ServerLifecycleEvents.STOPPING.register((server) -> {
+		ServerLifecycleEvents.SERVER_STOPPING.register((server) -> {
 			BackroomsConfig.HANDLER.save();
 		});
-		EntityWorldChangeEvents.AFTER_PLAYER_WORLD_CHANGE.register((player, origin, destination) -> {
+        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> {
 			if (destination == player.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY)) {
 				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 2, false, false, false);
 				player.addStatusEffect(effect);
@@ -94,15 +86,6 @@ public class BackroomsMod implements ModInitializer {
 						0.0f, true, false);
 			} else if (origin == player.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY)){
 				player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
-			}
-		});
-		ServerEntityTickCallback.EVENT.register((entity, isPassengerTick) -> {
-			Random rand = entity.getWorld().getRandom();
-			if ((entity.isInsideWall() && rand.nextBetween(1, 50) == 50) || (rand.nextBetween(1, 36000) == 36000 && entity.isPlayer() && entity.getWorld() != entity.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY) && !(((ServerPlayerEntity)entity).isCreative() || ((ServerPlayerEntity)entity).isSpectator()))) {
-				LimlibTravelling.travelTo(entity, entity.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY), new TeleportTarget(
-								Vec3d.of(new Vec3i(rand.nextBetween(entity.getBlockX()-200, entity.getBlockX()+200), 2, rand.nextBetween(entity.getBlockZ()-200, entity.getBlockZ()+200))),
-								Vec3d.ZERO, 0.0f, 0.0f),
-						BackroomsSounds.CAMERA_CLICK, 5.0f, 1.0f);
 			}
 		});
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {

@@ -1,24 +1,24 @@
 package org.vfast.backrooms;
 
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
+import org.vfast.backrooms.client.hud.CameraRecordHud;
+import org.vfast.backrooms.entity.BackroomsEntities;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
-import org.vfast.backrooms.client.hud.CameraRecordHud;
 import org.vfast.backrooms.client.hud.SanityHudOverlay;
 import org.vfast.backrooms.config.BackroomsConfig;
-import org.vfast.backrooms.entity.BackroomsEntities;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.util.Identifier;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.loader.api.QuiltLoader;
-import org.quiltmc.loader.api.minecraft.ClientOnly;
-import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
-import org.quiltmc.qsl.resource.loader.api.ResourceLoader;
-import org.quiltmc.qsl.resource.loader.api.ResourcePackActivationType;
 
-@ClientOnly
+@Environment(EnvType.CLIENT)
 public class BackroomsModClient implements ClientModInitializer {
     public static final CameraRecordHud cameraHud = new CameraRecordHud();
     public static final SanityHudOverlay sanityHud = new SanityHudOverlay();
@@ -26,9 +26,9 @@ public class BackroomsModClient implements ClientModInitializer {
     public static KeyBinding configKeybind;
 
     @Override
-    public void onInitializeClient(ModContainer mod) {
-        QuiltLoader.getModContainer(BackroomsMod.ID).ifPresent(modContainer -> {
-            ResourceLoader.registerBuiltinResourcePack(new Identifier(BackroomsMod.ID, "old_ssc"), modContainer, ResourcePackActivationType.NORMAL);
+    public void onInitializeClient() {
+        FabricLoader.getInstance().getModContainer(BackroomsMod.ID).ifPresent(modContainer -> {
+            ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(BackroomsMod.ID, "old_ssc"), modContainer, ResourcePackActivationType.NORMAL);
         });
         BackroomsEntities.registerRenderers();
         registerHuds();

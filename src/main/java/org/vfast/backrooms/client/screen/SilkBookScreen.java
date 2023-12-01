@@ -1,6 +1,8 @@
 package org.vfast.backrooms.client.screen;
 
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import org.vfast.backrooms.BackroomsMod;
 import com.mojang.blaze3d.systems.RenderSystem;
 
@@ -11,10 +13,9 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import org.quiltmc.loader.api.minecraft.ClientOnly;
 import org.vfast.backrooms.item.interactable.SilkenBook;
 
-@ClientOnly
+@Environment(EnvType.CLIENT)
 public class SilkBookScreen extends Screen {
 
     private final SilkenBook.Word word;

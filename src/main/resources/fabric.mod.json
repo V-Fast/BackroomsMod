@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "backrooms",
+  "version": "${version}",
+  "name": "The Backrooms",
+  "description": "Experience the mysterious and scary world of the Backrooms in our Minecraft mod. Inspired by Kane Pixels, explore level 0 of this parallel world filled with dangers and adventures. Feel like you're part of the legend and never want to leave. You will feel like you are in the middle of the legend of The Backrooms and you will never want to leave. Don't miss this unique opportunity in the world of Minecraft!",
+  "authors": [
+    "V-Fast"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/backrooms",
+    "discord": "https://discord.com/invite/Rqpn3C7yR5",
+    "sources": "https://github.com/V-Fast/BackroomsMod",
+    "issues": "https://github.com/V-Fast/BackroomsMod/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/backrooms/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.vfast.backrooms.BackroomsMod"
+    ],
+    "client": [
+      "org.vfast.backrooms.BackroomsModClient"
+    ],
+    "limlib:registrar": [
+      "org.vfast.backrooms.world.BackroomsDimensions"
+    ],
+    "modmenu": [
+      "org.vfast.backrooms.config.BackroomsModMenuCompat"
+    ]
+  },
+  "mixins": [
+    "backrooms.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": ">=1.20.2",
+    "java": ">=17",
+    "fabric-api": "*",
+    "geckolib": ">=4.2",
+    "limlib": ">=11.0.0"
+  },
+  "recommends": {
+    "yet_another_config_lib_v3": ">=3.3.0+1.20.2"
+  },
+  "suggests": {
+    "modmenu": ">=7.2"
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/class_1297": ["org/vfast/backrooms/util/accessor/IEntityDataAccessor"],
+      "net/minecraft/class_1657": ["org/vfast/backrooms/util/accessor/IPlayerSanityAccessor"]
+    },
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.com/invite/Rqpn3C7yR5"
+      },
+      "update_checker": true
+    }
+  }
+}

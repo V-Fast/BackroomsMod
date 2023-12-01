@@ -1,5 +1,6 @@
 package org.vfast.backrooms.item;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.entity.BackroomsEntities;
 import org.vfast.backrooms.item.consumable.AlmondWater;
@@ -15,22 +16,21 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
-import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 import org.vfast.backrooms.util.Color;
 
 public class BackroomsItems {
     public static final Item SILKEN_BOOK = registerItem("silken_book",
-            new SilkenBook(new QuiltItemSettings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+            new SilkenBook(new FabricItemSettings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item SILK = registerItem("silk",
-            new Item(new QuiltItemSettings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+            new Item(new FabricItemSettings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item ALMOND_WATER = registerItem("almond_water", new AlmondWater(
-            new QuiltItemSettings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(2*2).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0), 1F).build())), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
-    public static final Item COOKED_ALMOND_WATER = registerItem("cooked_almond_water", new AlmondWater(new QuiltItemSettings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(4*2).saturationModifier(4f).build())).setCooked(true), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
-    public static final Item TAPE = registerItem("tape", new Item(new QuiltItemSettings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+            new FabricItemSettings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(2*2).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0), 1F).build())), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
+    public static final Item COOKED_ALMOND_WATER = registerItem("cooked_almond_water", new AlmondWater(new FabricItemSettings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(4*2).saturationModifier(4f).build())).setCooked(true), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
+    public static final Item TAPE = registerItem("tape", new Item(new FabricItemSettings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item CAMERA = registerItem("camera", new CameraItem(
-            new QuiltItemSettings().maxCount(1)), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+            new FabricItemSettings().maxCount(1)), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item ENERGY_BAR = registerItem("energy_bar", new Item(
-            new QuiltItemSettings().maxCount(64).food(new FoodComponent.Builder().alwaysEdible().hunger(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
+            new FabricItemSettings().maxCount(64).food(new FoodComponent.Builder().alwaysEdible().hunger(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
 
     // spawn eggs
     public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(BackroomsEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES, ItemGroups.SPAWN_EGGS);
@@ -45,35 +45,35 @@ public class BackroomsItems {
     public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new BackroomsWeapons.ModSword(2.0f, 0.8f, 3, new Item.Settings()), BackroomsItemsGroup.WEAPONS, ItemGroups.COMBAT);
 
     // music tapes
-    public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(7, BackroomsSounds.HALLS, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item GOVERNMENT_TAPE = registerItem("government_funding_tape", new MusicTape(15, BackroomsSounds.GOVERNMENT_FUNDING, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item COMPLEX_TAPE = registerItem("the_complex_tape", new MusicTape(13, BackroomsSounds.COMPLEX, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item INSTANCES_TAPE = registerItem("instances_tape", new MusicTape(4, BackroomsSounds.INSTANCES, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item NIGHTS_TAPE = registerItem("warm_nights_tape", new MusicTape(6, BackroomsSounds.WARM_NIGHTS, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item TITLE_TAPE = registerItem("title_screen_tape", new MusicTape(8, BackroomsSounds.TITLE_SCREEN, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item SNOW_TAPE = registerItem("snow_world_tape", new MusicTape(5, BackroomsSounds.SNOW_WORLD, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item AUDITORY_TAPE = registerItem("auditory_guidepost_tape", new MusicTape(9, BackroomsSounds.AUDITORY_GUIDEPOST, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item NOT_DECISION_TAPE = registerItem("not_your_decision_tape", new MusicTape(8, BackroomsSounds.NOT_YOUR_DECISION, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item SEALED_AWAY_TAPE = registerItem("sealed_away_tape", new MusicTape(5, BackroomsSounds.SEALED_AWAY, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item CLIFFS_DOVER_TAPE = registerItem("white_cliffs_of_dover_tape", new MusicTape(3, BackroomsSounds.CLIFFS_OF_DOVER, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item THALASSOPHOBIA_TAPE = registerItem("thalassophobia_tape", new MusicTape(15, BackroomsSounds.THALASSOPHOBIA, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item BURNING_MEMORY_TAPE = registerItem("its_just_a_burning_memory_tape", new MusicTape(15, BackroomsSounds.BURNING_MEMORY, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item DUET_TAPE = registerItem("duet_tape", new MusicTape(15, BackroomsSounds.DUET, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item EMPTY_BLISS_TAPE = registerItem("empty_bliss_beyond_this_world_tape", new MusicTape(12, BackroomsSounds.EMPTY_BLISS, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item GLIMPSES_OF_HOPE_TAPE = registerItem("glimpses_of_hope_in_trying_times_tape", new MusicTape(8, BackroomsSounds.GLIMPSES_OF_HOPE, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item GROSS_TAPE = registerItem("gross_tape", new MusicTape(3, BackroomsSounds.GROSS, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item HAVE_MANY_DAYS_TAPE = registerItem("we_dont_have_many_days_tape", new MusicTape(10, BackroomsSounds.HAVE_MANY_DAYS, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item AFTERNOON_DRIFTING_TAPE = registerItem("late_afternoon_drifting_tape", new MusicTape(5, BackroomsSounds.AFTERNOON_DRIFTING, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item MY_HEART_BREAKS_TAPE = registerItem("does_it_matter_how_my_heart_breaks_tape", new MusicTape(1, BackroomsSounds.MY_HEART_BREAKS, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item THE_VIOLIN_TAPE = registerItem("the_violin_tape", new MusicTape(13, BackroomsSounds.THE_VIOLIN, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item WORLD_FADES_AWAY_TAPE = registerItem("place_in_the_world_fades_away_tape", new MusicTape(9, BackroomsSounds.WORLD_FADES_AWAY, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item AHIRU_NO_SENTAKU_TAPE = registerItem("ahiru_no_sentaku_tape", new MusicTape(2, BackroomsSounds.AHIRU_NO_SENTAKU, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item NO_SURPRISES_TAPE = registerItem("no_surprises_tape", new MusicTape(2, BackroomsSounds.NO_SURPRISES, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item ORBIT_TAPE = registerItem("orbit_tape", new MusicTape(14, BackroomsSounds.ORBIT, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item SLINGSHOT_TAPE = registerItem("slingshot_tape", new MusicTape(13, BackroomsSounds.SLINGSHOT, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item NO_TIME_TO_EXPLAIN_TAPE = registerItem("no_time_to_explain_tape", new MusicTape(15, BackroomsSounds.NO_TIME_TO_EXPLAIN, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item DRIFTING_TAPE = registerItem("drifting_tape", new MusicTape(8, BackroomsSounds.DRIFTING, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
-    public static final Item TELL_ME_YOU_KNOW_TAPE = registerItem("tell_me_you_know_tape", new MusicTape(2, BackroomsSounds.TELL_ME_YOU_KNOW, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(7, BackroomsSounds.HALLS, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item GOVERNMENT_TAPE = registerItem("government_funding_tape", new MusicTape(15, BackroomsSounds.GOVERNMENT_FUNDING, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item COMPLEX_TAPE = registerItem("the_complex_tape", new MusicTape(13, BackroomsSounds.COMPLEX, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item INSTANCES_TAPE = registerItem("instances_tape", new MusicTape(4, BackroomsSounds.INSTANCES, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item NIGHTS_TAPE = registerItem("warm_nights_tape", new MusicTape(6, BackroomsSounds.WARM_NIGHTS, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item TITLE_TAPE = registerItem("title_screen_tape", new MusicTape(8, BackroomsSounds.TITLE_SCREEN, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item SNOW_TAPE = registerItem("snow_world_tape", new MusicTape(5, BackroomsSounds.SNOW_WORLD, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item AUDITORY_TAPE = registerItem("auditory_guidepost_tape", new MusicTape(9, BackroomsSounds.AUDITORY_GUIDEPOST, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item NOT_DECISION_TAPE = registerItem("not_your_decision_tape", new MusicTape(8, BackroomsSounds.NOT_YOUR_DECISION, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item SEALED_AWAY_TAPE = registerItem("sealed_away_tape", new MusicTape(5, BackroomsSounds.SEALED_AWAY, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item CLIFFS_DOVER_TAPE = registerItem("white_cliffs_of_dover_tape", new MusicTape(3, BackroomsSounds.CLIFFS_OF_DOVER, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item THALASSOPHOBIA_TAPE = registerItem("thalassophobia_tape", new MusicTape(15, BackroomsSounds.THALASSOPHOBIA, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item BURNING_MEMORY_TAPE = registerItem("its_just_a_burning_memory_tape", new MusicTape(15, BackroomsSounds.BURNING_MEMORY, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item DUET_TAPE = registerItem("duet_tape", new MusicTape(15, BackroomsSounds.DUET, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item EMPTY_BLISS_TAPE = registerItem("empty_bliss_beyond_this_world_tape", new MusicTape(12, BackroomsSounds.EMPTY_BLISS, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item GLIMPSES_OF_HOPE_TAPE = registerItem("glimpses_of_hope_in_trying_times_tape", new MusicTape(8, BackroomsSounds.GLIMPSES_OF_HOPE, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item GROSS_TAPE = registerItem("gross_tape", new MusicTape(3, BackroomsSounds.GROSS, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item HAVE_MANY_DAYS_TAPE = registerItem("we_dont_have_many_days_tape", new MusicTape(10, BackroomsSounds.HAVE_MANY_DAYS, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item AFTERNOON_DRIFTING_TAPE = registerItem("late_afternoon_drifting_tape", new MusicTape(5, BackroomsSounds.AFTERNOON_DRIFTING, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item MY_HEART_BREAKS_TAPE = registerItem("does_it_matter_how_my_heart_breaks_tape", new MusicTape(1, BackroomsSounds.MY_HEART_BREAKS, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item THE_VIOLIN_TAPE = registerItem("the_violin_tape", new MusicTape(13, BackroomsSounds.THE_VIOLIN, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item WORLD_FADES_AWAY_TAPE = registerItem("place_in_the_world_fades_away_tape", new MusicTape(9, BackroomsSounds.WORLD_FADES_AWAY, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item AHIRU_NO_SENTAKU_TAPE = registerItem("ahiru_no_sentaku_tape", new MusicTape(2, BackroomsSounds.AHIRU_NO_SENTAKU, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item NO_SURPRISES_TAPE = registerItem("no_surprises_tape", new MusicTape(2, BackroomsSounds.NO_SURPRISES, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item ORBIT_TAPE = registerItem("orbit_tape", new MusicTape(14, BackroomsSounds.ORBIT, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item SLINGSHOT_TAPE = registerItem("slingshot_tape", new MusicTape(13, BackroomsSounds.SLINGSHOT, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item NO_TIME_TO_EXPLAIN_TAPE = registerItem("no_time_to_explain_tape", new MusicTape(15, BackroomsSounds.NO_TIME_TO_EXPLAIN, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item DRIFTING_TAPE = registerItem("drifting_tape", new MusicTape(8, BackroomsSounds.DRIFTING, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item TELL_ME_YOU_KNOW_TAPE = registerItem("tell_me_you_know_tape", new MusicTape(2, BackroomsSounds.TELL_ME_YOU_KNOW, new FabricItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
 
     // Register
 
