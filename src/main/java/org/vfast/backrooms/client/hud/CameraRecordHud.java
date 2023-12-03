@@ -80,7 +80,7 @@ public class CameraRecordHud implements HudRenderCallback {
     }
 
     public void registerHud() {
-        CameraRecordHud.recordHud = new Identifier(BackroomsMod.ID, "textures/hud/vhs_record.png");
-        CameraRecordHud.vhsHud = new Identifier(BackroomsMod.ID, "textures/hud/vhs.png");
+        CameraRecordHud.recordHud = new Identifier(BackroomsMod.ID, "textures/hud/camera/vhs_record.png");
+        CameraRecordHud.vhsHud = new Identifier(BackroomsMod.ID, "textures/hud/camera/vhs.png");
     }
 }

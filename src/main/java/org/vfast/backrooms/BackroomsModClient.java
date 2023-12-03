@@ -1,6 +1,7 @@
 package org.vfast.backrooms;
 
 import org.vfast.backrooms.client.hud.CameraRecordHud;
+import org.vfast.backrooms.client.hud.SanityHudOverlay;
 import org.vfast.backrooms.client.settings.BackroomsSettings;
 import org.vfast.backrooms.entity.BackroomsEntities;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -14,7 +15,8 @@ import org.quiltmc.qsl.resource.loader.api.ResourcePackActivationType;
 
 @ClientOnly
 public class BackroomsModClient implements ClientModInitializer {
-    public static final CameraRecordHud camHud = new CameraRecordHud();
+    public static final CameraRecordHud cameraHud = new CameraRecordHud();
+    public static final SanityHudOverlay sanityHud = new SanityHudOverlay();
 
     @Override
     public void onInitializeClient(ModContainer mod) {
@@ -24,7 +26,12 @@ public class BackroomsModClient implements ClientModInitializer {
         });
         BackroomsSettings.loadConfig();
         BackroomsEntities.registerRenderers();
-        HudRenderCallback.EVENT.register(BackroomsModClient.camHud);
+        registerHuds();
         BackroomsMod.LOGGER.info("Initialized Client Backrooms");
+    }
+
+    public void registerHuds() {
+        HudRenderCallback.EVENT.register(cameraHud);
+        SanityHudOverlay.EVENT.register(sanityHud);
     }
 }

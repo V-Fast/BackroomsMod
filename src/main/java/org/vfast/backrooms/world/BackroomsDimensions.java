@@ -1,6 +1,7 @@
 package org.vfast.backrooms.world;
 
 import com.google.common.base.Supplier;
+import net.minecraft.entity.Entity;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.world.biome.BackroomsBiomes;
 import org.vfast.backrooms.world.biome.LevelOneBiome;
@@ -65,6 +66,10 @@ public class BackroomsDimensions implements LimlibRegistrar {
 
     public static final RegistryKey<World> LEVEL_ZERO_KEY = RegistryKey.of(RegistryKeys.WORLD, LEVEL_ZERO_ID);
     public static final RegistryKey<World> LEVEL_ONE_KEY = RegistryKey.of(RegistryKeys.WORLD, LEVEL_ONE_ID);
+
+    public static boolean isInBackrooms(Entity entity) {
+        return entity.getWorld() == entity.getServer().getWorld(LEVEL_ZERO_KEY) || entity.getWorld() == entity.getServer().getWorld(LEVEL_ONE_KEY);
+    }
 
     @Override
     public void registerHooks() {

@@ -40,7 +40,7 @@ public class CameraItem extends Item {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (entity.isPlayer()) {
             if (world.isClient) {
-                BackroomsModClient.camHud.updateVisible();
+                BackroomsModClient.cameraHud.updateVisible();
             }
         }
 

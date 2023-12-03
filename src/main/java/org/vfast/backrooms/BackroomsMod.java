@@ -9,6 +9,7 @@ import org.vfast.backrooms.block.interactable.Radio;
 import org.vfast.backrooms.entity.BackroomsEntities;
 import org.vfast.backrooms.entity.BacteriaEntity;
 import org.vfast.backrooms.item.BackroomsItems;
+import org.vfast.backrooms.network.BackroomsNetworking;
 import org.vfast.backrooms.sound.BackroomsSounds;
 import org.vfast.backrooms.world.biome.BackroomsBiomes;
 import org.vfast.backrooms.world.BackroomsDimensions;
@@ -72,6 +73,7 @@ public class BackroomsMod implements ModInitializer {
 		BackroomsSounds.registerSoundEvents();
 		BackroomsBiomes.registerBiomes();
 		BackroomsChunkGenerators.registerChunkGenerators();
+		BackroomsNetworking.registerPackets();
 		GeckoLib.initialize();
 		BackroomsEntities.registerMobs();
 		registerEvents();
@@ -100,7 +102,7 @@ public class BackroomsMod implements ModInitializer {
 			}
 		});
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
-			if (entity.getType() == BackroomsEntities.BACTERIA && player.getStackInHand(hand).isOf(BackroomsItems.BROKEN_BOTTLE)) {
+			if (player.getStackInHand(hand).isOf(BackroomsItems.BROKEN_BOTTLE)) {
 				BacteriaEntity bacteria = (BacteriaEntity) entity;
 				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.SLOWNESS, 5, 2, false, false, false);
 				bacteria.addStatusEffect(effect);

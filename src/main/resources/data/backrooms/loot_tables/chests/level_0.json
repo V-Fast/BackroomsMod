@@ -45,9 +45,26 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 3,
           "quality": 1,
           "name": "backrooms:cooked_almond_water",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "quality": 1,
+          "name": "backrooms:almond_water",
           "functions": [
             {
               "function": "minecraft:set_count",

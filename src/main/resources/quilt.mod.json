@@ -66,5 +66,11 @@
       }
     ]
   },
-  "mixin": "backrooms.mixins.json"
+  "mixin": "backrooms.mixins.json",
+  "quilt_loom": {
+    "injected_interfaces": {
+      "net/minecraft/class_1297": ["org/vfast/backrooms/util/accessor/IEntityDataAccessor"],
+      "net/minecraft/class_1657": ["org/vfast/backrooms/util/accessor/IPlayerSanityAccessor"]
+    }
+  }
 }
