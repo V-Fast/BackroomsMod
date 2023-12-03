@@ -35,14 +35,14 @@ import java.util.List;
 
 public class BackroomsMod implements ModInitializer {
 
-	public static final String MOD_ID = "backrooms";
+	public static final String ID = "backrooms";
 
 	public static String NAME = "The Backrooms";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(NAME);
 
 	private static final String VERSION_ID = QuiltLoader
-			.getModContainer(BackroomsMod.MOD_ID)
+			.getModContainer(BackroomsMod.ID)
 			.orElseThrow()
 			.metadata()
 			.version()

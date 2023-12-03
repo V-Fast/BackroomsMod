@@ -15,10 +15,10 @@ import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
 import org.vfast.backrooms.entity.client.renderer.SmilerRenderer;
 
 public class BackroomsEntities {
-    public static final EntityType<BacteriaEntity> BACTERIA = Registry.register(Registries.ENTITY_TYPE, new Identifier(BackroomsMod.MOD_ID, "bacteria"),
+    public static final EntityType<BacteriaEntity> BACTERIA = Registry.register(Registries.ENTITY_TYPE, new Identifier(BackroomsMod.ID, "bacteria"),
             QuiltEntityTypeBuilder.create(SpawnGroup.CREATURE, BacteriaEntity::new).setDimensions(EntityDimensions.fixed(1.4f, 2.7f)).build());
 
-    public static final EntityType<SmilerEntity> SMILER = Registry.register(Registries.ENTITY_TYPE, new Identifier(BackroomsMod.MOD_ID, "smiler"),
+    public static final EntityType<SmilerEntity> SMILER = Registry.register(Registries.ENTITY_TYPE, new Identifier(BackroomsMod.ID, "smiler"),
             QuiltEntityTypeBuilder.create(SpawnGroup.CREATURE, SmilerEntity::new).setDimensions(EntityDimensions.fixed(1.8f, 1.6f)).build());
 
     public static void registerMobs() {

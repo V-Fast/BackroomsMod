@@ -44,7 +44,7 @@ public class SilkBookScreen extends Screen {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        Identifier bookTexture = new Identifier(BackroomsMod.MOD_ID, "textures/screen/silken_book.png");
+        Identifier bookTexture = new Identifier(BackroomsMod.ID, "textures/screen/silken_book.png");
         Identifier wordTexture = this.word.getTexture();
         int i = (this.width - 192) / 2;
 

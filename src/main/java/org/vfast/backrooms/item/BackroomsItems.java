@@ -84,7 +84,7 @@ public class BackroomsItems {
     // Register
 
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
-        Item newItem = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name), item);
+        Item newItem = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.ID, name), item);
 
         // Put In Item Group
         ItemGroupEvents.modifyEntriesEvent(group).register(content -> {
@@ -97,7 +97,7 @@ public class BackroomsItems {
     // Can be used for new 1.19.3+ creative inventory system
     @SafeVarargs
     private static Item registerItem(String name, Item item, RegistryKey<ItemGroup>... groups) {
-        Item newItem = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name), item);
+        Item newItem = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.ID, name), item);
 
         // Put In Item Group
         for (RegistryKey<ItemGroup> group : groups) {

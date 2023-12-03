@@ -14,11 +14,11 @@ public class BackroomsBlockEntities {
 
     public static void registerBlockEntities() {
         BackroomsBlockEntities.tapePlayer = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(BackroomsMod.MOD_ID, "tape_player"),
+                new Identifier(BackroomsMod.ID, "tape_player"),
                 QuiltBlockEntityTypeBuilder.create(TapePlayerEntity::new,
                         BackroomsBlocks.TAPE_PLAYER).build(null));
         BackroomsBlockEntities.radio = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(BackroomsMod.MOD_ID, "radio"),
+                new Identifier(BackroomsMod.ID, "radio"),
                 QuiltBlockEntityTypeBuilder.create(RadioEntity::new,
                         BackroomsBlocks.RADIO).build(null));
 

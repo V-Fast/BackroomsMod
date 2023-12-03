@@ -93,7 +93,7 @@ public class SilkenBook extends Item {
         }
 
         public Identifier getTexture() {
-            return new Identifier(BackroomsMod.MOD_ID, "textures/screen/words/" + this.code + ".png");
+            return new Identifier(BackroomsMod.ID, "textures/screen/words/" + this.code + ".png");
         }
     }
 }

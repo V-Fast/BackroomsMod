@@ -9,6 +9,6 @@ import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 @ClientOnly
 public class SmilerModel extends DefaultedEntityGeoModel<SmilerEntity> {
     public SmilerModel() {
-        super(new Identifier(BackroomsMod.MOD_ID, "smiler"), true);
+        super(new Identifier(BackroomsMod.ID, "smiler"), true);
     }
 }

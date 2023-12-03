@@ -44,7 +44,7 @@ public class BackroomsSounds {
     public static SoundEvent NO_TIME_TO_EXPLAIN = registerSoundEvent("no_time_to_explain");
 
     private static SoundEvent registerSoundEvent(String name) {
-        Identifier id = new Identifier(BackroomsMod.MOD_ID, name);
+        Identifier id = new Identifier(BackroomsMod.ID, name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
 

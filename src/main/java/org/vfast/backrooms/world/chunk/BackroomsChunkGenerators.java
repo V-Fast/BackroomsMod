@@ -16,6 +16,6 @@ public class BackroomsChunkGenerators {
     }
 
     public static <C extends ChunkGenerator, D extends Codec<C>> D registerChunkGenerator(String id, D chunkGeneratorCodec) {
-        return Registry.register(Registries.CHUNK_GENERATOR, new Identifier(BackroomsMod.MOD_ID, id), chunkGeneratorCodec);
+        return Registry.register(Registries.CHUNK_GENERATOR, new Identifier(BackroomsMod.ID, id), chunkGeneratorCodec);
     }
 }

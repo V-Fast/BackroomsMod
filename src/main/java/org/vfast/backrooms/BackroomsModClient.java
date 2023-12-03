@@ -19,8 +19,8 @@ public class BackroomsModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient(ModContainer mod) {
         // Client Only
-        QuiltLoader.getModContainer(BackroomsMod.MOD_ID).ifPresent(modContainer -> {
-            ResourceLoader.registerBuiltinResourcePack(new Identifier(BackroomsMod.MOD_ID, "old_ssc"), modContainer, ResourcePackActivationType.NORMAL);
+        QuiltLoader.getModContainer(BackroomsMod.ID).ifPresent(modContainer -> {
+            ResourceLoader.registerBuiltinResourcePack(new Identifier(BackroomsMod.ID, "old_ssc"), modContainer, ResourcePackActivationType.NORMAL);
         });
         BackroomsSettings.loadConfig();
         BackroomsEntities.registerRenderers();

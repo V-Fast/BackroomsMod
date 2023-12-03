@@ -28,8 +28,8 @@ import java.util.OptionalLong;
 
 public class BackroomsDimensions implements LimlibRegistrar {
 
-    public static final Identifier LEVEL_ZERO_ID = new Identifier(BackroomsMod.MOD_ID, "level_0");
-    public static final Identifier LEVEL_ONE_ID = new Identifier(BackroomsMod.MOD_ID, "level_1");
+    public static final Identifier LEVEL_ZERO_ID = new Identifier(BackroomsMod.ID, "level_0");
+    public static final Identifier LEVEL_ONE_ID = new Identifier(BackroomsMod.ID, "level_1");
 
     public static final Supplier<DimensionType> levelDimType = () -> new DimensionType(OptionalLong.of(14000), false, true, false, true,
             1, true, false, 0, 16, 16, TagKey.of(RegistryKeys.BLOCK, Identifier.of("minecraft", "infiniburn_overworld")), Identifier.of("minecraft", "the_nether"),

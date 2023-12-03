@@ -39,7 +39,7 @@ public class BackroomsItemsGroup {
 
         ItemGroup.Builder itemGroupBuilder = builderSupplier.apply(FabricItemGroup.builder());
 
-        RegistryKey<ItemGroup> itemGroupKey = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(BackroomsMod.MOD_ID, idPath));
+        RegistryKey<ItemGroup> itemGroupKey = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(BackroomsMod.ID, idPath));
 
         Registry.register(Registries.ITEM_GROUP, itemGroupKey, itemGroupBuilder.build());
 

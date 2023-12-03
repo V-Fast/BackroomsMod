@@ -63,17 +63,17 @@ public class BackroomsBlocks {
 
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {
         BackroomsBlocks.registerBlockItem(name, block, group);
-        return Registry.register(Registries.BLOCK, new Identifier(BackroomsMod.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, new Identifier(BackroomsMod.ID, name), block);
     }
 
     @SafeVarargs
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup>... groups) {
         BackroomsBlocks.registerBlockItem(name, block, groups);
-        return Registry.register(Registries.BLOCK, new Identifier(BackroomsMod.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, new Identifier(BackroomsMod.ID, name), block);
     }
 
     private static void registerBlockItem(String name, Block block, RegistryKey<ItemGroup> group) {
-        Item item = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name),
+        Item item = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.ID, name),
                 new BlockItem(block, new QuiltItemSettings()));
 
         // Put in item group
@@ -85,7 +85,7 @@ public class BackroomsBlocks {
     // Can be used for new 1.19.3+ creative inventory system
     @SafeVarargs
     private static void registerBlockItem(String name, Block block, RegistryKey<ItemGroup>... groups) {
-        Item item = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.MOD_ID, name),
+        Item item = Registry.register(Registries.ITEM, new Identifier(BackroomsMod.ID, name),
                 new BlockItem(block, new QuiltItemSettings()));
 
         // Put in item group
