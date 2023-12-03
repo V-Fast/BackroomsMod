@@ -1,8 +1,8 @@
 package org.vfast.backrooms;
 
-import org.vfast.backrooms.client.huds.CameraRecordHud;
+import org.vfast.backrooms.client.hud.CameraRecordHud;
 import org.vfast.backrooms.client.settings.BackroomsSettings;
-import org.vfast.backrooms.entities.BackroomsEntities;
+import org.vfast.backrooms.entity.BackroomsEntities;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;

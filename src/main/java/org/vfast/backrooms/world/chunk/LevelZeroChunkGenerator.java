@@ -1,9 +1,9 @@
 package org.vfast.backrooms.world.chunk;
 
-import org.vfast.backrooms.blocks.BackroomsBlocks;
-import org.vfast.backrooms.entities.BackroomsEntities;
-import org.vfast.backrooms.entities.BacteriaEntity;
-import org.vfast.backrooms.utils.RngUtils;
+import org.vfast.backrooms.block.BackroomsBlocks;
+import org.vfast.backrooms.entity.BackroomsEntities;
+import org.vfast.backrooms.entity.BacteriaEntity;
+import org.vfast.backrooms.util.RngUtils;
 import org.vfast.backrooms.world.BackroomsDimensions;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
