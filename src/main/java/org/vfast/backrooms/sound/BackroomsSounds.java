@@ -48,7 +48,5 @@ public class BackroomsSounds {
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
 
-    public static void registerSoundEvents() {
-        BackroomsMod.LOGGER.debug("Registered Sounds");
-    }
+    public static void registerSoundEvents() {}
 }

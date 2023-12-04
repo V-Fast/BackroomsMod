@@ -16,7 +16,5 @@ public class BackroomsBiomes {
         return RegistryKey.of(RegistryKeys.BIOME, id);
     }
 
-    public static void registerBiomes() {
-        BackroomsMod.LOGGER.debug("Registered Biomes");
-    }
+    public static void registerBiomes() {}
 }

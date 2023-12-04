@@ -108,7 +108,5 @@ public class BackroomsItems {
         return newItem;
     }
 
-    public static void registerModItems() {
-        BackroomsMod.LOGGER.debug("Registered Items");
-    }
+    public static void registerModItems() {}
 }

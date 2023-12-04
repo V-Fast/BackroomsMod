@@ -21,7 +21,5 @@ public class BackroomsBlockEntities {
                 new Identifier(BackroomsMod.ID, "radio"),
                 QuiltBlockEntityTypeBuilder.create(RadioEntity::new,
                         BackroomsBlocks.RADIO).build(null));
-
-        BackroomsMod.LOGGER.debug("Registered BlockEntities");
     }
 }

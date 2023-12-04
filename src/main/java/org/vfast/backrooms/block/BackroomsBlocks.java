@@ -97,7 +97,5 @@ public class BackroomsBlocks {
         }
     }
 
-    public static void registerModBlock() {
-        BackroomsMod.LOGGER.debug("Registered Blocks");
-    }
+    public static void registerModBlock() {}
 }
