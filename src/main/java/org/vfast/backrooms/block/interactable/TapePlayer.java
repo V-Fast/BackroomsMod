@@ -41,6 +41,7 @@ public class TapePlayer extends BlockWithEntity {
 
     private static final VoxelShape SHAPE = Block.createCuboidShape(2, 0, 2, 14, 6, 14);
 
+    @SuppressWarnings("deprecation")
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;

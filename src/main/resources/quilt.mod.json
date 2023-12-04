@@ -36,7 +36,8 @@
     "entrypoints": {
       "init": "org.vfast.backrooms.BackroomsMod",
       "client_init": "org.vfast.backrooms.BackroomsModClient",
-      "limlib:registrar": "org.vfast.backrooms.world.BackroomsDimensions"
+      "limlib:registrar": "org.vfast.backrooms.world.BackroomsDimensions",
+      "modmenu": "org.vfast.backrooms.config.BackroomsModMenuCompat"
     },
     "depends": [
       {
@@ -72,5 +73,11 @@
       "net/minecraft/class_1297": ["org/vfast/backrooms/util/accessor/IEntityDataAccessor"],
       "net/minecraft/class_1657": ["org/vfast/backrooms/util/accessor/IPlayerSanityAccessor"]
     }
+  },
+  "modmenu": {
+    "links": {
+      "modmenu.discord": "https://discord.com/invite/Rqpn3C7yR5"
+    },
+    "update_checker": true
   }
 }

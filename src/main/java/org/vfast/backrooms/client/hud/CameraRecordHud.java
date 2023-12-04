@@ -1,7 +1,7 @@
 package org.vfast.backrooms.client.hud;
 
 import org.vfast.backrooms.BackroomsMod;
-import org.vfast.backrooms.client.settings.BackroomsSettings;
+import org.vfast.backrooms.config.BackroomsConfig;
 import org.vfast.backrooms.item.BackroomsItems;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -55,7 +55,7 @@ public class CameraRecordHud implements HudRenderCallback {
         }
 
         this.registerHud();
-        this.renderOverlay(BackroomsSettings.canShowRecord() ? recordHud : vhsHud, width, height);
+        this.renderOverlay(BackroomsConfig.getInstance().showRecord ? recordHud : vhsHud, width, height);
     }
 
     private void renderOverlay(Identifier texture, int width, int height) {

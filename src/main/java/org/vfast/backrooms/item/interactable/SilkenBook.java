@@ -2,14 +2,12 @@ package org.vfast.backrooms.item.interactable;
 
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.client.screen.SilkBookScreen;
-import org.vfast.backrooms.client.settings.BackroomsSettings;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
@@ -41,9 +39,6 @@ public class SilkenBook extends Item {
                 if (word == null) {
                     BackroomsMod.LOGGER.info("Recurrent anomaly");
                     user.sendMessage(Text.literal("Please click again."), true);
-                    if (BackroomsSettings.explainsError()) {
-                        user.sendMessage(Text.literal("[The Backrooms - Error] The problem is occurs when selecting a random inscription. A fix has not been found yet.").formatted(Formatting.GRAY, Formatting.ITALIC));
-                    }
                     return TypedActionResult.fail(itemStack);
                 }
 

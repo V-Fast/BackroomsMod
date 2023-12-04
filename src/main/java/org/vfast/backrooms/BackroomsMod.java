@@ -3,9 +3,11 @@ package org.vfast.backrooms;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ActionResult;
+import org.quiltmc.qsl.lifecycle.api.event.ServerLifecycleEvents;
 import org.vfast.backrooms.block.BackroomsBlocks;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
 import org.vfast.backrooms.block.interactable.Radio;
+import org.vfast.backrooms.config.BackroomsConfig;
 import org.vfast.backrooms.entity.BackroomsEntities;
 import org.vfast.backrooms.entity.BacteriaEntity;
 import org.vfast.backrooms.item.BackroomsItems;
@@ -49,8 +51,6 @@ public class BackroomsMod implements ModInitializer {
 			.version()
 			.toString();
 
-	public static final String SETTINGS_NAME = "the_backrooms";
-
 	private static final List<Radio.RadioRecord> records = Arrays.asList(
 			new Radio.RadioRecord(Text.translatable("item.backrooms.halls_tape.desc").getString(), BackroomsSounds.HALLS),
 			new Radio.RadioRecord(Text.translatable("item.backrooms.duet_tape.desc").getString(), BackroomsSounds.DUET),
@@ -67,6 +67,7 @@ public class BackroomsMod implements ModInitializer {
 
 	@Override
 	public void onInitialize(ModContainer mod) {
+		BackroomsConfig.HANDLER.load();
 		BackroomsBlocks.registerModBlock();
 		BackroomsBlockEntities.registerBlockEntities();
 		BackroomsItems.registerModItems();
@@ -81,6 +82,9 @@ public class BackroomsMod implements ModInitializer {
 	}
 
 	public void registerEvents() {
+		ServerLifecycleEvents.STOPPING.register((server) -> {
+			BackroomsConfig.HANDLER.save();
+		});
 		EntityWorldChangeEvents.AFTER_PLAYER_WORLD_CHANGE.register((player, origin, destination) -> {
 			if (destination == player.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY)) {
 				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 2, false, false, false);

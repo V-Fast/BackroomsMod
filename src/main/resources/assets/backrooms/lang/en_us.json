@@ -7,6 +7,16 @@
   "advancements.backrooms.backrooms.the_end_is_never.title": "The End is Never the End is Never...",
   "advancements.backrooms.backrooms.the_end_is_never.description": "Enter Level 0",
 
+  "key.backrooms.config": "The Backrooms Config",
+
+  "config.backrooms.title": "The Backrooms Config",
+  "config.backrooms.main": "The Backrooms Main Config",
+  "config.backrooms.main.tooltip": "Main configuration options for The Backrooms mod.",
+  "config.backrooms.main.visual_effects": "Visual Effects",
+  "config.backrooms.main.visual_effects.description": "Settings for client-side visual effects.",
+  "config.backrooms.main.visual_effects.show_record": "Show Record",
+  "config.backrooms.main.visual_effects.show_record.description": "Whether to show the \"Record\" gui when using the Camera.",
+
   "death.attack.low_sanity": "%1$s lost his sanity",
 
   "item.backrooms.silk": "Silk",

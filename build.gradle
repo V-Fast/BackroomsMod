@@ -76,7 +76,7 @@ dependencies {
 
 	include libs.ludocrypt.limlib
 
-	modRuntimeOnly libs.modmenu
+	modImplementation libs.modmenu
 }
 
 project.configurations.all {
