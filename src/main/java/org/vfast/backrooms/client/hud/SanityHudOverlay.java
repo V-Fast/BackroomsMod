@@ -30,6 +30,7 @@ public class SanityHudOverlay implements HudRenderCallback {
                 height = sanity * 2;
             }
             context.drawTexture(BRAIN, x - 8, y - 45, 0, 0, 16, height, 16, 16);
+            context.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         }
     }
 }
