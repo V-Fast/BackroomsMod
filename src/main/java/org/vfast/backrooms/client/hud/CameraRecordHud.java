@@ -55,7 +55,7 @@ public class CameraRecordHud implements HudRenderCallback {
         }
 
         this.registerHud();
-        this.renderOverlay(BackroomsConfig.getInstance().showRecord ? recordHud : vhsHud, width, height);
+        this.renderOverlay(BackroomsConfig.HANDLER.instance().showRecord ? recordHud : vhsHud, width, height);
     }
 
     private void renderOverlay(Identifier texture, int width, int height) {

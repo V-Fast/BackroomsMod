@@ -27,16 +27,7 @@ public class BackroomsConfig {
 
     @ClientOnly
     @SerialEntry(comment = "Whether to show the \"Record\" gui when using the Camera.")
-    public boolean showRecord;
-
-    private static BackroomsConfig instance;
-
-    public static BackroomsConfig getInstance() {
-        if (instance == null) {
-            instance = new BackroomsConfig();
-        }
-        return instance;
-    }
+    public boolean showRecord = true;
 
     public Screen getScreen(@Nullable Screen parent) {
         return YetAnotherConfigLib.createBuilder()

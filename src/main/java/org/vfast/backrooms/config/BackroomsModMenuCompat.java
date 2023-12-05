@@ -7,7 +7,7 @@ public class BackroomsModMenuCompat implements ModMenuApi {
 
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> BackroomsConfig.getInstance().getScreen(parent);
+        return parent -> BackroomsConfig.HANDLER.instance().getScreen(parent);
     }
 
 }

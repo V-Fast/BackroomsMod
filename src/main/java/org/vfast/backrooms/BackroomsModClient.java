@@ -40,7 +40,7 @@ public class BackroomsModClient implements ClientModInitializer {
         ));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (configKeybind.wasPressed()) {
-                client.setScreen(BackroomsConfig.getInstance().getScreen(client.currentScreen));
+                client.setScreen(BackroomsConfig.HANDLER.instance().getScreen(client.currentScreen));
             }
         });
         BackroomsMod.LOGGER.info("Initialized Client Backrooms");
