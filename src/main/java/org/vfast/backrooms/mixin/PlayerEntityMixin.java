@@ -68,9 +68,9 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerS
                 }
             }
             if (getSanity() <= 3 && !this.isSpectator() && !this.isCreative()) {
-                //((ServerPlayerEntity)(Object)this).sendMessage(Text.literal("Sanity: "+getSanity()));
-                //((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(BackroomsConfig.HANDLER.instance().looseSanitySpeed)));
-                //((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(sanityTimer)));
+                // ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal("Sanity: "+getSanity()));
+                // ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(BackroomsConfig.HANDLER.instance().looseSanitySpeed)));
+                // ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(sanityTimer)));
                 sanityDamageTimer++;
                 if (sanityDamageTimer >= 40) {
                     sanityDamageTimer = 0;
