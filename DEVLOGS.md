@@ -3,6 +3,21 @@ This file contains devlogs. Some features shown in them may arrive a few months 
 **Remember that we are only 3 people working on the mod. And we all have lives besides the mod.** I (Lumaa) am not a professional Java developer, I really started learning by creating this mod.  
 <sup>(btw we use this date format: DD/MM/YYYY)</sup>  
 
+# Devlog #12 - 4/12/2023
+Hello everyone, we've just reached 5200 downloads! Not actually that big, but its still impressive that we got 200 downloads in ~2 days. As a reward, here's what I've been working on:
+
+**A sanity system**
+
+Are you tired of wandering the Backrooms endlessly, and only losing your RL sanity? Well now you can lose it in game.
+This mechanic will add a system in which you will slowly lose your sanity while in the Backrooms, which will at some point give you debuffs if your sanity is low enough and even kill you.
+But do not fear, because Almond Water quickly fixes this issue (temporally).
+
+We've also added a new and *shiny* config menu, which will allow you to configure many things such as how you can enter the Backrooms, how fast your sanity drains & much more.
+
+I'm also planning on adding Level Run, which will be as expected, but only a few entities will follow you for now.
+
+That's all, See ya!
+
 * * *
 # Devlog #11 - 18/11/2023
 Hello everyone, this is Clomclem talking, I'm the new maintainer/developer of this mod, so feel free to ask me anything.
