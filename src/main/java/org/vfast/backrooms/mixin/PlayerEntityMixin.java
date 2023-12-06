@@ -68,20 +68,20 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerS
                 }
             }
             if (getSanity() <= 3 && !this.isSpectator() && !this.isCreative()) {
-                ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal("Sanity: "+getSanity()));
-                ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(BackroomsConfig.HANDLER.instance().looseSanitySpeed)));
-                ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(sanityTimer)));
+                //((ServerPlayerEntity)(Object)this).sendMessage(Text.literal("Sanity: "+getSanity()));
+                //((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(BackroomsConfig.HANDLER.instance().looseSanitySpeed)));
+                //((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(sanityTimer)));
                 sanityDamageTimer++;
                 if (sanityDamageTimer >= 40) {
                     sanityDamageTimer = 0;
-                    addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 10, 0, false, false, false));
-                    addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 10, 0, false, false, false));
+                    addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20, 0, false, false, false));
+                    addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 20, 0, false, false, false));
                     if (getSanity() <= 2) {
-                        addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 10, 0, false, false, false));
+                        addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 20, 0, false, false, false));
                     }
                     if (getSanity() == 1) {
                         damage(BackroomsDamageTypes.of(getWorld(), BackroomsDamageTypes.LOW_SANITY), 1.0f);
-                        addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 10, 0, false, false, false));
+                        addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20, 0, false, false, false));
                     }
                 }
 
