@@ -11,11 +11,17 @@
 
   "config.backrooms.title": "The Backrooms Config",
   "config.backrooms.main": "The Backrooms Main Config",
-  "config.backrooms.main.tooltip": "Main configuration options for The Backrooms mod.",
+  "config.backrooms.main.tooltip": "Main configuration options for The Backrooms mod",
   "config.backrooms.main.visual_effects": "Visual Effects",
-  "config.backrooms.main.visual_effects.description": "Settings for client-side visual effects.",
+  "config.backrooms.main.visual_effects.description": "Settings for client-side visual effects",
   "config.backrooms.main.visual_effects.show_record": "Show Record",
-  "config.backrooms.main.visual_effects.show_record.description": "Whether to show the \"Record\" gui when using the Camera.",
+  "config.backrooms.main.visual_effects.show_record.description": "Whether to show the \"Record\" gui when using the Camera",
+  "config.backrooms.main.sanity": "Sanity",
+  "config.backrooms.main.sanity.description": "Sanity related settings",
+  "config.backrooms.main.sanity.loose_sanity_speed": "Loose sanity speed",
+  "config.backrooms.main.sanity.loose_sanity_speed.description": "The time it takes (in minutes) for a player to loose a single level of sanity while in the Backrooms",
+  "config.backrooms.main.sanity.recover_sanity_speed": "Recover sanity speed",
+  "config.backrooms.main.sanity.recover_sanity_speed.description": "The time it takes (in minutes) for a player to regain a single level of sanity while out of the Backrooms",
 
   "death.attack.low_sanity": "%1$s lost his sanity",
 

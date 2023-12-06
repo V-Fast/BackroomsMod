@@ -4,7 +4,6 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,10 +18,12 @@ import org.quiltmc.qsl.networking.api.PacketByteBufs;
 import org.quiltmc.qsl.networking.api.ServerPlayNetworking;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.vfast.backrooms.config.BackroomsConfig;
 import org.vfast.backrooms.entity.damage.BackroomsDamageTypes;
 import org.vfast.backrooms.item.BackroomsItems;
 import org.vfast.backrooms.network.BackroomsNetworking;
@@ -31,12 +32,15 @@ import org.vfast.backrooms.world.BackroomsDimensions;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerSanityAccessor {
+
+    @Unique
+    private int sanityTimer = 0;
+    @Unique
+    private int sanityDamageTimer = 0;
+
     @Shadow public abstract boolean damage(DamageSource source, float amount);
 
     @Shadow public abstract boolean isCreative();
-
-    private int sanityTimer = 0;
-    private int sanityDamageTimer = 0;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -52,21 +56,23 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerS
         if (!getWorld().isClient()) {
             if (BackroomsDimensions.isInBackrooms(this)) {
                 sanityTimer++;
-                if (sanityTimer == 6000) {
+                if (sanityTimer >= BackroomsConfig.HANDLER.instance().looseSanitySpeed * 60 * 20) {
                     modifySanity(-1);
-                    // ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal("Sanity: "+getSanity()));
                     sanityTimer = 0;
                 }
             } else {
                 sanityTimer++;
-                if (sanityTimer == 1200) {
+                if (sanityTimer >= BackroomsConfig.HANDLER.instance().recoverSanitySpeed * 60 * 20) {
                     modifySanity(1);
                     sanityTimer = 0;
                 }
             }
             if (getSanity() <= 3 && !this.isSpectator() && !this.isCreative()) {
+                ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal("Sanity: "+getSanity()));
+                ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(BackroomsConfig.HANDLER.instance().looseSanitySpeed)));
+                ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(sanityTimer)));
                 sanityDamageTimer++;
-                if (sanityDamageTimer == 40) {
+                if (sanityDamageTimer >= 40) {
                     sanityDamageTimer = 0;
                     addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 10, 0, false, false, false));
                     addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 10, 0, false, false, false));
