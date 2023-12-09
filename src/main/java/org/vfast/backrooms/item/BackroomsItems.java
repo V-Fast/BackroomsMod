@@ -16,32 +16,33 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
+import org.vfast.backrooms.util.Color;
 
 public class BackroomsItems {
     public static final Item SILKEN_BOOK = registerItem("silken_book",
-            new SilkenBook(new QuiltItemSettings()), BackroomsItemsGroup.MAIN);
+            new SilkenBook(new QuiltItemSettings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item SILK = registerItem("silk",
-            new Item(new QuiltItemSettings()), BackroomsItemsGroup.MAIN);
+            new Item(new QuiltItemSettings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item ALMOND_WATER = registerItem("almond_water", new AlmondWater(
-            new QuiltItemSettings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(2*2).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0), 1F).build())), BackroomsItemsGroup.MAIN);
-    public static final Item COOKED_ALMOND_WATER = registerItem("cooked_almond_water", CookedAlmondWater(new QuiltItemSettings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(4*2).saturationModifier(4f).build())), BackroomsItemsGroup.MAIN);
-    public static final Item TAPE = registerItem("tape", new Item(new QuiltItemSettings()), BackroomsItemsGroup.MAIN);
+            new QuiltItemSettings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(2*2).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0), 1F).build())), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
+    public static final Item COOKED_ALMOND_WATER = registerItem("cooked_almond_water", new AlmondWater(new QuiltItemSettings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().hunger(4*2).saturationModifier(4f).build())).setCooked(true), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
+    public static final Item TAPE = registerItem("tape", new Item(new QuiltItemSettings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item CAMERA = registerItem("camera", new CameraItem(
-            new QuiltItemSettings().maxCount(1)), BackroomsItemsGroup.MAIN);
+            new QuiltItemSettings().maxCount(1)), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item ENERGY_BAR = registerItem("energy_bar", new Item(
-            new QuiltItemSettings().maxCount(64).food(new FoodComponent.Builder().alwaysEdible().hunger(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())), BackroomsItemsGroup.MAIN);
+            new QuiltItemSettings().maxCount(64).food(new FoodComponent.Builder().alwaysEdible().hunger(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
 
     // spawn eggs
-    public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(BackroomsEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES);
-    public static final Item SMILER_EGG = registerItem("smiler_spawn_egg", new SpawnEggItem(BackroomsEntities.SMILER, 0x1c1c1c, 0xc90000, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES);
+    public static final Item BACTERIA_EGG = registerItem("bacteria_spawn_egg", new SpawnEggItem(BackroomsEntities.BACTERIA, 0x2b2b2b, 0x171717, new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES, ItemGroups.SPAWN_EGGS);
+    public static final Item SMILER_EGG = registerItem("smiler_spawn_egg", new SpawnEggItem(BackroomsEntities.SMILER, Color.fromRGB(28, 27, 27), Color.fromRGB(77, 6, 6), new Item.Settings().maxCount(64)), BackroomsItemsGroup.ENTITIES, ItemGroups.SPAWN_EGGS);
 
     // weapons
-    public static final Item WRENCH = registerItem("wrench", new BackroomsWeapons.ModSword(6.5f, 1.6f, 835, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item CROWBAR = registerItem("crowbar", new BackroomsWeapons.ModSword(8.0f, 1.6f, 2051, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item SHARPENED_KNIFE = registerItem("sharpened_knife", new BackroomsWeapons.ModSword(6.5f, 1.3f, 130, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item NAILED_BAT = registerItem("nailed_bat", new BackroomsWeapons.ModSword(7.0f, 1.8f, 515, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item BASEBALL_BAT = registerItem("baseball_bat", new BackroomsWeapons.ModSword(3.0f, 1.8f, 481, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
-    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new BackroomsWeapons.ModSword(2.0f, 0.8f, 3, new Item.Settings()), BackroomsItemsGroup.WEAPONS);
+    public static final Item WRENCH = registerItem("wrench", new BackroomsWeapons.ModSword(6.5f, 1.6f, 835, new Item.Settings()), BackroomsItemsGroup.WEAPONS, ItemGroups.COMBAT);
+    public static final Item CROWBAR = registerItem("crowbar", new BackroomsWeapons.ModSword(8.0f, 1.6f, 2051, new Item.Settings()), BackroomsItemsGroup.WEAPONS, ItemGroups.COMBAT);
+    public static final Item SHARPENED_KNIFE = registerItem("sharpened_knife", new BackroomsWeapons.ModSword(6.5f, 1.3f, 130, new Item.Settings()), BackroomsItemsGroup.WEAPONS, ItemGroups.COMBAT);
+    public static final Item NAILED_BAT = registerItem("nailed_bat", new BackroomsWeapons.ModSword(7.0f, 1.8f, 515, new Item.Settings()), BackroomsItemsGroup.WEAPONS, ItemGroups.COMBAT);
+    public static final Item BASEBALL_BAT = registerItem("baseball_bat", new BackroomsWeapons.ModSword(3.0f, 1.8f, 481, new Item.Settings()), BackroomsItemsGroup.WEAPONS, ItemGroups.COMBAT);
+    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new BackroomsWeapons.ModSword(2.0f, 0.8f, 3, new Item.Settings()), BackroomsItemsGroup.WEAPONS, ItemGroups.COMBAT);
 
     // music tapes
     public static final Item HALLS_TAPE = registerItem("halls_tape", new MusicTape(7, BackroomsSounds.HALLS, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
@@ -74,13 +75,6 @@ public class BackroomsItems {
     public static final Item DRIFTING_TAPE = registerItem("drifting_tape", new MusicTape(8, BackroomsSounds.DRIFTING, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
     public static final Item TELL_ME_YOU_KNOW_TAPE = registerItem("tell_me_you_know_tape", new MusicTape(2, BackroomsSounds.TELL_ME_YOU_KNOW, new QuiltItemSettings(), 1), BackroomsItemsGroup.MUSIC_TAPES);
 
-    // Experimental / Operator
-//    public static final Item BACKROOMS_CORE = registerItem("backrooms_core", new BackroomsGenCore(new FabricItemSettings().maxCount(1).fireproof()), ItemGroups.OPERATOR, BackroomsItemsGroup.MAIN);
-
-    public static AlmondWater CookedAlmondWater(Item.Settings settings) {
-        return new AlmondWater(settings).setCooked(true);
-    }
-
     // Register
 
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
@@ -108,5 +102,5 @@ public class BackroomsItems {
         return newItem;
     }
 
-    public static void registerModItems() {}
+    public static void registerItems() {}
 }

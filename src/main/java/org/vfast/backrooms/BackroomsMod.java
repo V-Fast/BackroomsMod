@@ -68,9 +68,9 @@ public class BackroomsMod implements ModInitializer {
 	@Override
 	public void onInitialize(ModContainer mod) {
 		BackroomsConfig.HANDLER.load();
-		BackroomsBlocks.registerModBlock();
+		BackroomsBlocks.registerBlocks();
 		BackroomsBlockEntities.registerBlockEntities();
-		BackroomsItems.registerModItems();
+		BackroomsItems.registerItems();
 		BackroomsSounds.registerSoundEvents();
 		BackroomsBiomes.registerBiomes();
 		BackroomsChunkGenerators.registerChunkGenerators();
