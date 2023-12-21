@@ -1,7 +1,7 @@
 package org.vfast.backrooms.network;
 
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.util.Identifier;
-import org.quiltmc.qsl.networking.api.client.ClientPlayNetworking;
 import org.vfast.backrooms.BackroomsMod;
 
 public class BackroomsNetworking {

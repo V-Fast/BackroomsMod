@@ -83,6 +83,14 @@ dependencies {
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
+loom {
+	runs {
+		client {
+			vmArg("-Dgeckolib.disable_examples=true")
+		}
+	}
+}
+
 processResources {
 	inputs.property 'version', version
 
