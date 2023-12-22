@@ -2,6 +2,7 @@ package org.vfast.backrooms.world;
 
 import com.google.common.base.Supplier;
 import net.minecraft.entity.Entity;
+import net.minecraft.registry.*;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.world.biome.BackroomsBiomes;
 import org.vfast.backrooms.world.biome.LevelOneBiome;
@@ -12,9 +13,6 @@ import com.mojang.serialization.Lifecycle;
 import net.ludocrypt.limlib.api.LimlibRegistrar;
 import net.ludocrypt.limlib.api.LimlibRegistryHooks;
 import net.ludocrypt.limlib.api.LimlibWorld;
-import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -73,16 +71,9 @@ public class BackroomsDimensions implements LimlibRegistrar {
 
     @Override
     public void registerHooks() {
-        LimlibWorld.LIMLIB_WORLD.add(
-                RegistryKey.of(LimlibWorld.LIMLIB_WORLD_KEY, LEVEL_ZERO_ID),
-                LEVEL_ZERO,
-                Lifecycle.stable()
-        );
-        LimlibWorld.LIMLIB_WORLD.add(
-                RegistryKey.of(LimlibWorld.LIMLIB_WORLD_KEY, LEVEL_ONE_ID),
-                LEVEL_ONE,
-                Lifecycle.stable()
-        );
+        Registry.register(LimlibWorld.LIMLIB_WORLD, LEVEL_ZERO_ID, LEVEL_ZERO);
+        Registry.register(LimlibWorld.LIMLIB_WORLD, LEVEL_ONE_ID, LEVEL_ONE);
+
         LimlibRegistryHooks.hook(RegistryKeys.BIOME, (infoLookup, registryKey, registry) -> {
             RegistryEntryLookup<PlacedFeature> features = infoLookup.getRegistryInfo(RegistryKeys.PLACED_FEATURE).get().entryLookup();
             RegistryEntryLookup<ConfiguredCarver<?>> carvers = infoLookup.getRegistryInfo(RegistryKeys.CONFIGURED_CARVER).get().entryLookup();

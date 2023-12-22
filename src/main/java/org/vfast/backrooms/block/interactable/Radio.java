@@ -1,5 +1,6 @@
 package org.vfast.backrooms.block.interactable;
 
+import com.mojang.serialization.MapCodec;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
 import org.vfast.backrooms.block.entity.RadioEntity;
@@ -38,12 +39,18 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class Radio extends BlockWithEntity {
+    public static final MapCodec<Radio> CODEC = createCodec(Radio::new);
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty RECORD;
 
     public Radio(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(RECORD, 0));
+    }
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -109,7 +116,7 @@ public class Radio extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, BackroomsBlockEntities.radio, RadioEntity::tick);
+        return validateTicker(type, BackroomsBlockEntities.radio, RadioEntity::tick);
     }
 
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {

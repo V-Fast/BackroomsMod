@@ -35,17 +35,17 @@
   ],
   "depends": {
     "fabricloader": ">=0.15.0",
-    "minecraft": ">=1.20.1",
+    "minecraft": ">=1.20.4",
     "java": ">=17",
     "fabric-api": "*",
     "geckolib": ">=4.2",
     "limlib": ">=11.0.0"
   },
   "recommends": {
-    "yet_another_config_lib_v3": ">=3.3.0+1.20.1"
+    "yet_another_config_lib_v3": ">=3.3.0+1.20.4"
   },
   "suggests": {
-    "modmenu": ">=7.2"
+    "modmenu": ">=8.0.0"
   },
   "custom": {
     "loom:injected_interfaces": {

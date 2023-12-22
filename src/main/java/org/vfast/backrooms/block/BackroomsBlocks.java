@@ -53,7 +53,7 @@ public class BackroomsBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(15)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
     // Level Run
-    public static final Block HOSPITAL_DOOR = registerBlock("hospital_door", new DoorBlock(FabricBlockSettings.copyOf(Blocks.IRON_DOOR), BlockSetTypeBuilder.copyOf(BlockSetType.IRON).openableByHand(true).build(new Identifier(BackroomsMod.ID, "ceramic"))), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block HOSPITAL_DOOR = registerBlock("hospital_door", new DoorBlock(BlockSetTypeBuilder.copyOf(BlockSetType.IRON).openableByHand(true).build(new Identifier(BackroomsMod.ID, "ceramic")), FabricBlockSettings.copyOf(Blocks.IRON_DOOR)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
     // Other
 

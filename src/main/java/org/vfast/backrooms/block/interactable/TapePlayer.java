@@ -1,5 +1,6 @@
 package org.vfast.backrooms.block.interactable;
 
+import com.mojang.serialization.MapCodec;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
 import org.vfast.backrooms.block.entity.TapePlayerEntity;
 import org.vfast.backrooms.item.interactable.MusicTape;
@@ -31,12 +32,18 @@ import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class TapePlayer extends BlockWithEntity {
+    public static final MapCodec<TapePlayer> CODEC = createCodec(TapePlayer::new);
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty HAS_RECORD;
 
     public TapePlayer(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(HAS_RECORD, false));
+    }
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     private static final VoxelShape SHAPE = Block.createCuboidShape(2, 0, 2, 14, 6, 14);
@@ -89,7 +96,7 @@ public class TapePlayer extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, BackroomsBlockEntities.tapePlayer, TapePlayerEntity::tick);
+        return validateTicker(type, BackroomsBlockEntities.tapePlayer, TapePlayerEntity::tick);
     }
 
     /* JUKEBOX CODE */
