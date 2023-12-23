@@ -8,7 +8,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.ActionResult;
 import org.vfast.backrooms.block.BackroomsBlocks;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
-import org.vfast.backrooms.block.interactable.Radio;
+import org.vfast.backrooms.block.interactable.RadioBlock;
 import org.vfast.backrooms.config.BackroomsConfig;
 import org.vfast.backrooms.entity.BackroomsEntities;
 import org.vfast.backrooms.entity.BacteriaEntity;
@@ -43,18 +43,18 @@ public class BackroomsMod implements ModInitializer {
 			.getVersion()
 			.toString();
 
-	private static final List<Radio.RadioRecord> records = Arrays.asList(
-			new Radio.RadioRecord(Text.translatable("item.backrooms.halls_tape.desc").getString(), BackroomsSounds.HALLS),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.duet_tape.desc").getString(), BackroomsSounds.DUET),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.drifting_tape.desc").getString(), BackroomsSounds.DRIFTING),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.no_time_to_explain_tape.desc").getString(), BackroomsSounds.NO_TIME_TO_EXPLAIN),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.tell_me_you_know_tape.desc").getString(), BackroomsSounds.TELL_ME_YOU_KNOW),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.orbit_tape.desc").getString(), BackroomsSounds.ORBIT),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.slingshot_tape.desc").getString(), BackroomsSounds.SLINGSHOT),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.thalassophobia_tape.desc").getString(), BackroomsSounds.THALASSOPHOBIA ),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.no_surprises_tape.desc").getString(), BackroomsSounds.NO_SURPRISES),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.its_just_a_burning_memory_tape.desc").getString(), BackroomsSounds.BURNING_MEMORY),
-			new Radio.RadioRecord(Text.translatable("item.backrooms.government_funding_tape.desc").getString(), BackroomsSounds.GOVERNMENT_FUNDING )
+	private static final List<RadioBlock.RadioRecord> records = Arrays.asList(
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.halls_tape.desc").getString(), BackroomsSounds.HALLS),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.duet_tape.desc").getString(), BackroomsSounds.DUET),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.drifting_tape.desc").getString(), BackroomsSounds.DRIFTING),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.no_time_to_explain_tape.desc").getString(), BackroomsSounds.NO_TIME_TO_EXPLAIN),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.tell_me_you_know_tape.desc").getString(), BackroomsSounds.TELL_ME_YOU_KNOW),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.orbit_tape.desc").getString(), BackroomsSounds.ORBIT),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.slingshot_tape.desc").getString(), BackroomsSounds.SLINGSHOT),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.thalassophobia_tape.desc").getString(), BackroomsSounds.THALASSOPHOBIA ),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.no_surprises_tape.desc").getString(), BackroomsSounds.NO_SURPRISES),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.its_just_a_burning_memory_tape.desc").getString(), BackroomsSounds.BURNING_MEMORY),
+			new RadioBlock.RadioRecord(Text.translatable("item.backrooms.government_funding_tape.desc").getString(), BackroomsSounds.GOVERNMENT_FUNDING )
 	);
 
 	@Override
@@ -98,7 +98,7 @@ public class BackroomsMod implements ModInitializer {
 		});
 	}
 
-	public static List<Radio.RadioRecord> getRecords() {
+	public static List<RadioBlock.RadioRecord> getRecords() {
 		return records;
 	}
 }

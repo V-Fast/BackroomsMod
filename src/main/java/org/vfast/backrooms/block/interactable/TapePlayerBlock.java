@@ -2,7 +2,7 @@ package org.vfast.backrooms.block.interactable;
 
 import com.mojang.serialization.MapCodec;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
-import org.vfast.backrooms.block.entity.TapePlayerEntity;
+import org.vfast.backrooms.block.entity.TapePlayerBlockEntity;
 import org.vfast.backrooms.item.interactable.MusicTape;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -31,12 +31,12 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-public class TapePlayer extends BlockWithEntity {
-    public static final MapCodec<TapePlayer> CODEC = createCodec(TapePlayer::new);
+public class TapePlayerBlock extends BlockWithEntity {
+    public static final MapCodec<TapePlayerBlock> CODEC = createCodec(TapePlayerBlock::new);
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty HAS_RECORD;
 
-    public TapePlayer(Settings settings) {
+    public TapePlayerBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(HAS_RECORD, false));
     }
@@ -90,13 +90,13 @@ public class TapePlayer extends BlockWithEntity {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new TapePlayerEntity(pos, state);
+        return new TapePlayerBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, BackroomsBlockEntities.tapePlayer, TapePlayerEntity::tick);
+        return validateTicker(type, BackroomsBlockEntities.TAPE_PLAYER_BLOCK_ENTITY, TapePlayerBlockEntity::tick);
     }
 
     /* JUKEBOX CODE */
@@ -125,7 +125,7 @@ public class TapePlayer extends BlockWithEntity {
 
     public void setRecord(@Nullable Entity user, WorldAccess world, BlockPos pos, BlockState state, ItemStack stack) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof TapePlayerEntity tapePlayerEntity) {
+        if (blockEntity instanceof TapePlayerBlockEntity tapePlayerEntity) {
             tapePlayerEntity.setRecord(stack.copy());
             tapePlayerEntity.startPlaying();
             world.setBlockState(pos, (BlockState)state.with(HAS_RECORD, true), 2);
@@ -136,7 +136,7 @@ public class TapePlayer extends BlockWithEntity {
     private void removeRecord(World world, BlockPos pos, @Nullable PlayerEntity player) {
         if (!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof TapePlayerEntity tapePlayerEntity) {
+            if (blockEntity instanceof TapePlayerBlockEntity tapePlayerEntity) {
                 ItemStack itemStack = tapePlayerEntity.getRecord();
                 if (!itemStack.isEmpty()) {
                     MusicTape record = (MusicTape) itemStack.getItem();
@@ -156,7 +156,7 @@ public class TapePlayer extends BlockWithEntity {
         }
     }
 
-    private void throwItem(TapePlayerEntity tapePlayerEntity, World world, ItemStack itemStack, BlockPos pos) {
+    private void throwItem(TapePlayerBlockEntity tapePlayerEntity, World world, ItemStack itemStack, BlockPos pos) {
         tapePlayerEntity.clear();
         float f = 0.7F;
         double d = (double)(world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
@@ -181,8 +181,8 @@ public class TapePlayer extends BlockWithEntity {
 
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof TapePlayerEntity) {
-            Item item = ((TapePlayerEntity)blockEntity).getRecord().getItem();
+        if (blockEntity instanceof TapePlayerBlockEntity) {
+            Item item = ((TapePlayerBlockEntity)blockEntity).getRecord().getItem();
             if (item instanceof MusicTape) {
                 return ((MusicTape)item).getComparatorOutput();
             }

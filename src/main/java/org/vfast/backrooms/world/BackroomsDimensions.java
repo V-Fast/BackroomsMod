@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.registry.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
+import org.jetbrains.annotations.Nullable;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.world.biome.BackroomsBiomes;
 import org.vfast.backrooms.world.biome.LevelOneBiome;
@@ -78,6 +79,16 @@ public class BackroomsDimensions implements LimlibRegistrar {
             }
         }
         return false;
+    }
+
+    @Nullable
+    public static Level getLevel(Identifier id) {
+        for (Level level : levels) {
+            if (level.id.equals(id)) {
+                return level;
+            }
+        }
+        return null;
     }
 
     @Override

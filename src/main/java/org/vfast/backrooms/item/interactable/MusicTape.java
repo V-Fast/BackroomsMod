@@ -1,7 +1,7 @@
 package org.vfast.backrooms.item.interactable;
 
 import org.vfast.backrooms.block.BackroomsBlocks;
-import org.vfast.backrooms.block.interactable.TapePlayer;
+import org.vfast.backrooms.block.interactable.TapePlayerBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -27,12 +27,12 @@ public class MusicTape extends MusicDiscItem {
         BlockPos blockPos;
         World world = context.getWorld();
         BlockState blockState = world.getBlockState(blockPos = context.getBlockPos());
-        if (!blockState.isOf(BackroomsBlocks.TAPE_PLAYER) || blockState.get(TapePlayer.HAS_RECORD).booleanValue()) {
+        if (!blockState.isOf(BackroomsBlocks.TAPE_PLAYER) || blockState.get(TapePlayerBlock.HAS_RECORD).booleanValue()) {
             return ActionResult.PASS;
         }
         ItemStack itemStack = context.getStack();
         if (!world.isClient) {
-            ((TapePlayer) BackroomsBlocks.TAPE_PLAYER).setRecord(context.getPlayer(), world, blockPos, blockState, itemStack);
+            ((TapePlayerBlock) BackroomsBlocks.TAPE_PLAYER).setRecord(context.getPlayer(), world, blockPos, blockState, itemStack);
             world.playSound(null, context.getBlockPos(), this.getSound(), SoundCategory.RECORDS, 0.75f, 1f);
             world.getServer().getPlayerManager().broadcast(Text.translatable("record.nowPlaying", Text.translatable(this.getTranslationKey() + ".desc").getString()).formatted(Formatting.YELLOW), true);
             PlayerEntity playerEntity = context.getPlayer();

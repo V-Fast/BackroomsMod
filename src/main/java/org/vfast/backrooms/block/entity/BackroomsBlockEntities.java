@@ -9,17 +9,22 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class BackroomsBlockEntities {
-    public static BlockEntityType<TapePlayerEntity> tapePlayer;
-    public static BlockEntityType<RadioEntity> radio;
+    public static BlockEntityType<TapePlayerBlockEntity> TAPE_PLAYER_BLOCK_ENTITY;
+    public static BlockEntityType<RadioBlockEntity> RADIO_BLOCK_ENTITY;
+    public static BlockEntityType<BackroomsPortalBlockEntity> BACKROOMS_PORTAL_BLOCK_ENTITY;
 
     public static void registerBlockEntities() {
-        BackroomsBlockEntities.tapePlayer = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+        BackroomsBlockEntities.TAPE_PLAYER_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BackroomsMod.ID, "tape_player"),
-                FabricBlockEntityTypeBuilder.create(TapePlayerEntity::new,
-                        BackroomsBlocks.TAPE_PLAYER).build(null));
-        BackroomsBlockEntities.radio = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                FabricBlockEntityTypeBuilder.create(TapePlayerBlockEntity::new,
+                        BackroomsBlocks.TAPE_PLAYER).build());
+        BackroomsBlockEntities.RADIO_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BackroomsMod.ID, "radio"),
-                FabricBlockEntityTypeBuilder.create(RadioEntity::new,
-                        BackroomsBlocks.RADIO).build(null));
+                FabricBlockEntityTypeBuilder.create(RadioBlockEntity::new,
+                        BackroomsBlocks.RADIO).build());
+        BackroomsBlockEntities.BACKROOMS_PORTAL_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(BackroomsMod.ID, "backrooms_portal"),
+                FabricBlockEntityTypeBuilder.create(BackroomsPortalBlockEntity::new,
+                        BackroomsBlocks.BACKROOMS_PORTAL).build());
     }
 }

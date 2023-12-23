@@ -8,8 +8,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
-public class FluorescentLight extends Block {
-    public FluorescentLight(Settings settings) {
+public class FluorescentLightBlock extends Block {
+    public FluorescentLightBlock(Settings settings) {
         super(settings);
     }
 

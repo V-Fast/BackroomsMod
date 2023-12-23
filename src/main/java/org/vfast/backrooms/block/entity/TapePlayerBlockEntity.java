@@ -1,6 +1,6 @@
 package org.vfast.backrooms.block.entity;
 
-import org.vfast.backrooms.block.interactable.TapePlayer;
+import org.vfast.backrooms.block.interactable.TapePlayerBlock;
 import org.vfast.backrooms.item.interactable.MusicTape;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -12,15 +12,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
-public class TapePlayerEntity extends BlockEntity implements Clearable {
+public class TapePlayerBlockEntity extends BlockEntity implements Clearable {
     private ItemStack record;
     private int ticksThisSecond;
     private long tickCount;
     private long recordStartTick;
     private boolean isPlaying;
 
-    public TapePlayerEntity(BlockPos pos, BlockState state) {
-        super(BackroomsBlockEntities.tapePlayer, pos, state);
+    public TapePlayerBlockEntity(BlockPos pos, BlockState state) {
+        super(BackroomsBlockEntities.TAPE_PLAYER_BLOCK_ENTITY, pos, state);
         this.record = ItemStack.EMPTY;
     }
 
@@ -65,7 +65,7 @@ public class TapePlayerEntity extends BlockEntity implements Clearable {
         this.isPlaying = false;
     }
 
-    public static void tick(World world, BlockPos pos, BlockState state, TapePlayerEntity blockEntity) {
+    public static void tick(World world, BlockPos pos, BlockState state, TapePlayerBlockEntity blockEntity) {
         blockEntity.ticksThisSecond++;
         if (isPlayingRecord(state, blockEntity)) {
             Item var5 = blockEntity.getRecord().getItem();
@@ -83,15 +83,15 @@ public class TapePlayerEntity extends BlockEntity implements Clearable {
         blockEntity.tickCount++;
     }
 
-    private static boolean isPlayingRecord(BlockState state, TapePlayerEntity blockEntity) {
-        return state.get(TapePlayer.HAS_RECORD) && blockEntity.isPlaying;
+    private static boolean isPlayingRecord(BlockState state, TapePlayerBlockEntity blockEntity) {
+        return state.get(TapePlayerBlock.HAS_RECORD) && blockEntity.isPlaying;
     }
 
-    private static boolean isSongFinished(TapePlayerEntity blockEntity, MusicTape musicDisc) {
+    private static boolean isSongFinished(TapePlayerBlockEntity blockEntity, MusicTape musicDisc) {
         return blockEntity.tickCount >= blockEntity.recordStartTick + (long)musicDisc.getSongLengthInTicks();
     }
 
-    private static boolean hasSecondPassed(TapePlayerEntity blockEntity) {
+    private static boolean hasSecondPassed(TapePlayerBlockEntity blockEntity) {
         return blockEntity.ticksThisSecond >= 20;
     }
 }

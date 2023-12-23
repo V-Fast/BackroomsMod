@@ -3,7 +3,7 @@ package org.vfast.backrooms.block.interactable;
 import com.mojang.serialization.MapCodec;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
-import org.vfast.backrooms.block.entity.RadioEntity;
+import org.vfast.backrooms.block.entity.RadioBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -38,12 +38,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
-public class Radio extends BlockWithEntity {
-    public static final MapCodec<Radio> CODEC = createCodec(Radio::new);
+public class RadioBlock extends BlockWithEntity {
+    public static final MapCodec<RadioBlock> CODEC = createCodec(RadioBlock::new);
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty RECORD;
 
-    public Radio(Settings settings) {
+    public RadioBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(RECORD, 0));
     }
@@ -110,13 +110,13 @@ public class Radio extends BlockWithEntity {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new RadioEntity(pos, state);
+        return new RadioBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, BackroomsBlockEntities.radio, RadioEntity::tick);
+        return validateTicker(type, BackroomsBlockEntities.RADIO_BLOCK_ENTITY, RadioBlockEntity::tick);
     }
 
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
@@ -150,10 +150,10 @@ public class Radio extends BlockWithEntity {
         List<RadioRecord> allRecords = BackroomsMod.getRecords();
         RadioRecord record = null;
         Identifier oldRecord = null;
-        if (blockEntity instanceof RadioEntity radioEntity) {
+        if (blockEntity instanceof RadioBlockEntity radioEntity) {
             int currentId = radioEntity.getRecordId();
             if (currentId != 0) oldRecord = allRecords.get(currentId).sound.getId();
-            currentId = Radio.scroll(currentId + 1, 1, allRecords.size() - 1);
+            currentId = RadioBlock.scroll(currentId + 1, 1, allRecords.size() - 1);
             radioEntity.setRecord(currentId);
             radioEntity.startPlaying();
             world.setBlockState(pos, state.with(RECORD, currentId), 2);
@@ -192,11 +192,11 @@ public class Radio extends BlockWithEntity {
     public void stopRecords(BlockState state, World world, BlockPos pos, @Nullable PlayerEntity player) {
         if (!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof RadioEntity) {
+            if (blockEntity instanceof RadioBlockEntity) {
                 world.setBlockState(pos, state.with(RECORD, 0), 2);
-                Identifier soundId = BackroomsMod.getRecords().get(((RadioEntity) blockEntity).getRecordId()).sound.getId();
+                Identifier soundId = BackroomsMod.getRecords().get(((RadioBlockEntity) blockEntity).getRecordId()).sound.getId();
                 StopSoundS2CPacket stopSoundS2CPacket = new StopSoundS2CPacket(soundId, null);
-                ((RadioEntity) blockEntity).setRecord(0);
+                ((RadioBlockEntity) blockEntity).setRecord(0);
 
                 ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) player;
                 assert serverPlayerEntity != null;

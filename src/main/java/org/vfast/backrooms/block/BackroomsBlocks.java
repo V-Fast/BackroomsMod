@@ -4,9 +4,10 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import org.vfast.backrooms.BackroomsMod;
-import org.vfast.backrooms.block.interactable.FluorescentLight;
-import org.vfast.backrooms.block.interactable.Radio;
-import org.vfast.backrooms.block.interactable.TapePlayer;
+import org.vfast.backrooms.block.interactable.BackroomsPortalBlock;
+import org.vfast.backrooms.block.interactable.FluorescentLightBlock;
+import org.vfast.backrooms.block.interactable.RadioBlock;
+import org.vfast.backrooms.block.interactable.TapePlayerBlock;
 import org.vfast.backrooms.item.BackroomsItemsGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
@@ -32,7 +33,7 @@ public class BackroomsBlocks {
     public static final Block DROPPED_CEILING = registerBlock("dropped_ceiling",
             new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).strength(1f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
-            new FluorescentLight(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+            new FluorescentLightBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block BACKROOMS_PORTAL = registerBlock("backrooms_portal",
             new BackroomsPortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL).luminance(15).breakInstantly()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
 
@@ -58,9 +59,9 @@ public class BackroomsBlocks {
     // Other
 
     public static final Block TAPE_PLAYER = registerBlock("tape_player",
-            new TapePlayer(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+            new TapePlayerBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Block RADIO = registerBlock("radio",
-            new Radio(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+            new RadioBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.IRON_BLOCK.getHardness()).requiresTool().nonOpaque()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
 
     // Register
     @SafeVarargs
