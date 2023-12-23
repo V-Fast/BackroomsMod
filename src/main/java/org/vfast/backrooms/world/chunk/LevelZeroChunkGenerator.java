@@ -57,7 +57,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
     }
 
     public static NbtGroup getNbtGroup() {
-        return NbtGroup.Builder.create(BackroomsDimensions.LEVEL_ZERO_ID)
+        return NbtGroup.Builder.create(BackroomsDimensions.LEVEL_ZERO.id)
                 .with("4x4",
                         "crossroad",
                         "hall",
@@ -117,7 +117,7 @@ public class LevelZeroChunkGenerator extends AbstractNbtChunkGenerator {
             if (random.nextBetween(1, 500) != 500) {
                 region.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
             } else if (random.nextBoolean()) {
-                ServerWorld world = region.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY);
+                ServerWorld world = region.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO.key);
                 BacteriaEntity bacteria = new BacteriaEntity(BackroomsEntities.BACTERIA, world);
                 bacteria.setPosition(pos.toCenterPos());
                 world.spawnEntity(bacteria);

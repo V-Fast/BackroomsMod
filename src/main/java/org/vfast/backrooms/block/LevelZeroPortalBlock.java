@@ -25,7 +25,7 @@ public class LevelZeroPortalBlock extends Block {
         if (!fromWorld.isClient()) {
             Random rand = fromWorld.getRandom();
             ServerWorld overworld = fromWorld.getServer().getOverworld();
-            ServerWorld level_zero = fromWorld.getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY);
+            ServerWorld level_zero = BackroomsDimensions.LEVEL_ZERO.getWorld(fromWorld.getServer());
             if (fromWorld != level_zero) {
                 LimlibTravelling.travelTo(entity, level_zero, new TeleportTarget(
                                 Vec3d.of(new Vec3i(rand.nextBetween(entity.getBlockX()-200, entity.getBlockX()+200), 2, rand.nextBetween(entity.getBlockZ()-200, entity.getBlockZ()+200))),

@@ -51,7 +51,7 @@ public class LevelOneChunkGenerator extends AbstractNbtChunkGenerator {
     }
 
     public static NbtGroup getNbtGroup() {
-        return NbtGroup.Builder.create(BackroomsDimensions.LEVEL_ONE_ID)
+        return NbtGroup.Builder.create(BackroomsDimensions.LEVEL_ONE.id)
                 .with("8x8",
                         "pillar",
                         "empty",

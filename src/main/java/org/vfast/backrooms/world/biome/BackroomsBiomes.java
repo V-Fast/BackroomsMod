@@ -9,8 +9,8 @@ import net.minecraft.world.biome.Biome;
 
 public class BackroomsBiomes {
 
-    public static final RegistryKey<Biome> LEVEL_ZERO_BIOME = get(BackroomsDimensions.LEVEL_ZERO_ID);
-    public static final RegistryKey<Biome> LEVEL_ONE_BIOME = get(BackroomsDimensions.LEVEL_ONE_ID);
+    public static final RegistryKey<Biome> LEVEL_ZERO_BIOME = get(BackroomsDimensions.LEVEL_ZERO.id);
+    public static final RegistryKey<Biome> LEVEL_ONE_BIOME = get(BackroomsDimensions.LEVEL_ONE.id);
 
     public static RegistryKey<Biome> get(Identifier id) {
         return RegistryKey.of(RegistryKeys.BIOME, id);
