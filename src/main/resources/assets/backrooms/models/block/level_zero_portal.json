@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "backrooms:block/level_zero_portal"
+    "all": "backrooms:block/backrooms_portal"
   }
 }

@@ -14,8 +14,8 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 
-public class LevelZeroPortalBlock extends Block {
-    public LevelZeroPortalBlock(Settings settings) {
+public class BackroomsPortalBlock extends Block {
+    public BackroomsPortalBlock(Settings settings) {
         super(settings);
     }
 

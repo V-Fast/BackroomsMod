@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "backrooms:block/level_zero_portal"
+      "model": "backrooms:block/backrooms_portal"
     }
   }
 }

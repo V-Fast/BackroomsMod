@@ -19,7 +19,7 @@
     "requirement": {
       "trigger": "minecraft:recipe_crafted",
       "conditions": {
-        "recipe_id": "backrooms:crafting/level_zero_portal"
+        "recipe_id": "backrooms:crafting/backrooms_portal"
       }
     }
   },

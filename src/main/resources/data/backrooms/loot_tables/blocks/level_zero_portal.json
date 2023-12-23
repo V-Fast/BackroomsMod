@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "backrooms:level_zero_portal"
+          "name": "backrooms:backrooms_portal"
         }
       ]
     }

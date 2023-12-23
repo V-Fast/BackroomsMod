@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "backrooms:level_zero_portal"
+      "item": "backrooms:backrooms_portal"
     },
     "title": {
       "translate": "advancements.backrooms.backrooms.the_end_is_never.title"

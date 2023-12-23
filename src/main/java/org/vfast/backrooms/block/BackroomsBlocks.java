@@ -33,8 +33,8 @@ public class BackroomsBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).strength(1f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
             new FluorescentLight(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
-    public static final Block LEVEL_ZERO_PORTAl = registerBlock("level_zero_portal",
-            new LevelZeroPortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL).luminance(15).breakInstantly()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+    public static final Block BACKROOMS_PORTAL = registerBlock("backrooms_portal",
+            new BackroomsPortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL).luminance(15).breakInstantly()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
 
     // Level 1
     public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",
