@@ -26,7 +26,6 @@ public class BackroomsPortalBlockEntity extends BlockEntity {
 
     @Override
     public void writeNbt(NbtCompound nbt) {
-        // Save the current value of the number to the nbt
         nbt.putString("level", level.toString());
 
         super.writeNbt(nbt);
