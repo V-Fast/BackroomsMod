@@ -78,13 +78,13 @@ public class BackroomsMod implements ModInitializer {
 			BackroomsConfig.HANDLER.save();
 		});
         ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> {
-			if (destination == BackroomsDimensions.LEVEL_ZERO.getWorld(player.getServer())) {
+			if (BackroomsDimensions.isLevel(destination)) {
 				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 2, false, false, false);
 				player.addStatusEffect(effect);
 				player.setSpawnPoint(BackroomsDimensions.LEVEL_ZERO.key,
 						player.getBlockPos(), // TODO make spawnpoint position randomized
 						0.0f, true, false);
-			} else if (origin == BackroomsDimensions.LEVEL_ZERO.getWorld(player.getServer())){
+			} else if (BackroomsDimensions.isLevel(origin)){
 				player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
 			}
 		});

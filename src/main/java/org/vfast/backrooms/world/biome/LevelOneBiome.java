@@ -18,11 +18,12 @@ public class LevelOneBiome {
         GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(features, carvers);
 
         BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
-        biomeEffects.skyColor(10138336);
+        biomeEffects.skyColor(857121);
         biomeEffects.waterColor(10663127);
         biomeEffects.waterFogColor(329011);
         biomeEffects.fogColor(3223857);
         biomeEffects.grassColor(13818488);
+        biomeEffects.foliageColor(5855577);
         //biomeEffects.loopSound(RegistryEntry.of(ModSounds.SEALED_AWAY));
         //biomeEffects.moodSound(BiomeMoodSound.CAVE);
         BiomeEffects effects = biomeEffects.build();

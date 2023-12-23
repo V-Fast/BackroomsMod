@@ -66,8 +66,14 @@ public class BackroomsDimensions implements LimlibRegistrar {
                             )));
 
     public static boolean isInBackrooms(Entity entity) {
+        return isLevel((ServerWorld) entity.getWorld());
+    }
+
+    public static boolean isLevel(ServerWorld world) {
+        MinecraftServer server = world.getServer();
+
         for (Level level : levels) {
-            if (entity.getWorld() == level.getWorld(entity.getServer())) {
+            if (level.getWorld(server) == world) {
                 return true;
             }
         }
