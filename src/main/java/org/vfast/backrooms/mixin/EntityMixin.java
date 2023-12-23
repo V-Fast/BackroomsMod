@@ -54,12 +54,14 @@ public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void onTick(CallbackInfo ci) {
-        Random rand = ((Entity)(Object)this).getWorld().getRandom();
-        if (((Entity)(Object)this).isInsideWall() && rand.nextBetween(1, 50) == 50) {
-            LimlibTravelling.travelTo(((Entity)(Object)this), ((Entity)(Object)this).getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY), new TeleportTarget(
-                            Vec3d.of(new Vec3i(rand.nextBetween(((Entity)(Object)this).getBlockX()-200, ((Entity)(Object)this).getBlockX()+200), 2, rand.nextBetween(((Entity)(Object)this).getBlockZ()-200, ((Entity)(Object)this).getBlockZ()+200))),
-                            Vec3d.ZERO, 0.0f, 0.0f),
-                    BackroomsSounds.CAMERA_CLICK, 5.0f, 1.0f);
+        if (!((Entity) (Object) this).getWorld().isClient()) {
+            Random rand = ((Entity) (Object) this).getWorld().getRandom();
+            if (((Entity) (Object) this).isInsideWall() && rand.nextBetween(1, 50) == 50) {
+                LimlibTravelling.travelTo(((Entity) (Object) this), ((Entity) (Object) this).getServer().getWorld(BackroomsDimensions.LEVEL_ZERO_KEY), new TeleportTarget(
+                                Vec3d.of(new Vec3i(rand.nextBetween(((Entity) (Object) this).getBlockX() - 200, ((Entity) (Object) this).getBlockX() + 200), 2, rand.nextBetween(((Entity) (Object) this).getBlockZ() - 200, ((Entity) (Object) this).getBlockZ() + 200))),
+                                Vec3d.ZERO, 0.0f, 0.0f),
+                        BackroomsSounds.CAMERA_CLICK, 5.0f, 1.0f);
+            }
         }
     }
 }
