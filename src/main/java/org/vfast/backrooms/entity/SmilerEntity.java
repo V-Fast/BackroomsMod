@@ -64,9 +64,11 @@ public class SmilerEntity extends HostileEntity implements GeoEntity {
         if (getWorld().getLightLevel(getBlockPos()) > 6) {
             setInvisible(true);
             setAiDisabled(true);
+            setInvulnerable(true);
         } else {
             setInvisible(false);
             setAiDisabled(false);
+            setInvulnerable(false);
         }
     }
 
