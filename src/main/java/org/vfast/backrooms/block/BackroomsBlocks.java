@@ -35,7 +35,7 @@ public class BackroomsBlocks {
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
             new FluorescentLightBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block BACKROOMS_PORTAL = registerBlock("backrooms_portal",
-            new BackroomsPortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL).luminance(15).breakInstantly()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+            new BackroomsPortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL).luminance(10).breakInstantly()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
 
     // Level 1
     public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",
@@ -45,9 +45,9 @@ public class BackroomsBlocks {
     public static final Block STAINED_CONCRETE = registerBlock("stained_concrete",
             new Block(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.BLACK_CONCRETE.getHardness())), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block SCRATCHED_CONCRETE_STAIRS = registerBlock("slightly_scratched_concrete_stairs",
-            new StairsBlock(SCRATCHED_CONCRETE.getDefaultState(), AbstractBlock.Settings.copy(SCRATCHED_CONCRETE)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+            new StairsBlock(SCRATCHED_CONCRETE.getDefaultState(), FabricBlockSettings.copy(SCRATCHED_CONCRETE)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block STAINED_CONCRETE_STAIRS = registerBlock("stained_concrete_stairs",
-            new StairsBlock(STAINED_CONCRETE.getDefaultState(), AbstractBlock.Settings.copy(STAINED_CONCRETE)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+            new StairsBlock(STAINED_CONCRETE.getDefaultState(), FabricBlockSettings.copy(STAINED_CONCRETE)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block STAINED_MARKED_CONCRETE = registerBlock("stained_marked_concrete",
             new Block(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.BLACK_CONCRETE.getHardness())), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block STREET_LIGHT = registerBlock("street_light",
@@ -55,6 +55,7 @@ public class BackroomsBlocks {
 
     // Level Run
     public static final Block HOSPITAL_DOOR = registerBlock("hospital_door", new DoorBlock(BlockSetTypeBuilder.copyOf(BlockSetType.IRON).openableByHand(true).build(new Identifier(BackroomsMod.ID, "ceramic")), FabricBlockSettings.copyOf(Blocks.IRON_DOOR)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block EXIT_SIGN = registerBlock("exit_sign", new ExitSignBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.GLASS).strength(0.3f, 0.1f).luminance(6).nonOpaque().requiresTool()), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
     // Other
 

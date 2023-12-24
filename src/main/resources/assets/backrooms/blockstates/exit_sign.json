@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "backrooms:block/exit_sign",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "backrooms:block/exit_sign"
+    },
+    "facing=west": {
+      "model": "backrooms:block/exit_sign",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "backrooms:block/exit_sign",
+      "y": 270
+    }
+  }
+}
