@@ -12,6 +12,7 @@ public class BackroomsChunkGenerators {
     public static void registerChunkGenerators() {
         registerChunkGenerator("level_zero_chunk_generator", LevelZeroChunkGenerator.CODEC);
         registerChunkGenerator("level_one_chunk_generator", LevelOneChunkGenerator.CODEC);
+        registerChunkGenerator("level_run_chunk_generator", LevelRunChunkGenerator.CODEC);
     }
 
     public static <C extends ChunkGenerator, D extends Codec<C>> D registerChunkGenerator(String id, D chunkGeneratorCodec) {

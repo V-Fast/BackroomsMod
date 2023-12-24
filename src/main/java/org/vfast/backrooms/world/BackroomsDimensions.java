@@ -10,8 +10,10 @@ import org.jetbrains.annotations.Nullable;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.world.biome.BackroomsBiomes;
 import org.vfast.backrooms.world.biome.LevelOneBiome;
+import org.vfast.backrooms.world.biome.LevelRunBiome;
 import org.vfast.backrooms.world.biome.LevelZeroBiome;
 import org.vfast.backrooms.world.chunk.LevelOneChunkGenerator;
+import org.vfast.backrooms.world.chunk.LevelRunChunkGenerator;
 import org.vfast.backrooms.world.chunk.LevelZeroChunkGenerator;
 import com.mojang.serialization.Lifecycle;
 import net.ludocrypt.limlib.api.LimlibRegistrar;
@@ -66,6 +68,20 @@ public class BackroomsDimensions implements LimlibRegistrar {
                                             .get())
                             )));
 
+    public static final Level LEVEL_RUN = new Level(new Identifier(BackroomsMod.ID, "level_run"),
+            (registry) ->
+                    new DimensionOptions(
+                            registry.get(RegistryKeys.DIMENSION_TYPE)
+                                    .getOptional(RegistryKey
+                                            .of(RegistryKeys.DIMENSION_TYPE, new Identifier(BackroomsMod.ID, "level_run")))
+                                    .get(),
+                            new LevelRunChunkGenerator(
+                                    new FixedBiomeSource(registry
+                                            .get(RegistryKeys.BIOME)
+                                            .getOptional(BackroomsBiomes.LEVEL_RUN_BIOME)
+                                            .get())
+                            )));
+
     public static boolean isInBackrooms(Entity entity) {
         return isLevel((ServerWorld) entity.getWorld());
     }
@@ -101,6 +117,7 @@ public class BackroomsDimensions implements LimlibRegistrar {
 
             registry.add(BackroomsBiomes.LEVEL_ZERO_BIOME, LevelZeroBiome.create(features, carvers), Lifecycle.stable());
             registry.add(BackroomsBiomes.LEVEL_ONE_BIOME, LevelOneBiome.create(features, carvers), Lifecycle.stable());
+            registry.add(BackroomsBiomes.LEVEL_RUN_BIOME, LevelRunBiome.create(features, carvers), Lifecycle.stable());
         });
     }
 

@@ -11,6 +11,7 @@ public class BackroomsBiomes {
 
     public static final RegistryKey<Biome> LEVEL_ZERO_BIOME = get(BackroomsDimensions.LEVEL_ZERO.id);
     public static final RegistryKey<Biome> LEVEL_ONE_BIOME = get(BackroomsDimensions.LEVEL_ONE.id);
+    public static final RegistryKey<Biome> LEVEL_RUN_BIOME = get(BackroomsDimensions.LEVEL_RUN.id);
 
     public static RegistryKey<Biome> get(Identifier id) {
         return RegistryKey.of(RegistryKeys.BIOME, id);

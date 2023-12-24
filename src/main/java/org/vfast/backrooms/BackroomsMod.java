@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerEntityWorldChangeEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import org.vfast.backrooms.block.BackroomsBlocks;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
@@ -79,13 +80,22 @@ public class BackroomsMod implements ModInitializer {
 		});
         ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> {
 			if (BackroomsDimensions.isLevel(destination)) {
-				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 2, false, false, false);
-				player.addStatusEffect(effect);
-				player.setSpawnPoint(BackroomsDimensions.LEVEL_ZERO.key,
+				StatusEffectInstance miningFatigue = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 2, false, false, false);
+				player.addStatusEffect(miningFatigue);
+				player.setSpawnPoint(BackroomsDimensions.LEVEL_ZERO.key,// TODO Make this the same as origin dimension
 						player.getBlockPos(), // TODO make spawnpoint position randomized
 						0.0f, true, false);
+				if (destination == BackroomsDimensions.LEVEL_RUN.getWorld(player.getServer())) {
+					StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, StatusEffectInstance.INFINITE, 1, false, false, false);
+					player.addStatusEffect(speed);
+				}
 			} else if (BackroomsDimensions.isLevel(origin)){
+				ServerWorld overworld = player.getServer().getOverworld();
+				player.setSpawnPoint(overworld.getRegistryKey(), overworld.getSpawnPos(), overworld.getSpawnAngle(), true, false);
 				player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
+				if (origin == BackroomsDimensions.LEVEL_RUN.getWorld(player.getServer())) {
+					player.removeStatusEffect(StatusEffects.SPEED);
+				}
 			}
 		});
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
