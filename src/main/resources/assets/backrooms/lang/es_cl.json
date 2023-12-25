@@ -7,6 +7,24 @@
   "advancements.backrooms.backrooms.the_end_is_never.title": "El final nunca es el final nunca es...",
   "advancements.backrooms.backrooms.the_end_is_never.description": "Entra al nivel 0",
 
+  "key.backrooms.config": "Configuracion de los Backrooms",
+
+  "config.backrooms.title": "Configuracion de los Backrooms",
+  "config.backrooms.main": "Configuracion principal de los Backrooms",
+  "config.backrooms.main.tooltip": "Opciones principales de configuracion para el mod de los Backrooms",
+  "config.backrooms.main.visual_effects": "Efectos visuakes",
+  "config.backrooms.main.visual_effects.description": "Opciones para effectos visuales del lado del cliente",
+  "config.backrooms.main.visual_effects.show_record": "Mostrar Record",
+  "config.backrooms.main.visual_effects.show_record.description": "Si quieres que se muestre la interfaz de \"Record\" cuando usas la camara",
+  "config.backrooms.main.sanity": "Cordura",
+  "config.backrooms.main.sanity.description": "Opciones relacionadas a la cordura",
+  "config.backrooms.main.sanity.loose_sanity_speed": "Velocidad de perdida de cordura",
+  "config.backrooms.main.sanity.loose_sanity_speed.description": "La cantidad de tiempo que necesita pasar (en minutos) para que un jugador pierda un nivel de cordura mientras esta en los Backrooms",
+  "config.backrooms.main.sanity.recover_sanity_speed": "Velocidad de recuperacion de cordura",
+  "config.backrooms.main.sanity.recover_sanity_speed.description": "La cantidad de tiempo que necesita pasar (en minutos) para que un jugador recupere un nivel de cordura mientras no esta en los Backrooms",
+
+  "death.attack.low_sanity": "%1$s se volvio loco",
+
   "item.backrooms.silk": "Seda",
   "item.backrooms.silken_book": "Libro de seda",
   "item.backrooms.almond_water": "Agua de almendras",
@@ -22,9 +40,7 @@
   "item.backrooms.baseball_bat": "Bate de baseball",
   "item.backrooms.broken_bottle": "Botella rota",
   "item.backrooms.bacteria_spawn_egg": "Generar bacteria",
-  "item.backrooms.backrooms_core": "Nucleo de Backrooms",
-  "item.backrooms.backrooms_core.desc": "Tipo: %s",
-  "item.backrooms.backrooms_core.use": "Cambiar tipo a %s",
+  "item.backrooms.smiler_spawn_egg": "Generar smiler",
 
   "item.backrooms.halls_tape": "Cinta musical",
   "item.backrooms.the_complex_tape": "Cinta musical",
@@ -106,26 +122,17 @@
   "block.backrooms.stained_marked_concrete": "Concreto manchado marcado",
   "block.backrooms.street_light": "Luz de calle",
   "block.backrooms.backrooms_portal": "Portal de los Backrooms",
+  "block.backrooms.hospital_door": "Puerta de hospital",
+  "block.backrooms.exit_sign": "Señal de salida",
 
   "entity.backrooms.bacteria": "Bacteria",
-
-  "option.backrooms.general": "General",
-  "option.backrooms.dev": "Dev",
-  "option.backrooms.disable_record": "Deshabilitar \"Grabar\" HUD",
-  "option.backrooms.disable_record.tooltip": "Esconde la palabra \"Grabar\" en el HUD de la Camara",
-  "option.backrooms.explain_errors": "Explicar cuando ocurre un error",
-  "option.backrooms.explain_errors.tooltip": "Cuando el mod no puede realizar una accion que tu querias,\nExplicara porque occurio, y si hay una solucion.",
-  "option.backrooms.enable_discord": "Habilitar Presencia Rica de Discord",
-  "option.backrooms.enable_discord.tooltip": "Muestra una actividad como tu estatus de Discord",
-  "option.backrooms.restart_rpc": "Reiniciar Presencia Rica",
-  "option.backrooms.restart_rpc.tooltip": "Puedes reiniciar UNA VEZ cada vez que juegas",
-  "option.backrooms.discord_label": "Etiqueta de Presencia Rica de Discord",
-  "option.backrooms.discord_label.tooltip": "Escribe lo que quieras en tu estatus de Discord",
+  "entity.backrooms.smiler": "Smiler",
 
   "subtitle.backrooms.light_buzzing": "Zumbido de luz",
   "subtitle.backrooms.camera_click": "Click de la camara",
 
   "key.backrooms.level_info": "Informacion de nivel",
+
   "levels.backrooms.overworld.details": "El overworld, el lugar donde todo empieza.\nUnos pocos mobs spawnean en la noche e intentan matarte, though, aunque tambien hay mobs pasivos que te pueden dar comida.",
   "levels.backrooms.level_0.details": "Te preguntas donde estas? Bueno, si sabes sabes.\nIntenta no morir de hambre, sed, o solo morir.\nBuena suerte.",
   "levels.backrooms.level_1.details": "Un lugar muy familiar, parece un estacionamiento subterraneo infinito.\nHay poca luz y sonidos terrorificos pueden ser escuchados.",

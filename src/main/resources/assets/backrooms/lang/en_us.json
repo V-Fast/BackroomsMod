@@ -23,7 +23,7 @@
   "config.backrooms.main.sanity.recover_sanity_speed": "Recover sanity speed",
   "config.backrooms.main.sanity.recover_sanity_speed.description": "The time it takes (in minutes) for a player to regain a single level of sanity while out of the Backrooms",
 
-  "death.attack.low_sanity": "%1$s lost his sanity",
+  "death.attack.low_sanity": "%1$s went insane",
 
   "item.backrooms.silk": "Silk",
   "item.backrooms.silken_book": "Silken Book",
@@ -41,10 +41,6 @@
   "item.backrooms.broken_bottle": "Broken Bottle",
   "item.backrooms.bacteria_spawn_egg": "Bacteria Spawn Egg",
   "item.backrooms.smiler_spawn_egg": "Smiler Spawn Egg",
-  "item.backrooms.backrooms_core": "Backrooms Core",
-
-  "item.backrooms.backrooms_core.desc": "Type: %s",
-  "item.backrooms.backrooms_core.use": "Set Type to %s",
 
   "item.backrooms.halls_tape": "Music Tape",
   "item.backrooms.the_complex_tape": "Music Tape",
@@ -131,19 +127,6 @@
 
   "entity.backrooms.bacteria": "Bacteria",
   "entity.backrooms.smiler": "Smiler",
-
-  "option.backrooms.general": "General",
-  "option.backrooms.dev": "Dev",
-  "option.backrooms.disable_record": "Disable the \"Record\" HUD",
-  "option.backrooms.disable_record.tooltip": "Hides the word \"Record\" in the Camera HUD",
-  "option.backrooms.explain_errors": "Explain when error occurs",
-  "option.backrooms.explain_errors.tooltip": "When the mod cannot do an action you wanted,\nIt will explain why it occurs, and if there's a fix.",
-  "option.backrooms.enable_discord": "Enable Discord Rich Presence",
-  "option.backrooms.enable_discord.tooltip": "Displays an Activity as your Discord status",
-  "option.backrooms.restart_rpc": "Restart Rich Presence",
-  "option.backrooms.restart_rpc.tooltip": "You can restart ONCE every time you play",
-  "option.backrooms.discord_label": "Discord Rich Presence Label",
-  "option.backrooms.discord_label.tooltip": "Write anything you want on your Discord status",
 
   "subtitle.backrooms.light_buzzing": "Light Buzzing",
   "subtitle.backrooms.camera_click": "Camera Clicking",
