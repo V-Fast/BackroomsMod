@@ -27,8 +27,10 @@ public class BackroomsConfig {
                     .build())
             .build();
 
-    @Environment(EnvType.CLIENT)
-    @SerialEntry(comment = "Whether to show the \"Record\" gui when using the Camera")
+    @SerialEntry(comment = "Whether to show the Experimental Settings screen when loading a world (client only)")
+    public boolean showExperimentalSettingsScreen = false;
+
+    @SerialEntry(comment = "Whether to show the \"Record\" gui when using the Camera (client only)")
     public boolean showRecord = true;
 
     @SerialEntry(comment = "The time it takes (in minutes) for a player to loose a single level of sanity while in the Backrooms")
@@ -43,6 +45,12 @@ public class BackroomsConfig {
                 .category(ConfigCategory.createBuilder()
                         .name(Text.translatable("config.backrooms.main"))
                         .tooltip(Text.translatable("config.backrooms.main.tooltip"))
+                        .option(Option.<Boolean>createBuilder()
+                                .name(Text.translatable("config.backrooms.main.show_experimental_settings_screen"))
+                                .description(OptionDescription.of(Text.translatable("config.backrooms.main.show_experimental_settings_screen.description")))
+                                .binding(false, () -> this.showExperimentalSettingsScreen, newVal -> this.showExperimentalSettingsScreen = newVal)
+                                .controller(TickBoxControllerBuilder::create)
+                                .build())
                         .group(OptionGroup.createBuilder()
                                 .name(Text.translatable("config.backrooms.main.visual_effects"))
                                 .description(OptionDescription.of(Text.translatable("config.backrooms.main.visual_effects.description")))
@@ -63,7 +71,7 @@ public class BackroomsConfig {
                                         .controller(opt -> IntegerSliderControllerBuilder.create(opt)
                                                 .range(1, 120)
                                                 .step(1)
-                                                .valueFormatter(val -> Text.literal(val + " mins")))
+                                                .formatValue(val -> Text.literal(val + " mins")))
                                         .build())
                                 .option(Option.<Integer>createBuilder()
                                         .name(Text.translatable("config.backrooms.main.sanity.recover_sanity_speed"))
@@ -72,7 +80,7 @@ public class BackroomsConfig {
                                         .controller(opt -> IntegerSliderControllerBuilder.create(opt)
                                                 .range(1, 60)
                                                 .step(1)
-                                                .valueFormatter(val -> Text.literal(val + " mins")))
+                                                .formatValue(val -> Text.literal(val + " mins")))
                                         .build())
                                 .build())
                         .build())
