@@ -29,6 +29,11 @@
   "config.backrooms.main.sanity.recover_sanity_speed": "Recover sanity speed",
   "config.backrooms.main.sanity.recover_sanity_speed.description": "The time it takes (in minutes) for a player to regain a single level of sanity while out of the Backrooms",
 
+  "commands.sanity.getter.success.plural": "Player %s has %s levels of sanity left",
+  "commands.sanity.getter.success.singular": "Player %s has %s level of sanity left",
+  "commands.sanity.setter.success.plural": "Set sanity of player %s to %s levels",
+  "commands.sanity.setter.success.singular": "Set sanity of player %s to %s level",
+
   "death.attack.low_sanity": "%1$s went insane",
 
   "item.backrooms.silk": "Silk",

@@ -1,6 +1,7 @@
 package org.vfast.backrooms;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityWorldChangeEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
@@ -10,6 +11,7 @@ import net.minecraft.util.ActionResult;
 import org.vfast.backrooms.block.BackroomsBlocks;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
 import org.vfast.backrooms.block.interactable.RadioBlock;
+import org.vfast.backrooms.command.SanityCommand;
 import org.vfast.backrooms.config.BackroomsConfig;
 import org.vfast.backrooms.entity.BackroomsEntities;
 import org.vfast.backrooms.entity.BacteriaEntity;
@@ -70,8 +72,13 @@ public class BackroomsMod implements ModInitializer {
 		BackroomsNetworking.registerPackets();
 		GeckoLib.initialize();
 		BackroomsEntities.registerMobs();
+		registerCommands();
 		registerEvents();
 		BackroomsMod.LOGGER.info("Initialized Backrooms");
+	}
+
+	public void registerCommands() {
+		CommandRegistrationCallback.EVENT.register(SanityCommand::register);
 	}
 
 	public void registerEvents() {
@@ -86,7 +93,7 @@ public class BackroomsMod implements ModInitializer {
 						player.getBlockPos(), // TODO make spawnpoint position randomized
 						0.0f, true, false);
 				if (destination == BackroomsDimensions.LEVEL_RUN.getWorld(player.getServer())) {
-					StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, StatusEffectInstance.INFINITE, 1, false, false, false);
+					StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, StatusEffectInstance.INFINITE, 0, false, false, false);
 					player.addStatusEffect(speed);
 				}
 			} else if (BackroomsDimensions.isLevel(origin)){

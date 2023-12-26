@@ -14,6 +14,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -52,7 +53,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerS
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void onTick(CallbackInfo ci) {
-        if (!getWorld().isClient()) {
+        if (!getWorld().isClient() && !this.isSpectator() && !this.isCreative()) {
             if (BackroomsDimensions.isInBackrooms(this)) {
                 sanityTimer++;
                 if (sanityTimer >= BackroomsConfig.HANDLER.instance().looseSanitySpeed * 60 * 20) {
@@ -66,7 +67,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerS
                     sanityTimer = 0;
                 }
             }
-            if (getSanity() <= 3 && !this.isSpectator() && !this.isCreative()) {
+            if (getSanity() <= 3) {
                 // ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal("Sanity: "+getSanity()));
                 // ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(BackroomsConfig.HANDLER.instance().looseSanitySpeed)));
                 // ((ServerPlayerEntity)(Object)this).sendMessage(Text.literal(String.valueOf(sanityTimer)));
@@ -105,16 +106,15 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerS
         if (!getWorld().isClient()) {
             NbtCompound nbt = this.backrooms$getPersistentData();
             int sanity = nbt.getInt("sanity");
-            if (sanity + amount > 10) {
-                sanity = 10;
-            } else if (sanity + amount < 1) {
-                sanity = 1;
-            } else {
-                sanity += amount;
-            }
+            sanity = MathHelper.clamp(sanity+amount, 1, 10);
             nbt.putInt("sanity", sanity);
             syncSanity();
         }
+    }
+
+    @Override
+    public void setSanity(int amount) {
+        modifySanity(amount-getSanity());
     }
 
     @Override
