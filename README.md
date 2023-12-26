@@ -17,11 +17,11 @@ You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms).
 
 ## Dependencies
 **If you plan on installing this mod, you'll have to install these mods as well**, italicized mods are optional.
-- [![Requires Quilted Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.1.2/assets/cozy/requires/quilted-fabric-api_64h.png)](https://modrinth.com/mod/qsl) [![Requires GeckoLib](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/geckolib_64h.png)](https://modrinth.com/mod/geckolib)
+- [![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.1.2/assets/cozy/requires/fabric-api_64h.png)](https://modrinth.com/mod/fabric-api) [![Requires GeckoLib](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/geckolib_64h.png)](https://modrinth.com/mod/geckolib)
 - *[Yet Another Config Lib](https://modrinth.com/mod/yacl/)*
 
 ## How do I do [something]?
-[![GitHub Wiki](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/gitbook_64h.png)](https://lumaa.gitbook.io/backrooms)
+[![Official Wiki](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/gitbook_64h.png)](https://github.com/V-Fast/BackroomsMod/wiki)
 
 ## Credits
 See [CREDITS](https://github.com/V-Fast/BackroomsMod/blob/main/CREDITS.md) file.
