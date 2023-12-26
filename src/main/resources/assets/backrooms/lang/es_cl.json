@@ -12,6 +12,8 @@
   "config.backrooms.title": "Configuracion de los Backrooms",
   "config.backrooms.main": "Configuracion principal de los Backrooms",
   "config.backrooms.main.tooltip": "Opciones principales de configuracion para el mod de los Backrooms",
+  "config.backrooms.main.show_experimental_settings_screen": "Mostrar pantalla de ajustes experimentales",
+  "config.backrooms.main.show_experimental_settings_screen.description": "Si quieres que se muestre la pantalla de ajustes experimentales al cargar un mundo",
   "config.backrooms.main.visual_effects": "Efectos visuakes",
   "config.backrooms.main.visual_effects.description": "Opciones para effectos visuales del lado del cliente",
   "config.backrooms.main.visual_effects.show_record": "Mostrar Record",
