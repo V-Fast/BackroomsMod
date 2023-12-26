@@ -1,25 +1,25 @@
 {
   "display": {
     "icon": {
-      "item": "backrooms:slightly_scratched_concrete"
+      "item": "backrooms:exit_sign"
     },
     "title": {
-      "translate": "advancements.backrooms.backrooms.the_end_is_never.title"
+      "translate": "advancements.backrooms.backrooms.run.title"
     },
     "description": {
-      "translate": "advancements.backrooms.backrooms.the_end_is_never.description"
+      "translate": "advancements.backrooms.backrooms.run.description"
     },
     "frame": "task",
-    "show_toast": false,
+    "show_toast": true,
     "announce_to_chat": false,
-    "hidden": false
+    "hidden": true
   },
   "parent": "backrooms:backrooms/root",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:changed_dimension",
       "conditions": {
-        "to": "backrooms:level_1"
+        "to": "backrooms:level_run"
       }
     }
   },

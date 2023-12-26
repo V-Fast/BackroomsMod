@@ -9,17 +9,17 @@
     "description": {
       "translate": "advancements.backrooms.backrooms.root.description"
     },
-    "frame": "task",
+    "frame": "goal",
     "background": "backrooms:textures/block/moist_silk.png",
-    "show_toast": true,
+    "show_toast": false,
     "announce_to_chat": false,
     "hidden": false
   },
   "criteria": {
     "requirement": {
-      "trigger": "minecraft:recipe_crafted",
+      "trigger": "minecraft:changed_dimension",
       "conditions": {
-        "recipe_id": "backrooms:crafting/backrooms_portal"
+        "to": "backrooms:level_0"
       }
     }
   },

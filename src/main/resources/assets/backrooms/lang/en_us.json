@@ -2,10 +2,14 @@
   "mod.backrooms.name": "The Backrooms",
   "mod.yacl.disabled": "This button is disabled because\nyou do not have Yet Another Config Lib",
 
-  "advancements.backrooms.backrooms.root.title": "The Backrooms",
-  "advancements.backrooms.backrooms.root.description": "Craft a Level 0 Portal",
+  "advancements.backrooms.backrooms.root.title": "Have I been here before?",
+  "advancements.backrooms.backrooms.root.description": "Enter Level 0",
   "advancements.backrooms.backrooms.the_end_is_never.title": "The End is Never the End is Never...",
-  "advancements.backrooms.backrooms.the_end_is_never.description": "Enter Level 0",
+  "advancements.backrooms.backrooms.the_end_is_never.description": "Enter Level 1",
+  "advancements.backrooms.backrooms.run.title": "RUN",
+  "advancements.backrooms.backrooms.run.description": "Enter Level !",
+  "advancements.backrooms.backrooms.escape.title": "Is this the end?",
+  "advancements.backrooms.backrooms.escape.description": "Finally exit the Backrooms",
 
   "key.backrooms.config": "The Backrooms Config",
 
