@@ -3,23 +3,16 @@ package org.vfast.backrooms.world.chunk;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.ludocrypt.limlib.api.world.LimlibHelper;
 import net.ludocrypt.limlib.api.world.Manipulation;
 import net.ludocrypt.limlib.api.world.NbtGroup;
 import net.ludocrypt.limlib.api.world.chunk.AbstractNbtChunkGenerator;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.LootableContainerBlockEntity;
-import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerLightingProvider;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureTemplateManager;
-import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
@@ -30,9 +23,6 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.noise.NoiseConfig;
-import org.vfast.backrooms.block.BackroomsBlocks;
-import org.vfast.backrooms.entity.BackroomsEntities;
-import org.vfast.backrooms.entity.BacteriaEntity;
 import org.vfast.backrooms.util.RngUtils;
 import org.vfast.backrooms.world.BackroomsDimensions;
 
@@ -84,13 +74,22 @@ public class LevelRunChunkGenerator extends AbstractNbtChunkGenerator {
         Random random = RngUtils.getFromPos(chunkRegion, chunk);
         BlockPos start = chunk.getPos().getStartPos();
         ChunkPos pos = chunk.getPos();
-        if (MathHelper.isMultipleOf(pos.x, 10) && pos.z >= 0 && pos.z <= 100) {
+        final int maxChunkLength = 20;
+        if (MathHelper.isMultipleOf(pos.x, 10) && pos.z >= 0 && pos.z <= maxChunkLength) {
             if (pos.z == 0) {
                 generateNbt(chunkRegion, start.add(0, 0, 13), nbtGroup.nbtId("main", "start"), Manipulation.of(BlockRotation.CLOCKWISE_180));
-            } else if (pos.z == 100) {
+            } else if (pos.z == maxChunkLength) {
                 generateNbt(chunkRegion, start, nbtGroup.nbtId("main", "exit"), Manipulation.of(BlockRotation.CLOCKWISE_180));
             } else {
                 generateNbt(chunkRegion, start, nbtGroup.nbtId("main", "big_hallway"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                if (random.nextBetween(1, 3) == 3) {
+                    generateNbt(chunkRegion, start.add(7, 0, 1), nbtGroup.nbtId("main", "small_hallway"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                } else {
+                    generateNbt(chunkRegion, start.add(7, 0, 1), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.NONE));
+                    generateNbt(chunkRegion, start.add(7, 0, 10), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.NONE));
+                }
+                generateNbt(chunkRegion, start.add(-4, 0, 10), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                generateNbt(chunkRegion, start.add(-4, 0, 2), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.CLOCKWISE_180));
             }
         }
         return CompletableFuture.completedFuture(chunk);
