@@ -4,6 +4,7 @@ import net.ludocrypt.limlib.api.world.LimlibHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.util.math.random.Xoroshiro128PlusPlusRandom;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.chunk.Chunk;
 
@@ -12,19 +13,19 @@ import java.util.List;
 
 public class RngUtils {
     public static Random getFromPos(ChunkRegion region, Chunk chunk, BlockPos pos) {
-        if (chunk.getPos().x != 0 && chunk.getPos().z != 0) { // Avoids the weird repeating patterns
-            return Random.create(region.getSeed() + ((long) (chunk.getPos().x) * (chunk.getPos().z)) + LimlibHelper.blockSeed(pos));
-        } else {
-            return Random.create(region.getSeed() + ((long) (chunk.getPos().x + 2) * (chunk.getPos().z - 3)) + LimlibHelper.blockSeed(pos));
+        int x = chunk.getPos().x;
+        int z = chunk.getPos().z;
+        if (x == 0) {
+            x = 23;
         }
+        if (z == 0) {
+            z = -5;
+        }
+        return new Xoroshiro128PlusPlusRandom(region.getSeed() + ((long) x * z) + LimlibHelper.blockSeed(pos));
     }
 
     public static Random getFromPos(ChunkRegion region, Chunk chunk) {
-        if (chunk.getPos().x != 0 && chunk.getPos().z != 0) { // Avoids the weird repeating patterns
-            return Random.create(region.getSeed() + ((long) (chunk.getPos().x) * (chunk.getPos().z)));
-        } else {
-            return Random.create(region.getSeed() + ((long) (chunk.getPos().x + 2) * (chunk.getPos().z - 3)));
-        }
+        return getFromPos(region, chunk, chunk.getPos().getStartPos());
     }
 
     /**
