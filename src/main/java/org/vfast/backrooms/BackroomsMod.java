@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerEntityWorldChangeEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import org.vfast.backrooms.block.BackroomsBlocks;
@@ -92,16 +93,19 @@ public class BackroomsMod implements ModInitializer {
 				player.setSpawnPoint(BackroomsDimensions.LEVEL_ZERO.key,// TODO Make this the same as origin dimension
 						player.getBlockPos(), // TODO make spawnpoint position randomized
 						0.0f, true, false);
-				if (destination == BackroomsDimensions.LEVEL_RUN.getWorld(player.getServer())) {
-					StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, StatusEffectInstance.INFINITE, 0, false, false, false);
-					player.addStatusEffect(speed);
-				}
 			} else if (BackroomsDimensions.isLevel(origin)){
 				ServerWorld overworld = player.getServer().getOverworld();
 				player.setSpawnPoint(overworld.getRegistryKey(), overworld.getSpawnPos(), overworld.getSpawnAngle(), true, false);
 				player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
-				if (origin == BackroomsDimensions.LEVEL_RUN.getWorld(player.getServer())) {
-					player.removeStatusEffect(StatusEffects.SPEED);
+			}
+		});
+		ServerEntityWorldChangeEvents.AFTER_ENTITY_CHANGE_WORLD.register((originalEntity, newEntity, origin, destination) -> {
+			if (newEntity instanceof LivingEntity entity) {
+				if (destination == BackroomsDimensions.LEVEL_RUN.getWorld(entity.getServer())) {
+					StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, StatusEffectInstance.INFINITE, 0, false, false, false);
+					entity.addStatusEffect(speed);
+				} else if (origin == BackroomsDimensions.LEVEL_RUN.getWorld(entity.getServer())) {
+					entity.removeStatusEffect(StatusEffects.SPEED);
 				}
 			}
 		});

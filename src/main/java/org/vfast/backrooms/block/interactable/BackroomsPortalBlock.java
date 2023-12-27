@@ -52,10 +52,14 @@ public class BackroomsPortalBlock extends BlockWithEntity {
             ServerWorld overworld = server.getOverworld();
             ServerWorld level = BackroomsDimensions.getLevel(((BackroomsPortalBlockEntity)fromWorld.getBlockEntity(pos)).getLevel()).getWorld(server);
             if (fromWorld != level) {
-                LimlibTravelling.travelTo(entity, level, new TeleportTarget(
-                                Vec3d.of(new Vec3i(rand.nextBetween(entity.getBlockX()-200, entity.getBlockX()+200), 2, rand.nextBetween(entity.getBlockZ()-200, entity.getBlockZ()+200))),
-                                Vec3d.ZERO, 0.0f, 0.0f),
-                        BackroomsSounds.CAMERA_CLICK, 5.0f, 1.0f);
+                if (level == BackroomsDimensions.LEVEL_RUN.getWorld(server)) {
+                    BackroomsDimensions.moveToLevelRun(entity);
+                } else {
+                    LimlibTravelling.travelTo(entity, level, new TeleportTarget(
+                                    Vec3d.of(new Vec3i(rand.nextBetween(entity.getBlockX() - 200, entity.getBlockX() + 200), 2, rand.nextBetween(entity.getBlockZ() - 200, entity.getBlockZ() + 200))),
+                                    Vec3d.ZERO, 0.0f, 0.0f),
+                            BackroomsSounds.CAMERA_CLICK, 5.0f, 1.0f);
+                }
             } else {
                 LimlibTravelling.travelTo(entity, overworld, new TeleportTarget(
                                 overworld.getSpawnPos().toCenterPos(),

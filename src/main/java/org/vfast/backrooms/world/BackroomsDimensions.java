@@ -2,10 +2,13 @@ package org.vfast.backrooms.world;
 
 import com.google.common.base.Function;
 import com.google.common.base.Supplier;
+import net.ludocrypt.limlib.api.LimlibTravelling;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.TeleportTarget;
 import org.jetbrains.annotations.Nullable;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.world.biome.BackroomsBiomes;
@@ -81,6 +84,13 @@ public class BackroomsDimensions implements LimlibRegistrar {
                                             .getOptional(BackroomsBiomes.LEVEL_RUN_BIOME)
                                             .get())
                             )));
+
+    public static void moveToLevelRun(Entity entity) {
+        ServerWorld levelRun = LEVEL_RUN.getWorld(entity.getServer());
+        LimlibTravelling.travelTo(entity, levelRun, new TeleportTarget(new Vec3d(160 * levelRun.getRandom().nextBetween(-100000, 100000) + 7.5, 1, 17),
+                Vec3d.ZERO, 0.0f, 0.0f),
+                null, 0.0f, 0.0f);
+    }
 
     public static boolean isInBackrooms(Entity entity) {
         return isLevel((ServerWorld) entity.getWorld());

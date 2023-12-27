@@ -12,6 +12,7 @@ import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerLightingProvider;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureTemplateManager;
+import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -74,22 +75,34 @@ public class LevelRunChunkGenerator extends AbstractNbtChunkGenerator {
         Random random = RngUtils.getFromPos(chunkRegion, chunk);
         BlockPos start = chunk.getPos().getStartPos();
         ChunkPos pos = chunk.getPos();
-        final int maxChunkLength = 20;
+        final int maxChunkLength = 50;
         if (MathHelper.isMultipleOf(pos.x, 10) && pos.z >= 0 && pos.z <= maxChunkLength) {
             if (pos.z == 0) {
-                generateNbt(chunkRegion, start.add(0, 0, 13), nbtGroup.nbtId("main", "start"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                generateNbt(chunkRegion, start.add(4, 0, 13), nbtGroup.nbtId("main", "start"), Manipulation.of(BlockRotation.CLOCKWISE_180));
             } else if (pos.z == maxChunkLength) {
-                generateNbt(chunkRegion, start, nbtGroup.nbtId("main", "exit"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                generateNbt(chunkRegion, start.add(4, 0, 0), nbtGroup.nbtId("main", "exit"), Manipulation.of(BlockRotation.CLOCKWISE_180));
             } else {
-                generateNbt(chunkRegion, start, nbtGroup.nbtId("main", "big_hallway"), Manipulation.of(BlockRotation.CLOCKWISE_180));
-                if (random.nextBetween(1, 3) == 3) {
-                    generateNbt(chunkRegion, start.add(7, 0, 1), nbtGroup.nbtId("main", "small_hallway"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                BlockMirror mirror = random.nextBoolean() ? BlockMirror.FRONT_BACK : BlockMirror.NONE;
+                generateNbt(chunkRegion, start.add(4, 0, 0), nbtGroup.nbtId("main", "big_hallway"), Manipulation.of(BlockRotation.CLOCKWISE_180, mirror));
+                if (mirror == BlockMirror.NONE) {
+                    if (random.nextBetween(1, 3) == 3) {
+                        generateNbt(chunkRegion, start.add(11, 0, 1), nbtGroup.nbtId("main", "small_hallway"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                    } else {
+                        generateNbt(chunkRegion, start.add(11, 0, 1), nbtGroup.nbtId("main", "closet"));
+                        generateNbt(chunkRegion, start.add(11, 0, 10), nbtGroup.nbtId("main", "closet"));
+                    }
+                    generateNbt(chunkRegion, start.add(0, 0, 10), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                    generateNbt(chunkRegion, start.add(0, 0, 2), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.CLOCKWISE_180));
                 } else {
-                    generateNbt(chunkRegion, start.add(7, 0, 1), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.NONE));
-                    generateNbt(chunkRegion, start.add(7, 0, 10), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.NONE));
+                    if (random.nextBetween(1, 3) == 3) {
+                        generateNbt(chunkRegion, start.add(0, 0, 1), nbtGroup.nbtId("main", "small_hallway"));
+                    } else {
+                        generateNbt(chunkRegion, start.add(0, 0, 10), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                        generateNbt(chunkRegion, start.add(0, 0, 1), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.CLOCKWISE_180));
+                    }
+                    generateNbt(chunkRegion, start.add(11, 0, 2), nbtGroup.nbtId("main", "closet"));
+                    generateNbt(chunkRegion, start.add(11, 0, 10), nbtGroup.nbtId("main", "closet"));
                 }
-                generateNbt(chunkRegion, start.add(-4, 0, 10), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.CLOCKWISE_180));
-                generateNbt(chunkRegion, start.add(-4, 0, 2), nbtGroup.nbtId("main", "closet"), Manipulation.of(BlockRotation.CLOCKWISE_180));
             }
         }
         return CompletableFuture.completedFuture(chunk);
