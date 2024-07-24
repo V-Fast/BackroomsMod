@@ -36,7 +36,7 @@
     "java": ">=17",
     "fabric-api": "*",
     "geckolib": ">=4.2",
-    "limlib": ">=11.0.0"
+    "limlib": ">=11.0.0b+1.20.1"
   },
   "recommends": {
     "yet_another_config_lib_v3": ">=3.1.0+1.20"
