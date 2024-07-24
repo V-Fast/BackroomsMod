@@ -76,9 +76,9 @@ dependencies {
 		exclude group: 'com.terraformersmc'
 	}
 
-	modImplementation "com.github.Clomclem:Liminal-Library-fabric:${project.limlib_version}"
+	modImplementation "com.github.NoSanityHere:Liminal-Library-fabric:${project.limlib_version}"
 
-	include "com.github.Clomclem:Liminal-Library-fabric:${project.limlib_version}"
+	include "com.github.NoSanityHere:Liminal-Library-fabric:${project.limlib_version}"
 
 	modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
 }

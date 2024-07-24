@@ -1,5 +1,7 @@
 package org.vfast.backrooms.items.interactables;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.client.screens.SilkBookScreen;
 import org.vfast.backrooms.client.settings.BackroomsSettings;
@@ -24,6 +26,7 @@ public class SilkenBook extends Item {
     }
 
     @Override
+    @Environment(EnvType.CLIENT)
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         Word word;
