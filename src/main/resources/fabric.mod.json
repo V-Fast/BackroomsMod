@@ -37,24 +37,15 @@
     "backrooms.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.0",
-    "minecraft": ">=1.20.4",
-    "java": ">=17",
-    "fabric-api": "*",
-    "geckolib": ">=4.2",
-    "limlib": ">=11.0.0"
-  },
-  "recommends": {
-    "yet_another_config_lib_v3": ">=3.3.0+1.20.4"
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.21",
+    "java": ">=21",
+    "fabric-api": "*"
   },
   "suggests": {
     "modmenu": ">=8.0.0"
   },
   "custom": {
-    "loom:injected_interfaces": {
-      "net/minecraft/class_1297": ["org/vfast/backrooms/util/accessor/IEntityDataAccessor"],
-      "net/minecraft/class_1657": ["org/vfast/backrooms/util/accessor/IPlayerSanityAccessor"]
-    },
     "modmenu": {
       "links": {
         "modmenu.discord": "https://discord.com/invite/Rqpn3C7yR5"
