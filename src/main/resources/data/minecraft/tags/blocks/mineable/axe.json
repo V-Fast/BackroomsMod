@@ -2,7 +2,17 @@
   "replace": false,
   "values": [
     "backrooms:moist_silk",
-    "backrooms:moist_silk_planks",
+    "backrooms:moist_silk_oak_planks",
+    "backrooms:moist_silk_spruce_planks",
+    "backrooms:moist_silk_dark_oak_planks",
+    "backrooms:moist_silk_cherry_planks",
+    "backrooms:moist_silk_jungle_planks",
+    "backrooms:moist_silk_acacia_planks",
+    "backrooms:moist_silk_crimson_planks",
+    "backrooms:moist_silk_warped_planks",
+    "backrooms:moist_silk_bamboo_planks",
+    "backrooms:moist_silk_mangrove_planks",
+    "backrooms:moist_silk_birch_planks",
     "backrooms:moist_carpet"
   ]
 }

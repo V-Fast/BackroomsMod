@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "backrooms:moist_silk_planks",
+              "name": "backrooms:moist_silk_jungle_planks",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
