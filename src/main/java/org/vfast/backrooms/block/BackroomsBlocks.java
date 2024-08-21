@@ -24,6 +24,26 @@ public class BackroomsBlocks {
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).requiresTool().strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block MOIST_SILK_OAK_PLANKS = registerBlock("moist_silk_oak_planks",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_SPRUCE_PLANKS = registerBlock("moist_silk_spruce_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.SPRUCE_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_ACACIA_PLANKS = registerBlock("moist_silk_acacia_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.ACACIA_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_DARK_OAK_PLANKS = registerBlock("moist_silk_dark_oak_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.DARK_OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_BIRCH_PLANKS = registerBlock("moist_silk_birch_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.BIRCH_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_JUNGLE_PLANKS = registerBlock("moist_silk_jungle_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.JUNGLE_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_BAMBOO_PLANKS = registerBlock("moist_silk_bamboo_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.BAMBOO_PLANKS).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_MANGROVE_PLANKS = registerBlock("moist_silk_mangrove_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_CHERRY_PLANKS = registerBlock("moist_silk_cherry_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_CRIMSON_PLANKS = registerBlock("moist_silk_crimson_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block MOIST_SILK_WARPED_PLANKS = registerBlock("moist_silk_warped_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block MOIST_CARPET = registerBlock("moist_carpet",
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).requiresTool().strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block DROPPED_CEILING = registerBlock("dropped_ceiling",

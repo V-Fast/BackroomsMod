@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "minecraft:planks"
+      "item": "minecraft:cherry_planks"
     },
     {
       "item": "backrooms:silk"
@@ -15,6 +15,6 @@
     }
   ],
   "result": {
-    "item": "backrooms:moist_silk_planks"
+    "item": "backrooms:moist_silk_cherry_planks"
   }
 }

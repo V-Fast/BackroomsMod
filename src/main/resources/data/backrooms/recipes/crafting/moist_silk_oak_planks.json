@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:oak_planks"
+    },
+    {
+      "item": "backrooms:silk"
+    },
+    {
+      "item": "backrooms:silk"
+    },
+    {
+      "item": "backrooms:silk"
+    }
+  ],
+  "result": {
+    "item": "backrooms:moist_silk_oak_planks"
+  }
+}
