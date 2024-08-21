@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "backrooms:block/moist_silk_planks"
+    "all": "backrooms:block/moist_silk_oak_planks"
   }
 }
