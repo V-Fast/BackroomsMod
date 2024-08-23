@@ -25,12 +25,6 @@
     ],
     "client": [
       "org.vfast.backrooms.BackroomsModClient"
-    ],
-    "limlib:registrar": [
-      "org.vfast.backrooms.world.BackroomsDimensions"
-    ],
-    "modmenu": [
-      "org.vfast.backrooms.config.BackroomsModMenuCompat"
     ]
   },
   "mixins": [
