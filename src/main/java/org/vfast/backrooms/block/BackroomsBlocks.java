@@ -53,7 +53,7 @@ public class BackroomsBlocks {
             new FluorescentLightBlock(AbstractBlock.Settings.copy(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(value -> 9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block BLUE_TAPESTRY = registerBlock("blue_tapestry",
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
-    public static final Block BLUE_WHITE_TAPESTRY = registerBlock("blue_white_tapestry",
+    public static final Block STRIPED_BLUE_TAPESTRY = registerBlock("striped_blue_tapestry",
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
     // Level 1
