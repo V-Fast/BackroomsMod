@@ -71,6 +71,8 @@ public class BackroomsBlocks {
     public static final Block EXIT_SIGN = registerBlock("exit_sign", new ExitSignBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.GLASS).strength(0.3f, 0.1f).luminance(6).nonOpaque().requiresTool()), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
     // Other
+    public static final Block CRATE = registerBlock("crate",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
     // Register
     @SafeVarargs
