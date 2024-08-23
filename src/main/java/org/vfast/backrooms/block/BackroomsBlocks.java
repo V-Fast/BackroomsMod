@@ -50,6 +50,8 @@ public class BackroomsBlocks {
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).strength(1f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
             new FluorescentLightBlock(AbstractBlock.Settings.copy(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(value -> 9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block BLUE_TAPESTRY = registerBlock("blue_tapestry",
+            new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     // Level 1
     public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",
             new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.METAL).strength(Blocks.IRON_BLOCK.getHardness())), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
@@ -73,6 +75,7 @@ public class BackroomsBlocks {
     // Other
     public static final Block CRATE = registerBlock("crate",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+
 
     // Register
     @SafeVarargs
