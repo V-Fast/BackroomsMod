@@ -10,6 +10,9 @@ public class BackroomsSounds {
     public static SoundEvent LIGHT_BUZZING = registerSoundEvent("light_buzzing");
     public static SoundEvent CAMERA_CLICK = registerSoundEvent("camera_click");
 
+    // Music Tapes
+    public static SoundEvent PAPER_BIRCH = registerSoundEvent("paper_birch");
+
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(BackroomsMod.ID, name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));

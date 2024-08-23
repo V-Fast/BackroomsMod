@@ -11,6 +11,8 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
+import org.vfast.backrooms.sound.BackroomsSounds;
+
 public class BackroomsItems {
     public static final Item SILK = registerItem("silk",
             new Item(new Item.Settings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
@@ -22,6 +24,10 @@ public class BackroomsItems {
 //            new Item.Settings().maxCount(1)), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item ENERGY_BAR = registerItem("energy_bar", new Item(
             new Item.Settings().maxCount(64).food(new FoodComponent.Builder().alwaysEdible().nutrition(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
+
+    // Music Tapes
+    public static final Item PAPER_BIRCH_TAPE = registerItem("paper_birch_tape",
+            new MusicTape(new Item.Settings().maxCount(1), BackroomsSounds.PAPER_BIRCH), BackroomsItemsGroup.MAIN);
 
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
         Item newItem = Registry.register(Registries.ITEM, Identifier.of(BackroomsMod.ID, name), item);
