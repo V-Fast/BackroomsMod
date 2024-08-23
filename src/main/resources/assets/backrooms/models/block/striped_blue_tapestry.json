@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "backrooms:block/blue_white_tapestry"
+    "all": "backrooms:block/striped_blue_tapestry"
   }
 }
