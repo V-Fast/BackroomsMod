@@ -52,6 +52,7 @@
   "item.backrooms.broken_bottle": "Broken Bottle",
   "item.backrooms.bacteria_spawn_egg": "Bacteria Spawn Egg",
   "item.backrooms.smiler_spawn_egg": "Smiler Spawn Egg",
+  "item.backrooms.decaying_brick": "Decaying Brick",
 
   "item.backrooms.halls_tape": "Music Tape",
   "item.backrooms.the_complex_tape": "Music Tape",
@@ -147,6 +148,8 @@
   "block.backrooms.exit_sign": "Exit Sign",
   "block.backrooms.crate": "Crate",
   "block.backrooms.blue_tapestry": "Blue Tapestry",
+  "block.backrooms.decaying_bricks": "Decaying Bricks",
+  "block.backrooms.blue_white_tapestry": "Blue and White Tapestry",
 
   "entity.backrooms.bacteria": "Bacteria",
   "entity.backrooms.smiler": "Smiler",
