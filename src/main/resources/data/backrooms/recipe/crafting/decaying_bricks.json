@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "pattern": [
     "##",
     "##"
   ],
   "key": {
     "#": {
-      "item": "backrooms:silk"
+      "item": "backrooms:decaying_brick"
     }
   },
   "result": {
-    "id": "backrooms:moist_silk",
+    "id": "backrooms:decaying_bricks",
     "count": 1
   }
 }

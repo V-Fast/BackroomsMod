@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "backrooms:dropped_ceiling"
+    "id": "backrooms:dropped_ceiling",
+    "count": 1
   }
 }

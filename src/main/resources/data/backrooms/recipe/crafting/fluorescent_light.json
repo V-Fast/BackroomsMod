@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "backrooms:fluorescent_light"
+    "id": "backrooms:fluorescent_light",
+    "count": 1
   }
 }
