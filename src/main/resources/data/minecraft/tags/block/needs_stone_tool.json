@@ -1,11 +1,10 @@
 {
   "replace": false,
   "values": [
-    "backrooms:tape_player",
-    "backrooms:radio",
     "backrooms:smooth_iron_block",
     "backrooms:stained_concrete",
     "backrooms:stained_marked_concrete",
-    "backrooms:exit_sign"
+    "backrooms:exit_sign",
+    "backrooms:decaying_bricks"
   ]
 }
