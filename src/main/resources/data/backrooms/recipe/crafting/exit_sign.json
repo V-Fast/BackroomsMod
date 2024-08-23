@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "item": "backrooms:exit_sign",
+    "id": "backrooms:exit_sign",
     "count": 1
   }
 }

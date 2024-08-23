@@ -20,6 +20,9 @@ public class BackroomsItems {
             new Item.Settings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().nutrition(2*2).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15, 0), 1F).build())), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
     public static final Item COOKED_ALMOND_WATER = registerItem("cooked_almond_water", new AlmondWater(new Item.Settings().maxCount(8).food(new FoodComponent.Builder().alwaysEdible().nutrition(4*2).saturationModifier(4f).build())).setCooked(true), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
     public static final Item TAPE = registerItem("tape", new Item(new Item.Settings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+    public static final Item DECAYING_BRICK = registerItem("decaying_brick",
+            new Item(new Item.Settings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
+
 //    public static final Item CAMERA = registerItem("camera", new CameraItem(
 //            new Item.Settings().maxCount(1)), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item ENERGY_BAR = registerItem("energy_bar", new Item(
