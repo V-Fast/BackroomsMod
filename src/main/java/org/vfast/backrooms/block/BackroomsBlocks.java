@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.block.interactable.FluorescentLightBlock;
+import org.vfast.backrooms.block.interactable.TapePlayer;
 import org.vfast.backrooms.item.BackroomsItemsGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
@@ -73,6 +74,8 @@ public class BackroomsBlocks {
     public static final Block EXIT_SIGN = registerBlock("exit_sign", new ExitSignBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.GLASS).strength(0.3f, 0.1f).luminance(6).nonOpaque().requiresTool()), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
     // Other
+    public static final Block TAPE_PLAYER = registerBlock("tape_player",
+            new TapePlayer(AbstractBlock.Settings.copy(Blocks.JUKEBOX).sounds(BlockSoundGroup.STONE).strength(1.5f)), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Block CRATE = registerBlock("crate",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
