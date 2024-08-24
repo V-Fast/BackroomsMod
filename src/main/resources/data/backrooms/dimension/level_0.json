@@ -1,0 +1,18 @@
+{
+  "type": "backrooms:level_0_type",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "backrooms:level_0_biome",
+      "lakes": false,
+      "features": true,
+      "layers": [
+        {
+          "block": "backrooms:moist_carpet",
+          "height": 1
+        }
+      ],
+      "structure_overrides": "backrooms:level_0"
+    }
+  }
+}
