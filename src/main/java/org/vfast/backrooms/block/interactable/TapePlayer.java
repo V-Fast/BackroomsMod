@@ -32,20 +32,35 @@ public class TapePlayer extends Block implements BlockEntityProvider {
         this.setDefaultState(this.getStateManager().getDefaultState().with(HAS_RECORD, false));
     }
 
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (!state.isOf(newState.getBlock()) && !world.isClient) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            assert blockEntity instanceof TapePlayerEntity;
+            ItemStack recordStack = ((TapePlayerEntity) blockEntity).getRecord();
+            if (recordStack.getItem() instanceof MusicTape) {
+                ((MusicTape) recordStack.getItem()).stop((ServerWorld) world);
+            }
+            throwItem(world, recordStack, pos);
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
+    }
+
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
             if (stack.getItem() instanceof MusicTape && !state.get(HAS_RECORD)) {
                 state = (BlockState)state.with(HAS_RECORD, true);
                 ((MusicTape) stack.getItem()).play((ServerWorld) world, pos);
-                stack.decrementUnlessCreative(1, player);
                 BlockEntity blockEntity = world.getBlockEntity(pos);
                 if (blockEntity instanceof TapePlayerEntity) {
-                    ((TapePlayerEntity) blockEntity).setRecord(stack);
+                    ItemStack copyStack = stack.copy();
+                    ((TapePlayerEntity) blockEntity).setRecord(copyStack);
                 }
+                stack.decrementUnlessCreative(1, player);
                 world.setBlockState(pos, state);
                 world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
                 player.increaseStat(Stats.PLAY_RECORD, 1);
+
                 return ItemActionResult.SUCCESS;
             }
         }
