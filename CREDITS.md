@@ -3,7 +3,7 @@
 ### Main Devs
 [Lumaa](https://github.com/lumaa-dev): Main creator of the mod
 
-PatateGivree: Asset maker
+PatateGivree: Developer and Asset Maker
 
 [Clomclem](https://github.com/Clomclem): Developer
 
@@ -18,5 +18,3 @@ mash113, _Luvaa_, Good Kid: Various contributions
 ### Creators of libraries
 
 [LudoCrypt](https://github.com/LudoCrypt): Creator of [LimLib](https://github.com/LudoCrypt/Liminal-Library)
-
-[Bernie-G](https://github.com/bernie-g): Creator of [GeckoLib](https://github.com/bernie-g/geckolib)
