@@ -8,7 +8,7 @@
       "features": true,
       "layers": [
         {
-          "block": "backrooms:moist_carpet",
+          "block": "minecraft:bedrock",
           "height": 1
         }
       ],
