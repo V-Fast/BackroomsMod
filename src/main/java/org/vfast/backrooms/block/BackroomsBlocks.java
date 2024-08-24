@@ -64,9 +64,9 @@ public class BackroomsBlocks {
     public static final Block STAINED_CONCRETE = registerBlock("stained_concrete",
             new Block(AbstractBlock.Settings.copy(Blocks.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.BLACK_CONCRETE.getHardness())), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block SCRATCHED_CONCRETE_STAIRS = registerBlock("slightly_scratched_concrete_stairs",
-            new StairsBlock(SCRATCHED_CONCRETE.getDefaultState(),FabricBlockSettings.copy(STAINED_CONCRETE)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+            new StairsBlock(SCRATCHED_CONCRETE.getDefaultState(), AbstractBlock.Settings.copy(STAINED_CONCRETE).requiresTool()), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block STAINED_CONCRETE_STAIRS = registerBlock("stained_concrete_stairs",
-            new StairsBlock(STAINED_CONCRETE.getDefaultState(), FabricBlockSettings.copy(STAINED_CONCRETE)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+            new StairsBlock(STAINED_CONCRETE.getDefaultState(), AbstractBlock.Settings.copy(STAINED_CONCRETE).requiresTool()), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block STAINED_MARKED_CONCRETE = registerBlock("stained_marked_concrete",
             new Block(AbstractBlock.Settings.copy(Blocks.STONE).sounds(BlockSoundGroup.STONE).strength(Blocks.BLACK_CONCRETE.getHardness())), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block STREET_LIGHT = registerBlock("street_light",

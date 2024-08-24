@@ -6,7 +6,8 @@
     "backrooms:slightly_scratched_concrete",
     "backrooms:smooth_iron_block",
     "backrooms:exit_sign",
-    "backrooms:decaying_bricks"
-
+    "backrooms:decaying_bricks",
+    "backrooms:slightly_scratched_concrete_stairs",
+    "backrooms:stained_concrete_stairs"
   ]
 }
