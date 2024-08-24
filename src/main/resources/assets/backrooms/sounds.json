@@ -18,5 +18,13 @@
         "stream": false
       }
     ]
+  },
+  "empyrea": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/empyrea",
+        "stream": false
+      }
+    ]
   }
 }

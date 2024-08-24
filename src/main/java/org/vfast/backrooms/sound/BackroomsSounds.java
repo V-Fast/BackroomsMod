@@ -12,6 +12,7 @@ public class BackroomsSounds {
 
     // Music Tapes
     public static SoundEvent PAPER_BIRCH = registerSoundEvent("paper_birch");
+    public static SoundEvent EMPYREA = registerSoundEvent("empyrea");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(BackroomsMod.ID, name);
