@@ -4,6 +4,7 @@
   "package": "org.vfast.backrooms.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "LevelPropertiesMixin"
   ],
   "client": [
   ],
