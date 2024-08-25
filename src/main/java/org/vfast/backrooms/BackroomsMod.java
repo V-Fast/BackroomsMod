@@ -8,6 +8,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.world.ServerWorld;
 import org.vfast.backrooms.block.BackroomsBlocks;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
+import org.vfast.backrooms.dimensions.BackroomsDimensions;
 import org.vfast.backrooms.item.BackroomsItems;
 import org.vfast.backrooms.sound.BackroomsSounds;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -33,24 +34,18 @@ public class BackroomsMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-//		BackroomsConfig.HANDLER.load();
 		BackroomsBlocks.registerBlocks();
 		BackroomsBlockEntities.registerBlockEntities();
 		BackroomsItems.registerItems();
 		BackroomsSounds.registerSoundEvents();
-//		BackroomsBiomes.registerBiomes();
-//		BackroomsChunkGenerators.registerChunkGenerators();
-//		BackroomsNetworking.registerPackets();
-//		GeckoLib.initialize();
-//		BackroomsEntities.registerMobs();
-//		registerCommands();
+		BackroomsDimensions.init();
 		registerEvents();
+
+		ServerLifecycleEvents.SERVER_STARTED.register(server -> BackroomsDimensions.initPortal());
+
 		BackroomsMod.LOGGER.info("Initialized Backrooms");
 	}
 
-//	public void registerCommands() {
-//		CommandRegistrationCallback.EVENT.register(SanityCommand::register);
-//	}
 
 	public void registerEvents() {
 		ServerLifecycleEvents.SERVER_STOPPING.register((server) -> {
