@@ -16,4 +16,4 @@
 ### Additional credits
 - [Kyrptonaught](https://github.com/kyrptonaught): Creator of [Custom Portal API](https://github.com/kyrptonaught/customportalapi)
 - Archives of [the original Backrooms images](https://archive.org/details/backrooms-photos/807OREGON/DSC00161.jpg) pictured by Bob Mazza at 807 Oregon St, Oshkosh, WI 54902 (United States of America)
-  - Help Bob Mazza to maintain the original location of The Backrooms by tipping on [GoFundMe](https://www.gofundme.com/f/https-gofund-me-405dafe1), without him, this project wouldn't be alive today <3
+  - Help Bob Mazza to maintain the original location of The Backrooms by tipping on his [GoFundMe](https://www.gofundme.com/f/https-gofund-me-405dafe1), without him, this project wouldn't be alive today <3
