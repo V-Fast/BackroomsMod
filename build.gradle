@@ -14,6 +14,11 @@ repositories {
 	maven {
 		url "https://maven.fabricmc.net/"
 	}
+
+	maven {
+		url = "https://maven.kyrptonaught.dev"
+	}
+
 	mavenCentral()
 }
 
@@ -30,7 +35,6 @@ loom {
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
@@ -38,6 +42,9 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}+${project.minecraft_version}"
 
+	// Custom Portal API
+	modImplementation "net.kyrptonaught:customportalapi:${project.portal_api_version}" // can't use `project.minecraft_version` because 1.21.1 and not 1.21
+	include "net.kyrptonaught:customportalapi:${project.portal_api_version}"
 }
 
 processResources {
