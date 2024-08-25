@@ -3,6 +3,22 @@ This file contains devlogs. Some features shown in them may arrive a few months 
 **Remember that we are only 3 people working on the mod. And we all have lives besides the mod.** I (Lumaa) am not a professional Java developer, I really started learning by creating this mod.  
 <sup>(btw we use this date format: DD/MM/YYYY)</sup>  
 
+# Devlog #13 - 25/08/2024
+**It's back.** The Backrooms Mod has officially restarted development! But why did it take **9 months** to release the mod fully and to the latest version?
+
+Because I (Lumaa) originally "retired" from Minecraft modding to go make [iOS apps](https://apps.lumaa.fr/?utm_source=BckrmGitHub) like [Threaded]((https://apps.lumaa.fr/app/threaded?utm_source=BckrmGitHub)), so then [Clomclem](https://github.com/Clomclem) managed the mod by himself. And then at some point, we had no news from him nor updates to the mod. So we thought he did just like I did (retiring) without saying anything. That's where I thought the mod would slowly die..\
+But oh boy was I wrong, we passed 10k and 20k downloads on [Modrinth](https://modrinth.com/mod/backrooms)! And the mod turned 2 years old!
+
+The original location of The Backrooms image has been found in July 2024 as well as [more photos from the original photographer](https://archive.org/details/backrooms-photos/807OREGON/DSC00161.jpg)!, and I (Lumaa) thought that so many more stuff could be added to this mod! But we should also update to the latest version of Minecraft, which is currently 1.21...
+
+I opened the project and while updating, I realized that 99.99% of the code was to refactor. So instead of UPDATING the code, I RESTARTED the project. Well, almost. I kept everything that was easy to update, like blocks, items, creative tabs, and other stuff...
+
+[PatateGivree](https://github.com/Minipinot) helped me do the new blocks like the *Moist Silk Cherry Planks* or the *Blue Tapestry*, and he **MAJORLY** helped me by doing **himself** the custom generation using jigsaw blocks. And that deserves more than a pat on the back.
+
+Oh and the [GitBook Wiki](https://lumaa.gitbook.io/backrooms) is up to date.
+
+* * *
+
 # Devlog #12 - 4/12/2023
 Hello everyone, we've just reached 5200 downloads! Not actually that big, but its still impressive that we got 200 downloads in ~2 days. As a reward, here's what I've been working on:
 
