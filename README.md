@@ -6,22 +6,20 @@
 ![Won't Support Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_64h.png)
 [![Support Discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-singular_64h.png)](https://discord.gg/Rqpn3C7yR5)
 
+You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms) and on [GitHub](https://github.com/V-Fast/BackroomsMod/releases/latest), if this mod is on another platform then we are not the ones maintaining it and may be dangerous to use.
+
 * * *
 
-⚠️ **This is a mod that is still in beta, so there are probably many unnoticed bugs. You can report them [here](https://github.com/lumaa-dev/BackroomsMod/issues)** or on our [Discord Server](https://lumaa.brebond.com/support)! also suggestions and help are welcome!
+⚠️ **If you find a bug, a glitch, or any issue with the mod, you can report them [here](https://github.com/lumaa-dev/BackroomsMod/issues)** or on our [Discord Server](https://lumaa.fr/support)! also suggestions and help are welcome!
 
-You can see our progresses! Just by looking at our [Trello Board](https://trello.com/b/gDUJ7vvz/the-backrooms-mod)!  
-You can also download our mod on [Modrinth](https://modrinth.com/mod/backrooms).
-
-ℹ️ **If you don't know how to install a Quilt mod, [click here](https://quiltmc.org/en/install/client/)**
+ℹ️ **If you don't know how to install a Fabric mod, [click here](https://github.com/lumaa-dev/lumaa-dev/blob/main/installs.md#install-my-fabric-mods)**
 
 ## Dependencies
-**If you plan on installing this mod, you'll have to install these mods as well**, italicized mods are optional.
-- [![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.1.2/assets/cozy/requires/fabric-api_64h.png)](https://modrinth.com/mod/fabric-api) [![Requires GeckoLib](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/geckolib_64h.png)](https://modrinth.com/mod/geckolib)
-- *[Yet Another Config Lib](https://modrinth.com/mod/yacl/)*
+[![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/fabric-api_64h.png)](https://modrinth.com/mod/fabric-api)
 
 ## How do I do [something]?
-[![Official Wiki](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/gitbook_64h.png)](https://github.com/V-Fast/BackroomsMod/wiki)
+[![GitHub Wiki](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/gitbook_64h.png)](https://lumaa.gitbook.io/backrooms)
 
 ## Credits
-See [CREDITS](https://github.com/V-Fast/BackroomsMod/blob/main/CREDITS.md) file.
+This mod is made by [Lumaa](https://lumaa.fr/) and [PatateGivree](https://namemc.com/profile/PatateGivree.1).
+This mod includes content originally made by [Kane Pixels](https://www.youtube.com/c/KANEpixels) on his famous Backrooms series on YouTube.
