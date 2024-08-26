@@ -74,7 +74,7 @@ public class BackroomsBlocks {
     public static final Block DECAYING_BRICKS = registerBlock("decaying_bricks",
             new Block(AbstractBlock.Settings.copy(Blocks.BRICKS).sounds(BlockSoundGroup.STONE).requiresTool().strength(Blocks.BRICKS.getHardness())), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
-    // Level Run!
+    // Level Run
     public static final Block HOSPITAL_DOOR = registerBlock("hospital_door", new DoorBlock(BlockSetTypeBuilder.copyOf(BlockSetType.IRON).openableByHand(true).build(Identifier.of(BackroomsMod.ID, "ceramic")), AbstractBlock.Settings.copy(Blocks.IRON_DOOR)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block EXIT_SIGN = registerBlock("exit_sign", new ExitSignBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.GLASS).strength(0.3f, 0.1f).luminance(6).nonOpaque().requiresTool()), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
