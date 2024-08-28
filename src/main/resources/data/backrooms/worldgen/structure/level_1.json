@@ -5,7 +5,7 @@
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",
   "start_pool": "backrooms:backrooms/level_1/pool",
-  "size": 10,
+  "size": 20,
   "start_height": {
     "absolute": 2
   },
