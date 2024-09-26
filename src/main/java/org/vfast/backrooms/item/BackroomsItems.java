@@ -33,6 +33,8 @@ public class BackroomsItems {
             new MusicTape(new Item.Settings().maxCount(1), BackroomsSounds.PAPER_BIRCH, "Paper Birch (Whitepine OST) - Ivory", MusicTape.ImmersionLevel.MEDIUM), BackroomsItemsGroup.MAIN, BackroomsItemsGroup.MUSIC_TAPES);
     public static final Item EMPYREA = registerItem("empyrea_tape",
             new MusicTape(new Item.Settings().maxCount(1), BackroomsSounds.EMPYREA, "Empyrea - Ivory", MusicTape.ImmersionLevel.HIGH), BackroomsItemsGroup.MAIN, BackroomsItemsGroup.MUSIC_TAPES);
+    public static final Item PACEBARK_PINE = registerItem("lacebark_pine_tape",
+            new MusicTape(new Item.Settings().maxCount(1), BackroomsSounds.LACEBARK_PINE, "Lacebark Pine - Ivory", MusicTape.ImmersionLevel.HIGH), BackroomsItemsGroup.MAIN, BackroomsItemsGroup.MUSIC_TAPES);
 
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
         Item newItem = Registry.register(Registries.ITEM, Identifier.of(BackroomsMod.ID, name), item);

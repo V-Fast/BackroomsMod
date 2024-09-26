@@ -26,5 +26,13 @@
         "stream": false
       }
     ]
+  },
+  "lacebark_pine": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/lacebark_pine",
+        "stream": false
+      }
+    ]
   }
 }
