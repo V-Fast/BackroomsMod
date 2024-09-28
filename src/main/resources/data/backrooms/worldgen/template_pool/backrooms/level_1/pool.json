@@ -7,7 +7,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "backrooms:level_1/bigroom_1",
+        "location": "backrooms:level_1/room_1",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty"
       }
