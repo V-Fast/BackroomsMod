@@ -15,6 +15,7 @@ public class BackroomsSounds {
     public static SoundEvent PAPER_BIRCH = registerSoundEvent("paper_birch");
     public static SoundEvent EMPYREA = registerSoundEvent("empyrea");
     public static SoundEvent LACEBARK_PINE = registerSoundEvent("lacebark_pine");
+    public static SoundEvent CURIOSITY = registerSoundEvent("curiosity");
 
     // Ambient sounds
 

@@ -34,5 +34,13 @@
         "stream": false
       }
     ]
+  },
+  "curiosity": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/curiosity",
+        "stream": false
+      }
+    ]
   }
 }
