@@ -9,7 +9,7 @@
     "water_fog_color": 54783,
     "grass_color": 65284,
     "foliage_color": 327424,
-    "ambient_sound": "LEVEL_94_AMBIENCE"
+    "ambient_sound": "backrooms:ambient/room_wind"
     },
   "spawners": {},
   "spawn_costs": {},

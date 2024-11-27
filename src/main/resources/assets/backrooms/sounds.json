@@ -43,11 +43,11 @@
       }
     ]
   },
-  "level_94_ambience": {
+  "level_94_ambient": {
     "subtitle": "",
     "sounds": [
       {
-      "name": "backrooms:ambient/level_94_ambience",
+      "name": "backrooms:ambient/room_wind",
       "stream": true
       }
     ],
