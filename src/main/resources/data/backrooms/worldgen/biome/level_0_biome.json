@@ -12,7 +12,8 @@
       "tick_delay": 6000,
       "block_search_extent": 8,
       "offset": 2
-    }
+    },
+    "ambient_sound": "backrooms:light_buzzing"
   },
   "spawners": {},
   "spawn_costs": {},

@@ -9,7 +9,15 @@
       "layers": [
         {
           "block": "minecraft:bedrock",
-          "height": 1
+          "height": 3
+        },
+        {
+          "height": 64,
+          "block": "minecraft:dirt"
+        },
+        {
+          "height": 1,
+          "block": "minecraft:grass_block"
         }
       ],
       "structure_overrides": "backrooms:level_94"

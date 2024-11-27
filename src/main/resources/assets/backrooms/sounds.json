@@ -52,5 +52,15 @@
       }
     ],
     "category": "ambient"
+  },
+  "light_drops": {
+    "subtitle": "",
+    "sounds": [
+      {
+        "name": "backrooms:ambient/light_drops",
+        "stream": true
+      }
+    ],
+    "category": "ambient"
   }
 }

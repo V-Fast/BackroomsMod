@@ -7,6 +7,7 @@
     "fog_color": 5197647,
     "water_color": 5399945,
     "water_fog_color": 1842220,
+    "ambient_sound": "backrooms:light_drops",
     "mood_sound": {
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000,
