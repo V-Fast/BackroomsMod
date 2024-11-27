@@ -62,5 +62,15 @@
       }
     ],
     "category": "ambient"
+  },
+  "ocean": {
+    "subtitle": "",
+    "sounds": [
+      {
+        "name": "backrooms:ambient/ocean",
+        "stream": true
+      }
+    ],
+    "category": "ambient"
   }
 }

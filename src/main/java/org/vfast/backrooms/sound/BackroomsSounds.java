@@ -20,6 +20,7 @@ public class BackroomsSounds {
     // Ambient sounds
     public static final SoundEvent ROOM_WIND = registerSoundEvent("room_wind");
     public static final SoundEvent LIGHT_DROPS = registerSoundEvent("light_drops");
+    public static final SoundEvent OCEAN = registerSoundEvent("ocean");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(BackroomsMod.ID, name);
