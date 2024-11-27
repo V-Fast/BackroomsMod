@@ -18,7 +18,7 @@ public class BackroomsSounds {
     public static SoundEvent CURIOSITY = registerSoundEvent("curiosity");
 
     // Ambient sounds
-
+    public static final SoundEvent LEVEL_94_AMBIENCE = registerSoundEvent("level_94_ambience");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(BackroomsMod.ID, name);

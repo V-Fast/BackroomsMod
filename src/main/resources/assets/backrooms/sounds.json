@@ -42,5 +42,15 @@
         "stream": false
       }
     ]
+  },
+  "level_94_ambience": {
+    "subtitle": "",
+    "sounds": [
+      {
+      "name": "backrooms:ambient/level_94_ambience",
+      "stream": true
+      }
+    ],
+    "category": "ambient"
   }
 }
