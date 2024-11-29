@@ -3,6 +3,7 @@ package org.vfast.backrooms.item;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.util.Identifier;
 import org.vfast.backrooms.BackroomsMod;
+import org.vfast.backrooms.block.BackroomsBlocks;
 import org.vfast.backrooms.item.consumable.AlmondWater;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -12,6 +13,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import org.vfast.backrooms.sound.BackroomsSounds;
+
 
 public class BackroomsItems {
     public static final Item SILK = registerItem("silk",

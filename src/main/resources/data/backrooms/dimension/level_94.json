@@ -18,6 +18,10 @@
         {
           "height": 1,
           "block": "minecraft:grass_block"
+        },
+        {
+          "height": 1,
+          "block": "minecraft:short_grass"
         }
       ],
       "structure_overrides": "backrooms:level_94"

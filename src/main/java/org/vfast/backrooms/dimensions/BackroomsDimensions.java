@@ -9,14 +9,18 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntryInfo;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.util.JSONUtil;
+
 
 import java.io.IOException;
 
 public class BackroomsDimensions {
     public static final RegistryKey<DimensionType> LEVEL_ZERO_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,  Identifier.of(BackroomsMod.ID, "dimension_type/level_0"));
+    public static final RegistryKey<World> LEVEL_ZERO_WORLD_KEY = RegistryKey.of(RegistryKeys.WORLD, Identifier.of("backrooms","level_0"));
+    public static final RegistryKey<World> LEVEL_ONE_WORLD_KEY = RegistryKey.of(RegistryKeys.WORLD, Identifier.of("backrooms","level_1"));
 
     private static DimensionType levelZeroType;
 

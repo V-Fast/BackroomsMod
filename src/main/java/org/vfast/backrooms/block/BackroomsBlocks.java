@@ -3,6 +3,8 @@ package org.vfast.backrooms.block;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import org.vfast.backrooms.BackroomsMod;
+import org.vfast.backrooms.block.interactable.EntranceBlock;
+import org.vfast.backrooms.block.interactable.ExitBlock;
 import org.vfast.backrooms.block.interactable.TapePlayer;
 import org.vfast.backrooms.item.BackroomsItemsGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -84,8 +86,10 @@ public class BackroomsBlocks {
             new TapePlayer(AbstractBlock.Settings.copy(Blocks.JUKEBOX).sounds(BlockSoundGroup.STONE).strength(1.5f)), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Block CRATE = registerBlock("crate",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
-
-
+    public static final Block ENTRANCE_BLOCK = registerBlock("entrance_block",
+            new EntranceBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.METAL).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block EXITBLOCK = registerBlock("exit_block",
+            new ExitBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.METAL).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     // Register
     @SafeVarargs
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup>... groups) {
