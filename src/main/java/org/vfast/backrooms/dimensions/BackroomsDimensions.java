@@ -24,7 +24,7 @@ public class BackroomsDimensions {
 
     private static DimensionType levelZeroType;
 
-    public static void init() {
+    public static void registerDimensions() {
         try {
             levelZeroType = JSONUtil.deserializeDataJson(DimensionType.CODEC, Identifier.of(BackroomsMod.ID, "dimension_type/level_0_type"));
         } catch (IOException e) {

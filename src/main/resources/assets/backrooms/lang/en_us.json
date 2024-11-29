@@ -34,6 +34,8 @@
   "commands.sanity.setter.success.plural": "Set sanity of player %s to %s levels",
   "commands.sanity.setter.success.singular": "Set sanity of player %s to %s level",
 
+  "gamerule.doIHallucinate": "Do I Hallucinate?",
+
   "death.attack.low_sanity": "%1$s went insane",
 
   "item.backrooms.silk": "Silk",

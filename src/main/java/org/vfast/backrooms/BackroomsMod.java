@@ -9,6 +9,7 @@ import net.minecraft.server.world.ServerWorld;
 import org.vfast.backrooms.block.BackroomsBlocks;
 import org.vfast.backrooms.block.entity.BackroomsBlockEntities;
 import org.vfast.backrooms.dimensions.BackroomsDimensions;
+import org.vfast.backrooms.gamerules.BackroomsGamerules;
 import org.vfast.backrooms.item.BackroomsItems;
 import org.vfast.backrooms.sound.BackroomsSounds;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -38,49 +39,11 @@ public class BackroomsMod implements ModInitializer {
 		BackroomsBlockEntities.registerBlockEntities();
 		BackroomsItems.registerItems();
 		BackroomsSounds.registerSoundEvents();
-		BackroomsDimensions.init();
-		registerEvents();
+		BackroomsDimensions.registerDimensions();
+		BackroomsGamerules.registerGamerules();
 
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> BackroomsDimensions.initPortal());
 
 		BackroomsMod.LOGGER.info("Initialized Backrooms");
-	}
-
-
-	public void registerEvents() {
-		ServerLifecycleEvents.SERVER_STOPPING.register((server) -> {
-//			BackroomsConfig.HANDLER.save();
-		});
-//        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> {
-//			if (BackroomsDimensions.isLevel(destination)) {
-//				StatusEffectInstance miningFatigue = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, StatusEffectInstance.INFINITE, 2, false, false, false);
-//				player.addStatusEffect(miningFatigue);
-//				player.setSpawnPoint(BackroomsDimensions.LEVEL_ZERO.key,// TODO Make this the same as origin dimension
-//						player.getBlockPos(), // TODO make spawnpoint position randomized
-//						0.0f, true, false);
-//			} else if (BackroomsDimensions.isLevel(origin)){
-//				ServerWorld overworld = player.getServer().getOverworld();
-//				player.setSpawnPoint(overworld.getRegistryKey(), overworld.getSpawnPos(), overworld.getSpawnAngle(), true, false);
-//				player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
-//			}
-//		});
-//		ServerEntityWorldChangeEvents.AFTER_ENTITY_CHANGE_WORLD.register((originalEntity, newEntity, origin, destination) -> {
-//			if (newEntity instanceof LivingEntity entity) {
-//				if (destination == BackroomsDimensions.LEVEL_RUN.getWorld(entity.getServer())) {
-//					StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, StatusEffectInstance.INFINITE, 0, false, false, false);
-//					entity.addStatusEffect(speed);
-//				} else if (origin == BackroomsDimensions.LEVEL_RUN.getWorld(entity.getServer())) {
-//					entity.removeStatusEffect(StatusEffects.SPEED);
-//				}
-//			}
-//		});
-//		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
-//			if (player.getStackInHand(hand).isOf(BackroomsItems.BROKEN_BOTTLE)) {
-//				BacteriaEntity bacteria = (BacteriaEntity) entity;
-//				StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.SLOWNESS, 5, 2, false, false, false);
-//				bacteria.addStatusEffect(effect);
-//			}
-//			return ActionResult.PASS;
-//		});
 	}
 }
