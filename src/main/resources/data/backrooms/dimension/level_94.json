@@ -1,0 +1,30 @@
+{
+  "type": "backrooms:level_94_type",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "backrooms:level_94_biome",
+      "lakes": false,
+      "features": true,
+      "layers": [
+        {
+          "block": "minecraft:bedrock",
+          "height": 3
+        },
+        {
+          "height": 64,
+          "block": "minecraft:dirt"
+        },
+        {
+          "height": 1,
+          "block": "minecraft:grass_block"
+        },
+        {
+          "height": 1,
+          "block": "minecraft:short_grass"
+        }
+      ],
+      "structure_overrides": "backrooms:level_94"
+    }
+  }
+}

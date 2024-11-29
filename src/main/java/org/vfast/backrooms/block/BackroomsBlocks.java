@@ -3,7 +3,8 @@ package org.vfast.backrooms.block;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import org.vfast.backrooms.BackroomsMod;
-import org.vfast.backrooms.block.interactable.FluorescentLightBlock;
+import org.vfast.backrooms.block.interactable.EntranceBlock;
+import org.vfast.backrooms.block.interactable.ExitBlock;
 import org.vfast.backrooms.block.interactable.TapePlayer;
 import org.vfast.backrooms.item.BackroomsItemsGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -50,7 +51,7 @@ public class BackroomsBlocks {
     public static final Block DROPPED_CEILING = registerBlock("dropped_ceiling",
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).strength(1f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
-            new FluorescentLightBlock(AbstractBlock.Settings.copy(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(value -> 9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+            new Block(AbstractBlock.Settings.copy(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(value -> 9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block BLUE_TAPESTRY = registerBlock("blue_tapestry",
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOL).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block STRIPED_BLUE_TAPESTRY = registerBlock("striped_blue_tapestry",
@@ -73,6 +74,8 @@ public class BackroomsBlocks {
             new Block(AbstractBlock.Settings.copy(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(value -> 15)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block DECAYING_BRICKS = registerBlock("decaying_bricks",
             new Block(AbstractBlock.Settings.copy(Blocks.BRICKS).sounds(BlockSoundGroup.STONE).requiresTool().strength(Blocks.BRICKS.getHardness())), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block CEILING_LIGHT = registerBlock("ceiling_light",
+            new Block(AbstractBlock.Settings.copy(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(value -> 9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
     // Level Run
     public static final Block HOSPITAL_DOOR = registerBlock("hospital_door", new DoorBlock(BlockSetTypeBuilder.copyOf(BlockSetType.IRON).openableByHand(true).build(Identifier.of(BackroomsMod.ID, "ceramic")), AbstractBlock.Settings.copy(Blocks.IRON_DOOR)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
@@ -83,8 +86,10 @@ public class BackroomsBlocks {
             new TapePlayer(AbstractBlock.Settings.copy(Blocks.JUKEBOX).sounds(BlockSoundGroup.STONE).strength(1.5f)), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Block CRATE = registerBlock("crate",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
-
-
+    public static final Block ENTRANCE_BLOCK = registerBlock("entrance_block",
+            new EntranceBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.METAL).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
+    public static final Block EXITBLOCK = registerBlock("exit_block",
+            new ExitBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.METAL).strength(2f)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     // Register
     @SafeVarargs
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup>... groups) {

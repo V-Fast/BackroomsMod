@@ -26,5 +26,51 @@
         "stream": false
       }
     ]
+  },
+  "lacebark_pine": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/lacebark_pine",
+        "stream": false
+      }
+    ]
+  },
+  "curiosity": {
+    "sounds": [
+      {
+        "name": "backrooms:tapes/curiosity",
+        "stream": false
+      }
+    ]
+  },
+  "room_wind": {
+    "subtitle": "",
+    "sounds": [
+      {
+      "name": "backrooms:ambient/room_wind",
+      "stream": true
+      }
+    ],
+    "category": "ambient"
+  },
+  "light_drops": {
+    "subtitle": "",
+    "sounds": [
+      {
+        "name": "backrooms:ambient/light_drops",
+        "stream": true
+      }
+    ],
+    "category": "ambient"
+  },
+  "ocean": {
+    "subtitle": "",
+    "sounds": [
+      {
+        "name": "backrooms:ambient/ocean",
+        "stream": true
+      }
+    ],
+    "category": "ambient"
   }
 }

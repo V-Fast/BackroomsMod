@@ -3,7 +3,7 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 1,
+      "weight": 50,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
@@ -13,17 +13,7 @@
       }
     },
     {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "backrooms:level_0/room_2",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 1,
+      "weight": 50,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
@@ -43,7 +33,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 3,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
@@ -53,7 +43,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 50,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
@@ -63,7 +53,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 50,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
@@ -77,30 +67,11 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "backrooms:level_0/room_8",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "backrooms:level_0/room_9",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "backrooms:level_0/room_10",
+        "location": "backrooms:level_0/room_2_extend",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty"
       }
     }
   ]
 }
+
