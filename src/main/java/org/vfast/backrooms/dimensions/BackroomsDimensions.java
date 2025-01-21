@@ -21,6 +21,7 @@ public class BackroomsDimensions {
     public static final RegistryKey<DimensionType> LEVEL_ZERO_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,  Identifier.of(BackroomsMod.ID, "dimension_type/level_0"));
     public static final RegistryKey<World> LEVEL_ZERO_WORLD_KEY = RegistryKey.of(RegistryKeys.WORLD, Identifier.of("backrooms","level_0"));
     public static final RegistryKey<World> LEVEL_ONE_WORLD_KEY = RegistryKey.of(RegistryKeys.WORLD, Identifier.of("backrooms","level_1"));
+    public static final RegistryKey<World> LEVEL_TWO_WORLD_KEY = RegistryKey.of(RegistryKeys.WORLD, Identifier.of("backrooms","level_2"));
 
     private static DimensionType levelZeroType;
 

@@ -8,8 +8,8 @@
     "water_color": 4159204,
     "water_fog_color": 329011,
     "mood_sound": {
-      "sound": "minecraft:ambient.cave",
-      "tick_delay": 6000,
+      "sound": "backrooms:monster_noise_1",
+      "tick_delay": 3500,
       "block_search_extent": 8,
       "offset": 2
     },
@@ -18,6 +18,5 @@
   "spawners": {},
   "spawn_costs": {},
   "carvers": {},
-  "features": [
-  ]
+  "features": []
 }

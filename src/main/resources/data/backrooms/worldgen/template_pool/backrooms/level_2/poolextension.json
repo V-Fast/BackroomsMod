@@ -1,23 +1,13 @@
 {
-  "name": "backrooms:backrooms/level_1/poolextension",
+  "name": "backrooms:backrooms/level_2/poolextension",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 35,
+      "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "backrooms:level_1/room_1",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 25,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "backrooms:level_1/room_2",
+        "location": "backrooms:level_2/room_1",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty"
       }
@@ -27,17 +17,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "backrooms:level_1/room_3",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 10,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "backrooms:level_1/room_5",
+        "location": "backrooms:level_2/room_2",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty"
       }
@@ -47,11 +27,20 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "backrooms:level_1/room_6_tp",
+        "location": "backrooms:level_2/room_3",
+        "override_liquid_settings": "ignore_waterlogging",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "backrooms:level_2/room_4_tp",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty"
       }
     }
   ]
 }
-

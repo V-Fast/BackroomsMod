@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "backrooms:level_33",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 729445388,
+    "spread_type": "triangular",
+    "spacing": 12,
+    "separation": 6
+  }
+}

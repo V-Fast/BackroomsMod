@@ -1,6 +1,7 @@
 package org.vfast.backrooms.sound;
 
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import org.vfast.backrooms.BackroomsMod;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -21,6 +22,10 @@ public class BackroomsSounds {
     public static final SoundEvent ROOM_WIND = registerSoundEvent("room_wind");
     public static final SoundEvent LIGHT_DROPS = registerSoundEvent("light_drops");
     public static final SoundEvent OCEAN = registerSoundEvent("ocean");
+
+    // Monster sounds
+    public static final SoundEvent MONSTER_NOISE_1 = registerSoundEvent("monster_noise_1");
+
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(BackroomsMod.ID, name);

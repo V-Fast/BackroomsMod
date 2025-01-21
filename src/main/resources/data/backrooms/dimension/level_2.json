@@ -1,9 +1,9 @@
 {
-  "type": "backrooms:level_1_type",
+  "type": "backrooms:level_2_type",
   "generator": {
     "type": "minecraft:flat",
     "settings": {
-      "biome": "backrooms:level_1_biome",
+      "biome": "backrooms:level_2_biome",
       "lakes": false,
       "features": true,
       "layers": [
@@ -12,7 +12,7 @@
           "height": 20
         }
       ],
-      "structure_overrides": "backrooms:level_1"
+      "structure_overrides": "backrooms:level_2"
     }
   }
 }

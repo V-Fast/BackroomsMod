@@ -72,5 +72,15 @@
       }
     ],
     "category": "ambient"
+  },
+  "monster_noise_1": {
+    "subtitle": "Behind you",
+    "sounds": [
+      {
+        "name": "backrooms:monster/monster_noise_1",
+        "stream": true
+      }
+    ],
+    "category": "ambient"
   }
 }

@@ -1,10 +1,10 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": "backrooms:level_1_biome",
+  "biomes": "backrooms:level_2_biome",
   "step": "raw_generation",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",
-  "start_pool": "backrooms:backrooms/level_1/pool",
+  "start_pool": "backrooms:backrooms/level_2/pool",
   "size": 20,
   "start_height": {
     "absolute": 21

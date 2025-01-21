@@ -1,18 +1,18 @@
 {
-  "type": "backrooms:level_1_type",
+  "type": "backrooms:level_33_type",
   "generator": {
     "type": "minecraft:flat",
     "settings": {
-      "biome": "backrooms:level_1_biome",
+      "biome": "backrooms:level_33_biome",
       "lakes": false,
       "features": true,
       "layers": [
         {
           "block": "minecraft:bedrock",
-          "height": 20
+          "height": 30
         }
       ],
-      "structure_overrides": "backrooms:level_1"
+      "structure_overrides": "backrooms:level_33"
     }
   }
 }

@@ -10,9 +10,17 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "backrooms:crate"
+              "name": "backrooms:almond_water",
+              "weight": 1,
+              "quality": 3
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot",
+          "weight": 6,
+          "quality": 4
         }
       ]
     }

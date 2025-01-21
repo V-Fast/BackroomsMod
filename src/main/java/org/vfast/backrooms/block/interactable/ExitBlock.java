@@ -27,6 +27,7 @@ import org.vfast.backrooms.dimensions.BackroomsDimensions;
 import java.util.Set;
 
 import static net.minecraft.block.LeavesBlock.WATERLOGGED;
+import static org.vfast.backrooms.dimensions.BackroomsDimensions.*;
 
 public class ExitBlock extends Block {
     protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
@@ -47,15 +48,23 @@ public class ExitBlock extends Block {
 
         if(entity.getServer() != null){
 
-            if(entity.getWorld().getRegistryKey() == BackroomsDimensions.LEVEL_ZERO_WORLD_KEY){
+            if(entity.getWorld().getRegistryKey() == LEVEL_ZERO_WORLD_KEY){
                 ServerWorld serverWorld = entity.getServer().getWorlds().iterator().next();
-                entity.teleport(serverWorld.getServer().getWorld(BackroomsDimensions.LEVEL_ONE_WORLD_KEY),
-                        entity.getX(), 2, entity.getZ(), Set.of(), entity.getYaw(), entity.getPitch());
+                entity.teleport(serverWorld.getServer().getWorld(LEVEL_ONE_WORLD_KEY),
+                        entity.getX(), 21, entity.getZ(), Set.of(), entity.getYaw(), entity.getPitch());
                 if(entity instanceof ServerPlayerEntity player) {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 100, 0, false, false));
                 }
-                super.onEntityCollision(state, world, pos, entity);
-            }
-        }
+
+            } else if(entity.getWorld().getRegistryKey() == LEVEL_ONE_WORLD_KEY){
+                ServerWorld serverWorld = entity.getServer().getWorlds().iterator().next();
+                entity.teleport(serverWorld.getServer().getWorld(LEVEL_TWO_WORLD_KEY),
+                        entity.getX(), 21, entity.getZ(), Set.of(), entity.getYaw(), entity.getPitch());
+                if(entity instanceof ServerPlayerEntity player) {
+                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 100, 0, false, false));
+                }
+    }
+    }
+        super.onEntityCollision(state, world, pos, entity);
     }
 }
