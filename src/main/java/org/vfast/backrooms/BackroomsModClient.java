@@ -10,8 +10,6 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class BackroomsModClient implements ClientModInitializer {
-
-
     @Override
     public void onInitializeClient() {
         FabricLoader.getInstance().getModContainer(BackroomsMod.ID).ifPresent(modContainer -> {
