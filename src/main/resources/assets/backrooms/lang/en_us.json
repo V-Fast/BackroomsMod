@@ -115,5 +115,6 @@
   "immersion.backrooms.high": "High Immersion",
   "immersion.backrooms.unknown": "Unknown Immersion",
 
-  "resourcePack.old_ssc.name": "Old Slightly Scratched Concrete"
+  "resourcePack.old_ssc.name": "Old Slightly Scratched Concrete",
+  "resourcePack.def_pano.name": "Default Panorama"
 }

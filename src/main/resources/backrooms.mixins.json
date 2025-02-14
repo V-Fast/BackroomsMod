@@ -6,12 +6,8 @@
   "mixins": [
     "LevelPropertiesMixin"
   ],
-  "client": [
-    "GameOptionsMixin",
-    "AccessibilityOptionsScreenMixin"
-  ],
-  "server": [
-  ],
+  "client": [],
+  "server": [],
   "injectors": {
     "defaultRequire": 1
   }
