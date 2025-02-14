@@ -1,0 +1,18 @@
+{
+  "type": "backrooms:level_bonus_type",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "backrooms:level_bonus_biome",
+      "lakes": false,
+      "features": true,
+      "layers": [
+        {
+          "block": "minecraft:bedrock",
+          "height": 20
+        }
+      ],
+      "structure_overrides": "backrooms:level_bonus"
+    }
+  }
+}
