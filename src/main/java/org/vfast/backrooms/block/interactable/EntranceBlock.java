@@ -22,10 +22,8 @@ public class EntranceBlock extends Block {
     protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
 
     public EntranceBlock(Settings settings) {
-
         super(settings);
     }
-
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -35,12 +33,9 @@ public class EntranceBlock extends Block {
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if(entity.getServer() != null){
-            ServerWorld serverWorld = entity.getServer().getWorlds().iterator().next();
-            entity.teleport(serverWorld.getServer().getWorld(LEVEL_ZERO_WORLD_KEY),
+            entity.teleport(entity.getServer().getWorld(LEVEL_ZERO_WORLD_KEY),
                     entity.getX(), 15, entity.getZ(), Set.of(), entity.getYaw(), entity.getPitch());
         }
         super.onEntityCollision(state, world, pos, entity);
     }
-
-
 }
