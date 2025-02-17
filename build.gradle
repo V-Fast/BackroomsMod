@@ -12,12 +12,25 @@ base {
 
 repositories {
 	maven {
-		url "https://maven.fabricmc.net/"
+		url = "https://maven.fabricmc.net/"
 	}
 
 	maven {
 		url = "https://maven.kyrptonaught.dev"
 	}
+
+	maven {
+		url = "https://jitpack.io"
+	}
+
+	maven {
+		url = "https://maven.shedaniel.me"
+	}
+	maven {
+		url = "https://api.modrinth.com/maven"
+	}
+
+
 
 	mavenCentral()
 }
@@ -44,6 +57,8 @@ dependencies {
 	// Custom Portal API
 	modImplementation "net.kyrptonaught:customportalapi:${project.portal_api_version}" // can't use `project.minecraft_version` because 1.21.1 and not 1.21
 	include "net.kyrptonaught:customportalapi:${project.portal_api_version}"
+	modImplementation "com.github.iPortalTeam:ImmersivePortalsMod:v6.0.6-mc1.21.1"
+	modImplementation "maven.modrinth:midnightlib:1.5.7-fabric"
 }
 
 processResources {

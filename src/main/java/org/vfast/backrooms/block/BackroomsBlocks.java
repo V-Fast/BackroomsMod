@@ -74,8 +74,6 @@ public class BackroomsBlocks {
             new Block(AbstractBlock.Settings.copy(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(value -> 15)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
     public static final Block DECAYING_BRICKS = registerBlock("decaying_bricks",
             new Block(AbstractBlock.Settings.copy(Blocks.BRICKS).sounds(BlockSoundGroup.STONE).requiresTool().strength(Blocks.BRICKS.getHardness())), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
-    public static final Block CEILING_LIGHT = registerBlock("ceiling_light",
-            new Block(AbstractBlock.Settings.copy(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).strength(0.1f).luminance(value -> 9)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);
 
     // Level Run
     public static final Block HOSPITAL_DOOR = registerBlock("hospital_door", new DoorBlock(BlockSetTypeBuilder.copyOf(BlockSetType.IRON).openableByHand(true).build(Identifier.of(BackroomsMod.ID, "ceramic")), AbstractBlock.Settings.copy(Blocks.IRON_DOOR)), BackroomsItemsGroup.MAIN, ItemGroups.BUILDING_BLOCKS);

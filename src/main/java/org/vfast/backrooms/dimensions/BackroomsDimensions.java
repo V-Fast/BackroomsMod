@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.util.JSONUtil;
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 
 
 import java.io.IOException;
@@ -39,9 +40,10 @@ public class BackroomsDimensions {
                 .destDimID(Identifier.of(BackroomsMod.ID, "level_0"))
                 .lightWithItem(Items.PAPER)
                 .tintColor(181, 181, 97)
-                .setPortalSearchYRange(0, 5)
+                .setPortalSearchYRange(14, 16)
                 .registerPortal();
     }
+
 
     public static void registerDimensionTypes(MutableRegistry<DimensionType> registry) {
         RegistryEntryInfo stable = new RegistryEntryInfo(null, Lifecycle.stable()); // no experimental screen

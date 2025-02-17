@@ -1,9 +1,9 @@
 package org.vfast.backrooms.item;
 
+import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.util.Identifier;
 import org.vfast.backrooms.BackroomsMod;
-import org.vfast.backrooms.block.BackroomsBlocks;
 import org.vfast.backrooms.item.consumable.AlmondWater;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -25,7 +25,7 @@ public class BackroomsItems {
     public static final Item DECAYING_BRICK = registerItem("decaying_brick",
             new Item(new Item.Settings()), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
 
-//    public static final Item CAMERA = registerItem("camera", new CameraItem(
+    //    public static final Item CAMERA = registerItem("camera", new CameraItem(
 //            new Item.Settings().maxCount(1)), BackroomsItemsGroup.MAIN, ItemGroups.FUNCTIONAL);
     public static final Item ENERGY_BAR = registerItem("energy_bar", new Item(
             new Item.Settings().maxCount(64).food(new FoodComponent.Builder().alwaysEdible().nutrition(2*3).saturationModifier(3f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 5, 0), 1F).build())), BackroomsItemsGroup.MAIN, ItemGroups.FOOD_AND_DRINK);
