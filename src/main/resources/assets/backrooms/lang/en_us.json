@@ -110,6 +110,12 @@
   "levels.backrooms.level_0.details": "Wondering where you are? Well, if you know you know.\nTry to not die of hunger, thirst, or just die.\nGood luck.",
   "levels.backrooms.level_1.details": "A very familiar place, looking like an infinite parking underground.\nThere's a low amount of lights and some frightening sounds can be heard.",
 
+  "biome.backrooms.level_0_biome": "Level 0",
+  "biome.backrooms.level_1_biome": "Level 1",
+  "biome.backrooms.level_2_biome": "Level 2",
+  "biome.backrooms.level_7_biome": "Level 7",
+  "biome.backrooms.level_94_biome": "Level 94",
+
   "immersion.backrooms.low": "Low Immersion",
   "immersion.backrooms.medium": "Medium Immersion",
   "immersion.backrooms.high": "High Immersion",
