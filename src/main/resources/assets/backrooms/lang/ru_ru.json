@@ -4,7 +4,7 @@
 
   "advancements.backrooms.backrooms.root.title": "Бывал ли я здесь раньше?",
   "advancements.backrooms.backrooms.root.description": "Войдите на уровень 0",
-  "advancements.backrooms.backrooms.the_end_is_never.title": "Конца этому никогда не будет, конца этому никогда не будет.…...",
+  "advancements.backrooms.backrooms.the_end_is_never.title": "Конца этому никогда не будет, конца этому никогда не будет...",
   "advancements.backrooms.backrooms.the_end_is_never.description": "Войдите на уровень 1",
   "advancements.backrooms.backrooms.run.title": "БЕГИ",
   "advancements.backrooms.backrooms.run.description": "Войдите на уровень !",
@@ -34,8 +34,10 @@
   "commands.sanity.setter.success.plural": "Установить рассудок игрока %s на %s уровней",
   "commands.sanity.setter.success.singular": "Установить рассудок игрока %s на %s уровень",
 
+  "gamerule.doIHallucinate": "У меня галлюцинации?",
+
   "death.attack.low_sanity": "%1$s сошёл с ума",
-  
+
   "item.backrooms.silk": "Шёлк",
   "item.backrooms.silken_book": "Шёлковая книга",
   "item.backrooms.almond_water": "Миндальная вода",
@@ -54,13 +56,15 @@
   "item.backrooms.smiler_spawn_egg": "Яйцо призыва улыбаки",
   "item.backrooms.decaying_brick": "Разлагающийся кирпич",
 
-  "item.backrooms.paper_birch_tape": "Пластинка",
-  "item.backrooms.empyrea_tape": "Пластинка",
+  "item.backrooms.paper_birch_tape": "Кассета",
+  "item.backrooms.empyrea_tape": "Кассета",
+  "item.backrooms.lacebark_pine_tape": "Кассета",
+  "item.backrooms.curiosity_tape": "Кассета",
 
   "itemGroup.backrooms.backrooms": "Закулисья",
   "itemGroup.backrooms.music_tapes": "Пластинки",
   "itemGroup.backrooms.weapons": "Оружие",
-  "itemGroup.backrooms.entities": "Сущности закулисий",
+  "itemGroup.backrooms.entities": "Сущности Закулисий",
 
   "block.backrooms.moist_silk": "Влажный шёлк",
   "block.backrooms.moist_silk_oak_planks": "Влажные шёлковые дубовые доски",
@@ -106,10 +110,17 @@
   "levels.backrooms.level_0.details": "Гадаете, где вы? Что ж, если вы знаете, то вы знаете.\nПопытайтесь не умереть от голода, жажды или просто не умереть.\nУдачи.",
   "levels.backrooms.level_1.details": "Очень знакомое место, выглядящее как бесконечная подземная парковка.\nЗдесь мало света и могут быть услышаны какие-то пугающие звуки.",
 
+  "biome.backrooms.level_0_biome": "Уровень 0",
+  "biome.backrooms.level_1_biome": "Уровень 1",
+  "biome.backrooms.level_2_biome": "Уровень 2",
+  "biome.backrooms.level_7_biome": "Уровень 7",
+  "biome.backrooms.level_94_biome": "Уровень 94",
+
   "immersion.backrooms.low": "Низкое погружение",
   "immersion.backrooms.medium": "Среднее погружение",
   "immersion.backrooms.high": "Высокое погружение",
   "immersion.backrooms.unknown": "Неизвестное погружение",
 
-  "resourcePack.old_ssc.name": "Старый слегка поцарапанный бетон"
+  "resourcePack.old_ssc.name": "Старый слегка поцарапанный бетон",
+  "resourcePack.def_pano.name": "Панорама по умолчанию"
 }
