@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "mimic_block=grass_block": {
+            "model": "minecraft:block/grass_block"
+        },
+        "mimic_block=sand": {
+            "model": "minecraft:block/sand"
+        }
+    }
+}

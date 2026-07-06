@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=west": {
+            "model": "backrooms:block/wooly_chair",
+            "y": 270
+        },
+        "facing=south": {
+            "model": "backrooms:block/wooly_chair",
+            "y": 180
+        },
+        "facing=east": {
+            "model": "backrooms:block/wooly_chair",
+            "y": 90
+        },
+        "facing=north": {
+            "model": "backrooms:block/wooly_chair"
+        }
+    }
+}

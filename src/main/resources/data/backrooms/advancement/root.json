@@ -1,0 +1,30 @@
+{
+  "criteria": {
+    "noclipped": {
+      "conditions": {
+        "to": "backrooms:level_0"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "backrooms:gui/advancements/backgrounds/silk",
+    "description": {
+      "translate": "advancement.backrooms.root.description"
+    },
+    "icon": {
+      "id": "backrooms:silk"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.backrooms.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "noclipped"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

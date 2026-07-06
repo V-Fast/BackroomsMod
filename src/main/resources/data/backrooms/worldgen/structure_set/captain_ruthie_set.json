@@ -1,0 +1,16 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 10387319,
+    "separation": 5,
+    "spacing": 40,
+    "spread_type": "triangular",
+    "frequency": 0.7
+  },
+  "structures": [
+    {
+      "structure": "backrooms:overworld/captain_ruthie",
+      "weight": 1
+    }
+  ]
+}

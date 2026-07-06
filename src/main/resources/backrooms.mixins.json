@@ -1,13 +1,20 @@
 {
   "required": true,
-  "minVersion": "0.8",
-  "package": "org.vfast.backrooms.mixin",
+  "package": "org.vfast.backrooms.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "LevelPropertiesMixin"
+    "ImmersiveDimensions",
+    "ServerPlayerMixins"
   ],
-  "client": [],
-  "server": [],
+  "client": [
+    "AvatarRendererMixins",
+    "ChatScreenMixins",
+    "DebugScreenOverlayMixins",
+    "GameRendererMixins",
+    "LocalPlayerMixins",
+    "PlayerTabOverlayMixins",
+    "ScreenEffectRendererMixins"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

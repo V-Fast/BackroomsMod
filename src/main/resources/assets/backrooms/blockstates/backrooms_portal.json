@@ -1,0 +1,34 @@
+{
+    "variants": {
+        "facing=west,overworld=true": {
+            "model": "backrooms:block/backrooms_portal",
+            "y": 270
+        },
+        "facing=south,overworld=true": {
+            "model": "backrooms:block/backrooms_portal",
+            "y": 180
+        },
+        "facing=east,overworld=true": {
+            "model": "backrooms:block/backrooms_portal",
+            "y": 90
+        },
+        "facing=north,overworld=true": {
+            "model": "backrooms:block/backrooms_portal"
+        },
+        "facing=west,overworld=false": {
+            "model": "backrooms:block/backrooms_portal_lvl",
+            "y": 270
+        },
+        "facing=south,overworld=false": {
+            "model": "backrooms:block/backrooms_portal_lvl",
+            "y": 180
+        },
+        "facing=east,overworld=false": {
+            "model": "backrooms:block/backrooms_portal_lvl",
+            "y": 90
+        },
+        "facing=north,overworld=false": {
+            "model": "backrooms:block/backrooms_portal_lvl"
+        }
+    }
+}

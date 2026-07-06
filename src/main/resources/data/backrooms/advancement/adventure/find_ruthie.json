@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "ruthie": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "backrooms:overworld/captain_ruthie"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.backrooms.find_ruthie.description"
+    },
+    "icon": {
+      "id": "backrooms:wooly_chair",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.backrooms.find_ruthie.title"
+    }
+  },
+  "requirements": [
+    [
+      "ruthie"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

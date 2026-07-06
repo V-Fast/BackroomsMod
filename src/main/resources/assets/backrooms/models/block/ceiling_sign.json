@@ -1,0 +1,43 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "backrooms:block/ceiling_sign",
+		"particle": "backrooms:block/ceiling_sign"
+	},
+	"elements": [
+		{
+			"name": "sign",
+			"from": [0, 0, 7.75],
+			"to": [16, 11, 8.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 5.5], "texture": "#0"},
+				"east": {"uv": [8, 6, 8.5, 11.5], "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 5.5], "texture": "#0"},
+				"west": {"uv": [8, 6, 8.5, 11.5], "texture": "#0"},
+				"up": {"uv": [16, 5.5, 8, 5], "texture": "#0"},
+				"down": {"uv": [16, 5.5, 8, 6], "texture": "#0"}
+			}
+		},
+		{
+			"name": "chain",
+			"from": [0, 11, 8],
+			"to": [16, 16, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 9, 0]},
+			"faces": {
+				"north": {"uv": [8, 0, 16, 2.5], "texture": "#0"},
+				"south": {"uv": [8, 2.5, 16, 5], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "ceiling_sign",
+			"origin": [1, 0, 0],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

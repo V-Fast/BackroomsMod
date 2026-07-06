@@ -1,0 +1,15 @@
+{
+  "type": "backrooms:captain_ruthie",
+  "biomes": "#backrooms:has_structure/teleport",
+  "max_distance_from_center": 80,
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "size": 6,
+  "spawn_overrides": {},
+  "start_height": {
+    "absolute": 0
+  },
+  "start_pool": "backrooms:captain_ruthie",
+  "step": "surface_structures",
+  "terrain_adaptation": "bury",
+  "use_expansion_hack": false
+}

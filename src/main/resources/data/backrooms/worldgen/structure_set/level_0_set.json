@@ -10,6 +10,7 @@
     "salt": 729445388,
     "spread_type": "triangular",
     "spacing": 10,
-    "separation": 7
+    "separation": 9,
+    "frequency": 1
   }
 }

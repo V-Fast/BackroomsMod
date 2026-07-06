@@ -1,10 +1,8 @@
 {
-  "replace": false,
-  "values": [
-    "backrooms:smooth_iron_block",
-    "backrooms:stained_concrete",
-    "backrooms:stained_marked_concrete",
-    "backrooms:exit_sign",
-    "backrooms:decaying_bricks"
-  ]
+	"replace": false,
+	"values": [
+        "backrooms:air_vent",
+        "backrooms:decaying_bricks",
+        "backrooms:smooth_iron_block"
+    ]
 }

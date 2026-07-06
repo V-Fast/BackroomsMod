@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=west": {
+            "model": "backrooms:block/ceiling_sign",
+            "y": 270
+        },
+        "facing=south": {
+            "model": "backrooms:block/ceiling_sign",
+            "y": 180
+        },
+        "facing=east": {
+            "model": "backrooms:block/ceiling_sign",
+            "y": 90
+        },
+        "facing=north": {
+            "model": "backrooms:block/ceiling_sign"
+        }
+    }
+}

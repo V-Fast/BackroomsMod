@@ -1,86 +1,79 @@
 {
   "light_buzzing": {
-    "subtitle": "subtitle.backrooms.light_buzzing",
     "sounds": [
-      "backrooms:light_buzzing"
+      "backrooms:ambient/light_buzzing"
     ]
   },
-  "camera_click": {
-    "subtitle": "subtitle.backrooms.camera_click",
-    "sounds": [
-      "backrooms:camera_click"
-    ]
-  },
-  "paper_birch": {
+  "shallow_buzzing": {
     "sounds": [
       {
-        "name": "backrooms:tapes/paper_birch",
-        "stream": false
-      }
-    ]
-  },
-  "empyrea": {
-    "sounds": [
-      {
-        "name": "backrooms:tapes/empyrea",
-        "stream": false
-      }
-    ]
-  },
-  "lacebark_pine": {
-    "sounds": [
-      {
-        "name": "backrooms:tapes/lacebark_pine",
-        "stream": false
-      }
-    ]
-  },
-  "curiosity": {
-    "sounds": [
-      {
-        "name": "backrooms:tapes/curiosity",
-        "stream": false
-      }
-    ]
-  },
-  "room_wind": {
-    "subtitle": "",
-    "sounds": [
-      {
-      "name": "backrooms:ambient/room_wind",
-      "stream": true
-      }
-    ],
-    "category": "ambient"
-  },
-  "light_drops": {
-    "subtitle": "",
-    "sounds": [
-      {
-        "name": "backrooms:ambient/light_drops",
+        "name": "backrooms:ambient/shallow_buzzing",
         "stream": true
       }
     ],
     "category": "ambient"
   },
-  "ocean": {
-    "subtitle": "",
-    "sounds": [
-      {
-        "name": "backrooms:ambient/ocean",
-        "stream": true
-      }
-    ],
-    "category": "ambient"
-  },
-  "monster_noise_1": {
-    "subtitle": "Behind you",
+  "monster_noise": {
     "sounds": [
       {
         "name": "backrooms:monster/monster_noise_1",
-        "stream": true
+        "stream": false
       }
     ],
     "category": "ambient"
+  },
+  "noclip": {
+    "subtitle": "subtitle.backrooms.noclip",
+    "sounds": [
+      {
+        "name": "backrooms:effects/noclip_1",
+        "stream": false
+      },
+      {
+        "name": "backrooms:effects/noclip_2",
+        "stream": false
+      },
+      {
+        "name": "backrooms:effects/noclip_3",
+        "stream": false
+      },
+      {
+        "name": "backrooms:effects/noclip_4",
+        "stream": false
+      },
+      {
+        "name": "backrooms:effects/noclip_5",
+        "stream": false
+      },
+      {
+        "name": "backrooms:effects/noclip_6",
+        "stream": false
+      },
+      {
+        "name": "backrooms:effects/noclip_7",
+        "stream": false
+      },
+      {
+        "name": "backrooms:effects/noclip_8",
+        "stream": false
+      }
+    ]
+  },
+  "noclip_small": {
+    "subtitle": "subtitle.backrooms.noclip",
+    "sounds": [
+      {
+        "name": "backrooms:effects/noclip_small_1",
+        "stream": false
+      },
+      {
+        "name": "backrooms:effects/noclip_small_2",
+        "stream": false
+      },
+      {
+        "name": "backrooms:effects/noclip_small_3",
+        "stream": false
+      }
+    ]
   }
 }

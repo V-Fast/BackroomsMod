@@ -2,54 +2,40 @@
   "schemaVersion": 1,
   "id": "backrooms",
   "version": "${version}",
-  "name": "The Backrooms",
-  "description": "Experience the mysterious and scary world of the Backrooms in our Minecraft mod. Inspired by Kane Pixels, explore level 0 of this parallel world filled with dangers and adventures. Feel like you're part of the legend and never want to leave. You will feel like you are in the middle of the legend of The Backrooms and you will never want to leave. Don't miss this unique opportunity in the world of Minecraft!",
+  "name": "The Backrooms Mod",
+  "description": "Experience the Backrooms in a whole new way... Noclip out of reality, or go through a null zone, will get you in an infinite and irregular office building...",
   "authors": [
     "V-Fast",
     "Lumaa",
-    "PatateGivree",
-    "Clomclem"
+    "PatateGivree"
   ],
   "contributors": [
     "FirstMegaGame4",
     "mash113",
-    "mpustovoi"
+    "mpustovoi",
+    "Clomclem"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/backrooms",
-    "discord": "https://discord.com/invite/Rqpn3C7yR5",
-    "sources": "https://github.com/V-Fast/BackroomsMod",
-    "issues": "https://github.com/V-Fast/BackroomsMod/issues"
+    "issues": "https://github.com/V-Fast/BackroomsMod/issues",
+    "sources": "https://github.com/V-Fast/BackroomsMod"
   },
   "license": "MIT",
-  "icon": "assets/backrooms/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
       "org.vfast.backrooms.BackroomsMod"
     ],
     "client": [
-      "org.vfast.backrooms.BackroomsModClient"
+      "org.vfast.backrooms.client.BackroomsModClient"
     ]
   },
   "mixins": [
     "backrooms.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.11",
-    "minecraft": "~1.21",
-    "java": ">=21",
+    "fabricloader": ">=0.19.0",
+    "minecraft": ">=26.1",
+    "java": ">=25",
     "fabric-api": "*"
-  },
-  "suggests": {
-    "modmenu": ">=8.0.0"
-  },
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.com/invite/Rqpn3C7yR5"
-      },
-      "update_checker": true
-    }
   }
 }

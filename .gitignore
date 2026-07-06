@@ -1,19 +1,27 @@
+# ai
+
+.codex/
+
 # gradle
+
 .gradle/
 build/
 out/
 classes/
 
 # eclipse
+
 *.launch
 
 # idea
+
 .idea/
 *.iml
 *.ipr
 *.iws
 
 # vscode
+
 .settings/
 .vscode/
 bin/
@@ -21,31 +29,21 @@ bin/
 .project
 
 # macos
+
 *.DS_Store
 
 # fabric
+
 run/
 
-# local libraries
-libs/*.jar
+# java
 
-# paint.net
-*.pdn
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
 
-# disabled files
-*.disable
-*.disabled
-*.zip
+# blockbench
+
 *.bbmodel
-*.bat
-
-# freeze file (change only in github)
-LICENSE
-README.md
-DEVLOGS.md
-
-# super top mega secret files
-src/main/java/com/lumination/backrooms/mixin/AddServerScreenMixin.java
-src/main/java/com/lumination/backrooms/utils/ModMongo.java
-ideas/
 bbmodels/

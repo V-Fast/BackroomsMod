@@ -4,7 +4,7 @@
   "step": "raw_generation",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",
-  "start_pool": "backrooms:backrooms/level_0/pool",
+  "start_pool": "backrooms:level_0/poolextension",
   "size": 20,
   "start_height": {
     "absolute": 15
