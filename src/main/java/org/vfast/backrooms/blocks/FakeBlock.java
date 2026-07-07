@@ -65,10 +65,11 @@ public class FakeBlock extends Block implements LevelPortal {
     public @Nullable TeleportTransition getPortalDestination(ServerLevel currentLevel, Entity entity, BlockPos portalEntryPos) {
         assert entity.isAlive();
         this.prepareEntity(entity, true);
-        ResourceKey<Level> dimension = BackroomsLevels.LEVEL_0;
 
+        ResourceKey<Level> dimension = BackroomsLevels.LEVEL_0;
         ServerLevel newLevel = currentLevel.getServer().getLevel(dimension);
-        if (newLevel != null) {
+
+        if (newLevel != null && newLevel != currentLevel) {
             LevelPortal.SpawnLocation spawnLoc = this.selectStartPosition(portalEntryPos, newLevel, null);
 
             if (entity instanceof ServerPlayer) {
