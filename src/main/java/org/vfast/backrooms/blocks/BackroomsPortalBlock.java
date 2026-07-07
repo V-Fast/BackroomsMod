@@ -88,7 +88,7 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
         if (newLevel != null) {
             LevelPortal.SpawnLocation spawnLoc;
             if (!fromLevel) {
-                spawnLoc = this.selectStartPosition(portalEntryPos, newLevel, null);
+                spawnLoc = this.selectStartPosition(portalEntryPos, newLevel, BackroomsBlocks.BACKROOMS_PORTAL.defaultBlockState().setValue(OVERWORLD, false));
 
                 if (entity instanceof ServerPlayer) {
                     ServerPlayer.RespawnConfig respawn = LevelPortal.getSpawnConfig(spawnLoc.position(), spawnLoc.yRot(), spawnLoc.xRot(), newDimension);

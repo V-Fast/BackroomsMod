@@ -22,6 +22,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Portal;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.LevelData;
@@ -234,6 +235,14 @@ public interface LevelPortal extends Portal {
 
                     if (currentState.canBeReplaced() && currentAboveState.canBeReplaced()) {
                         Direction spawnDirection = LevelPortal.getSpawnDirection(position, level);
+
+                        if (updateBlock != null) {
+                            Optional<Direction> hasFacing = updateBlock.getOptionalValue(HorizontalDirectionalBlock.FACING);
+                            if (hasFacing.isPresent()) {
+                                updateBlock = updateBlock.setValue(HorizontalDirectionalBlock.FACING, spawnDirection);
+                            }
+                        }
+
                         boolean isValid = this.isPositionValid(position, level, spawnDirection, updateBlock);
 
                         if (isValid) {
