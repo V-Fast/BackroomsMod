@@ -25,8 +25,8 @@ public interface Noclippable {
         RandomSource random = level.getRandom();
         @Nullable BlockPos finalPos = null;
 
-        for (int xx = x; finalPos == null; xx = Mth.floor(Mth.randomBetween(random, -radius, radius))) {
-            for (int zz = z; finalPos == null; zz = Mth.floor(Mth.randomBetween(random, -radius, radius))) {
+        for (int xx = x; finalPos == null; xx = x + Mth.floor(Mth.randomBetween(random, -radius, radius))) {
+            for (int zz = z; finalPos == null; zz = z + Mth.floor(Mth.randomBetween(random, -radius, radius))) {
                 BlockPos lookingPos = new BlockPos(xx, y, zz);
                 BlockState lookingState = level.getBlockState(lookingPos);
                 Block lookingBlock = lookingState.getBlock();
