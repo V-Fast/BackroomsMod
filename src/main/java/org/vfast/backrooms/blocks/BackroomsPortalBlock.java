@@ -102,11 +102,11 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
 
                 if (entity instanceof ServerPlayer) {
                     ServerPlayer.RespawnConfig respawn = ((ServerPlayer) entity).getRespawnConfig();
-                    assert respawn != null;
-
-                    newPos = respawn.respawnData().pos();
-                    pitch = respawn.respawnData().pitch();
-                    yaw = respawn.respawnData().yaw();
+                    if (respawn != null) {
+                        newPos = respawn.respawnData().pos();
+                        pitch = respawn.respawnData().pitch();
+                        yaw = respawn.respawnData().yaw();
+                    }
                 }
 
                 spawnLoc = new LevelPortal.SpawnLocation(newPos, pitch, yaw);
