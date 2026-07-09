@@ -8,6 +8,7 @@
   ],
   "client": [
     "AvatarRendererMixins",
+    "BlockColorsMixins",
     "ChatScreenMixins",
     "DebugScreenOverlayMixins",
     "GameRendererMixins",
