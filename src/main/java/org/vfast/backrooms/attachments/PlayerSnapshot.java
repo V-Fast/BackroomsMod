@@ -27,7 +27,7 @@ public final class PlayerSnapshot {
         player.getInventory().clearContent();
         if (player instanceof ServerPlayer) {
             ServerPlayer.RespawnConfig respawn = ((ServerPlayer) player).getRespawnConfig();
-            if (respawn != null) {
+            if (respawn != null && respawn.respawnData().dimension() == Level.OVERWORLD) {
                 player.setAttached(BackroomsAttachments.SAVED_SPAWN, respawn.respawnData().pos());
             }
         }

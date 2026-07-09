@@ -88,6 +88,7 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
         if (newLevel != null) {
             LevelPortal.SpawnLocation spawnLoc;
             if (!fromLevel) {
+                // going to level 0
                 spawnLoc = this.selectStartPosition(portalEntryPos, newLevel, BackroomsBlocks.BACKROOMS_PORTAL.defaultBlockState().setValue(OVERWORLD, false));
 
                 if (entity instanceof ServerPlayer) {
@@ -95,7 +96,20 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
                     ((ServerPlayer) entity).setRespawnPosition(respawn, false);
                 }
             } else {
-                spawnLoc = new LevelPortal.SpawnLocation(newLevel.getRespawnData().pos(), newLevel.getRespawnData().pitch(), newLevel.getRespawnData().yaw());
+                BlockPos newPos = newLevel.getRespawnData().pos();
+                float pitch = newLevel.getRespawnData().pitch();
+                float yaw = newLevel.getRespawnData().yaw();
+
+                if (entity instanceof ServerPlayer) {
+                    ServerPlayer.RespawnConfig respawn = ((ServerPlayer) entity).getRespawnConfig();
+                    assert respawn != null;
+
+                    newPos = respawn.respawnData().pos();
+                    pitch = respawn.respawnData().pitch();
+                    yaw = respawn.respawnData().yaw();
+                }
+
+                spawnLoc = new LevelPortal.SpawnLocation(newPos, pitch, yaw);
             }
 
             this.prepareEntity(entity, false);

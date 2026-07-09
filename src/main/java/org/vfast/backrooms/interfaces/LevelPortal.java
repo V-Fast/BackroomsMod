@@ -195,8 +195,7 @@ public interface LevelPortal extends Portal {
     }
 
     static ServerPlayer.RespawnConfig getSpawnConfig(BlockPos position, float yaw, float pitch, ResourceKey<Level> level) {
-        GlobalPos spawnPos = GlobalPos.of(level, position);
-        return new ServerPlayer.RespawnConfig(new LevelData.RespawnData(spawnPos, yaw, pitch), true);
+        return new ServerPlayer.RespawnConfig(LevelData.RespawnData.of(level, position, yaw, pitch), true);
     }
 
     static void affectPlayer(Entity entity) {
