@@ -152,13 +152,13 @@ public interface LevelPortal extends Portal {
         return this.passingThrough(currentPos, pos1, pos2, 0.0d);
     }
 
-    default boolean passingThrough(Vec3 currentPos, Vec3 pos1, Vec3 pos2, double tolerence) {
-        double minX = pos1.x - tolerence;
-        double maxX = pos2.x + tolerence;
-        double minY = pos1.y - tolerence;
-        double maxY = pos2.y + tolerence;
-        double minZ = pos1.z - tolerence;
-        double maxZ = pos2.z + tolerence;
+    default boolean passingThrough(Vec3 currentPos, Vec3 pos1, Vec3 pos2, double tolerance) {
+        double minX = pos1.x - tolerance;
+        double maxX = pos2.x + tolerance;
+        double minY = pos1.y - tolerance;
+        double maxY = pos2.y + tolerance;
+        double minZ = pos1.z - tolerance;
+        double maxZ = pos2.z + tolerance;
 
         return (currentPos.x >= minX && currentPos.x <= maxX) && (currentPos.y >= minY && currentPos.y <= maxY) && (currentPos.z >= minZ && currentPos.z <= maxZ);
     }
