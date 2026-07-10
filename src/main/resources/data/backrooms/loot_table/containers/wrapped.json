@@ -1,0 +1,133 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stone",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3,
+                "min": 1
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:stick",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3,
+                "min": 1
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:wheat_seeds",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3,
+                "min": 1
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:dirt",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3,
+                "min": 1
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:dandelion",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3,
+                "min": 1
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:terracotta",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:glass_bottle",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chest",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 6
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 5,
+        "min": 1
+      }
+    }
+  ],
+  "random_sequence": "minecraft:chests/village/village_butcher"
+}
