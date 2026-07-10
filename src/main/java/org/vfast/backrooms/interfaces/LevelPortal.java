@@ -6,7 +6,6 @@ import net.minecraft.client.renderer.ScreenEffectRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.GlobalPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -213,6 +212,11 @@ public interface LevelPortal extends Portal {
             entity.setAttached(BackroomsAttachments.LOADING_WORLD, false);
             if (level.dimension() == BackroomsLevels.LEVEL_0) {
                 PlayerSnapshot.saveAndClear((ServerPlayer) entity);
+
+                if (entity instanceof ServerPlayer) {
+                    ServerPlayer.RespawnConfig respawn = LevelPortal.getSpawnConfig(entity.blockPosition(), entity.getXRot(), entity.getYRot(), BackroomsLevels.LEVEL_0);
+                    ((ServerPlayer) entity).setRespawnPosition(respawn, false);
+                }
             } else {
                 PlayerSnapshot.restore((ServerPlayer) entity);
             }

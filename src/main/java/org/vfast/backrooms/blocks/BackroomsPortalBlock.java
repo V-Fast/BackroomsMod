@@ -25,6 +25,7 @@ import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
+import org.vfast.backrooms.attachments.BackroomsAttachments;
 import org.vfast.backrooms.interfaces.LevelPortal;
 import org.vfast.backrooms.world.BackroomsLevels;
 
@@ -90,23 +91,15 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
             if (!fromLevel) {
                 // going to level 0
                 spawnLoc = this.selectStartPosition(portalEntryPos, newLevel, BackroomsBlocks.BACKROOMS_PORTAL.defaultBlockState().setValue(OVERWORLD, false));
-
-                if (entity instanceof ServerPlayer) {
-                    ServerPlayer.RespawnConfig respawn = LevelPortal.getSpawnConfig(spawnLoc.position(), spawnLoc.yRot(), spawnLoc.xRot(), newDimension);
-                    ((ServerPlayer) entity).setRespawnPosition(respawn, false);
-                }
             } else {
+                // going back to overworld
                 BlockPos newPos = newLevel.getRespawnData().pos();
                 float pitch = newLevel.getRespawnData().pitch();
                 float yaw = newLevel.getRespawnData().yaw();
 
-                if (entity instanceof ServerPlayer) {
-                    ServerPlayer.RespawnConfig respawn = ((ServerPlayer) entity).getRespawnConfig();
-                    if (respawn != null) {
-                        newPos = respawn.respawnData().pos();
-                        pitch = respawn.respawnData().pitch();
-                        yaw = respawn.respawnData().yaw();
-                    }
+                BlockPos respawn = entity.getAttached(BackroomsAttachments.SAVED_SPAWN);
+                if (respawn != null) {
+                    newPos = respawn;
                 }
 
                 spawnLoc = new LevelPortal.SpawnLocation(newPos, pitch, yaw);

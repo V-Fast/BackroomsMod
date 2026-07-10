@@ -19,20 +19,19 @@ public final class PlayerSnapshot {
     // 36 inv + 4 armor + 1 offhand
     private static final int INVENTORY_SIZE = 41;
 
-    public static void saveAndClear(Player player) {
+    public static void saveAndClear(ServerPlayer player) {
         if (PlayerSnapshot.hasSavedData(player)) return;
 
         player.setAttached(BackroomsAttachments.SAVED_INVENTORY, capture(player));
         player.getInventory().clearContent();
-        if (player instanceof ServerPlayer) {
-            ServerPlayer.RespawnConfig respawn = ((ServerPlayer) player).getRespawnConfig();
-            if (respawn != null && respawn.respawnData().dimension() == Level.OVERWORLD) {
-                player.setAttached(BackroomsAttachments.SAVED_SPAWN, respawn.respawnData().pos());
-            }
+
+        ServerPlayer.RespawnConfig respawn = player.getRespawnConfig();
+        if (respawn != null && respawn.respawnData().dimension() == Level.OVERWORLD) {
+            player.setAttached(BackroomsAttachments.SAVED_SPAWN, respawn.respawnData().pos());
         }
     }
 
-    public static void restore(Player player) {
+    public static void restore(ServerPlayer player) {
         List<ItemStack> snapshot = player.getAttachedOrElse(BackroomsAttachments.SAVED_INVENTORY, Collections.emptyList());
         if (snapshot.isEmpty()) return;
 
@@ -40,10 +39,9 @@ public final class PlayerSnapshot {
         player.removeAttached(BackroomsAttachments.SAVED_INVENTORY);
         if (player.hasAttached(BackroomsAttachments.SAVED_SPAWN)) {
             BlockPos spawn = player.getAttached(BackroomsAttachments.SAVED_SPAWN);
-            if (player instanceof ServerPlayer) {
-                GlobalPos spawnPos = GlobalPos.of(Level.OVERWORLD, spawn);
-                ServerPlayer.RespawnConfig config = new ServerPlayer.RespawnConfig(new LevelData.RespawnData(spawnPos, 0.0f, 0.0f), true);
-                ((ServerPlayer) player).setRespawnPosition(config, false);
+            if (spawn != null) {
+                ServerPlayer.RespawnConfig config = new ServerPlayer.RespawnConfig(LevelData.RespawnData.of(Level.OVERWORLD, spawn, 0.0f, 0.0f), true);
+                player.setRespawnPosition(config, false);
                 player.removeAttached(BackroomsAttachments.SAVED_SPAWN);
             }
         }
