@@ -54,16 +54,19 @@ public abstract class ServerPlayerMixins extends Player implements DarknessDamag
     @Inject(method = "tick", at = @At(value = "HEAD"))
     private void backroomsTick(CallbackInfo ci) {
         boolean fullyImmersed = this.level().getGameRules().get(BackroomsGameRules.FULL_IMMERSION);
-        ResourceKey<Level> levelKey = this.level().dimension();
 
-        boolean canNoclip = !this.lookingForNoclip && this.tickCount >= this.lastNoclipTick + Noclippable.NOCLIP_TICKS && !this.getAbilities().invulnerable;
+        if (fullyImmersed) {
+            ResourceKey<Level> levelKey = this.level().dimension();
 
-        if (levelKey == BackroomsLevels.LEVEL_0 && fullyImmersed) {
-            this.tickDarkness();
-            this.tickFood();
-        } else if (levelKey == Level.OVERWORLD && fullyImmersed && canNoclip) {
-            this.lookingForNoclip = true;
-            this.tickNoclip();
+            boolean canNoclip = !this.lookingForNoclip && this.tickCount >= this.lastNoclipTick + Noclippable.NOCLIP_TICKS && !this.getAbilities().invulnerable;
+
+            this.tickFood(levelKey);
+            if (levelKey == BackroomsLevels.LEVEL_0) {
+                this.tickDarkness();
+            } else if (levelKey == Level.OVERWORLD && canNoclip) {
+                this.lookingForNoclip = true;
+                this.tickNoclip();
+            }
         }
     }
 
@@ -148,8 +151,10 @@ public abstract class ServerPlayerMixins extends Player implements DarknessDamag
     }
 
     @Unique
-    private void tickFood() {
-        this.foodData.setFoodLevel(20);
+    private void tickFood(ResourceKey<Level> dimension) {
+        if (BackroomsLevels.isBackrooms(dimension)) {
+            this.foodData.setFoodLevel(20);
+        }
     }
 
     @Inject(method = "stopSleepInBed", at = @At(value = "HEAD"))

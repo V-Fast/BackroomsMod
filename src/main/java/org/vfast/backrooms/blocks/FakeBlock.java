@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -118,6 +119,11 @@ public class FakeBlock extends Block implements LevelPortal {
     @Override
     public BlockState suffocatingBlock(BlockState currentState) {
         return currentState.getValue(MIMIC).getBlock().defaultBlockState();
+    }
+
+    @Override
+    protected boolean isPathfindable(BlockState state, PathComputationType type) {
+        return true;
     }
 
     enum Mimic implements StringRepresentable {

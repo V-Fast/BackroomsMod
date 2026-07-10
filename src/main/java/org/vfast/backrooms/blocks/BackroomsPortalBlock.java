@@ -83,7 +83,7 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
         assert entity.isAlive();
         this.prepareEntity(entity, true);
 
-        boolean fromLevel = currentLevel.dimension() == BackroomsLevels.LEVEL_0;
+        boolean fromLevel = BackroomsLevels.isBackrooms(currentLevel.dimension());
         ResourceKey<Level> newDimension = fromLevel ? Level.OVERWORLD : BackroomsLevels.LEVEL_0;
         ServerLevel newLevel = currentLevel.getServer().getLevel(newDimension);
         if (newLevel != null) {
