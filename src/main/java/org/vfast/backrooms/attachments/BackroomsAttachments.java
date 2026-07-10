@@ -1,9 +1,11 @@
 package org.vfast.backrooms.attachments;
 
+import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import org.vfast.backrooms.BackroomsMod;
@@ -32,7 +34,11 @@ public class BackroomsAttachments {
             builder -> builder.initializer(() -> false)
     );
 
-    public static void register() {
-        BackroomsMod.LOGGER.info("[BackroomsMod] Attachments registered");
-    }
+    public static final AttachmentType<Integer> SLEEP_COUNT = AttachmentRegistry.create(
+            Identifier.fromNamespaceAndPath(BackroomsMod.ID, "sleep_count"),
+            builder -> builder
+                    .persistent(Codec.INT)
+                    .syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.targetOnly())
+                    .copyOnDeath()
+    );
 }

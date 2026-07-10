@@ -19,6 +19,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.vfast.backrooms.attachments.PlayerSnapshot;
 import org.vfast.backrooms.blocks.BackroomsBlocks;
 import org.vfast.backrooms.interfaces.DarknessDamage;
 import org.vfast.backrooms.interfaces.Noclippable;
@@ -149,5 +150,13 @@ public abstract class ServerPlayerMixins extends Player implements DarknessDamag
     @Unique
     private void tickFood() {
         this.foodData.setFoodLevel(20);
+    }
+
+    @Inject(method = "stopSleepInBed", at = @At(value = "HEAD"))
+    private void onFullSleep(boolean forcefulWakeUp, boolean updateLevelList, CallbackInfo ci) {
+        boolean fullyImmersed = this.level().getGameRules().get(BackroomsGameRules.FULL_IMMERSION);
+        if (forcefulWakeUp && fullyImmersed) {
+            PlayerSnapshot.addSleepCount(this);
+        }
     }
 }

@@ -7,7 +7,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.levelgen.WorldDimensions;
 import net.minecraft.world.level.storage.LevelData;
 
 import java.util.ArrayList;
@@ -48,6 +47,12 @@ public final class PlayerSnapshot {
                 player.removeAttached(BackroomsAttachments.SAVED_SPAWN);
             }
         }
+    }
+
+    public static int addSleepCount(Player player) {
+        int currentCount = player.getAttachedOrElse(BackroomsAttachments.SLEEP_COUNT, 0);
+        player.setAttached(BackroomsAttachments.SLEEP_COUNT, currentCount + 1);
+        return currentCount + 1;
     }
 
     private static List<ItemStack> capture(Player player) {
