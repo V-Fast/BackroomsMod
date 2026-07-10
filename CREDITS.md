@@ -2,7 +2,7 @@
 
 ### Creators
 - [Lumaa](https://github.com/lumaa-dev): Lead Developer and Main Creator
-- [PatateGivree](https://github.com/Minipinot): Developer and Asset Maker
+- [PatateGivree](https://www.youtube.com/@PatateGivree): Developer and Asset Maker
 - [Clomclem](https://github.com/Clomclem): Ex-Developer
 
 ### Notable contributors
