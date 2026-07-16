@@ -226,7 +226,7 @@ public interface LevelPortal extends Portal {
     default BackroomsPortalBlock.SpawnLocation selectStartPosition(BlockPos origin, ServerLevel level, @Nullable BlockState updateBlock) {
         Optional<BlockPos> startPosition = Optional.empty();
         Optional<Float> rotation = Optional.empty();
-        int y = 15; // from the feet position
+        int y = 50; // from the feet position
 
         for (int x = 0; x < 16 && startPosition.isEmpty(); x++) {
             for (int z = 0; z < 16 && startPosition.isEmpty(); z++) {
