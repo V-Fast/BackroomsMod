@@ -6,7 +6,7 @@
         "block_search_extent": 8,
         "offset": 2,
         "sound": "backrooms:monster_noise",
-        "tick_delay": 1000
+        "tick_delay": 10000
       }
     },
     "minecraft:gameplay/bed_rule": {

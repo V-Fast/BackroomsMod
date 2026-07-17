@@ -9,7 +9,7 @@
       "layers": [
         {
           "block": "minecraft:bedrock",
-          "height": 14
+          "height": 255
         }
       ],
       "structure_overrides": "backrooms:level_0"
