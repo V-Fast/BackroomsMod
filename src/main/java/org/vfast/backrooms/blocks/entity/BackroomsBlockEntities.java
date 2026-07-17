@@ -12,6 +12,7 @@ import org.vfast.backrooms.blocks.BackroomsBlocks;
 
 public class BackroomsBlockEntities {
     public static final BlockEntityType<TextSignBlockEntity> TEXT_SIGN_ENTITY = register("text_ceiling_sign", TextSignBlockEntity::new, BackroomsBlocks.TEXT_SIGN);
+    public static final BlockEntityType<TvBlockEntity> CRT_TV_ENTITY = register("crt_tv", TvBlockEntity::new, BackroomsBlocks.CRT_TV);
 
     private static <T extends BlockEntity> BlockEntityType<T> register(String name, FabricBlockEntityTypeBuilder.Factory<? extends T> entityFactory, Block... blocks) {
         Identifier id = Identifier.fromNamespaceAndPath(BackroomsMod.ID, name);

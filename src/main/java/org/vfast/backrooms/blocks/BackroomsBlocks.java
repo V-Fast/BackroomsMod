@@ -140,6 +140,8 @@ public class BackroomsBlocks {
             WoolyChairBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.WOOL).noOcclusion().requiresCorrectToolForDrops().strength(2f), false);
     public static final Block TEXT_SIGN = registerBlock("text_ceiling_sign",
             TextSignBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN).requiresCorrectToolForDrops(), false);
+    public static final Block CRT_TV = registerBlock("crt_tv",
+            TvBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS).requiresCorrectToolForDrops(), false);
 
     private static BlockBehaviour.Properties createMoistSilkPlanksBlock(Block sourceBlock) {
         return BlockBehaviour.Properties.ofFullCopy(sourceBlock).sound(SoundType.WOOD).strength(2f);

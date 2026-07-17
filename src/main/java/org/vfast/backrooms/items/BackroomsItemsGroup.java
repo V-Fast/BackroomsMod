@@ -52,6 +52,7 @@ public class BackroomsItemsGroup {
                 tab.accept(BackroomsBlocks.FLUORESCENT_LIGHT);
                 tab.accept(BackroomsBlocks.AIR_VENT);
                 tab.accept(BackroomsBlocks.WOOLY_CHAIR);
+                tab.accept(BackroomsBlocks.CRT_TV);
                 tab.accept(BackroomsBlocks.BLUE_TAPESTRY);
                 tab.accept(BackroomsBlocks.STRIPED_BLUE_TAPESTRY);
 

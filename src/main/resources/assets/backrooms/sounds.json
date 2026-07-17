@@ -75,5 +75,11 @@
         "stream": false
       }
     ]
+  },
+  "tv_song": {
+    "subtitle": "subtitle.backrooms.tv_song",
+    "sounds": [
+      "backrooms:tv_song"
+    ]
   }
 }

@@ -13,6 +13,7 @@ public class BackroomsSounds {
     public static final Holder<SoundEvent> MONSTER_NOISE = registerSound("monster_noise");
     public static final Holder<SoundEvent> NOCLIP = registerSound("noclip");
     public static final Holder<SoundEvent> NOCLIP_SMALL = registerSound("noclip_small");
+    public static final Holder<SoundEvent> TV_SONG = registerSound("tv_song");
 
     private static Holder<SoundEvent> registerSound(String id) {
         Identifier identifier = Identifier.fromNamespaceAndPath(BackroomsMod.ID, id);
