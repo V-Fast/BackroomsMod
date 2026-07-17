@@ -2,12 +2,12 @@ package org.vfast.backrooms.blocks;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -20,13 +20,13 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jspecify.annotations.Nullable;
 import org.vfast.backrooms.blocks.entity.TextSignBlockEntity;
 import org.vfast.backrooms.blocks.interfaces.CeilingSupportSign;
 import org.vfast.backrooms.client.gui.TextSignEditScreen;
+import org.vfast.backrooms.interfaces.GuiOpener;
 
 public class TextSignBlock extends BaseEntityBlock implements CeilingSupportSign {
     public static final MapCodec<TextSignBlock> CODEC = simpleCodec(TextSignBlock::new);
@@ -50,9 +50,8 @@ public class TextSignBlock extends BaseEntityBlock implements CeilingSupportSign
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         TextSignBlock.TextDirection direction = this.getFacingText(hitResult, state);
-        if (level.isClientSide() && direction != TextDirection.NONE && level.getBlockEntity(pos) instanceof TextSignBlockEntity blockEntity) {
-            TextSignEditScreen editScreen = new TextSignEditScreen(blockEntity, pos, this.getFacingText(hitResult, state) == TextDirection.FRONT);
-            Minecraft.getInstance().setScreen(editScreen);
+        if (player instanceof GuiOpener && direction != TextDirection.NONE && level.getBlockEntity(pos) instanceof TextSignBlockEntity blockEntity) {
+            ((GuiOpener) player).openTextSignEdit(blockEntity, pos, this.getFacingText(hitResult, state) == TextDirection.FRONT);
             player.swing(InteractionHand.MAIN_HAND);
             return InteractionResult.SUCCESS;
         } else {
