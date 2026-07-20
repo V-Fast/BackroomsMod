@@ -7,15 +7,16 @@
     "ServerPlayerMixins"
   ],
   "client": [
-    "ImmersiveDimensions",
     "AvatarRendererMixins",
     "BlockColorsMixins",
     "ChatScreenMixins",
     "DebugScreenOverlayMixins",
     "GameRendererMixins",
+    "ImmersiveDimensions",
     "LocalPlayerMixins",
     "PlayerTabOverlayMixins",
-    "ScreenEffectRendererMixins"
+    "ScreenEffectRendererMixins",
+    "WorldOpenFlowsMixins"
   ],
   "injectors": {
     "defaultRequire": 1

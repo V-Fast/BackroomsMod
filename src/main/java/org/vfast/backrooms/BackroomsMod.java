@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.vfast.backrooms.blocks.BackroomsBlocks;
 import org.vfast.backrooms.blocks.entity.BackroomsBlockEntities;
+import org.vfast.backrooms.items.BackroomsComponents;
 import org.vfast.backrooms.items.BackroomsItems;
 import org.vfast.backrooms.items.BackroomsItemsGroup;
 import org.vfast.backrooms.network.BackroomsNetworking;
@@ -21,6 +22,7 @@ public class BackroomsMod implements ModInitializer {
         BackroomsBlocks.registerBlocks();
         BackroomsBlockEntities.registerBlockEntities();
         BackroomsItems.registerItems();
+        BackroomsComponents.registerComponents();
         BackroomsItemsGroup.registerItemGroups();
         BackroomsSounds.registerSounds();
         BackroomsGameRules.registerGameRules();
