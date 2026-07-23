@@ -82,6 +82,7 @@
     "gamerule.backrooms.limited_chatting.description": "When playing online in the Backrooms, your chats are limited to the players around you only.",
 
     "subtitle.backrooms.noclip": "Noclipping",
+    "subtitle.backrooms.tv_song": "TV music",
 
     "message.backrooms.chat_alone": "No one heard your voice..."
 }
