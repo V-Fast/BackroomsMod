@@ -50,7 +50,7 @@ public abstract class ImmersiveDimensions extends ClientCommonPacketListenerImpl
     @Inject(method = "startWaitingForNewLevel", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;setScreenAndShow(Lnet/minecraft/client/gui/screens/Screen;)V"), cancellable = true)
     private void startImmersion(LocalPlayer player, ClientLevel level, LevelLoadingScreen.Reason reason, CallbackInfo ci) {
         this.fullyImmersed(level, reason, ci);
-        this.minecraft.setScreen(new InvisiScreen(this.levelLoadTracker));
+        this.minecraft.gui.setScreen(new InvisiScreen(this.levelLoadTracker));
     }
 
     @Inject(method = "startWaitingForNewLevel", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/LevelLoadingScreen;update(Lnet/minecraft/client/multiplayer/LevelLoadTracker;Lnet/minecraft/client/gui/screens/LevelLoadingScreen$Reason;)V"))
@@ -83,12 +83,7 @@ public abstract class ImmersiveDimensions extends ClientCommonPacketListenerImpl
     private void simulateSuffocation(@Nullable BlockState blockState) {
         GameRenderer renderer = this.minecraft.gameRenderer;
         ScreenEffectRenderer screenRenderer = ((GameRendererGetter) renderer).getScreenEffectRenderer();
-        if (blockState != null) {
-            TextureAtlasSprite suffocateSprite = this.minecraft.getModelManager().getBlockStateModelSet().getParticleMaterial(blockState).sprite();
-            ((Suffocator) screenRenderer).setSuffocating(suffocateSprite);
-        } else {
-            ((Suffocator) screenRenderer).setSuffocating(null);
-        }
+        ((Suffocator) screenRenderer).setSuffocating(blockState);
     }
 
     @Unique

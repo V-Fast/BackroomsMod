@@ -122,6 +122,6 @@ public abstract class AbstractTextScreen<S extends BlockEntity & TextBlockEntity
     }
 
     public void closeScreen() {
-        this.minecraft.setScreen(null);
+        this.minecraft.gui.setScreen(null);
     }
 }

@@ -79,7 +79,14 @@ public class FakeBlock extends Block implements LevelPortal {
             }
 
             this.prepareEntity(entity, false);
-            return new TeleportTransition(newLevel, spawnLoc.position().getBottomCenter(), Vec3.ZERO, spawnLoc.yRot(), spawnLoc.xRot(), Set.of(), LevelPortal::affectPlayer);
+
+            BlockPos blockPos = spawnLoc.position();
+            double x = blockPos.getX() + 0.5d;
+            double y = blockPos.getY();
+            double z = blockPos.getZ() + 0.5d;
+            Vec3 pos = new Vec3(x, y, z);
+
+            return new TeleportTransition(newLevel, pos, Vec3.ZERO, spawnLoc.yRot(), spawnLoc.xRot(), Set.of(), LevelPortal::affectPlayer);
         } else {
             this.prepareEntity(entity, false);
             return null;

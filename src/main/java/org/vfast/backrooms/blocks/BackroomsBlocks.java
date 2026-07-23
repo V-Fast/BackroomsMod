@@ -22,7 +22,7 @@ public class BackroomsBlocks {
 
     // Moist Silk blocks
     public static final Block MOIST_SILK = registerBlock("moist_silk",
-              BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.WOOL).requiresCorrectToolForDrops().strength(2f));
+              BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).sound(SoundType.WOOL).requiresCorrectToolForDrops().strength(2f));
     public static final Block MOIST_SILK_OAK_PLANKS = registerBlock("moist_silk_oak_planks",
             createMoistSilkPlanksBlock(Blocks.OAK_PLANKS));
     public static final Block MOIST_SILK_SPRUCE_PLANKS = registerBlock("moist_silk_spruce_planks",
@@ -104,15 +104,15 @@ public class BackroomsBlocks {
     public static final Block BACKROOMS_PORTAL = registerBlock("backrooms_portal", BackroomsPortalBlock::new,
             BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL).lightLevel((b) -> 0), false);
     public static final Block DROPPED_CEILING = registerBlock("dropped_ceiling",
-            BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.WOOL).strength(1f));
+            BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).sound(SoundType.WOOL).strength(1f));
     public static final Block MOIST_CARPET = registerBlock("moist_carpet",
-            BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.WOOL).requiresCorrectToolForDrops().strength(2f));
+            BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).sound(SoundType.WOOL).requiresCorrectToolForDrops().strength(2f));
     public static final Block FLUORESCENT_LIGHT = registerBlock("fluorescent_light",
             BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).sound(SoundType.GLASS).strength(0.1f).lightLevel(state -> 9));
     public static final Block BLUE_TAPESTRY = registerBlock("blue_tapestry",
-            BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.WOOL).strength(2f));
+            BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).sound(SoundType.WOOL).strength(2f));
     public static final Block STRIPED_BLUE_TAPESTRY = registerBlock("striped_blue_tapestry",
-            BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.WOOL).strength(2f));
+            BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).sound(SoundType.WOOL).strength(2f));
 //    public static final Block BLUE_TAPE = registerTape("blue_tape");
 
     // Level 1
@@ -137,7 +137,7 @@ public class BackroomsBlocks {
 //    public static final Block EXIT_SIGN = registerBlock("exit_sign",
 //            ExitBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops().strength(2f), false);
     public static final Block WOOLY_CHAIR = registerBlock("wooly_chair",
-            WoolyChairBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.WOOL).noOcclusion().requiresCorrectToolForDrops().strength(2f), false);
+            WoolyChairBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).sound(SoundType.WOOL).noOcclusion().requiresCorrectToolForDrops().strength(2f), false);
     public static final Block TEXT_SIGN = registerBlock("text_ceiling_sign",
             TextSignBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN).requiresCorrectToolForDrops(), false);
     public static final Block CRT_TV = registerBlock("crt_tv",
@@ -148,7 +148,7 @@ public class BackroomsBlocks {
     }
 
     private static BlockBehaviour.Properties createMarkedConcreteBlock() {
-        return BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE).sound(SoundType.STONE);
+        return BlockBehaviour.Properties.ofFullCopy(Blocks.CONCRETE.black()).sound(SoundType.STONE);
     }
 
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> blockConstructor, BlockBehaviour.Properties properties, Boolean itemless) {

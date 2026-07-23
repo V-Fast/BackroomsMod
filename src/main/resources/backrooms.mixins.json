@@ -15,8 +15,7 @@
     "ImmersiveDimensions",
     "LocalPlayerMixins",
     "PlayerTabOverlayMixins",
-    "ScreenEffectRendererMixins",
-    "WorldOpenFlowsMixins"
+    "ScreenEffectRendererMixins"
   ],
   "injectors": {
     "defaultRequire": 1

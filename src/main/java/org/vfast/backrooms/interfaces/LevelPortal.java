@@ -81,16 +81,14 @@ public interface LevelPortal extends Portal {
         Minecraft minecraft = Minecraft.getInstance();
         GameRenderer renderer = minecraft.gameRenderer;
         ScreenEffectRenderer screenRenderer = ((GameRendererGetter) renderer).getScreenEffectRenderer();
-        if (blockState != null) {
-            TextureAtlasSprite suffocateSprite = minecraft.getModelManager().getBlockStateModelSet().getParticleMaterial(blockState).sprite();
-            ((Suffocator) screenRenderer).setSuffocating(suffocateSprite);
-        } else {
-            ((Suffocator) screenRenderer).setSuffocating(null);
-        }
+        ((Suffocator) screenRenderer).setSuffocating(blockState);
     }
 
     default boolean fullyInBounding(Entity entity, BlockPos blockPos, EntityBounding detectionBounding) {
-        Vec3 pos = blockPos.getCenter();
+        double x = blockPos.getX() + 0.5d;
+        double y = blockPos.getY() + 0.5d;
+        double z = blockPos.getZ() + 0.5d;
+        Vec3 pos = new Vec3(x, y, z);
         Vec3 lb = pos.subtract(0.5d, 0.5d, 0.5d); // left bottom
         Vec3 ru = pos.add(0.5d, 0.5d, 0.5d); // right up
 
@@ -122,7 +120,10 @@ public interface LevelPortal extends Portal {
     }
 
     default boolean lazyBounding(Entity entity, BlockPos blockPos) {
-        Vec3 pos = blockPos.getCenter();
+        double x = blockPos.getX() + 0.5d;
+        double y = blockPos.getY() + 0.5d;
+        double z = blockPos.getZ() + 0.5d;
+        Vec3 pos = new Vec3(x, y, z);
         Vec3 lb = pos.subtract(0.5d, 0.5d, 0.5d); // left bottom
         Vec3 ru = pos.add(0.5d, 0.5d, 0.5d); // right up
 
@@ -139,7 +140,10 @@ public interface LevelPortal extends Portal {
 
         double headDiameter = 0.155d;
 
-        Vec3 pos = blockPos.getCenter();
+        double x = blockPos.getX() + 0.5d;
+        double y = blockPos.getY() + 0.5d;
+        double z = blockPos.getZ() + 0.5d;
+        Vec3 pos = new Vec3(x, y, z);
         Vec3 lb = pos.subtract(0.5d, 0.5d, 0.5d); // left bottom
         Vec3 ru = pos.add(0.5d, 0.5d, 0.5d); // right up
 

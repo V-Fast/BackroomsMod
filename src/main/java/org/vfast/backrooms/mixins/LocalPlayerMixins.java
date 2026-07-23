@@ -42,6 +42,6 @@ public abstract class LocalPlayerMixins extends AbstractClientPlayer implements 
     @Override
     public void openTextSignEdit(TextSignBlockEntity blockEntity, BlockPos pos, boolean isFront) {
         TextSignEditScreen editScreen = new TextSignEditScreen(blockEntity, pos, isFront);
-        this.minecraft.setScreen(editScreen);
+        this.minecraft.gui.setScreen(editScreen);
     }
 }
