@@ -39,30 +39,6 @@ public class TvBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        int lastPoweredTick;
-        BlockEntity be = level.getBlockEntity(pos);
-        if (be instanceof TvBlockEntity) {
-            lastPoweredTick = ((TvBlockEntity) be).getLastPoweredTick();
-        } else {
-            return;
-        }
-
-        BackroomsMod.LOGGER.info("TICK {}", ((TvBlockEntity) be).getLastPoweredTick());
-
-        boolean isPlaying = lastPoweredTick > 0;
-        if (isPlaying) {
-            lastPoweredTick = ((TvBlockEntity) be).addPoweredTick();
-            if (lastPoweredTick >= SOUND_DURATION - 1) {
-                ((TvBlockEntity) be).resetPoweredTick();
-                if (!level.hasNeighborSignal(pos)) {
-                    level.setBlock(pos, state.setValue(POWERED, true), 2);
-                }
-            }
-        }
-    }
-
-    @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (state.getValue(POWERED) && !level.hasNeighborSignal(pos)) {
             level.setBlock(pos, state.cycle(POWERED), 2);
@@ -73,25 +49,22 @@ public class TvBlock extends BaseEntityBlock {
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         int lastPoweredTick;
         BlockEntity be = level.getBlockEntity(pos);
-        if (be instanceof TvBlockEntity) {
-            lastPoweredTick = ((TvBlockEntity) be).getLastPoweredTick();
-        } else {
-            return;
-        }
+        if (be instanceof TvBlockEntity tv) {
+            lastPoweredTick = tv.getLastPoweredTick();
+        } else { return; }
 
-        if (!level.hasNeighborSignal(pos)) {
-            boolean canPlayRandom = lastPoweredTick < 0 && !state.getValue(POWERED);
+        boolean hasPower = level.hasNeighborSignal(pos);
+        level.setBlock(pos, state.setValue(POWERED, hasPower), 2);
 
-            if (random.nextInt(100) == 0 && canPlayRandom) {
-                level.setBlock(pos, state.setValue(POWERED, true), 2);
-                level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, BackroomsSounds.TV_SONG.value(), SoundSource.BLOCKS, 0.5f, 1.0f, false);
-                lastPoweredTick = ((TvBlockEntity) be).addPoweredTick();
-            }
-        } else {
+        if (hasPower) {
             if (lastPoweredTick <= 0) {
                 level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, BackroomsSounds.TV_SONG.value(), SoundSource.BLOCKS, 0.5f, 1.0f, false);
-                lastPoweredTick = ((TvBlockEntity) be).addPoweredTick();
             }
+            tv.addPoweredTick();
+        }
+
+        if (tv.isComplete()) {
+            tv.resetPoweredTick();
         }
     }
 
@@ -99,12 +72,8 @@ public class TvBlock extends BaseEntityBlock {
     protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, @Nullable Orientation orientation, boolean movedByPiston) {
         if (!level.isClientSide()) {
             boolean isPowered = state.getValue(POWERED);
-            if (isPowered != level.hasNeighborSignal(pos)) {
-                if (isPowered) {
-                    level.scheduleTick(pos, this, 4);
-                } else {
-                    level.setBlock(pos, state.cycle(POWERED), 2);
-                }
+            if (isPowered) {
+                level.scheduleTick(pos, this, 4);
             }
         }
     }

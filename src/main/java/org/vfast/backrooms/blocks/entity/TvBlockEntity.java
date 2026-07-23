@@ -18,7 +18,7 @@ public class TvBlockEntity extends BlockEntity {
 
     public TvBlockEntity(BlockPos worldPosition, BlockState blockState) {
         super(BackroomsBlockEntities.CRT_TV_ENTITY, worldPosition, blockState);
-        this.lastPoweredTick = -1;
+        this.lastPoweredTick = 0;
     }
 
     public int getLastPoweredTick() {
@@ -26,22 +26,19 @@ public class TvBlockEntity extends BlockEntity {
     }
 
     public int addPoweredTick() {
-        this.lastPoweredTick = this.cycleInt(Math.min(this.lastPoweredTick + 1, TvBlock.SOUND_DURATION));
+        this.lastPoweredTick = Math.min(this.lastPoweredTick + 1, TvBlock.SOUND_DURATION);
         this.markUpdated();
         return this.lastPoweredTick;
     }
 
     public int resetPoweredTick() {
-        this.lastPoweredTick = -1;
+        this.lastPoweredTick = 0;
         this.markUpdated();
-        return -1;
+        return 0;
     }
 
-    private int cycleInt(int newTick) {
-        if (newTick >= TvBlock.SOUND_DURATION) {
-            return 0;
-        }
-        return newTick;
+    public boolean isComplete() {
+        return this.lastPoweredTick >= TvBlock.SOUND_DURATION - 1 || this.lastPoweredTick <= 0;
     }
 
     private void markUpdated() {
