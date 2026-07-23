@@ -22,6 +22,6 @@ public abstract class PlayerMixins extends Avatar implements ContainerUser {
     @Inject(method = "shouldShowName", at = @At(value = "RETURN"), cancellable = true)
     private void hideName(CallbackInfoReturnable<Boolean> cir) {
         ResourceKey<Level> level = this.level().dimension();
-        cir.setReturnValue(level != BackroomsLevels.LEVEL_0);
+        cir.setReturnValue(BackroomsLevels.isBackrooms(level));
     }
 }

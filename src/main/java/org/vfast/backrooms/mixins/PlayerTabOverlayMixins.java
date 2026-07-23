@@ -24,7 +24,7 @@ public abstract class PlayerTabOverlayMixins {
 
     @Inject(method = "getPlayerInfos", at = @At("RETURN"), cancellable = true)
     private void getNearbyPlayerInfos(CallbackInfoReturnable<List<PlayerInfo>> cir) {
-        boolean isInBackrooms = this.minecraft.level.dimension() == BackroomsLevels.LEVEL_0;
+        boolean isInBackrooms = BackroomsLevels.isBackrooms(this.minecraft.level.dimension());
         this.setVisible(!isInBackrooms);
 
         if (isInBackrooms) {
