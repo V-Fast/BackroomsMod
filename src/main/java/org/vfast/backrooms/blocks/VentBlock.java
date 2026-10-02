@@ -14,8 +14,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class VentBlock extends FaceAttachedHorizontalDirectionalBlock {
-    public static final MapCodec<VentBlock> CODEC = simpleCodec(VentBlock::new);
-
     private static final VoxelShape[] FLOOR_SHAPES = new VoxelShape[] {
         Block.box(1, 0, 4.5, 15, 0.25, 11.5), // s
         Block.box(4.5, 0, 1, 11.5, 0.25, 15), // w
@@ -40,11 +38,6 @@ public class VentBlock extends FaceAttachedHorizontalDirectionalBlock {
     public VentBlock(BlockBehaviour.Properties properties) {
         super(properties);
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL));
-    }
-
-    @Override
-    protected MapCodec<? extends FaceAttachedHorizontalDirectionalBlock> codec() {
-        return CODEC;
     }
 
     @Override

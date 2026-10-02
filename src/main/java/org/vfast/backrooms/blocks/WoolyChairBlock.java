@@ -15,16 +15,9 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class WoolyChairBlock extends HorizontalDirectionalBlock {
-    public static final MapCodec<WoolyChairBlock> CODEC = simpleCodec(WoolyChairBlock::new);
-
     public WoolyChairBlock(BlockBehaviour.Properties properties) {
         super(properties);
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
-    }
-
-    @Override
-    protected MapCodec<WoolyChairBlock> codec() {
-        return CODEC;
     }
 
     @Override

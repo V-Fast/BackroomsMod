@@ -1,14 +1,12 @@
 package org.vfast.backrooms.blocks;
 
-import com.mojang.serialization.MapCodec;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -25,21 +23,13 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jspecify.annotations.Nullable;
 import org.vfast.backrooms.blocks.entity.TextSignBlockEntity;
 import org.vfast.backrooms.blocks.interfaces.CeilingSupportSign;
-import org.vfast.backrooms.client.gui.TextSignEditScreen;
 import org.vfast.backrooms.interfaces.GuiOpener;
 
 public class TextSignBlock extends BaseEntityBlock implements CeilingSupportSign {
-    public static final MapCodec<TextSignBlock> CODEC = simpleCodec(TextSignBlock::new);
-
     public static final EnumProperty<Direction> ROTATION = BlockStateProperties.HORIZONTAL_FACING;
 
     protected TextSignBlock(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    protected MapCodec<TextSignBlock> codec() {
-        return CODEC;
     }
 
     @Override
@@ -52,7 +42,7 @@ public class TextSignBlock extends BaseEntityBlock implements CeilingSupportSign
         TextSignBlock.TextDirection direction = this.getFacingText(hitResult, state);
         if (player instanceof GuiOpener && direction != TextDirection.NONE && level.getBlockEntity(pos) instanceof TextSignBlockEntity blockEntity) {
             ((GuiOpener) player).openTextSignEdit(blockEntity, pos, this.getFacingText(hitResult, state) == TextDirection.FRONT);
-            player.swing(InteractionHand.MAIN_HAND);
+            player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
             return InteractionResult.SUCCESS;
         } else {
             return InteractionResult.TRY_WITH_EMPTY_HAND;

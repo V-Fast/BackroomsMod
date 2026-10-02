@@ -6,6 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.level.Level;
 import org.vfast.backrooms.sounds.BackroomsSounds;
 
@@ -16,7 +17,7 @@ public class CamcorderItem extends Item {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        player.swing(hand);
+        player.swing(hand, SwingAnimation.DEFAULT, true);
         ItemStack stack = player.getItemInHand(hand);
         stack.set(BackroomsComponents.VHS_COMPONENT, !stack.getOrDefault(BackroomsComponents.VHS_COMPONENT, false));
 

@@ -123,8 +123,6 @@ public abstract class ServerPlayerMixins extends Player implements DarknessDamag
         ResourceKey<Level> levelKey = this.level().dimension();
 
         MinecraftServer server = this.level().getServer();
-        assert server != null;
-
         ServerLevel serverLevel = server.getLevel(levelKey);
         assert serverLevel != null;
 

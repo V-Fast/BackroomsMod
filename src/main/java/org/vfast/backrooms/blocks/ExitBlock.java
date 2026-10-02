@@ -13,8 +13,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ExitBlock extends FaceAttachedHorizontalDirectionalBlock {
-    public static final MapCodec<ExitBlock> CODEC = simpleCodec(ExitBlock::new);
-
     private static final VoxelShape[] FLOOR_SHAPES = new VoxelShape[] {
         Block.box(0, 0, 3.25, 15.5, 0.5, 11.75), // s
         Block.box(3.25, 0, 0, 11.75, 0.5, 15.5), // w
@@ -39,11 +37,6 @@ public class ExitBlock extends FaceAttachedHorizontalDirectionalBlock {
     public ExitBlock(Properties properties) {
         super(properties);
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL));
-    }
-
-    @Override
-    protected MapCodec<? extends FaceAttachedHorizontalDirectionalBlock> codec() {
-        return CODEC;
     }
 
     @Override

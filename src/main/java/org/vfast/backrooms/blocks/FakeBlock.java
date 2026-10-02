@@ -1,6 +1,5 @@
 package org.vfast.backrooms.blocks;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -35,8 +34,6 @@ import org.vfast.backrooms.world.BackroomsLevels;
 import java.util.Set;
 
 public class FakeBlock extends Block implements LevelPortal {
-    public static final MapCodec<FakeBlock> CODEC = simpleCodec(FakeBlock::new);
-
     public static final EnumProperty<FakeBlock.Mimic> MIMIC = EnumProperty.create("mimic_block", FakeBlock.Mimic.class);
 
     public FakeBlock(Properties properties) {

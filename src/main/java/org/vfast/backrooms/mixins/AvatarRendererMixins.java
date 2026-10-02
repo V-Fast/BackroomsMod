@@ -28,7 +28,7 @@ public abstract class AvatarRendererMixins <AvatarlikeEntity extends Avatar & Cl
     @Inject(method = "getArmPose(Lnet/minecraft/world/entity/Avatar;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/client/model/HumanoidModel$ArmPose;", at = @At(value = "RETURN"), cancellable = true)
     private static void camcorderPose(Avatar avatar, ItemStack itemInHand, InteractionHand hand, CallbackInfoReturnable<HumanoidModel.ArmPose> cir) {
         HumanoidModel.ArmPose itemArmPose = getItemArmPose(itemInHand.getUseAnimation());
-        if (ItemStack.isSameItem(BackroomsItems.CAMCORDER.getDefaultInstance(), itemInHand) && !avatar.swinging && itemArmPose != null) {
+        if (ItemStack.isSameItem(BackroomsItems.CAMCORDER.getDefaultInstance(), itemInHand) && !avatar.isSwinging() && itemArmPose != null) {
             cir.setReturnValue(itemArmPose);
         }
     }

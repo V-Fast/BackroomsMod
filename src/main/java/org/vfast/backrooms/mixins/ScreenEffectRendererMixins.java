@@ -5,7 +5,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ScreenEffectRenderer;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.BlockStateModelSet;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
+import net.minecraft.client.renderer.state.level.PlayerRenderState;
+import net.minecraft.client.resources.model.sprite.Material;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
@@ -21,23 +24,20 @@ import org.vfast.backrooms.interfaces.Suffocator;
 public abstract class ScreenEffectRendererMixins implements Suffocator {
 
     @Shadow
-    @Final
-    private Minecraft minecraft;
-
-    @Shadow
-    private static void submitBlockSprite(TextureAtlasSprite sprite, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int color) {}
+    private static void submitBlockSprite(Identifier atlasLocation, float u0, float v0, float u1, float v1, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int color) {
+    }
 
     @Unique
     @Nullable
     private BlockState suffocatingState;
 
     @Inject(method = "submit", at = @At(value = "HEAD"))
-    private void suffocatingIn(boolean isFirstPerson, boolean isSleeping, float partialTicks, SubmitNodeCollector submitNodeCollector, boolean hideGui, CallbackInfo ci) {
+    private void suffocatingIn(float partialTicks, SubmitNodeCollector submitNodeCollector, PlayerRenderState playerRenderState, CameraRenderState cameraRenderState, boolean hideGui, CallbackInfo ci) {
         if (this.suffocatingState != null) {
             PoseStack poseStack = new PoseStack();
-            BlockStateModelSet blockStateModelSet = this.minecraft.getModelManager().getBlockStateModelSet();
-            TextureAtlasSprite sprite = blockStateModelSet.getParticleMaterial(this.suffocatingState).sprite();
-            submitBlockSprite(sprite, poseStack, submitNodeCollector, -15132391);
+            BlockStateModelSet blockStateModelSet = Minecraft.getInstance().getModelManager().getBlockStateModelSet();
+            Material.Baked particleMaterial = blockStateModelSet.getParticleMaterial(this.suffocatingState);
+            submitBlockSprite(particleMaterial.sprite().atlasLocation(), 0, 0, 16, 16, poseStack, submitNodeCollector, -15132391);
         }
     }
 

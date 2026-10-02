@@ -43,7 +43,7 @@ public abstract class AbstractTextScreen<S extends BlockEntity & TextBlockEntity
 
     @Override
     protected void init() {
-        this.minecraft.textInputManager().startTextInput();
+        this.minecraft.textInputManager().startTextInput(null);
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, _ -> this.closeScreen()).bounds(this.width / 2 - 100, this.height / 4 + 144, 200, 20).build());
         this.signField = new TextFieldHelper(() -> this.text, this::setText, TextFieldHelper.createClipboardGetter(this.minecraft), TextFieldHelper.createClipboardSetter(this.minecraft), s -> this.font.width(s) <= this.block.maxTextWidth());
     }
@@ -90,12 +90,12 @@ public abstract class AbstractTextScreen<S extends BlockEntity & TextBlockEntity
 
     @Override
     public boolean keyPressed(KeyEvent event) {
-        return this.signField.keyPressed(event) ? true : super.keyPressed(event);
+        return this.signField.keyPressed(event) || super.keyPressed(event);
     }
 
     @Override
     public boolean charTyped(CharacterEvent event) {
-        return this.signField.charTyped(event) ? true : super.charTyped(event);
+        return this.signField.charTyped(event) || super.charTyped(event);
     }
 
     @Override

@@ -12,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
@@ -32,18 +33,11 @@ import org.vfast.backrooms.world.BackroomsLevels;
 import java.util.Set;
 
 public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements LevelPortal {
-    public static final MapCodec<BackroomsPortalBlock> CODEC = simpleCodec(BackroomsPortalBlock::new);
-
     public static final BooleanProperty OVERWORLD = BooleanProperty.create("overworld");
 
     public BackroomsPortalBlock(BlockBehaviour.Properties properties) {
         super(properties);
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(OVERWORLD, true));
-    }
-
-    @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
-        return CODEC;
     }
 
     @Override
@@ -56,8 +50,9 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
         if (player.gameMode() == GameType.CREATIVE) {
             BlockState newState = state.cycle(OVERWORLD);
             level.setBlock(pos, newState, 3);
-            InteractionHand hand = player.swingingArm != null ? player.swingingArm : InteractionHand.MAIN_HAND;
-            player.swing(hand);
+            LivingEntity.SwingDescription swing = player.getCurrentSwing();
+            InteractionHand hand = swing == null ? InteractionHand.MAIN_HAND : swing.hand();
+            player.swing(hand, SwingAnimation.DEFAULT, true);
             return InteractionResult.SUCCESS;
         } else {
             return super.useWithoutItem(state, level, pos, player, hitResult);

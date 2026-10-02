@@ -166,16 +166,6 @@ public class BackroomsBlocks {
         return registerBlock(name, Block::new, properties, false);
     }
 
-    private static Block registerTape(String name) {
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_WIRE);
-        ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(BackroomsMod.ID, name));
-        Block block = new TapeBlock(properties.setId(key));
-
-        BackroomsBlocks.registerBlockItem(name, block);
-
-        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(BackroomsMod.ID, name), block);
-    }
-
     private static void registerBlockItem(String name, Block block) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BackroomsMod.ID, name));
         Registry.register(BuiltInRegistries.ITEM, key, new BlockItem(block, new Item.Properties().setId(key).useBlockDescriptionPrefix()));

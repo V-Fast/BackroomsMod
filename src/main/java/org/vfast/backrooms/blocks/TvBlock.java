@@ -26,8 +26,6 @@ import org.vfast.backrooms.blocks.entity.TvBlockEntity;
 import org.vfast.backrooms.sounds.BackroomsSounds;
 
 public class TvBlock extends BaseEntityBlock {
-    public static final MapCodec<TvBlock> CODEC = simpleCodec(TvBlock::new);
-
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
 
@@ -91,11 +89,6 @@ public class TvBlock extends BaseEntityBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, POWERED);
-    }
-
-    @Override
-    protected MapCodec<TvBlock> codec() {
-        return CODEC;
     }
 
     protected BlockState rotate(final BlockState state, final Rotation rotation) {

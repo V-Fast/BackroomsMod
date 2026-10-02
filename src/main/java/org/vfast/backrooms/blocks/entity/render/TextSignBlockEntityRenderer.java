@@ -96,43 +96,43 @@ public class TextSignBlockEntityRenderer implements BlockEntityRenderer<TextSign
             case NORTH -> {
                 if (isFrontText) {
                     matrices.translate(0.5, 5.5f / 16f, 0.483);
-                    matrices.mulPose(Axis.ZP.rotationDegrees(180));
+                    matrices.rotate(Axis.ZP.rotationDegrees(180));
                 } else {
                     matrices.translate(0.5, 5.5f / 16f, 0.517);
-                    matrices.mulPose(Axis.YP.rotationDegrees(180));
-                    matrices.mulPose(Axis.ZP.rotationDegrees(180));
+                    matrices.rotate(Axis.YP.rotationDegrees(180));
+                    matrices.rotate(Axis.ZP.rotationDegrees(180));
                 }
             }
             case SOUTH -> {
                 if (isFrontText) {
                     matrices.translate(0.5, 5.5f / 16f, 0.517);
-                    matrices.mulPose(Axis.YP.rotationDegrees(180));
-                    matrices.mulPose(Axis.ZP.rotationDegrees(180));
+                    matrices.rotate(Axis.YP.rotationDegrees(180));
+                    matrices.rotate(Axis.ZP.rotationDegrees(180));
                 } else {
                     matrices.translate(0.5, 5.5f / 16f, 0.483);
-                    matrices.mulPose(Axis.ZP.rotationDegrees(180));
+                    matrices.rotate(Axis.ZP.rotationDegrees(180));
                 }
             }
             case EAST -> {
                 if (isFrontText) {
                     matrices.translate(0.517, 5.5f / 16f, 0.5);
-                    matrices.mulPose(Axis.ZP.rotationDegrees(180));
-                    matrices.mulPose(Axis.YP.rotationDegrees(90));
+                    matrices.rotate(Axis.ZP.rotationDegrees(180));
+                    matrices.rotate(Axis.YP.rotationDegrees(90));
                 } else {
                     matrices.translate(0.483, 5.5f / 16f, 0.5);
-                    matrices.mulPose(Axis.YP.rotationDegrees(90));
-                    matrices.mulPose(Axis.ZP.rotationDegrees(180));
+                    matrices.rotate(Axis.YP.rotationDegrees(90));
+                    matrices.rotate(Axis.ZP.rotationDegrees(180));
                 }
             }
             case WEST -> {
                 if (isFrontText) {
                     matrices.translate(0.483, 5.5f / 16f, 0.5);
-                    matrices.mulPose(Axis.YP.rotationDegrees(90));
-                    matrices.mulPose(Axis.ZP.rotationDegrees(180));
+                    matrices.rotate(Axis.YP.rotationDegrees(90));
+                    matrices.rotate(Axis.ZP.rotationDegrees(180));
                 } else {
                     matrices.translate(0.517, 5.5f / 16f, 0.5);
-                    matrices.mulPose(Axis.ZP.rotationDegrees(180));
-                    matrices.mulPose(Axis.YP.rotationDegrees(90));
+                    matrices.rotate(Axis.ZP.rotationDegrees(180));
+                    matrices.rotate(Axis.YP.rotationDegrees(90));
                 }
             }
         }

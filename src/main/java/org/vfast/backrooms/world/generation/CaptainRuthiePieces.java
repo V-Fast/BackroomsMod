@@ -8,18 +8,15 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.StructurePieceAccessor;
 import net.minecraft.world.level.levelgen.structure.TemplateStructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
-
-import java.util.List;
 
 public class CaptainRuthiePieces {
 
@@ -49,8 +46,8 @@ public class CaptainRuthiePieces {
 
     // -------------------------------------------------------------------------
 
-    public static void addPieces(final StructureTemplateManager structureTemplateManager, final BlockPos position, final Rotation rotation, final StructurePieceAccessor structurePieceAccessor) {
-        structurePieceAccessor.addPiece(
+    public static void addPieces(final StructureTemplateManager structureTemplateManager, final BlockPos position, final Rotation rotation, final StructurePiecesBuilder structurePieceBuilder) {
+        structurePieceBuilder.addPiece(
                 new CaptainRuthiePieces.CaptainRuthiePiece(structureTemplateManager, position, rotation)
         );
     }

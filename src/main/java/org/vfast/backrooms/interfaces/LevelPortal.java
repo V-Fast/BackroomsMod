@@ -186,14 +186,14 @@ public interface LevelPortal extends Portal {
 
             entity.setAttached(BackroomsAttachments.LOADING_WORLD, true);
             entity.setSpeed(0);
-            entity.setInvulnerable(true);
+            entity.setPermanentlyInvulnerable(true);
         } else {
             float transferredSpeed = transferEntitySpeed.get(entity);
             transferEntitySpeed.remove(entity);
 
             entity.setAttached(BackroomsAttachments.LOADING_WORLD, false);
             entity.setSpeed(transferredSpeed);
-            entity.setInvulnerable(false);
+            entity.setPermanentlyInvulnerable(false);
         }
     }
 

@@ -19,6 +19,8 @@ import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.interfaces.GameRendererGetter;
 import org.vfast.backrooms.items.BackroomsComponents;
 
+import java.util.List;
+
 @Mixin(GameRenderer.class)
 public abstract class GameRendererMixins implements AutoCloseable, TrackedWaypoint.Projector, GameRendererGetter {
     @Unique
@@ -32,15 +34,6 @@ public abstract class GameRendererMixins implements AutoCloseable, TrackedWaypoi
     @Final
     private Minecraft minecraft;
 
-    @Shadow
-    protected abstract void setPostEffect(Identifier id);
-
-    @Shadow
-    public abstract void clearPostEffect();
-
-    @Shadow
-    private @Nullable Identifier postEffectId;
-
     @Override
     public ScreenEffectRenderer getScreenEffectRenderer() {
         return this.screenEffectRenderer;
@@ -50,10 +43,12 @@ public abstract class GameRendererMixins implements AutoCloseable, TrackedWaypoi
     private void tickVhs(CallbackInfo ci) {
         InteractionHand usedHand = this.minecraft.player.getUsedItemHand();
         ItemStack stack = this.minecraft.player.getItemInHand(usedHand);
+
+        List<Identifier> currEffects = this.minecraft.player.getActivePostEffects();
         if (stack.getOrDefault(BackroomsComponents.VHS_COMPONENT, false)) {
-            this.setPostEffect(VHS_SHADER);
-        } else if (this.postEffectId == VHS_SHADER) {
-            this.clearPostEffect();
-        }
+            currEffects.add(VHS_SHADER);
+        } else currEffects.remove(VHS_SHADER);
+
+        this.minecraft.player.setActivePostEffects(currEffects);
     }
 }
