@@ -13,6 +13,7 @@ import java.util.function.Function;
 public class BackroomsItems {
     public static final Item SILK = registerItem("silk", new Item.Properties());
     public static final Item DECAYING_BRICK = registerItem("decaying_brick", new Item.Properties());
+    public static final Item KEYCARD = registerItem("keycard", new Item.Properties().stacksTo(1));
 
     public static final Item CAMCORDER = registerItem("camcorder", CamcorderItem::new, new Item.Properties().stacksTo(1));
 

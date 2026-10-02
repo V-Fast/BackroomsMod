@@ -142,6 +142,8 @@ public class BackroomsBlocks {
             TextSignBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN).requiresCorrectToolForDrops(), false);
     public static final Block CRT_TV = registerBlock("crt_tv",
             TvBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS).requiresCorrectToolForDrops(), false);
+    public static final Block KEYCARD_DOOR = registerBlock("keycard_door",
+            KeycardDoorBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_DOOR).requiresCorrectToolForDrops(), false);
 
     private static BlockBehaviour.Properties createMoistSilkPlanksBlock(Block sourceBlock) {
         return BlockBehaviour.Properties.ofFullCopy(sourceBlock).sound(SoundType.WOOD).strength(2f);
