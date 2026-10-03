@@ -12,6 +12,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.vfast.backrooms.BackroomsMod;
 
 import java.util.function.Function;
@@ -113,7 +115,6 @@ public class BackroomsBlocks {
             BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).sound(SoundType.WOOL).strength(2f));
     public static final Block STRIPED_BLUE_TAPESTRY = registerBlock("striped_blue_tapestry",
             BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).sound(SoundType.WOOL).strength(2f));
-//    public static final Block BLUE_TAPE = registerTape("blue_tape");
 
     // Level 1
     public static final Block SMOOTH_IRON = registerBlock("smooth_iron_block",
@@ -134,8 +135,8 @@ public class BackroomsBlocks {
     // custom model
     public static final Block AIR_VENT = registerBlock("air_vent",
             VentBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops().strength(2f), false);
-//    public static final Block EXIT_SIGN = registerBlock("exit_sign",
-//            ExitBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops().strength(2f), false);
+    public static final Block EXIT_SIGN = registerBlock("exit_sign",
+            ExitBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops().strength(2f), false);
     public static final Block WOOLY_CHAIR = registerBlock("wooly_chair",
             WoolyChairBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).sound(SoundType.WOOL).noOcclusion().requiresCorrectToolForDrops().strength(2f), false);
     public static final Block TEXT_SIGN = registerBlock("text_ceiling_sign",
@@ -144,6 +145,8 @@ public class BackroomsBlocks {
             TvBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS).requiresCorrectToolForDrops(), false);
     public static final Block KEYCARD_DOOR = registerBlock("keycard_door",
             KeycardDoorBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_DOOR).requiresCorrectToolForDrops(), false);
+    public static final Block PROXI_LIGHT = registerBlock("proximity_light",
+            ProximityLightBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).lightLevel(state -> state.getValueOrElse(BlockStateProperties.LIT, false) ? 13 : 0).requiresCorrectToolForDrops(), false);
 
     private static BlockBehaviour.Properties createMoistSilkPlanksBlock(Block sourceBlock) {
         return BlockBehaviour.Properties.ofFullCopy(sourceBlock).sound(SoundType.WOOD).strength(2f);

@@ -17,6 +17,11 @@ public class BackroomsGameRules {
             .category(GameRuleCategory.CHAT)
             .buildAndRegister(Identifier.fromNamespaceAndPath(BackroomsMod.ID, "limited_chatting"));
 
+    public static final GameRule<Integer> PROXI_LIGHT_CHAIN = GameRuleBuilder
+            .forInteger(16)
+            .category(GameRuleCategory.MISC)
+            .buildAndRegister(Identifier.fromNamespaceAndPath(BackroomsMod.ID, "proxi_light_chain"));
+
     public static void registerGameRules() {
         BackroomsMod.LOGGER.info("[BackroomsMod] GameRules initialized");
     }
