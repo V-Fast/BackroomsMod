@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.BlockStateModelSet;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.state.level.PlayerRenderState;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.state.BlockState;
@@ -36,8 +37,8 @@ public abstract class ScreenEffectRendererMixins implements Suffocator {
         if (this.suffocatingState != null) {
             PoseStack poseStack = new PoseStack();
             BlockStateModelSet blockStateModelSet = Minecraft.getInstance().getModelManager().getBlockStateModelSet();
-            Material.Baked particleMaterial = blockStateModelSet.getParticleMaterial(this.suffocatingState);
-            submitBlockSprite(particleMaterial.sprite().atlasLocation(), 0, 0, 16, 16, poseStack, submitNodeCollector, -15132391);
+            TextureAtlasSprite sprite = blockStateModelSet.getParticleMaterial(this.suffocatingState).sprite();
+            submitBlockSprite(sprite.atlasLocation(), sprite.getU0(), sprite.getV0(), sprite.getU1(), sprite.getV1(), poseStack, submitNodeCollector, -15132391);
         }
     }
 
