@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
-import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.blocks.BackroomsBlocks;
 import org.vfast.backrooms.blocks.ProximityLightBlock;
 import org.vfast.backrooms.world.BackroomsGameRules;

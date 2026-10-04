@@ -8,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.level.Level;
-import org.vfast.backrooms.sounds.BackroomsSounds;
 
 public class CamcorderItem extends Item {
     public CamcorderItem(Properties properties) {

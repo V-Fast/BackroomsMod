@@ -31,8 +31,6 @@ import org.jspecify.annotations.Nullable;
 import org.vfast.backrooms.interfaces.LevelPortal;
 import org.vfast.backrooms.world.BackroomsLevels;
 
-import java.util.Set;
-
 public class FakeBlock extends Block implements LevelPortal {
     public static final EnumProperty<FakeBlock.Mimic> MIMIC = EnumProperty.create("mimic_block", FakeBlock.Mimic.class);
 

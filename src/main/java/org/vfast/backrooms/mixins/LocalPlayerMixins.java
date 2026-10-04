@@ -17,8 +17,6 @@ import org.vfast.backrooms.client.gui.TextSignEditScreen;
 import org.vfast.backrooms.interfaces.GuiOpener;
 import org.vfast.backrooms.world.BackroomsLevels;
 
-import java.util.List;
-
 @Mixin(LocalPlayer.class)
 public abstract class LocalPlayerMixins extends AbstractClientPlayer implements GuiOpener {
     @Shadow
