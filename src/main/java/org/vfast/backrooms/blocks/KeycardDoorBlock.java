@@ -1,6 +1,8 @@
 package org.vfast.backrooms.blocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -24,10 +26,19 @@ public class KeycardDoorBlock extends DoorBlock {
     protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, @Nullable Orientation orientation, boolean movedByPiston) {} // prevent redstone activation
 
     @Override
-    protected InteractionResult useItemOn(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (itemStack.getItem() != BackroomsItems.KEYCARD) return InteractionResult.FAIL;
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (this.isOpen(state)) {
+            this.setOpen(null, level, state, pos, false);
+        }
+    }
 
-        this.setOpen(player, level, state, pos, !this.isOpen(state));
+    @Override
+    protected InteractionResult useItemOn(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        boolean wasOpen = this.isOpen(state);
+        if (itemStack.getItem() != BackroomsItems.KEYCARD || wasOpen) return InteractionResult.FAIL;
+
+        this.setOpen(player, level, state, pos, !wasOpen);
+        level.scheduleTick(pos, this, 100);
         return InteractionResult.SUCCESS;
     }
 }
