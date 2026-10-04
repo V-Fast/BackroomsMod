@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Portal;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.level.storage.LevelData;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -39,6 +40,7 @@ import org.vfast.backrooms.world.BackroomsLevels;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 /** Use this when a block is used to **travel to a Backrooms level** */
 public interface LevelPortal extends Portal {
@@ -177,6 +179,23 @@ public interface LevelPortal extends Portal {
         return (currentPos.x >= minX && currentPos.x <= maxX) || (currentPos.y >= minY && currentPos.y <= maxY) || (currentPos.z >= minZ && currentPos.z <= maxZ);
     }
 
+    default TeleportTransition returnTransition(ServerLevel destination, Entity entity, BlockPos teleportPosition, float yRot, float xRot) {
+        if (entity instanceof LivingEntity) {
+            LevelPortal.prepareEntity((LivingEntity) entity, false);
+        }
+
+        double x = teleportPosition.getX() + 0.5d;
+        double y = teleportPosition.getY();
+        double z = teleportPosition.getZ() + 0.5d;
+        Vec3 pos = new Vec3(x, y, z);
+
+        return new TeleportTransition(destination, pos, Vec3.ZERO, yRot, xRot, Set.of(), LevelPortal::affectPlayer);
+    }
+
+    default TeleportTransition returnTransition(ServerLevel destination, Entity entity, BlockPos teleportPosition) {
+        return this.returnTransition(destination, entity, teleportPosition, 0.0f, 0.0f);
+    }
+
     static void prepareEntity(LivingEntity entity, boolean ongoing) {
         assert entity.isAlive();
 
@@ -194,6 +213,12 @@ public interface LevelPortal extends Portal {
             entity.setAttached(BackroomsAttachments.LOADING_WORLD, false);
             entity.setSpeed(transferredSpeed);
             entity.setPermanentlyInvulnerable(false);
+        }
+    }
+
+    static void prepareEntity(Entity entity, boolean ongoing) {
+        if (entity instanceof LivingEntity le) {
+            LevelPortal.prepareEntity(le, ongoing);
         }
     }
 
@@ -272,9 +297,9 @@ public interface LevelPortal extends Portal {
         Block currentBlock = level.getBlockState(backSpawn).getBlock();
         Block topBlock = level.getBlockState(backSpawn.above(1)).getBlock();
 
-        boolean isValid = (currentBlock == this.invalidBlock() && topBlock == this.invalidBlock()) || (currentBlock == this && topBlock == this);
+        boolean isValid = updateBlock != null && ((currentBlock == this.invalidBlock() && topBlock == this.invalidBlock()) || (currentBlock == this && topBlock == this));
 
-        if (isValid && updateBlock != null) {
+        if (isValid) {
             level.setBlockAndUpdate(backSpawn, updateBlock);
             level.setBlockAndUpdate(backSpawn.above(1), updateBlock);
         }

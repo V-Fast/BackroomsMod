@@ -1,11 +1,9 @@
 package org.vfast.backrooms.blocks;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -24,13 +22,10 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
 import org.vfast.backrooms.attachments.BackroomsAttachments;
 import org.vfast.backrooms.interfaces.LevelPortal;
 import org.vfast.backrooms.world.BackroomsLevels;
-
-import java.util.Set;
 
 public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements LevelPortal {
     public static final BooleanProperty OVERWORLD = BooleanProperty.create("overworld");
@@ -76,7 +71,7 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
     @Override
     public @Nullable TeleportTransition getPortalDestination(ServerLevel currentLevel, Entity entity, BlockPos portalEntryPos) {
         assert entity.isAlive();
-        this.prepareEntity(entity, true);
+        LevelPortal.prepareEntity(entity, true);
 
         boolean fromLevel = BackroomsLevels.isBackrooms(currentLevel.dimension());
         ResourceKey<Level> newDimension = fromLevel ? Level.OVERWORLD : BackroomsLevels.LEVEL_0;
@@ -100,17 +95,9 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
                 spawnLoc = new LevelPortal.SpawnLocation(newPos, pitch, yaw);
             }
 
-            this.prepareEntity(entity, false);
-
-            BlockPos blockPos = spawnLoc.position();
-            double x = blockPos.getX() + 0.5d;
-            double y = blockPos.getY();
-            double z = blockPos.getZ() + 0.5d;
-            Vec3 pos = new Vec3(x, y, z);
-
-            return new TeleportTransition(newLevel, pos, Vec3.ZERO, spawnLoc.yRot(), spawnLoc.xRot(), Set.of(), LevelPortal::affectPlayer);
+            return this.returnTransition(newLevel, entity, spawnLoc.position(), spawnLoc.yRot(), spawnLoc.xRot());
         } else {
-            this.prepareEntity(entity, false);
+            LevelPortal.prepareEntity(entity, false);
             return null;
         }
     }
@@ -122,12 +109,6 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
             return BackroomsBlocks.STAINED_CONCRETE.defaultBlockState();
         } else {
             return BackroomsBlocks.MOIST_SILK.defaultBlockState();
-        }
-    }
-
-    private void prepareEntity(Entity entity, boolean ongoing) {
-        if (entity instanceof LivingEntity) {
-            LevelPortal.prepareEntity((LivingEntity) entity, ongoing);
         }
     }
 
