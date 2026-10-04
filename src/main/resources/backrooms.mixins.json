@@ -10,7 +10,7 @@
     "AvatarRendererMixins",
     "BlockColorsMixins",
     "ChatScreenMixins",
-    "DebugScreenOverlayMixins",
+    "DebugScreenEntryListMixins",
     "GameRendererMixins",
     "ImmersiveDimensions",
     "LocalPlayerMixins",
