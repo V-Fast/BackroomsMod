@@ -17,10 +17,23 @@
         "translate": "block.minecraft.bed.no_sleep"
       }
     },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "backrooms:still_life",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
     "minecraft:visual/ambient_light_color": "#1e1e1e"
   },
-  "spawn_costs": {},
-  "spawners": {},
   "features": [],
   "carvers": [],
   "effects": {

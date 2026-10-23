@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.vfast.backrooms.blocks.BackroomsBlocks;
 import org.vfast.backrooms.blocks.entity.BackroomsBlockEntities;
+import org.vfast.backrooms.entity.BackroomsEntities;
 import org.vfast.backrooms.items.BackroomsComponents;
 import org.vfast.backrooms.items.BackroomsItems;
 import org.vfast.backrooms.items.BackroomsItemsGroup;
@@ -21,6 +22,7 @@ public class BackroomsMod implements ModInitializer {
     public void onInitialize() {
         BackroomsBlocks.registerBlocks();
         BackroomsBlockEntities.registerBlockEntities();
+        BackroomsEntities.registerEntities();
         BackroomsItems.registerItems();
         BackroomsComponents.registerComponents();
         BackroomsItemsGroup.registerItemGroups();

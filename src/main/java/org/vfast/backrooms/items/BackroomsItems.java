@@ -6,7 +6,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
 import org.vfast.backrooms.BackroomsMod;
+import org.vfast.backrooms.entity.BackroomsEntities;
 
 import java.util.function.Function;
 
@@ -16,6 +18,8 @@ public class BackroomsItems {
     public static final Item KEYCARD = registerItem("keycard", new Item.Properties().stacksTo(1));
 
     public static final Item CAMCORDER = registerItem("camcorder", CamcorderItem::new, new Item.Properties().stacksTo(1));
+
+    public static final Item STILL_LIFE_SPAWN_EGG = registerItem("still_life_spawn_egg", SpawnEggItem::new, new Item.Properties().spawnEgg(BackroomsEntities.STILL_LIFE));
 
     // Can be used for new 1.19.3+ creative inventory system
 

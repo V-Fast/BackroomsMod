@@ -27,6 +27,7 @@ public class BackroomsItemsGroup {
 
                 tab.accept(BackroomsItems.KEYCARD);
                 tab.accept(BackroomsItems.CAMCORDER);
+                tab.accept(BackroomsItems.STILL_LIFE_SPAWN_EGG);
 
                 // blocks
 
