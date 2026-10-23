@@ -25,6 +25,7 @@ public class BackroomsItemsGroup {
                 // Level 1
                 tab.accept(BackroomsItems.DECAYING_BRICK);
 
+                tab.accept(BackroomsItems.KEYCARD);
                 tab.accept(BackroomsItems.CAMCORDER);
 
                 // blocks
@@ -47,6 +48,7 @@ public class BackroomsItemsGroup {
                 tab.accept(BackroomsBlocks.MOIST_SILK_CHERRY_PLANKS);
                 tab.accept(BackroomsBlocks.MOIST_SILK_CRIMSON_PLANKS);
                 tab.accept(BackroomsBlocks.MOIST_SILK_MANGROVE_PLANKS);
+
                 tab.accept(BackroomsBlocks.MOIST_CARPET);
                 tab.accept(BackroomsBlocks.DROPPED_CEILING);
                 tab.accept(BackroomsBlocks.FLUORESCENT_LIGHT);
@@ -57,14 +59,16 @@ public class BackroomsItemsGroup {
                 tab.accept(BackroomsBlocks.STRIPED_BLUE_TAPESTRY);
 
                 // Level 1
-
                 tab.accept(BackroomsBlocks.SCRATCHED_CONCRETE);
                 tab.accept(BackroomsBlocks.SCRATCHED_CONCRETE_STAIRS);
                 tab.accept(BackroomsBlocks.STAINED_CONCRETE);
                 tab.accept(BackroomsBlocks.STAINED_CONCRETE_STAIRS);
                 tab.accept(BackroomsBlocks.DECAYING_BRICKS);
+                tab.accept(BackroomsBlocks.EXIT_SIGN);
                 tab.accept(BackroomsBlocks.SMOOTH_IRON);
                 tab.accept(BackroomsBlocks.STREET_LIGHT);
+                tab.accept(BackroomsBlocks.PROXI_LIGHT);
+                tab.accept(BackroomsBlocks.KEYCARD_DOOR);
                 tab.accept(BackroomsBlocks.MARKED_A_CONCRETE);
                 tab.accept(BackroomsBlocks.MARKED_B_CONCRETE);
                 tab.accept(BackroomsBlocks.MARKED_C_CONCRETE);
