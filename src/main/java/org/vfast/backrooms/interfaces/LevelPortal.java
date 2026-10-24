@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Portal;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.level.storage.LevelData;
 import net.minecraft.world.phys.AABB;
@@ -254,39 +255,61 @@ public interface LevelPortal extends Portal {
     default BackroomsPortalBlock.SpawnLocation selectStartPosition(BlockPos origin, ServerLevel level, @Nullable BlockState updateBlock) {
         Optional<BlockPos> startPosition = Optional.empty();
         Optional<Float> rotation = Optional.empty();
-        int y = 50; // from the feet position
+        Optional<BlockPos> fallbackPosition = Optional.empty(); // standable spot, but no valid portal placement
+
+        // logicalHeight keeps us under the nether roof, works for any dimension
+        int minY = level.getMinY() + 1;
+        int maxY = level.getMinY() + level.dimensionType().logicalHeight() - 2;
 
         for (int x = 0; x < 16 && startPosition.isEmpty(); x++) {
             for (int z = 0; z < 16 && startPosition.isEmpty(); z++) {
-                BlockPos position = origin.offset(x, 0, z).atY(y);
-                if (level.isInWorldBounds(position)) {
-                    BackroomsMod.LOGGER.info("[BackroomsMod+selectStartPosition] Looking for {}", position);
-                    BlockState currentState = level.getBlockState(position);
-                    BlockState currentAboveState = level.getBlockState(position.above(1));
+                for (int y = minY; y <= maxY && startPosition.isEmpty(); y++) {
+                    BlockPos position = new BlockPos(origin.getX() + x, y, origin.getZ() + z);
+                    if (!level.isInWorldBounds(position) || !LevelPortal.canStandAt(position, level)) {
+                        continue;
+                    }
 
-                    if (currentState.canBeReplaced() && currentAboveState.canBeReplaced()) {
-                        Direction spawnDirection = LevelPortal.getSpawnDirection(position, level);
+                    if (fallbackPosition.isEmpty()) {
+                        fallbackPosition = Optional.of(position);
+                    }
 
-                        if (updateBlock != null) {
-                            Optional<Direction> hasFacing = updateBlock.getOptionalValue(HorizontalDirectionalBlock.FACING);
-                            if (hasFacing.isPresent()) {
-                                updateBlock = updateBlock.setValue(HorizontalDirectionalBlock.FACING, spawnDirection);
-                            }
+                    Direction spawnDirection = LevelPortal.getSpawnDirection(position, level);
+
+                    if (updateBlock != null) {
+                        Optional<Direction> hasFacing = updateBlock.getOptionalValue(HorizontalDirectionalBlock.FACING);
+                        if (hasFacing.isPresent()) {
+                            updateBlock = updateBlock.setValue(HorizontalDirectionalBlock.FACING, spawnDirection);
                         }
+                    }
 
-                        boolean isValid = this.isPositionValid(position, level, spawnDirection, updateBlock);
-
-                        if (isValid) {
-                            BackroomsMod.LOGGER.info("[BackroomsMod+selectStartPosition] Found start for {}", position);
-                            startPosition = Optional.of(position);
-                            rotation = Optional.of(spawnDirection.toYRot());
-                        }
+                    if (this.isPositionValid(position, level, spawnDirection, updateBlock)) {
+                        BackroomsMod.LOGGER.info("[BackroomsMod+selectStartPosition] Found start for {}", position);
+                        startPosition = Optional.of(position);
+                        rotation = Optional.of(spawnDirection.toYRot());
                     }
                 }
             }
         }
 
-        return new BackroomsPortalBlock.SpawnLocation(startPosition.orElse(BlockPos.ZERO), rotation.orElse(0.0f));
+        if (startPosition.isEmpty()) {
+            // never send to (0, 0, 0): that is the void in most levels
+            BlockPos safe = fallbackPosition.orElseGet(() -> level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, origin));
+            BackroomsMod.LOGGER.warn("[BackroomsMod+selectStartPosition] No valid start near {}, falling back to {}", origin, safe);
+            startPosition = Optional.of(safe);
+        }
+
+        return new BackroomsPortalBlock.SpawnLocation(startPosition.get(), rotation.orElse(0.0f));
+    }
+
+    /** Feet and head are free, floor is solid and the entity doesn't stand in a fluid */
+    private static boolean canStandAt(BlockPos feet, ServerLevel level) {
+        BlockState feetState = level.getBlockState(feet);
+        BlockState headState = level.getBlockState(feet.above());
+        BlockState floorState = level.getBlockState(feet.below());
+
+        return feetState.canBeReplaced() && headState.canBeReplaced()
+                && feetState.getFluidState().isEmpty() && headState.getFluidState().isEmpty()
+                && floorState.isFaceSturdy(level, feet.below(), Direction.UP);
     }
 
     private boolean isPositionValid(BlockPos expectedStart, ServerLevel level, Direction spawnDirection, @Nullable BlockState updateBlock) {
