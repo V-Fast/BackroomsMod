@@ -26,6 +26,7 @@ public class BackroomsNetworking {
     }
 
     private static void registerPackets() {
+        PayloadTypeRegistry.clientboundPlay().register(ThresholdFadePacket.TYPE, ThresholdFadePacket.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(UpdateTextSignPacket.TYPE, UpdateTextSignPacket.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(LimitedChatPacket.TYPE, LimitedChatPacket.CODEC);
     }

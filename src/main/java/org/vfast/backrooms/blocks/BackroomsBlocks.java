@@ -146,6 +146,8 @@ public class BackroomsBlocks {
             KeycardDoorBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_DOOR).requiresCorrectToolForDrops(), false);
     public static final Block PROXI_LIGHT = registerBlock("proximity_light",
             ProximityLightBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).lightLevel(state -> state.getValueOrElse(BlockStateProperties.LIT, false) ? 13 : 0).requiresCorrectToolForDrops(), false);
+    public static final Block THRESHOLD = registerBlock("threshold_block",
+            ThresholdBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops(), false);
 
     private static BlockBehaviour.Properties createMoistSilkPlanksBlock(Block sourceBlock) {
         return BlockBehaviour.Properties.ofFullCopy(sourceBlock).sound(SoundType.WOOD).strength(2f);

@@ -1,11 +1,10 @@
 package org.vfast.backrooms.mixins;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ScreenEffectRenderer;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.waypoints.TrackedWaypoint;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,6 +17,7 @@ import org.vfast.backrooms.BackroomsMod;
 import org.vfast.backrooms.interfaces.GameRendererGetter;
 import org.vfast.backrooms.items.BackroomsComponents;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(GameRenderer.class)
@@ -40,14 +40,19 @@ public abstract class GameRendererMixins implements AutoCloseable, TrackedWaypoi
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void tickVhs(CallbackInfo ci) {
-        InteractionHand usedHand = this.minecraft.player.getUsedItemHand();
-        ItemStack stack = this.minecraft.player.getItemInHand(usedHand);
+        LocalPlayer player = this.minecraft.player;
+        if (player == null) return;
 
-        List<Identifier> currEffects = this.minecraft.player.getActivePostEffects();
-        if (stack.getOrDefault(BackroomsComponents.VHS_COMPONENT, false)) {
-            currEffects.add(VHS_SHADER);
-        } else currEffects.remove(VHS_SHADER);
+        boolean filming = player.getMainHandItem().getOrDefault(BackroomsComponents.VHS_COMPONENT, false)
+                || player.getOffhandItem().getOrDefault(BackroomsComponents.VHS_COMPONENT, false);
 
-        this.minecraft.player.setActivePostEffects(currEffects);
+        // setActivePostEffects clears the list it is given, which is the player's own list: always pass a copy
+        List<Identifier> effects = new ArrayList<>(player.getActivePostEffects());
+        if (filming && !effects.contains(VHS_SHADER)) {
+            effects.add(VHS_SHADER);
+            player.setActivePostEffects(effects);
+        } else if (!filming && effects.remove(VHS_SHADER)) {
+            player.setActivePostEffects(effects);
+        }
     }
 }

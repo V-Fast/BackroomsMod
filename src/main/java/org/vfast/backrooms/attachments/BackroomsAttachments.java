@@ -9,6 +9,7 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import org.vfast.backrooms.BackroomsMod;
+import org.vfast.backrooms.interfaces.TwoWayPortal;
 
 import java.util.List;
 
@@ -40,5 +41,11 @@ public class BackroomsAttachments {
                     .persistent(Codec.INT)
                     .syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.targetOnly())
                     .copyOnDeath()
+    );
+
+    /** Stored on a `Level`: every {@link TwoWayPortal} in it and the portal it is linked to */
+    public static final AttachmentType<List<PortalLink>> PORTAL_LINKS = AttachmentRegistry.create(
+            Identifier.fromNamespaceAndPath(BackroomsMod.ID, "portal_links"),
+            builder -> builder.persistent(PortalLink.CODEC.listOf())
     );
 }

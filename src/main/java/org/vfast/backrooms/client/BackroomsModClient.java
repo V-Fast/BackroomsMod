@@ -15,6 +15,7 @@ public class BackroomsModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         this.initRenderers();
+        ThresholdFade.register();
     }
 
     private void initRenderers() {

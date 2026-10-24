@@ -12,6 +12,7 @@ import org.vfast.backrooms.items.BackroomsItemsGroup;
 import org.vfast.backrooms.network.BackroomsNetworking;
 import org.vfast.backrooms.sounds.BackroomsSounds;
 import org.vfast.backrooms.world.BackroomsGameRules;
+import org.vfast.backrooms.world.ThresholdTeleporter;
 import org.vfast.backrooms.world.generation.BackroomsPieceTypes;
 
 public class BackroomsMod implements ModInitializer {
@@ -30,6 +31,7 @@ public class BackroomsMod implements ModInitializer {
         BackroomsGameRules.registerGameRules();
         BackroomsPieceTypes.registerStructures();
         BackroomsNetworking.registerNetwork();
+        ThresholdTeleporter.register();
 
         LOGGER.info("[BackroomsMod] Mod initialized");
     }

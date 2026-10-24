@@ -70,6 +70,7 @@ public class BackroomsItemsGroup {
                 tab.accept(BackroomsBlocks.STREET_LIGHT);
                 tab.accept(BackroomsBlocks.PROXI_LIGHT);
                 tab.accept(BackroomsBlocks.KEYCARD_DOOR);
+                tab.accept(BackroomsBlocks.THRESHOLD);
                 tab.accept(BackroomsBlocks.MARKED_A_CONCRETE);
                 tab.accept(BackroomsBlocks.MARKED_B_CONCRETE);
                 tab.accept(BackroomsBlocks.MARKED_C_CONCRETE);

@@ -55,6 +55,7 @@
 
     "block.backrooms.backrooms_portal": "Backrooms Portal",
     "block.backrooms.fake_block": "Fake Block",
+    "block.backrooms.threshold_block": "Threshold",
     "block.backrooms.slightly_scratched_concrete": "Slightly Scratched Concrete",
     "block.backrooms.slightly_scratched_concrete_stairs": "Slightly Scratched Concrete Stairs",
     "block.backrooms.smooth_iron_block": "Smooth Iron Block",
@@ -85,6 +86,7 @@
     "gamerule.backrooms.limited_chatting.description": "When playing online in the Backrooms, your chats are limited to the players around you only.",
 
     "subtitle.backrooms.noclip": "Noclipping",
+    "subtitle.backrooms.threshold": "Threshold activates",
     "subtitle.backrooms.tv_song": "TV music",
 
     "message.backrooms.chat_alone": "No one heard your voice..."

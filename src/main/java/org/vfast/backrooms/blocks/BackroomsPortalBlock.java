@@ -25,9 +25,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jspecify.annotations.Nullable;
 import org.vfast.backrooms.attachments.BackroomsAttachments;
 import org.vfast.backrooms.interfaces.LevelPortal;
+import org.vfast.backrooms.interfaces.TwoWayPortal;
 import org.vfast.backrooms.world.BackroomsLevels;
 
-public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements LevelPortal {
+public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements TwoWayPortal {
     public static final BooleanProperty OVERWORLD = BooleanProperty.create("overworld");
 
     public BackroomsPortalBlock(BlockBehaviour.Properties properties) {
@@ -37,7 +38,7 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
 
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean isPrecise) {
-        LevelPortal.super.entityInside(state, level, pos, entity);
+        TwoWayPortal.super.entityInside(state, level, pos, entity);
     }
 
     @Override
@@ -77,12 +78,13 @@ public class BackroomsPortalBlock extends HorizontalDirectionalBlock implements 
         ResourceKey<Level> newDimension = fromLevel ? Level.OVERWORLD : BackroomsLevels.LEVEL_0;
         ServerLevel newLevel = currentLevel.getServer().getLevel(newDimension);
         if (newLevel != null) {
-            LevelPortal.SpawnLocation spawnLoc;
-            if (!fromLevel) {
+            LevelPortal.SpawnLocation spawnLoc = this.findLinkedExit(currentLevel, newLevel, portalEntryPos);
+            if (spawnLoc == null && !fromLevel) {
                 // going to level 0
                 spawnLoc = this.selectStartPosition(portalEntryPos, newLevel, BackroomsBlocks.BACKROOMS_PORTAL.defaultBlockState().setValue(OVERWORLD, false));
-            } else {
-                // going back to overworld
+                this.linkPortals(currentLevel, portalEntryPos, newLevel, spawnLoc);
+            } else if (spawnLoc == null) {
+                // going back to overworld, without a portal to go back to
                 BlockPos newPos = newLevel.getRespawnData().pos();
                 float pitch = newLevel.getRespawnData().pitch();
                 float yaw = newLevel.getRespawnData().yaw();

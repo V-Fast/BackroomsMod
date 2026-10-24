@@ -302,7 +302,7 @@ public interface LevelPortal extends Portal {
     }
 
     /** Feet and head are free, floor is solid and the entity doesn't stand in a fluid */
-    private static boolean canStandAt(BlockPos feet, ServerLevel level) {
+    static boolean canStandAt(BlockPos feet, ServerLevel level) {
         BlockState feetState = level.getBlockState(feet);
         BlockState headState = level.getBlockState(feet.above());
         BlockState floorState = level.getBlockState(feet.below());
