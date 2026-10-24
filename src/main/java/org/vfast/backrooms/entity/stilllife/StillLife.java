@@ -131,10 +131,7 @@ public class StillLife extends PathfinderMob {
         SpawnGroupData data = super.finalizeSpawn(level, difficulty, reason, groupData);
         if (!this.traitsRolled) {
             RandomSource random = level.getRandom();
-            Player original = null;
-            if ((reason == EntitySpawnReason.NATURAL || reason == EntitySpawnReason.CHUNK_GENERATION) && !this.hasCustomProfile() && random.nextFloat() < PROFILE_STEAL_CHANCE) {
-                original = this.copySomeone(level.getLevel(), random);
-            }
+            Player original = this.copySomeone(level.getLevel(), random);
             this.rollTraits(random, original);
         }
         return data;
