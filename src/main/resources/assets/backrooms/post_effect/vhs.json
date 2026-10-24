@@ -1,12 +1,52 @@
 {
+    "targets": {
+        "bands": {},
+        "levels": {},
+        "wave": {}
+    },
     "passes": [
         {
             "vertex_shader": "minecraft:core/screenquad",
-            "fragment_shader": "backrooms:post/vhs",
+            "fragment_shader": "backrooms:post/vhs_bands",
             "inputs": [
                 {
                     "sampler_name": "In",
-                    "target": "minecraft:main"
+                    "target": "minecraft:main",
+                    "bilinear": true
+                }
+            ],
+            "output": "bands"
+        },
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "backrooms:post/vhs_levels",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "bands"
+                }
+            ],
+            "output": "levels"
+        },
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "backrooms:post/vhs_wave",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "levels"
+                }
+            ],
+            "output": "wave"
+        },
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "backrooms:post/vhs_final",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "wave",
+                    "bilinear": true
                 }
             ],
             "output": "minecraft:main"
