@@ -16,6 +16,7 @@ import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
 import org.vfast.backrooms.client.BackroomsModelLayers;
 import org.vfast.backrooms.entity.stilllife.StillLife;
+import org.vfast.backrooms.world.BackroomsLevels;
 
 public class StillLifeRenderer extends LivingEntityRenderer<StillLife, StillLifeRenderState, StillLifeModel> {
     /** Same skins and order as {@code DefaultPlayerSkin}, which keeps its list private. */
@@ -86,10 +87,11 @@ public class StillLifeRenderer extends LivingEntityRenderer<StillLife, StillLife
     @Override
     protected boolean shouldShowName(StillLife entity, double distanceToCameraSq) {
         if (!super.shouldShowName(entity, distanceToCameraSq)) return false;
-        // a copy of someone always wears their name, the others follow the usual mob name tag rules
-        return entity.hasCustomProfile()
+        // show username unless still life is in backrooms
+        return (entity.hasCustomProfile()
                 || entity.shouldShowName()
-                || entity.hasCustomName() && entity == this.entityRenderDispatcher.crosshairPickEntity;
+                || entity.hasCustomName() && entity == this.entityRenderDispatcher.crosshairPickEntity)
+                && !BackroomsLevels.isBackrooms(entity.level().dimension());
     }
 
     @Override
